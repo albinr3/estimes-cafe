@@ -1,0 +1,28 @@
+{
+  "cache_type": "seo-plan",
+  "analyzed_at": "2026-08-17T12:11:30Z",
+  "domain": "https://www.estimescafe.com",
+  "business_name": "Estime's Café",
+  "business_type": "local-service / restaurant / catering",
+  "address": "238 Inman Avenue, Colonia, NJ 07067",
+  "phone": "732-669-7581",
+  "key_findings": {
+    "high_volume_low_kd_keywords": [
+      { "keyword": "breakfast near me pancakes", "volume": 246000, "kd": 26 },
+      { "keyword": "breakfast sandwich near me", "volume": 301000, "kd": 37 },
+      { "keyword": "catering breakfast near me", "volume": 18100, "kd": 30, "cpc": 5.52 },
+      { "keyword": "catering lunch near me", "volume": 8100, "kd": 26, "cpc": 8.41 },
+      { "keyword": "cafes for breakfast", "volume": 40500, "kd": 16 },
+      { "keyword": "sunday brunch nearby", "volume": 9900, "kd": 18 },
+      { "keyword": "steak and eggs breakfast", "volume": 40500, "kd": 31 }
+    ],
+    "strategic_shift": "Replaced narrow form-dish bias with high-volume, low-KD category and high-margin catering search intent clusters, coupled with a 5-10 mile hyper-local hub-and-spoke landing page architecture."
+  },
+  "deliverables_generated": [
+    "SEO-STRATEGY.md",
+    "SITE-STRUCTURE.md",
+    "KEYWORD-MAPPING.md",
+    "CONTENT-CALENDAR.md",
+    "IMPLEMENTATION-ROADMAP.md"
+  ]
+}
