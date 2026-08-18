@@ -26,11 +26,11 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Menu Categories Links (Future URLs with #) */}
+          {/* Menu Categories Links */}
           <div className="lg:col-span-3">
-            <h4 className="font-sans text-xs font-bold uppercase tracking-wider text-brand-gold-light mb-4">
-              Dining Menu
-            </h4>
+            <p className="font-sans text-xs font-bold uppercase tracking-wider text-brand-gold-light mb-4">
+              Café Menu
+            </p>
             <ul className="font-serif text-sm space-y-2.5 text-brand-cream/80">
               <li>
                 <a href="#menu" className="hover:text-white transition-colors">
@@ -65,11 +65,11 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Catering & Services (Future URLs with #) */}
+          {/* Catering & Services */}
           <div className="lg:col-span-2">
-            <h4 className="font-sans text-xs font-bold uppercase tracking-wider text-brand-gold-light mb-4">
+            <p className="font-sans text-xs font-bold uppercase tracking-wider text-brand-gold-light mb-4">
               Catering &amp; Events
-            </h4>
+            </p>
             <ul className="font-serif text-sm space-y-2.5 text-brand-cream/80">
               <li>
                 <a href="#catering" className="hover:text-white transition-colors">
@@ -87,7 +87,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="#catering" className="hover:text-white transition-colors">
                   Private Brunch Events
                 </a>
               </li>
@@ -101,9 +101,9 @@ export default function Footer() {
 
           {/* NAP Information */}
           <div className="lg:col-span-3">
-            <h4 className="font-sans text-xs font-bold uppercase tracking-wider text-brand-gold-light mb-4">
+            <p className="font-sans text-xs font-bold uppercase tracking-wider text-brand-gold-light mb-4">
               Visit &amp; Contact
-            </h4>
+            </p>
             <div className="space-y-3 font-serif text-sm text-brand-cream/80">
               <p className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-brand-gold-light flex-shrink-0 mt-1" />

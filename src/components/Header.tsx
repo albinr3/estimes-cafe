@@ -7,7 +7,6 @@ import { Menu as MenuIcon, X, Phone, Clock, MapPin, ChevronDown } from "lucide-r
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [menuDropdownOpen, setMenuDropdownOpen] = useState(false);
-  const [cateringDropdownOpen, setCateringDropdownOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-40 bg-[#fbf8f2]/95 backdrop-blur-md border-b border-[#eee8de] transition-all">
@@ -74,95 +73,42 @@ export default function Header() {
                 <ChevronDown className="w-3.5 h-3.5 text-brand-gold" />
               </button>
               {menuDropdownOpen && (
-                <div className="absolute top-full left-0 w-64 bg-[#fbf8f2] border border-brand-line shadow-xl rounded-sm py-2 font-sans text-xs uppercase tracking-wider z-50 animate-fadeIn">
+                <div className="absolute top-full left-0 w-72 bg-[#fbf8f2] border border-brand-line shadow-xl rounded-sm py-2 font-sans text-xs uppercase tracking-wider z-50 animate-fadeIn">
                   <a
                     href="#menu"
                     className="block px-4 py-2.5 hover:bg-brand-cream hover:text-brand-green font-semibold transition-colors"
                   >
-                    View All Categories
+                    Breakfast, Brunch &amp; Lunch Menu
                   </a>
                   <a
-                    href="#"
+                    href="#catering"
                     className="block px-4 py-2 hover:bg-brand-cream text-brand-muted hover:text-brand-green transition-colors"
                   >
-                    Breakfast Classics & Omelets
+                    Catering Party Trays Menu
                   </a>
                   <a
-                    href="#"
+                    href="#catering"
                     className="block px-4 py-2 hover:bg-brand-cream text-brand-muted hover:text-brand-green transition-colors"
                   >
-                    Weekend Signature Brunch
+                    Weekend Brunch Catering Menu
                   </a>
                   <a
-                    href="#"
+                    href="#catering"
                     className="block px-4 py-2 hover:bg-brand-cream text-brand-muted hover:text-brand-green transition-colors"
                   >
-                    Pancakes & Brioche French Toast
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-brand-cream text-brand-muted hover:text-brand-green transition-colors"
-                  >
-                    Lunch Sandwiches & Burgers
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-brand-cream text-brand-muted hover:text-brand-green transition-colors"
-                  >
-                    Healthy & Keto Options
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-brand-cream text-brand-muted hover:text-brand-green transition-colors"
-                  >
-                    Artisan Coffee & Drinks
+                    Private Events Menu &amp; Packages
                   </a>
                 </div>
               )}
             </div>
 
-            {/* Catering Dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setCateringDropdownOpen(true)}
-              onMouseLeave={() => setCateringDropdownOpen(false)}
+            {/* Catering Direct Link */}
+            <a
+              href="#catering"
+              className="hover:text-brand-green transition-colors"
             >
-              <button
-                className="flex items-center gap-1 hover:text-brand-green py-2 transition-colors focus:outline-none"
-                onClick={() => setCateringDropdownOpen(!cateringDropdownOpen)}
-              >
-                <span>Catering</span>
-                <ChevronDown className="w-3.5 h-3.5 text-brand-gold" />
-              </button>
-              {cateringDropdownOpen && (
-                <div className="absolute top-full left-0 w-60 bg-[#fbf8f2] border border-brand-line shadow-xl rounded-sm py-2 font-sans text-xs uppercase tracking-wider z-50 animate-fadeIn">
-                  <a
-                    href="#catering"
-                    className="block px-4 py-2.5 hover:bg-brand-cream hover:text-brand-green font-semibold transition-colors"
-                  >
-                    Catering Services Overview
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-brand-cream text-brand-muted hover:text-brand-green transition-colors"
-                  >
-                    Corporate Breakfast Catering
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-brand-cream text-brand-muted hover:text-brand-green transition-colors"
-                  >
-                    Office Lunch Platters
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-brand-cream text-brand-muted hover:text-brand-green transition-colors"
-                  >
-                    Full Party Trays Menu
-                  </a>
-                </div>
-              )}
-            </div>
+              Catering
+            </a>
 
             <a href="#" className="hover:text-brand-green transition-colors">
               Private Events

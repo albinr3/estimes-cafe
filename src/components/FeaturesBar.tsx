@@ -39,9 +39,9 @@ export default function FeaturesBar() {
                   <Icon className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-sans text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
+                  <p className="font-sans text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
                     {item.title}
-                  </h3>
+                  </p>
                   <p className="font-serif text-[13px] text-brand-muted leading-snug">
                     {item.desc}
                   </p>

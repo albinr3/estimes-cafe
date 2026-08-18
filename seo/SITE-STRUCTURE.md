@@ -1,7 +1,7 @@
 # Arquitectura Web y Estructura de URLs — Estime’s Café
 
 **Dominio Base:** `https://www.estimescafe.com`  
-**Estrategia:** Arquitectura en Silos Semánticos (Topic Clusters) + Hubs Locales de Alto Rendimiento
+**Estrategia:** Arquitectura en Silos Semánticos (Topic Clusters) + Páginas Maestras de Alto Rendimiento
 
 ---
 
@@ -12,20 +12,13 @@ https://www.estimescafe.com/
 │
 ├── / (Home — Hub Principal de Marca: Breakfast, Brunch, Lunch & Artisan Coffee en Colonia NJ)
 │
-├── /menu/ (Hub de Menús Completo en HTML interactivo)
-│   ├── /menu/breakfast/ (Desayunos Clásicos, Huevos, Farmer's Plate, Omelets)
-│   ├── /menu/brunch/ (Brunch Especial, Tacos de Brunch, Benedicts, Cocktails)
-│   ├── /menu/pancakes-french-toast/ (Lemon Ricotta, Brioche Amaretto, Chocolate Chip)
-│   ├── /menu/lunch/ (Sandwiches "The Mayor", Sriracha Chicken, Burgers, Ensaladas)
-│   ├── /menu/healthy-keto/ (Power Omelet, Alfano Omelet, Veggie Lover, Opciones Saludables)
-│   └── /menu/drinks/ (Café de Especialidad, Té de Hibisco, Mocktail Flights)
+├── /menu/ (Página Maestra del Menú del Restaurante: Desayuno, Brunch de Fin de Semana, Almuerzo y Bebidas)
 │
-├── /catering/ (Hub de Servicios de Catering B2B & Eventos)
-│   ├── /catering/breakfast-catering-nj/ (Bandejas de Desayuno Corporativo y Social)
-│   ├── /catering/corporate-lunch-catering/ (Almuerzos para Oficinas y Empresas en NJ)
-│   └── /catering/menu/ (Menú Detallado de Bandejas: Rasta Pasta, Haitian Salmon, etc.)
+├── /catering/ (Página Pilar Maestra de Servicios de Catering B2B & Eventos)
+│   ├── /catering/menu/ (Menú Detallado de Bandejas de Fiesta: Rasta Pasta, Salmón criollo, Jerk Chicken)
+│   └── /catering/brunch/ (Menú Especial de Brunch para Catering Corporativo y Familiar)
 │
-├── /private-events/ (Eventos Privados, Baby Showers, Cumpleaños, Cenas Especiales)
+├── /private-events/ (Eventos Privados, Baby Showers, Cumpleaños y Menú de Celebraciones)
 │
 ├── /about/ (Nuestra Historia, Chef Duke Estime, Fusión Culinaria Haitiana & Americana)
 │
@@ -44,75 +37,73 @@ https://www.estimescafe.com/
 
 ---
 
-## 2. Definición Detallada por Página
+## 2. Definición Detallada por Página y Menús Especializados
 
 ### 2.1 Página de Inicio (`/`)
 - **Objetivo SEO:** Posicionarse para términos de alta intención local de marca y categorías principales de comida matutina y de mediodía (`breakfast near me`, `best brunch near me`, `lunch near me`, `lunch spots near me`, `best lunch in Colonia NJ`, `cafe near me`, `brunch in Colonia NJ`).
 - **Encabezado H1:** `Estime’s Café — Premier Breakfast, Brunch, Lunch & Artisan Coffee in Colonia, NJ`
-- **Secciones Clave:**
-  1. *Hero Section:* Propuesta de valor integral (Desayuno, Brunch de autor y Almuerzos frescos con fusión caribeña/americana), botones CTA directos ("Ver Menú", "Cómo Llegar", "Ordenar Online", "Cotizar Catering").
-  2. *Triada de Experiencias Culinarias:* Accesos rápidos a los 3 momentos clave del día:
-     - **Breakfast Favorites:** Omelets artesanos, Farmer's plate, huevos al gusto.
-     - **Signature Weekend Brunch:** Lemon Ricotta Pancakes, Amaretto French Toast, Shrimp & Grits.
-     - **Fresh Midday Lunch:** Sandwiches de autor ("The Mayor", Crispy Sriracha Chicken), Smash Burgers, Bowls de Griot y ensaladas frescas.
-  3. *Horarios y Estado en Tiempo Real:* Indicar claramente el horario (Martes a Domingo 8:00 AM – 3:00 PM) y si la cocina está abierta en vivo (factor de ranking top en Google Maps).
-  4. *Testimonios y Calificación:* Widget con puntuación de Google Reviews (4.8+ estrellas) y botón a `/reviews`.
-  5. *Ubicación y Mapa Integrado:* 238 Inman Ave, Colonia, NJ 07067 + Datos de contacto + Enlace directo a `/locations/colonia-nj/`.
+- **Secciones Clave (Encabezados H2 Temáticos):**
+  1. `Signature Weekend Brunch & Specialty Pancakes in Colonia, NJ` (Cluster Brunch & Pancakes).
+  2. `Fresh Lunch Specials & Handcrafted Sandwiches in Colonia, NJ` (Cluster Almuerzos & Sandwiches).
+  3. `Handcrafted Breakfast, Weekend Brunch & Fresh Lunch Menu` (Acceso al menú completo sin nombres de platos como H-tags).
+  4. `Corporate Breakfast & Lunch Catering Services in Central NJ` (Resumen de catering con enlace directo).
+  5. `Executive Chef Duke Estime & Authentic Haitian-American Fusion in NJ` (Autoridad E-E-A-T).
+  6. `Guest Reviews: Rated Best Breakfast & Weekend Brunch in Colonia, NJ` (Social proof).
+  7. `Visit Our Breakfast & Lunch Restaurant in Colonia, NJ (238 Inman Ave)` (Datos NAP y mapa).
 
-### 2.2 Silo de Menús (`/menu/*`)
-*Regla crítica:* Los menús deben estar codificados en HTML semántico, nunca únicamente en archivos PDF o imágenes, para que Google indexe cada ingrediente y plato individual.
+### 2.2 Página Maestra del Menú del Restaurante (`/menu/`)
+*Estrategia:* Una única página interactiva y completa en HTML puro que reúne toda la oferta gastronómica regular para consumo en el local (*Dine-in*) y para llevar (*Takeout*), sin fragmentar el menú en páginas separadas por plato.
 
-| URL | H1 Sugerido | Enfoque de Búsqueda (Keywords) | Schema Markup |
-|-----|-------------|--------------------------------|---------------|
-| `/menu/` | `Full Dining & Drink Menu — Estime’s Café Colonia` | `lunch menu`, `brunch cafe menu`, `cafe and breakfast` | `Menu`, `Restaurant` |
-| `/menu/breakfast/` | `Fresh Farm Breakfast & Artisan Omelets in Colonia, NJ` | `breakfast places`, `cafes for breakfast`, `good breakfast near me`, `eggs for breakfast` | `MenuSection`, `MenuItem` |
-| `/menu/brunch/` | `The Best Weekend Brunch in Central NJ: Saturday & Sunday Specials` | `sunday brunch`, `saturday brunch`, `brunch places near me`, `brunch sunday near me` | `MenuSection`, `MenuItem` |
-| `/menu/pancakes-french-toast/` | `Gourmet Pancakes & Brioche French Toast in NJ` | `breakfast near me pancakes`, `lemon ricotta pancakes`, `brioche french toast nj` | `MenuSection`, `MenuItem` |
-| `/menu/lunch/` | `Fresh Lunch Specials, Handcrafted Sandwiches & Burgers` | `lunch restaurants near me`, `lunch specials near me`, `lunch spots near me`, `sandwich for breakfast` | `MenuSection`, `MenuItem` |
-| `/menu/healthy-keto/` | `Keto-Friendly, High-Protein & Healthy Breakfast Options` | `vegan breakfast near me`, `healthy breakfast near me`, `keto omelet nj`, `power omelet` | `MenuSection`, `MenuItem` |
+- **Encabezado H1:** `Breakfast, Brunch & Lunch Menu: Daily Favorites & Artisan Coffee`
+- **Secciones Semánticas (Encabezados H2):**
+  1. `Farm-Fresh Breakfast Classics, Eggs & Artisan Omelets` (Ataca: `breakfast places`, `cafes for breakfast`, `eggs for breakfast`, `steak and eggs breakfast`).
+  2. `Signature Weekend Brunch, Specialty Pancakes & Brioche French Toast` (Ataca: `breakfast near me pancakes`, `lemon ricotta pancakes`, `brioche french toast nj`, `sunday brunch`, `saturday brunch`).
+  3. `Handcrafted Lunch Specials, Sandwiches & Smash Burgers` (Ataca: `lunch specials near me`, `breakfast sandwich near me`, `lunch menu`, `lunch restaurants`).
+  4. `Chef Duke’s Caribbean Fusion Specialties & Creole Grits` (Ataca: `haitian restaurant nj`, `shrimp and grits`, `haitian spicy omelet`).
+  5. `Keto-Friendly, High-Protein & Plant-Based Breakfast Options` (Ataca: `vegan breakfast near me`, `keto breakfast`, `power omelet`).
+  6. `Artisan Coffee, Espresso & Specialty Drinks` (Ataca: `cafe near me`, `specialty coffee nj`).
+- **Navegación Interna a Otros Menús:** Dentro de `/menu/` se incluyen banners destacados de acceso a:
+  - *¿Organizando un evento o reunión de oficina?* Ver [Catering Party Trays Menu](file:///catering/menu/).
+  - *¿Buscas brunch para tu fiesta matutina?* Ver [Weekend Brunch Catering Menu](file:///catering/brunch/).
+  - *¿Celebración privada en nuestro local?* Ver [Private Events Menu & Packages](file:///private-events/).
+- **Schema Markup:** `Menu`, `Restaurant`, `MenuItem` estructurados por `hasMenuSection`.
 
-### 2.3 Silo de Catering B2B y Eventos (`/catering/*`)
-*Objetivo:* Capturar la demanda de alto ticket proveniente de oficinas corporativas, clínicas, despachos legales, escuelas y celebraciones familiares en Middlesex y Union County.
+### 2.3 Páginas de Menús Especializados de Catering y Eventos
 
-| URL | H1 Sugerido | Enfoque de Búsqueda (Keywords) | Conversión Principal |
-|-----|-------------|--------------------------------|----------------------|
-| `/catering/` | `Gourmet Breakfast & Lunch Catering Services in Central New Jersey` | `catering near me`, `catering restaurants`, `catering food near me` | Formulario de Cotización de Catering (RFP) |
-| `/catering/breakfast-catering-nj/` | `Corporate Breakfast Catering & Morning Event Trays in NJ` | `catering breakfast near me`, `catering breakfast`, `breakfast catering menu nj` | Selección de Bandejas de Desayuno + Cotización |
-| `/catering/corporate-lunch-catering/` | `Office Lunch Catering & Corporate Meeting Platters in Central NJ` | `catering lunch near me`, `lunch catering for office`, `corporate lunch trays` | Cotización de Almuerzos Corporativos |
-| `/catering/menu/` | `Estime’s Full Catering Menu: Half & Full Party Trays` | `catering menu`, `catering food`, `party trays catering nj` | Descarga de Menú PDF + Formulario de Pedido |
-| `/private-events/` | `Host Your Private Brunch & Special Celebrations at Estime’s Café` | `private brunch events nj`, `bridal shower brunch nj`, `small event venue colonia nj` | Formulario de Reserva de Espacio Privado |
+| URL | H1 Sugerido | Contenido y Tipo de Menú | Keywords Objetivo |
+|-----|-------------|--------------------------|-------------------|
+| `/catering/` | `Corporate Breakfast & Lunch Catering Services in Central NJ` | Hub maestro de servicios de catering, zonas de entrega y formulario de cotización (RFP). | `catering near me`, `catering breakfast`, `catering lunch` |
+| `/catering/menu/` | `Full Catering Party Trays Menu: Half & Full Platters` | Catálogo completo de bandejas para fiestas y oficinas: Rasta Pasta, Salmón haitiano, Pollo Jerk, Alitas, Ensaladas. | `catering menu`, `catering food`, `party trays catering nj` |
+| `/catering/brunch/` | `Weekend Brunch Catering Menu & Morning Platters in NJ` | Bandejas especiales de desayuno y brunch: bandejas de Lemon Ricotta Pancakes, Brioche French Toast, Huevos y Café. | `catering breakfast near me`, `brunch catering nj`, `breakfast catering menu` |
+| `/private-events/` | `Host Your Private Brunch & Special Celebrations at Estime’s Café` | Paquetes de eventos privados (Baby Showers, Cumpleaños, Cenas) con menú fijo y alquiler de espacio. | `private brunch events nj`, `bridal shower brunch nj`, `small event venue colonia nj` |
 
 ### 2.4 Página de Ubicación Local Física (`/locations/colonia-nj/`)
-*Foco:* Consolidar la máxima autoridad de proximidad local para la sede física de Estime's Café en 238 Inman Ave, Colonia, NJ 07067 (Woodbridge Township).
-
-| URL | Ciudad / Área | Keywords Objetivo | Contenido Específico |
-|-----|---------------|-------------------|----------------------|
-| `/locations/colonia-nj/` | Colonia, NJ (Local Hub) | `breakfast Colonia NJ`, `best brunch in Colonia NJ`, `cafe Inman Ave`, `brunch near me Colonia` | Ubicación física detallada, mapa de Google interactivo, aparcamiento, horario de atención, fotos del restaurante e historia de servicio de más de 8 años en Inman Ave. |
-
-> [!NOTE]
-> **Expansión Futura (Fase 2 Opcional):** Si en el futuro se desea expandir a sub-páginas satélite para ciudades vecinas (Woodbridge, Clark, Rahway, Edison, Westfield), se podrán incorporar progresivamente. Por ahora, toda la autoridad y tráfico de proximidad se concentran en Colonia, NJ, mientras que el servicio de catering abarca las ciudades adyacentes a través de `/catering/`.
+- **URL:** `/locations/colonia-nj/`
+- **Encabezado H1:** `Visit Estime’s Café in Colonia, NJ — 238 Inman Avenue`
+- **Keywords:** `breakfast Colonia NJ`, `best brunch in Colonia NJ`, `cafe Inman Ave`, `restaurants in Colonia NJ`.
 
 ---
 
 ## 3. Estrategia de Enlazado Interno (Internal Linking Graph)
 
-Para transferir autoridad y guiar tanto a los usuarios como a los rastreadores de Google:
 1. **Navegación Principal (Header):**
-   - Menú (Dropdown con enlaces directos a: Desayuno, Brunch, Pancakes & French Toast, Almuerzo, Opciones Saludables).
-   - Catering (Dropdown: Desayuno Corporativo, Almuerzos de Oficina, Menú de Bandejas).
-   - Eventos Privados.
-   - Sobre Nosotros.
-   - Ubicación (Enlace directo a `/locations/colonia-nj/` o `/contact/`).
-   - Contacto.
-   - Botón CTA destacado: `Order Online` / `Call: (732) 669-7581`.
-2. **Contextual In-Content Links:**
-   - En la página de inicio, enlazar con anchor text descriptivo hacia `/menu/pancakes-french-toast/` ("explore our famous [Lemon Ricotta Pancakes](file:///menu/pancakes-french-toast/)").
-   - En las páginas de categoría de menú, enlazar hacia el servicio de catering correspondiente ("Loving our French toast? We also offer [breakfast catering trays for offices and events](file:///catering/breakfast-catering-nj/)").
-   - En la página de ubicación de Colonia, enlazar al menú completo, galería de fotos y formulario de contacto.
-3. **Pie de Página (Footer):**
-   - Datos NAP completos (Nombre, Dirección física en 238 Inman Ave, Colonia NJ con enlace a Google Maps, Teléfono clickeable, Correo).
-   - Enlace directo a `/locations/colonia-nj/`.
-   - Enlace directo a la página de `/reviews/` y al perfil de Google Maps para dejar reseñas.
+   - **Home** (`/`)
+   - **Menu (Dropdown con los tipos de menús especializados):**
+     * `Breakfast, Brunch & Lunch Menu` -> `/menu/` (o `#menu`)
+     * `Catering Party Trays Menu` -> `/catering/menu/` (o `#catering`)
+     * `Weekend Brunch Catering Menu` -> `/catering/brunch/`
+     * `Private Events Menu & Packages` -> `/private-events/`
+   - **Catering** (Enlace directo a `/catering/`)
+   - **Private Events** (`/private-events/`)
+   - **About** (`/about/` o `#about`)
+   - **Location** (`/locations/colonia-nj/` o `#location`)
+   - **Reviews** (`/reviews/` o `#reviews`)
+   - **Botones CTA:** `Call (732) 669-7581` / `Order Online`.
+
+2. **Pie de Página (Footer):**
+   - Columna 1: Menú del Restaurante (enlace a `/menu/` y sus secciones principales).
+   - Columna 2: Catering & Eventos (enlaces a `/catering/`, `/catering/menu/`, `/catering/brunch/`, `/private-events/`).
+   - Columna 3: Información NAP (238 Inman Ave, Colonia NJ, teléfono, horarios).
 
 ---
 
@@ -120,10 +111,8 @@ Para transferir autoridad y guiar tanto a los usuarios como a los rastreadores d
 
 | Tipo de Página | Esquemas Schema.org a Implementar | Propiedades Cruciales |
 |----------------|-----------------------------------|-----------------------|
-| **Home (`/`)** | `Restaurant`, `CafeOrCoffeeShop`, `LocalBusiness` | `name`, `address`, `geo` (lat/long), `telephone`, `openingHoursSpecification`, `servesCuisine` (["American", "Haitian", "Caribbean", "Brunch"]), `priceRange`, `menu`, `hasMenu`, `sameAs` |
-| **Menús (`/menu/*`)** | `Menu`, `MenuSection`, `MenuItem` | `name`, `description`, `offers` (price, priceCurrency: "USD"), `suitableForDiet` (Keto, Vegetarian cuando aplique), `image` |
-| **Catering (`/catering/*`)** | `Service`, `FoodService`, `LocalBusiness` | `serviceType` ("Breakfast Catering", "Corporate Lunch Catering"), `provider`, `areaServed` (Condados de Middlesex y Union), `offers` |
-| **Página de Ubicación (`/locations/colonia-nj/`)**| `LocalBusiness`, `Restaurant` | `name`, `address` (238 Inman Ave, Colonia NJ), `hasMap`, `geo`, `openingHoursSpecification`, `telephone` |
+| **Home (`/`)** | `Restaurant`, `CafeOrCoffeeShop`, `LocalBusiness` | `name`, `address`, `geo`, `telephone`, `openingHoursSpecification`, `servesCuisine`, `priceRange`, `hasMenu` |
+| **Menú Restaurante (`/menu/`)** | `Menu`, `MenuSection`, `MenuItem` | `name`, `description`, `offers` (price, USD), `suitableForDiet`, `hasMenuSection` |
+| **Catering (`/catering/*`)** | `Service`, `FoodService`, `LocalBusiness` | `serviceType` ("Corporate Catering", "Party Trays"), `provider`, `areaServed`, `offers` |
 | **Eventos Privados (`/private-events/`)**| `EventVenue`, `Service` | `maximumAttendeeCapacity`, `amenityFeature`, `priceRange` |
-| **Artículos de Blog (`/blog/*`)** | `Article`, `BlogPosting` | `headline`, `author` (Person: Chef Duke Estime), `publisher` (Estime's Cafe), `datePublished`, `dateModified`, `mainEntityOfPage` |
-| **Todas las Páginas** | `BreadcrumbList`, `WebSite` | `itemListElement` con jerarquía de navegación limpia para visualización de migas de pan en SERPs. |
+| **Ubicación (`/locations/colonia-nj/`)**| `LocalBusiness`, `Restaurant` | `name`, `address` (238 Inman Ave, Colonia NJ), `hasMap`, `geo`, `openingHoursSpecification` |

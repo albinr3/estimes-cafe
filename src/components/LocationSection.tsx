@@ -9,11 +9,11 @@ export default function LocationSection() {
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
               <span className="text-[11px] sm:text-xs font-bold tracking-[0.2em] uppercase text-brand-gold block mb-2">
-                Visit Us &bull; Colonia, NJ
+                Visit Us &bull; Colonia, NJ &bull; Inman Ave
               </span>
 
               <h2 className="font-serif text-3xl sm:text-4xl text-brand-green font-normal leading-tight mb-6">
-                Find Estime&apos;s Café
+                Visit Our Breakfast &amp; Lunch Restaurant in Colonia, NJ (238 Inman Ave)
               </h2>
 
               <div className="space-y-6">
@@ -23,9 +23,9 @@ export default function LocationSection() {
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-sans text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
+                    <p className="font-sans text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
                       Address
-                    </h3>
+                    </p>
                     <p className="font-serif text-base text-[#48423c]">
                       238 Inman Avenue
                       <br />
@@ -49,9 +49,9 @@ export default function LocationSection() {
                     <Clock className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-sans text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
+                    <p className="font-sans text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
                       Operating Hours
-                    </h3>
+                    </p>
                     <div className="font-serif text-sm text-[#48423c] space-y-1">
                       <p className="flex justify-between gap-6">
                         <span>Tuesday – Sunday:</span>
@@ -71,9 +71,9 @@ export default function LocationSection() {
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-sans text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
+                    <p className="font-sans text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
                       Phone &amp; Orders
-                    </h3>
+                    </p>
                     <a
                       href="tel:7326697581"
                       className="font-serif text-lg font-bold text-brand-green hover:text-brand-gold transition-colors block"

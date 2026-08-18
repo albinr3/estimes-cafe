@@ -23,8 +23,8 @@ export default function JsonLd() {
           "https://www.estimescafe.com/assets/hero.jpg",
           "https://www.estimescafe.com/assets/signature.jpg",
           "https://www.estimescafe.com/assets/hash.jpg",
-          "https://www.estimescafe.com/assets/interior.jpg",
-          "https://www.estimescafe.com/assets/exterior.jpg"
+          "https://www.estimescafe.com/assets/estimes-cafe-dining-room-interior-colonia-nj.jpg",
+          "https://www.estimescafe.com/assets/estimes-cafe-storefront-colonia-nj.jpg"
         ],
         "address": {
           "@type": "PostalAddress",
@@ -36,8 +36,8 @@ export default function JsonLd() {
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": 40.5987,
-          "longitude": -74.3218
+          "latitude": 40.60028840007323,
+          "longitude": -74.31261455619092
         },
         "hasMap": "https://maps.google.com/?q=238+Inman+Ave,+Colonia,+NJ+07067",
         "openingHoursSpecification": [

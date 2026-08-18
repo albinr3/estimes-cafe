@@ -67,9 +67,9 @@ export default function LiveStatusCard() {
           Daily Hours &amp; Schedule
         </span>
 
-        <h3 className="font-serif text-2xl sm:text-3xl font-medium mb-3">
+        <p className="font-serif text-2xl sm:text-3xl font-medium mb-3">
           Tue – Sun: 8am – 3pm
-        </h3>
+        </p>
 
         {/* Live Badge */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-[#3e4925] border border-brand-gold/40 mb-5">

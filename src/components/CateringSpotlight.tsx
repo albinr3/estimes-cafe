@@ -42,12 +42,13 @@ export default function CateringSpotlight() {
             </span>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] font-normal leading-tight mb-5">
-              Gourmet Breakfast &amp; Lunch Catering in Central NJ
+              Corporate Breakfast &amp; Lunch Catering Services in Central NJ
             </h2>
 
             <p className="font-serif text-base text-brand-cream/90 leading-relaxed mb-6">
-              Elevate your corporate morning meetings, office lunches, baby showers, birthdays, and
-              private family gatherings with Chef Duke’s freshly prepared party platters.
+              Elevate your morning corporate meetings, office lunches, baby showers, and
+              celebrations with Chef Duke’s freshly prepared hot trays, scrambled egg platters, and
+              specialty breakfast catering delivered across Middlesex &amp; Union Counties.
             </p>
 
             {/* Feature bullets */}
@@ -101,9 +102,9 @@ export default function CateringSpotlight() {
                       {tray.price}
                     </span>
                   </div>
-                  <h3 className="font-serif text-base font-bold text-brand-cream mb-2 leading-snug">
+                  <p className="font-serif text-base font-bold text-brand-cream mb-2 leading-snug">
                     {tray.name}
-                  </h3>
+                  </p>
                   <p className="font-serif text-xs text-brand-cream/80 leading-relaxed">
                     {tray.desc}
                   </p>

@@ -68,20 +68,18 @@ En el formulario inicial, el cliente enfatizó nombres de platos específicos ("
 - Estrategia sistemática de generación y respuesta de reseñas (Google Stories reviews, keywords contextuales en opiniones).
 - Consistencia NAP (Name, Address, Phone) en directorios locales clave (Apple Maps, Yelp, Bing Places, TripAdvisor, YellowPages, Chamber of Commerce).
 
-### Pilar 2: Motor de Menús y Páginas de Categoría (Search Intent Matching)
-- No indexar PDFs estáticos de menús; construir menús interactivos en HTML puro con marcado `RestaurantMenu` / `MenuItem` de Schema.org.
-- Páginas dedicadas de alta intención:
-  - `/menu/breakfast` (Desayunos tradicionales, Farmer's Plate, Omelets, Sandwiches)
-  - `/menu/brunch` (Brunch de fin de semana, Tacos, Benedicts, Cocktails/Mocktails)
-  - `/menu/pancakes-french-toast` (Lemon Ricotta, Brioche Amaretto, Chocolate Chip)
-  - `/menu/lunch` (Burgers, Sriracha Chicken, Salads)
-  - `/menu/healthy-keto` (Power Omelet, Alfano Keto Bowl, opciones sin gluten)
+### Pilar 2: Página Maestra de Menú del Restaurante (`/menu/`) & Menús Especializados
+- No indexar PDFs estáticos de menús; construir un menú interactivo en HTML puro con marcado `RestaurantMenu` / `MenuItem` de Schema.org en una sola página maestra (`/menu/`).
+- Estructura limpia de menús especializados para atender cada modelo de negocio sin dispersar la autoridad:
+  - `/menu/` (Menú Principal del Restaurante: Desayunos, Brunch, Pancakes, Sandwiches, Almuerzos, Opciones Keto y Bebidas en una sola experiencia interactiva).
+  - `/catering/menu/` (Menú Completo de Bandejas de Fiesta: Rasta Pasta, Salmón haitiano, Pollo Jerk, etc.).
+  - `/catering/brunch/` (Menú Especial de Brunch para Catering y Eventos Matutinos).
+  - `/private-events/` (Menú y Paquetes para Eventos Privados y Celebraciones).
 
 ### Pilar 3: Embudo de Catering B2B y Eventos Privados (Mayor LTV)
-- Página pilar `/catering` con subpáginas transaccionales:
-  - `/catering/breakfast-catering-nj`
-  - `/catering/corporate-lunch-catering`
-  - `/catering/party-trays-menu`
+- Página pilar maestra consolidada `/catering` (Power Pillar Page):
+  - Concentración del 100% de la autoridad de dominio y enlaces en una sola URL para dominar búsquedas corporativas de alto ticket.
+  - Secciones dedicadas: Desayuno corporativo (`catering breakfast`), almuerzos de oficina (`catering lunch`), bandejas de fiesta (`catering menu` / Rasta Pasta, Salmón haitiano, Pollo Jerk) y áreas de entrega en Central NJ.
 - Formulario interactivo de solicitud de cotización (Catering RFP) con cálculo de comensales y bandeja recomendada.
 - Páginas dedicadas para eventos privados (`/private-events` — Baby Showers, cumpleaños, aniversarios, cenas corporativas).
 

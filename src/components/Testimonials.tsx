@@ -31,10 +31,10 @@ export default function Testimonials() {
         {/* Section Title */}
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="text-[11px] sm:text-xs font-bold tracking-[0.2em] uppercase text-brand-gold block mb-2">
-            Loved By Our Community
+            Loved By Our Community &bull; Colonia, NJ
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl text-brand-green font-normal tracking-tight mb-4">
-            Guest Experiences &amp; Reviews
+            Guest Reviews: Rated Best Breakfast &amp; Weekend Brunch in Colonia, NJ
           </h2>
           <div className="inline-flex items-center gap-2 bg-[#f4ede1] border border-brand-line px-4 py-2 rounded-full">
             <div className="flex text-amber-500">
