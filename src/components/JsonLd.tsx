@@ -10,6 +10,7 @@ export default function JsonLd() {
         "description": "Premier breakfast, signature brunch, lunch, and specialty artisan coffee featuring American comfort favorites fused with Haitian and Caribbean flavors by Chef Duke Estime in Colonia, NJ.",
         "url": "https://www.estimescafe.com/",
         "telephone": "+1-732-669-7581",
+        "email": "Estimecafe1@gmail.com",
         "priceRange": "$$",
         "servesCuisine": [
           "American",

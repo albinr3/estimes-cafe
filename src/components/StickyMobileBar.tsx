@@ -1,6 +1,7 @@
 "use client";
 
-import { Phone, Utensils, MapPin, Sparkles } from "lucide-react";
+import Link from "next/link";
+import { Phone, Utensils, ShoppingBag, Sparkles } from "lucide-react";
 
 export default function StickyMobileBar() {
   return (
@@ -17,29 +18,29 @@ export default function StickyMobileBar() {
           <span>Call</span>
         </a>
 
-        <a
-          href="#menu"
+        <Link
+          href="/order-online"
+          className="py-3 flex flex-col items-center justify-center gap-1 bg-brand-green text-white"
+        >
+          <ShoppingBag className="w-4 h-4 text-brand-gold-light" />
+          <span>Order</span>
+        </Link>
+
+        <Link
+          href="/menu"
           className="py-3 flex flex-col items-center justify-center gap-1 hover:bg-brand-green transition-colors text-white"
         >
           <Utensils className="w-4 h-4 text-brand-gold-light" />
           <span>Menu</span>
-        </a>
+        </Link>
 
-        <a
-          href="#location"
-          className="py-3 flex flex-col items-center justify-center gap-1 hover:bg-brand-green transition-colors text-white"
-        >
-          <MapPin className="w-4 h-4 text-brand-gold-light" />
-          <span>Map</span>
-        </a>
-
-        <a
-          href="#catering"
+        <Link
+          href="/catering"
           className="py-3 flex flex-col items-center justify-center gap-1 hover:bg-brand-green transition-colors text-white"
         >
           <Sparkles className="w-4 h-4 text-brand-gold-light" />
           <span>Catering</span>
-        </a>
+        </Link>
       </div>
     </aside>
   );

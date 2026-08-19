@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Star, Quote, ThumbsUp } from "lucide-react";
 
 export default function Testimonials() {
@@ -79,20 +80,29 @@ export default function Testimonials() {
           ))}
         </div>
 
-        {/* Callout to leave a review */}
+        {/* Callout to leave a review and view all reviews */}
         <div className="mt-10 text-center">
-          <p className="font-serif text-xs text-brand-muted mb-3">
+          <p className="font-serif text-xs text-brand-muted mb-4">
             Have you dined with us recently? We would love to hear about your experience!
           </p>
-          <a
-            href="https://share.google/trFqLkpJ3ky2H2EE1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border border-brand-green text-brand-green hover:bg-brand-green hover:text-white px-5 py-2.5 text-xs font-bold uppercase tracking-wider transition-colors"
-          >
-            <span>Write a Google Review</span>
-            <ThumbsUp className="w-3.5 h-3.5" />
-          </a>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <Link
+              href="/reviews"
+              className="inline-flex items-center gap-2 bg-brand-green text-white hover:bg-brand-green-dark px-5 py-2.5 text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
+            >
+              <span>View All 180+ Reviews &amp; Press</span>
+              <Quote className="w-3.5 h-3.5 text-brand-gold-light" />
+            </Link>
+            <a
+              href="https://share.google/trFqLkpJ3ky2H2EE1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border border-brand-green text-brand-green hover:bg-brand-green hover:text-white px-5 py-2.5 text-xs font-bold uppercase tracking-wider transition-colors"
+            >
+              <span>Write a Google Review</span>
+              <ThumbsUp className="w-3.5 h-3.5" />
+            </a>
+          </div>
         </div>
       </div>
     </section>

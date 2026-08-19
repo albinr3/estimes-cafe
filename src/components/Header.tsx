@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu as MenuIcon, X, Phone, Clock, MapPin } from "lucide-react";
@@ -48,19 +49,19 @@ export default function Header() {
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Brand Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="flex flex-col">
-              <span className="font-serif italic text-3xl sm:text-4xl text-brand-green font-bold tracking-tight group-hover:text-brand-green-dark transition-colors">
-                Estime&apos;s
-              </span>
-              <span className="text-[10px] tracking-[0.2em] uppercase text-brand-muted font-bold -mt-1">
-                Café &bull; Colonia, NJ
-              </span>
-            </div>
+          <Link href="/" className="flex items-center gap-2 py-1 group">
+            <Image
+              src="/assets/estimes-cafe-logo.webp"
+              alt="Estimé by chef Duke — Estime's Café"
+              width={180}
+              height={70}
+              priority
+              className="h-12 sm:h-14 w-auto object-contain group-hover:opacity-85 transition-opacity"
+            />
           </Link>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center gap-7 font-serif text-[15px] text-brand-text">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-7 font-serif text-[15px] text-brand-text">
             {navLinks.map((link) => {
               const isActive =
                 link.href === "/"
@@ -83,23 +84,29 @@ export default function Header() {
           </nav>
 
           {/* Action CTAs */}
-          <div className="hidden sm:flex items-center gap-3">
+          <div className="hidden sm:flex items-center gap-2.5">
+            <Link
+              href="/order-online"
+              className="bg-brand-green text-white hover:bg-brand-green-dark px-4 py-2.5 text-xs font-bold uppercase tracking-wider shadow-sm transition-all duration-200"
+            >
+              Order Online
+            </Link>
             <a
               href="tel:7326697581"
-              className="border border-brand-green text-brand-green hover:bg-brand-green hover:text-white px-4 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-200"
+              className="border border-brand-green text-brand-green hover:bg-brand-green hover:text-white px-3.5 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-200"
             >
               Call (732) 669-7581
             </a>
-            <Link
-              href="/menu"
-              className="bg-brand-green text-white hover:bg-brand-green-dark px-5 py-2.5 text-xs font-bold uppercase tracking-wider shadow-sm transition-all duration-200"
-            >
-              View Menu
-            </Link>
           </div>
 
           {/* Mobile menu button */}
           <div className="flex lg:hidden items-center gap-2">
+            <Link
+              href="/order-online"
+              className="px-3 py-1.5 bg-brand-green text-white text-[11px] font-bold uppercase tracking-wider rounded-sm sm:hidden"
+            >
+              Order
+            </Link>
             <a
               href="tel:7326697581"
               className="p-2 border border-brand-green text-brand-green rounded-sm sm:hidden"
@@ -143,16 +150,23 @@ export default function Header() {
           </div>
 
           <div className="pt-2 flex flex-col gap-2.5 font-sans">
+            <Link
+              href="/order-online"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full text-center bg-brand-green text-white py-3 text-xs font-bold uppercase tracking-wider"
+            >
+              Order Online (Delivery &amp; Pickup)
+            </Link>
             <a
               href="tel:7326697581"
-              className="w-full text-center bg-brand-green text-white py-3 text-xs font-bold uppercase tracking-wider"
+              className="w-full text-center border border-brand-green text-brand-green py-3 text-xs font-bold uppercase tracking-wider"
             >
               Call: (732) 669-7581
             </a>
             <Link
               href="/menu"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center border border-brand-green text-brand-green py-3 text-xs font-bold uppercase tracking-wider"
+              className="w-full text-center bg-brand-cream text-brand-text py-2.5 text-xs font-bold uppercase tracking-wider"
             >
               Explore Full Menu
             </Link>

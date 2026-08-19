@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { ArrowRight, Phone, MapPin } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Phone, MapPin, ShoppingBag } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -24,25 +25,33 @@ export default function Hero() {
 
           {/* Action CTAs */}
           <div className="flex flex-wrap items-center gap-3.5 mb-6">
-            <a
-              href="#menu"
+            <Link
+              href="/order-online"
               className="inline-flex items-center justify-center gap-2 bg-brand-green text-white hover:bg-brand-green-dark border border-brand-green px-6 py-3.5 text-xs font-bold uppercase tracking-[0.1em] shadow-sm transition-all duration-200"
+            >
+              <ShoppingBag className="w-3.5 h-3.5 text-brand-gold-light" />
+              <span>Order Online</span>
+            </Link>
+
+            <Link
+              href="/menu"
+              className="inline-flex items-center justify-center gap-2 bg-transparent text-brand-green hover:bg-brand-green hover:text-white border border-brand-green px-5 py-3.5 text-xs font-bold uppercase tracking-[0.1em] transition-all duration-200"
             >
               <span>Explore Menu</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </a>
+            </Link>
 
             <a
               href="#location"
-              className="inline-flex items-center justify-center gap-2 bg-transparent text-brand-green hover:bg-brand-green hover:text-white border border-brand-green px-6 py-3.5 text-xs font-bold uppercase tracking-[0.1em] transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2 bg-transparent text-brand-text hover:text-brand-green border border-brand-line px-4 py-3.5 text-xs font-bold uppercase tracking-[0.1em] transition-all duration-200"
             >
               <MapPin className="w-3.5 h-3.5 text-brand-gold" />
-              <span>Get Directions</span>
+              <span>Directions</span>
             </a>
 
             <a
               href="tel:7326697581"
-              className="inline-flex items-center justify-center gap-2 bg-[#f4ede1] text-brand-text hover:bg-brand-gold hover:text-white border border-brand-line px-5 py-3.5 text-xs font-bold uppercase tracking-[0.1em] transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2 bg-[#f4ede1] text-brand-text hover:bg-brand-gold hover:text-white border border-brand-line px-4 py-3.5 text-xs font-bold uppercase tracking-[0.1em] transition-all duration-200"
             >
               <Phone className="w-3.5 h-3.5 text-brand-gold" />
               <span>(732) 669-7581</span>

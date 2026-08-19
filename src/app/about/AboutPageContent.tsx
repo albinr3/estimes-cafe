@@ -172,8 +172,8 @@ export default function AboutPageContent() {
             <div className="lg:col-span-5 relative">
               <div className="relative border border-brand-line overflow-hidden shadow-md">
                 <Image
-                  src="/assets/estimes-cafe-dining-room-interior-colonia-nj.jpg"
-                  alt="Estime's Cafe warm dining room interior with botanical greenery wall in Colonia NJ"
+                  src="/assets/estimes-cafe-storefront-colonia-nj.jpg"
+                  alt="Estime's Cafe storefront and outdoor patio on Inman Ave in Colonia NJ"
                   width={600}
                   height={500}
                   className="w-full h-80 sm:h-96 object-cover"

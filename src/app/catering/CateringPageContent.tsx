@@ -779,8 +779,8 @@ export default function CateringPageContent() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Mail className="w-4 h-4 text-brand-gold" />
-                  <a href="mailto:dandley@dukesteakhouse.com" className="text-xs text-brand-muted hover:underline">
-                    dandley@dukesteakhouse.com
+                  <a href="mailto:Estimecafe1@gmail.com" className="text-xs text-brand-muted hover:underline">
+                    Estimecafe1@gmail.com
                   </a>
                 </div>
                 <div className="flex items-start gap-3">

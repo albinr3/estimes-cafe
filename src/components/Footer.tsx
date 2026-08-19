@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
@@ -8,13 +9,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
           {/* Brand & About */}
           <div className="lg:col-span-4">
-            <Link href="/" className="inline-block mb-3">
-              <span className="font-serif italic text-3xl sm:text-4xl text-white font-bold tracking-tight">
-                Estime&apos;s
-              </span>
-              <span className="block text-[10px] tracking-[0.2em] uppercase text-brand-gold-light font-bold">
-                Café &bull; Colonia, NJ
-              </span>
+            <Link href="/" className="inline-block mb-4 group">
+              <Image
+                src="/assets/estimes-cafe-logo.webp"
+                alt="Estimé by chef Duke — Estime's Café"
+                width={180}
+                height={70}
+                className="h-12 sm:h-14 w-auto object-contain brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity"
+              />
             </Link>
             <p className="font-serif text-sm text-brand-cream/80 leading-relaxed mb-4">
               Premier breakfast, signature brunch, and lunch crafted by Executive Chef Duke Estime.
@@ -40,6 +42,11 @@ export default function Footer() {
               Café &amp; Catering Menu
             </p>
             <ul className="font-serif text-sm space-y-2.5 text-brand-cream/80">
+              <li>
+                <Link href="/order-online" className="text-brand-gold-light font-bold hover:text-white transition-colors flex items-center gap-1.5">
+                  <span>Order Online (Delivery &amp; Pickup)</span>
+                </Link>
+              </li>
               <li>
                 <Link href="/menu" className="hover:text-white transition-colors">
                   Breakfast, Brunch &amp; Lunch Menu
@@ -80,22 +87,27 @@ export default function Footer() {
             </p>
             <ul className="font-serif text-sm space-y-2.5 text-brand-cream/80">
               <li>
+                <Link href="/order-online" className="hover:text-white transition-colors font-medium">
+                  Order Online
+                </Link>
+              </li>
+              <li>
                 <Link href="/about" className="hover:text-white transition-colors font-medium">
                   About Us &amp; Story
                 </Link>
               </li>
               <li>
-                <Link href="/#reviews" className="hover:text-white transition-colors font-medium">
+                <Link href="/reviews" className="hover:text-white transition-colors font-medium">
                   Customer Reviews (4.8★)
                 </Link>
               </li>
               <li>
-                <Link href="/#location" className="hover:text-white transition-colors font-medium">
+                <Link href="/contact#location-map" className="hover:text-white transition-colors font-medium">
                   Our Location &amp; Map
                 </Link>
               </li>
               <li>
-                <Link href="/#location" className="hover:text-white transition-colors font-medium">
+                <Link href="/contact" className="hover:text-white transition-colors font-medium">
                   Contact Us
                 </Link>
               </li>
@@ -136,10 +148,10 @@ export default function Footer() {
               <p className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-brand-gold-light flex-shrink-0" />
                 <a
-                  href="mailto:dandley@dukesteakhouse.com"
+                  href="mailto:Estimecafe1@gmail.com"
                   className="hover:text-white transition-colors text-xs"
                 >
-                  dandley@dukesteakhouse.com
+                  Estimecafe1@gmail.com
                 </a>
               </p>
               <p className="flex items-start gap-2 pt-2 text-xs">
