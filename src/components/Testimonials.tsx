@@ -85,7 +85,7 @@ export default function Testimonials() {
             Have you dined with us recently? We would love to hear about your experience!
           </p>
           <a
-            href="https://maps.google.com/?q=238+Inman+Ave,+Colonia,+NJ+07067"
+            href="https://share.google/trFqLkpJ3ky2H2EE1"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 border border-brand-green text-brand-green hover:bg-brand-green hover:text-white px-5 py-2.5 text-xs font-bold uppercase tracking-wider transition-colors"

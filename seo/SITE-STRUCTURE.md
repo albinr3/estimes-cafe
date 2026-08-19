@@ -86,24 +86,36 @@ https://www.estimescafe.com/
 
 ## 3. Estrategia de Enlazado Interno (Internal Linking Graph)
 
+> [!IMPORTANT]
+> **Sin Páginas Individuales por Plato:** Para maximizar la autoridad semántica y evitar "thin content" o canibalización de palabras clave, **no se generan páginas individuales para cada plato**. Todos los platos, ingredientes y precios residen en la **Página Maestra del Menú (`/menu/` o `#menu`)** con datos estructurados `MenuItem` agrupados por `hasMenuSection`.
+
 1. **Navegación Principal (Header):**
    - **Home** (`/`)
-   - **Menu (Dropdown con los tipos de menús especializados):**
+   - **Menu (Dropdown con categorías maestras y servicios):**
      * `Breakfast, Brunch & Lunch Menu` -> `/menu/` (o `#menu`)
-     * `Catering Party Trays Menu` -> `/catering/menu/` (o `#catering`)
-     * `Weekend Brunch Catering Menu` -> `/catering/brunch/`
-     * `Private Events Menu & Packages` -> `/private-events/`
-   - **Catering** (Enlace directo a `/catering/`)
-   - **Private Events** (`/private-events/`)
-   - **About** (`/about/` o `#about`)
-   - **Location** (`/locations/colonia-nj/` o `#location`)
-   - **Reviews** (`/reviews/` o `#reviews`)
-   - **Botones CTA:** `Call (732) 669-7581` / `Order Online`.
+     * `Catering Party Trays Menu` -> `/catering/` (o `#catering`)
+     * `Weekend Brunch Catering Menu` -> `/catering/` (o `#catering`)
+     * `Private Events Menu & Packages` -> `/catering/` (o `#catering`)
+   - **Catering** (Enlace directo a `#catering`)
+   - **Private Events** (Enlace directo a `#catering`)
+   - **Botones CTA:** `Call (732) 669-7581` / `View Menu`.
 
 2. **Pie de Página (Footer):**
-   - Columna 1: Menú del Restaurante (enlace a `/menu/` y sus secciones principales).
-   - Columna 2: Catering & Eventos (enlaces a `/catering/`, `/catering/menu/`, `/catering/brunch/`, `/private-events/`).
-   - Columna 3: Información NAP (238 Inman Ave, Colonia NJ, teléfono, horarios).
+   - **Columna 1 — Brand & Story:** Enlace a la historia y biografía del Chef Duke (`#about`).
+   - **Columna 2 — Café & Catering Menu (Categorías Generales):**
+     * Breakfast, Brunch & Lunch Menu (`#menu`)
+     * Signature Weekend Brunch (`#menu`)
+     * Lunch Specials & Sandwiches (`#menu`)
+     * Catering Party Trays & Platters (`#catering`)
+     * Corporate Breakfast & Lunch Catering (`#catering`)
+     * Private Events & Brunch Packages (`#catering`)
+   - **Columna 3 — Explore & About:**
+     * About Us & Story (`#about`)
+     * Customer Reviews (4.8★) (`#reviews`)
+     * Our Location & Map (`#location`)
+     * Contact Us (`#location`)
+     * Catering Inquiries (`#catering`)
+   - **Columna 4 — Location & Contact:** Datos NAP (238 Inman Ave, Colonia NJ, teléfono click-to-call, email, horarios).
 
 ---
 

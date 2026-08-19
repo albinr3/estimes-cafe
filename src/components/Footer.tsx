@@ -16,11 +16,19 @@ export default function Footer() {
                 Café &bull; Colonia, NJ
               </span>
             </Link>
-            <p className="font-serif text-sm text-brand-cream/80 leading-relaxed mb-6">
+            <p className="font-serif text-sm text-brand-cream/80 leading-relaxed mb-4">
               Premier breakfast, signature brunch, and lunch crafted by Executive Chef Duke Estime.
               Blending classic American comfort favorites with authentic Caribbean culinary craft
               in Colonia, New Jersey.
             </p>
+            <div className="mb-6">
+              <Link
+                href="/about"
+                className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-brand-gold-light hover:text-white transition-colors"
+              >
+                About Our Story &amp; Chef Duke &rarr;
+              </Link>
+            </div>
             <div className="text-xs text-brand-gold-light font-medium">
               &copy; {new Date().getFullYear()} Estime&apos;s Café. All rights reserved.
             </div>
@@ -29,85 +37,92 @@ export default function Footer() {
           {/* Menu Categories Links */}
           <div className="lg:col-span-3">
             <p className="font-sans text-xs font-bold uppercase tracking-wider text-brand-gold-light mb-4">
-              Café Menu
+              Café &amp; Catering Menu
             </p>
             <ul className="font-serif text-sm space-y-2.5 text-brand-cream/80">
               <li>
-                <a href="#menu" className="hover:text-white transition-colors">
-                  Breakfast Classics &amp; Omelets
-                </a>
+                <Link href="/menu" className="hover:text-white transition-colors">
+                  Breakfast, Brunch &amp; Lunch Menu
+                </Link>
               </li>
               <li>
-                <a href="#menu" className="hover:text-white transition-colors">
-                  Lemon Ricotta Pancakes
-                </a>
+                <Link href="/menu#off-the-spatula" className="hover:text-white transition-colors">
+                  Signature Weekend Brunch
+                </Link>
               </li>
               <li>
-                <a href="#menu" className="hover:text-white transition-colors">
-                  Amaretto Brioche French Toast
-                </a>
+                <Link href="/menu#brunchy-bites" className="hover:text-white transition-colors">
+                  Lunch Specials &amp; Sandwiches
+                </Link>
               </li>
               <li>
-                <a href="#menu" className="hover:text-white transition-colors">
-                  The Mayor Breakfast Sandwich
-                </a>
+                <Link href="/catering#platter-catalog" className="hover:text-white transition-colors">
+                  Catering Party Trays &amp; Platters
+                </Link>
               </li>
               <li>
-                <a href="#menu" className="hover:text-white transition-colors">
-                  Shrimp &amp; Stone Ground Grits
-                </a>
+                <Link href="/catering" className="hover:text-white transition-colors">
+                  Corporate Breakfast &amp; Lunch Catering
+                </Link>
               </li>
               <li>
-                <a href="#menu" className="hover:text-white transition-colors">
-                  Keto &amp; High Protein Bowls
-                </a>
+                <Link href="/private-events" className="hover:text-white transition-colors">
+                  Private Events &amp; Dinner Packages
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Catering & Services */}
+          {/* Quick Links: About, Reviews, Location, Contact */}
           <div className="lg:col-span-2">
             <p className="font-sans text-xs font-bold uppercase tracking-wider text-brand-gold-light mb-4">
-              Catering &amp; Events
+              Explore &amp; About
             </p>
             <ul className="font-serif text-sm space-y-2.5 text-brand-cream/80">
               <li>
-                <a href="#catering" className="hover:text-white transition-colors">
-                  Corporate Breakfast Trays
-                </a>
+                <Link href="/about" className="hover:text-white transition-colors font-medium">
+                  About Us &amp; Story
+                </Link>
               </li>
               <li>
-                <a href="#catering" className="hover:text-white transition-colors">
-                  Office Lunch Catering
-                </a>
-              </li>
-              <li>
-                <a href="#catering" className="hover:text-white transition-colors">
-                  Rasta Pasta &amp; Entrée Platters
-                </a>
-              </li>
-              <li>
-                <a href="#catering" className="hover:text-white transition-colors">
-                  Private Brunch Events
-                </a>
-              </li>
-              <li>
-                <a href="#reviews" className="hover:text-white transition-colors">
+                <Link href="/#reviews" className="hover:text-white transition-colors font-medium">
                   Customer Reviews (4.8★)
-                </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/#location" className="hover:text-white transition-colors font-medium">
+                  Our Location &amp; Map
+                </Link>
+              </li>
+              <li>
+                <Link href="/#location" className="hover:text-white transition-colors font-medium">
+                  Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/catering#inquiry-form" className="hover:text-white transition-colors">
+                  Catering Inquiries
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* NAP Information */}
+          {/* NAP Information & Contact */}
           <div className="lg:col-span-3">
             <p className="font-sans text-xs font-bold uppercase tracking-wider text-brand-gold-light mb-4">
-              Visit &amp; Contact
+              Location &amp; Contact
             </p>
             <div className="space-y-3 font-serif text-sm text-brand-cream/80">
               <p className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-brand-gold-light flex-shrink-0 mt-1" />
-                <span>238 Inman Avenue, Colonia, NJ 07067</span>
+                <span>
+                  <a
+                    href="#location"
+                    className="hover:text-white transition-colors"
+                  >
+                    238 Inman Avenue, Colonia, NJ 07067
+                  </a>
+                </span>
               </p>
               <p className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-brand-gold-light flex-shrink-0" />
@@ -130,9 +145,9 @@ export default function Footer() {
               <p className="flex items-start gap-2 pt-2 text-xs">
                 <Clock className="w-4 h-4 text-brand-gold-light flex-shrink-0 mt-0.5" />
                 <span>
-                  Tue – Sun: 8:00 AM – 3:00 PM
+                  Mon – Sat: 8:00 AM – 3:00 PM
                   <br />
-                  Monday: Closed
+                  Sunday: 8:00 AM – 4:00 PM
                 </span>
               </p>
             </div>

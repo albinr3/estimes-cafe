@@ -26,48 +26,48 @@ Google y los motores de IA priorizan el contenido respaldado por **Experiencia, 
 
 | Semana | Tipo de Contenido | Título del Artículo / Guía | URL Slug | Palabras Clave Principales | Enlaces Internos Salientes |
 |---|---|---|---|---|---|
-| **Sem 2** | Guía de Menú | *Why Lemon Ricotta Pancakes Are Central Jersey's Favorite Weekend Treat* | `/blog/lemon-ricotta-pancakes-guide/` | `lemon ricotta pancakes`, `breakfast near me pancakes`, `best pancakes in nj` | `/menu/pancakes-french-toast/`, `/menu/brunch/` |
-| **Sem 4** | Historia / E-E-A-T | *Meet Chef Duke Estime: Bringing Haitian & Caribbean Fusion to Colonia, NJ* | `/blog/chef-duke-estime-story/` | `haitian restaurant nj`, `caribbean brunch nj`, `chef duke estime` | `/about/`, `/menu/`, `/contact/` |
+| **Sem 2** | Guía de Menú | *Why Lemon Ricotta Pancakes Are Central Jersey's Favorite Weekend Treat* | `/blog/lemon-ricotta-pancakes-guide/` | `lemon ricotta pancakes`, `breakfast near me pancakes`, `best pancakes in nj` | `/menu/`, `/#menu` |
+| **Sem 4** | Historia / E-E-A-T | *Meet Chef Duke Estime: Bringing Haitian & Caribbean Fusion to Colonia, NJ* | `/blog/chef-duke-estime-story/` | `haitian restaurant nj`, `caribbean brunch nj`, `chef duke estime` | `/#about`, `/menu/`, `/#location` |
 
 ### Mes 2: Potenciación del Catering Corporativo (B2B Leads)
 *Foco: Capturar búsquedas de oficinas, recursos humanos y organizadores de eventos en Middlesex y Union County.*
 
 | Semana | Tipo de Contenido | Título del Artículo / Guía | URL Slug | Palabras Clave Principales | Enlaces Internos Salientes |
 |---|---|---|---|---|---|
-| **Sem 6** | Guía Corporativa | *The Ultimate Guide to Office Breakfast Catering in Central NJ (How to Plan Portions & Platters)* | `/blog/office-breakfast-catering-guide-nj/` | `catering breakfast near me`, `corporate breakfast catering nj`, `breakfast platters office` | `/catering/breakfast-catering-nj/`, `/catering/` |
-| **Sem 8** | B2B / Comparativa | *Top 5 Corporate Lunch Catering Ideas That Boost Team Morale in Middlesex County* | `/blog/corporate-lunch-catering-ideas-middlesex/` | `catering lunch near me`, `corporate lunch catering`, `party trays catering nj` | `/catering/corporate-lunch-catering/`, `/catering/menu/` |
+| **Sem 6** | Guía Corporativa | *The Ultimate Guide to Office Breakfast Catering in Central NJ (How to Plan Portions & Platters)* | `/blog/office-breakfast-catering-guide-nj/` | `catering breakfast near me`, `corporate breakfast catering nj`, `breakfast platters office` | `/catering/`, `/#catering` |
+| **Sem 8** | B2B / Comparativa | *Top 5 Corporate Lunch Catering Ideas That Boost Team Morale in Middlesex County* | `/blog/corporate-lunch-catering-ideas-middlesex/` | `catering lunch near me`, `corporate lunch catering`, `party trays catering nj` | `/catering/`, `/#catering` |
 
 ### Mes 3: Dominio de Búsquedas Locales y Fin de Semana
 *Foco: Capturar el tráfico de fin de semana en las ciudades vecinas (Woodbridge, Edison, Clark, Westfield).*
 
 | Semana | Tipo de Contenido | Título del Artículo / Guía | URL Slug | Palabras Clave Principales | Enlaces Internos Salientes |
 |---|---|---|---|---|---|
-| **Sem 10** | Guía Local / Listicle | *Top Weekend Brunch Spots in Central New Jersey: What to Look For* | `/blog/best-brunch-spots-central-jersey/` | `brunch places near me`, `sunday brunch nearby`, `saturday brunch nj` | `/menu/brunch/`, `/locations/colonia-nj/` |
-| **Sem 12** | Guía de Producto | *Beyond the Ordinary: Why Brioche French Toast Makes the Ultimate Brunch* | `/blog/brioche-french-toast-secret/` | `brioche french toast nj`, `amaretto french toast`, `best breakfast near me` | `/menu/pancakes-french-toast/`, `/menu/breakfast/` |
+| **Sem 10** | Guía Local / Listicle | *Top Weekend Brunch Spots in Central New Jersey: What to Look For* | `/blog/best-brunch-spots-central-jersey/` | `brunch places near me`, `sunday brunch nearby`, `saturday brunch nj` | `/menu/`, `/#location` |
+| **Sem 12** | Guía de Producto | *Beyond the Ordinary: Why Brioche French Toast Makes the Ultimate Brunch* | `/blog/brioche-french-toast-secret/` | `brioche french toast nj`, `amaretto french toast`, `best breakfast near me` | `/menu/`, `/#menu` |
 
 ### Mes 4: Fusión Culinaria & Nicho Gastronómico
 *Foco: Posicionar las especialidades de alto valor cultural (Haitian spicy omelet, Shrimp & grits, Griot, Djon Djon).*
 
 | Semana | Tipo de Contenido | Título del Artículo / Guía | URL Slug | Palabras Clave Principales | Enlaces Internos Salientes |
 |---|---|---|---|---|---|
-| **Sem 14** | Cultura Culinaria | *A Taste of the Caribbean: Understanding Haitian Spices & Creole Brunch Fusion* | `/blog/guide-to-haitian-creole-brunch/` | `haitian restaurant`, `creole cuisine nj`, `haitian spicy omelet` | `/about/`, `/menu/breakfast/`, `/menu/brunch/` |
-| **Sem 16** | Ficha Gastronómica | *The Story Behind Authentic Shrimp and Grits with a Creole Twist* | `/blog/creole-shrimp-and-grits-story/` | `shrimp and grits near me`, `creole shrimp nj`, `best brunch food` | `/menu/brunch/`, `/menu/` |
+| **Sem 14** | Cultura Culinaria | *A Taste of the Caribbean: Understanding Haitian Spices & Creole Brunch Fusion* | `/blog/guide-to-haitian-creole-brunch/` | `haitian restaurant`, `creole cuisine nj`, `haitian spicy omelet` | `/#about`, `/menu/` |
+| **Sem 16** | Ficha Gastronómica | *The Story Behind Authentic Shrimp and Grits with a Creole Twist* | `/blog/creole-shrimp-and-grits-story/` | `shrimp and grits near me`, `creole shrimp nj`, `best brunch food` | `/menu/`, `/#menu` |
 
 ### Mes 5: Opciones Dietéticas Especiales (Keto, Saludable, Sin Gluten)
 *Foco: Capturar comensales con requerimientos nutricionales específicos.*
 
 | Semana | Tipo de Contenido | Título del Artículo / Guía | URL Slug | Palabras Clave Principales | Enlaces Internos Salientes |
 |---|---|---|---|---|---|
-| **Sem 18** | Guía de Nutrición | *High-Protein & Keto Breakfast Options in Colonia: Fueling Your Morning* | `/blog/keto-high-protein-breakfast-colonia/` | `vegan breakfast near me`, `keto breakfast nj`, `high protein breakfast` | `/menu/healthy-keto/`, `/menu/breakfast/` |
-| **Sem 20** | Eventos Privados | *How to Plan an Unforgettable Bridal Shower or Baby Shower Brunch in NJ* | `/blog/how-to-host-shower-brunch-nj/` | `private brunch events nj`, `bridal shower brunch nj`, `event venue colonia` | `/private-events/`, `/catering/` |
+| **Sem 18** | Guía de Nutrición | *High-Protein & Keto Breakfast Options in Colonia: Fueling Your Morning* | `/blog/keto-high-protein-breakfast-colonia/` | `vegan breakfast near me`, `keto breakfast nj`, `high protein breakfast` | `/menu/`, `/#menu` |
+| **Sem 20** | Eventos Privados | *How to Plan an Unforgettable Bridal Shower or Baby Shower Brunch in NJ* | `/blog/how-to-host-shower-brunch-nj/` | `private brunch events nj`, `bridal shower brunch nj`, `event venue colonia` | `/catering/`, `/#catering` |
 
 ### Mes 6: Guías Estacionales & Consolidación de Autoridad
 *Foco: Capturar fechas festivas, aniversarios, regalos y celebraciones.*
 
 | Semana | Tipo de Contenido | Título del Artículo / Guía | URL Slug | Palabras Clave Principales | Enlaces Internos Salientes |
 |---|---|---|---|---|---|
-| **Sem 22** | Eventos & Fechas | *Planning the Perfect Mother's Day & Father's Day Brunch in Central NJ* | `/blog/mothers-day-fathers-day-brunch-nj/` | `mothers day brunch near me`, `weekend brunch reservations`, `best brunch nj` | `/menu/brunch/`, `/contact/` |
-| **Sem 24** | Catering de Temporada | *Holiday Party & Corporate Catering Checklist for New Jersey Businesses* | `/blog/holiday-office-catering-checklist/` | `holiday catering near me`, `office party catering nj`, `catering menu` | `/catering/corporate-lunch-catering/`, `/catering/menu/` |
+| **Sem 22** | Eventos & Fechas | *Planning the Perfect Mother's Day & Father's Day Brunch in Central NJ* | `/blog/mothers-day-fathers-day-brunch-nj/` | `mothers day brunch near me`, `weekend brunch reservations`, `best brunch nj` | `/menu/`, `/#location` |
+| **Sem 24** | Catering de Temporada | *Holiday Party & Corporate Catering Checklist for New Jersey Businesses* | `/blog/holiday-office-catering-checklist/` | `holiday catering near me`, `office party catering nj`, `catering menu` | `/catering/`, `/#catering` |
 
 ---
 

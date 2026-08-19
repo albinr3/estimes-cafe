@@ -2,11 +2,20 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu as MenuIcon, X, Phone, Clock, MapPin, ChevronDown } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { Menu as MenuIcon, X, Phone, Clock, MapPin } from "lucide-react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [menuDropdownOpen, setMenuDropdownOpen] = useState(false);
+  const pathname = usePathname();
+
+  const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/menu", label: "Menu" },
+    { href: "/catering", label: "Catering" },
+    { href: "/private-events", label: "Private Events" },
+    { href: "/about", label: "About" },
+  ];
 
   return (
     <header className="sticky top-0 z-40 bg-[#fbf8f2]/95 backdrop-blur-md border-b border-[#eee8de] transition-all">
@@ -20,7 +29,7 @@ export default function Header() {
             </span>
             <span className="flex items-center gap-1.5">
               <Clock className="w-3.5 h-3.5 text-brand-gold-light" />
-              Tue – Sun: 8:00 AM – 3:00 PM (Mon: Closed)
+              Mon – Sat: 8:00 AM – 3:00 PM &bull; Sun: 8:00 AM – 4:00 PM
             </span>
           </div>
           <div className="flex items-center gap-4 font-semibold tracking-wider">
@@ -52,79 +61,25 @@ export default function Header() {
 
           {/* Desktop Nav Links */}
           <nav className="hidden lg:flex items-center gap-7 font-serif text-[15px] text-brand-text">
-            <Link
-              href="/"
-              className="text-brand-green font-semibold border-b-2 border-brand-gold pb-0.5 hover:text-brand-green transition-colors"
-            >
-              Home
-            </Link>
-
-            {/* Menu Dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setMenuDropdownOpen(true)}
-              onMouseLeave={() => setMenuDropdownOpen(false)}
-            >
-              <button
-                className="flex items-center gap-1 hover:text-brand-green py-2 transition-colors focus:outline-none"
-                onClick={() => setMenuDropdownOpen(!menuDropdownOpen)}
-              >
-                <span>Menu</span>
-                <ChevronDown className="w-3.5 h-3.5 text-brand-gold" />
-              </button>
-              {menuDropdownOpen && (
-                <div className="absolute top-full left-0 w-72 bg-[#fbf8f2] border border-brand-line shadow-xl rounded-sm py-2 font-sans text-xs uppercase tracking-wider z-50 animate-fadeIn">
-                  <a
-                    href="#menu"
-                    className="block px-4 py-2.5 hover:bg-brand-cream hover:text-brand-green font-semibold transition-colors"
-                  >
-                    Breakfast, Brunch &amp; Lunch Menu
-                  </a>
-                  <a
-                    href="#catering"
-                    className="block px-4 py-2 hover:bg-brand-cream text-brand-muted hover:text-brand-green transition-colors"
-                  >
-                    Catering Party Trays Menu
-                  </a>
-                  <a
-                    href="#catering"
-                    className="block px-4 py-2 hover:bg-brand-cream text-brand-muted hover:text-brand-green transition-colors"
-                  >
-                    Weekend Brunch Catering Menu
-                  </a>
-                  <a
-                    href="#catering"
-                    className="block px-4 py-2 hover:bg-brand-cream text-brand-muted hover:text-brand-green transition-colors"
-                  >
-                    Private Events Menu &amp; Packages
-                  </a>
-                </div>
-              )}
-            </div>
-
-            {/* Catering Direct Link */}
-            <a
-              href="#catering"
-              className="hover:text-brand-green transition-colors"
-            >
-              Catering
-            </a>
-
-            <a href="#" className="hover:text-brand-green transition-colors">
-              Private Events
-            </a>
-            <a href="#about" className="hover:text-brand-green transition-colors">
-              About
-            </a>
-            <a href="#location" className="hover:text-brand-green transition-colors">
-              Location
-            </a>
-            <a href="#reviews" className="hover:text-brand-green transition-colors">
-              Reviews
-            </a>
-            <a href="#location" className="hover:text-brand-green transition-colors">
-              Contact
-            </a>
+            {navLinks.map((link) => {
+              const isActive =
+                link.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`transition-colors pb-0.5 ${
+                    isActive
+                      ? "text-brand-green font-bold border-b-2 border-brand-gold"
+                      : "hover:text-brand-green"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Action CTAs */}
@@ -135,12 +90,12 @@ export default function Header() {
             >
               Call (732) 669-7581
             </a>
-            <a
-              href="#menu"
+            <Link
+              href="/menu"
               className="bg-brand-green text-white hover:bg-brand-green-dark px-5 py-2.5 text-xs font-bold uppercase tracking-wider shadow-sm transition-all duration-200"
             >
               View Menu
-            </a>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -167,55 +122,24 @@ export default function Header() {
       {mobileMenuOpen && (
         <div className="lg:hidden bg-brand-paper border-b border-brand-line px-6 py-6 font-serif text-base space-y-4 shadow-lg">
           <div className="flex flex-col space-y-3 border-b border-brand-line pb-4">
-            <Link
-              href="/"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-brand-green font-bold"
-            >
-              Home
-            </Link>
-            <a
-              href="#menu"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-brand-text hover:text-brand-green"
-            >
-              Menu & Specialties
-            </a>
-            <a
-              href="#catering"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-brand-text hover:text-brand-green"
-            >
-              Catering Services (B2B & Social)
-            </a>
-            <a
-              href="#"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-brand-text hover:text-brand-green"
-            >
-              Private Events
-            </a>
-            <a
-              href="#about"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-brand-text hover:text-brand-green"
-            >
-              Our Story (Chef Duke)
-            </a>
-            <a
-              href="#reviews"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-brand-text hover:text-brand-green"
-            >
-              Customer Reviews (4.8★)
-            </a>
-            <a
-              href="#location"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-brand-text hover:text-brand-green"
-            >
-              Location & Hours (Colonia, NJ)
-            </a>
+            {navLinks.map((link) => {
+              const isActive =
+                link.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`transition-colors ${
+                    isActive ? "text-brand-green font-bold" : "text-brand-text hover:text-brand-green"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
 
           <div className="pt-2 flex flex-col gap-2.5 font-sans">
@@ -225,13 +149,13 @@ export default function Header() {
             >
               Call: (732) 669-7581
             </a>
-            <a
-              href="#menu"
+            <Link
+              href="/menu"
               onClick={() => setMobileMenuOpen(false)}
               className="w-full text-center border border-brand-green text-brand-green py-3 text-xs font-bold uppercase tracking-wider"
             >
               Explore Full Menu
-            </a>
+            </Link>
           </div>
         </div>
       )}

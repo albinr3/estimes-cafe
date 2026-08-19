@@ -1,4 +1,5 @@
-import { Building2, Users, Calendar, Phone, CheckCircle, Mail } from "lucide-react";
+import Link from "next/link";
+import { Building2, Users, Calendar, Phone, CheckCircle, Mail, ChevronRight } from "lucide-react";
 
 export default function CateringSpotlight() {
   const cateringHighlights = [
@@ -15,23 +16,23 @@ export default function CateringSpotlight() {
       desc: "Penne tossed with vibrant bell peppers in a creamy, mildly spiced Caribbean jerk reduction.",
     },
     {
-      name: "Farm Fresh Scrambled Eggs & Bacon",
-      price: "Half $55 • Full $100",
-      serves: "Breakfast staple",
-      desc: "Fluffy scrambled eggs paired with seasoned home fries and applewood smoked bacon trays.",
+      name: "Creole Haitian Salmon Tray",
+      price: "Half $100 • Full $170",
+      serves: "Serves 10–20 guests",
+      desc: "Fresh Atlantic salmon fillets sautéed in rich Haitian Creole tomato and pepper reduction.",
     },
     {
-      name: "Authentic Jerk Chicken Tray",
-      price: "Half $80 • Full $150",
-      serves: "Hot lunch staple",
-      desc: "Marinated bone-in or cutlet chicken seasoned with house Caribbean spices, slow roasted.",
+      name: "Scrambled Eggs & Bacon Breakfast Tray",
+      price: "Half $55 • Full $100",
+      serves: "Serves 10–20 guests",
+      desc: "Fluffy scrambled farm-raised eggs with home fries, crisp smoked bacon or turkey sausage.",
     },
   ];
 
   return (
-    <section id="catering" className="py-16 sm:py-20 bg-brand-green text-white relative overflow-hidden">
-      {/* Background Subtle Accent */}
-      <div className="absolute inset-0 bg-[radial-gradient(#b49355_1px,transparent_1px)] [background-size:24px_24px] opacity-10 pointer-events-none" />
+    <section id="catering" className="py-16 sm:py-24 bg-[#2a3319] text-brand-cream relative overflow-hidden">
+      {/* Subtle background glow */}
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-brand-gold/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -68,20 +69,20 @@ export default function CateringSpotlight() {
             </div>
 
             <div className="flex flex-wrap items-center gap-4">
-              <a
-                href="tel:7326697581"
+              <Link
+                href="/catering"
                 className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-light text-brand-text px-6 py-3.5 text-xs font-bold uppercase tracking-wider transition-all shadow-md"
               >
-                <Phone className="w-4 h-4" />
-                <span>Call for Catering: (732) 669-7581</span>
-              </a>
+                <span>View Full Catering Menu</span>
+                <ChevronRight className="w-4 h-4" />
+              </Link>
 
               <a
-                href="mailto:dandley@dukesteakhouse.com?subject=Catering%20Inquiry%20-%20Estime's%20Cafe"
+                href="tel:7326697581"
                 className="inline-flex items-center gap-2 border border-brand-cream/50 hover:bg-white hover:text-brand-green text-white px-5 py-3.5 text-xs font-bold uppercase tracking-wider transition-all"
               >
-                <Mail className="w-4 h-4" />
-                <span>Email RFP Quote</span>
+                <Phone className="w-4 h-4 text-brand-gold-light" />
+                <span>Call (732) 669-7581</span>
               </a>
             </div>
           </div>

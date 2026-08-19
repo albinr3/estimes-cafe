@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { Award, Utensils, HeartHandshake } from "lucide-react";
+import Link from "next/link";
+import { Award, Utensils, HeartHandshake, ArrowRight } from "lucide-react";
 
 export default function ChefStory() {
   return (
@@ -91,13 +92,24 @@ export default function ChefStory() {
                 </div>
                 <div>
                   <p className="font-sans text-xs font-bold uppercase tracking-wider text-brand-text">
-                    Community First
+                    James Beard
                   </p>
                   <p className="font-serif text-xs text-brand-muted">
-                    Warm, personal neighborhood care
+                    Honoree &amp; NY ICE Graduate
                   </p>
                 </div>
               </div>
+            </div>
+
+            {/* Read Full Story Button */}
+            <div className="pt-6">
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 bg-brand-green hover:bg-brand-green-dark text-white px-6 py-3 text-xs font-bold uppercase tracking-wider transition-colors"
+              >
+                Read Full Story &amp; Chef Duke&apos;s Accolades
+                <ArrowRight className="w-4 h-4 text-brand-gold-light" />
+              </Link>
             </div>
           </div>
         </div>

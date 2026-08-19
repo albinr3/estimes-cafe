@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Sparkles, ArrowRight, Phone, Utensils, Award } from "lucide-react";
 
 interface SpecialtyItem {
@@ -154,13 +155,13 @@ export default function MenuShowcase() {
               Benedicts, keto-friendly plates, and handcrafted beverages with complete pricing.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <a
-                href="#menu"
+              <Link
+                href="/menu"
                 className="inline-flex items-center gap-2 bg-brand-green text-white hover:bg-brand-green-dark px-7 py-3.5 text-xs font-bold uppercase tracking-wider shadow-sm transition-all"
               >
                 <span>View Full Menu &amp; Prices</span>
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
               <a
                 href="tel:7326697581"
                 className="inline-flex items-center gap-2 border border-brand-green text-brand-green hover:bg-brand-green hover:text-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider transition-all"

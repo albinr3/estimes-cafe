@@ -8,9 +8,9 @@ export default function LiveStatusCard() {
   const [statusText, setStatusText] = useState("Checking hours...");
 
   useEffect(() => {
-    // Determine opening hours based on America/New_York timezone
-    // Tuesday to Sunday: 8:00 AM to 3:00 PM (15:00)
-    // Monday: Closed
+    // Schedule (America/New_York):
+    // Monday to Saturday: 8:00 AM to 3:00 PM (15:00)
+    // Sunday: 8:00 AM to 4:00 PM (16:00)
     const checkSchedule = () => {
       try {
         const now = new Date();
@@ -29,15 +29,14 @@ export default function LiveStatusCard() {
         const minute = parseInt(minuteStr, 10);
         const timeVal = hour + minute / 60;
 
-        const isMonday = dayPart === "Mon";
-        const isWithinHours = !isMonday && timeVal >= 8.0 && timeVal < 15.0;
+        const isSunday = dayPart === "Sun";
+        const closingHour = isSunday ? 16.0 : 15.0;
+        const closingLabel = isSunday ? "4:00 PM" : "3:00 PM";
+        const isWithinHours = timeVal >= 8.0 && timeVal < closingHour;
 
         if (isWithinHours) {
           setIsOpen(true);
-          setStatusText("Open Now • Kitchen serving until 3:00 PM");
-        } else if (isMonday) {
-          setIsOpen(false);
-          setStatusText("Closed Today • Opens Tuesday at 8:00 AM");
+          setStatusText(`Open Now • Serving until ${closingLabel}`);
         } else if (timeVal < 8.0) {
           setIsOpen(false);
           setStatusText("Closed • Opens today at 8:00 AM");
@@ -48,7 +47,7 @@ export default function LiveStatusCard() {
       } catch {
         // Fallback
         setIsOpen(true);
-        setStatusText("Open Tue – Sun: 8:00 AM – 3:00 PM");
+        setStatusText("Open Daily • 8:00 AM – 3:00 PM (Sun until 4 PM)");
       }
     };
 
@@ -67,8 +66,11 @@ export default function LiveStatusCard() {
           Daily Hours &amp; Schedule
         </span>
 
-        <p className="font-serif text-2xl sm:text-3xl font-medium mb-3">
-          Tue – Sun: 8am – 3pm
+        <p className="font-serif text-2xl sm:text-3xl font-medium mb-1">
+          Mon – Sat: 8am – 3pm
+        </p>
+        <p className="font-serif text-xl sm:text-2xl font-medium text-brand-gold-light mb-3">
+          Sunday: 8am – 4pm
         </p>
 
         {/* Live Badge */}

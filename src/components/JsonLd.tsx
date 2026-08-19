@@ -36,23 +36,29 @@ export default function JsonLd() {
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": 40.60028840007323,
-          "longitude": -74.31261455619092
+          "latitude": 40.6003432,
+          "longitude": -74.3126004
         },
-        "hasMap": "https://maps.google.com/?q=238+Inman+Ave,+Colonia,+NJ+07067",
+        "hasMap": "https://www.google.com/maps/place/Estime's+Cafe/@40.6003432,-74.3151753,17z/data=!3m1!4b1!4m6!3m5!1s0x89c3b78d2780b6fd:0xfa97f1d15128900a!8m2!3d40.6003432!4d-74.3126004!16s%2Fg%2F11fb18d03y",
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",
             "dayOfWeek": [
+              "Monday",
               "Tuesday",
               "Wednesday",
               "Thursday",
               "Friday",
-              "Saturday",
-              "Sunday"
+              "Saturday"
             ],
             "opens": "08:00",
             "closes": "15:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Sunday",
+            "opens": "08:00",
+            "closes": "16:00"
           }
         ],
         "founder": [
