@@ -6,7 +6,7 @@ import PrivateEventsContent from "./PrivateEventsContent";
 export const metadata: Metadata = {
   title: "Private Events & Dinner Packages | Estime's Café Colonia NJ",
   description:
-    "Host private brunch celebrations, baby showers, bridal showers & gourmet private dinner parties at Estime's Café in Colonia, NJ. Multi-course chef packages by Duke Estime, BYOB friendly.",
+    "Host private brunch celebrations, baby showers, bridal showers & gourmet private dinner parties at Estime's Café in Colonia, NJ. Multi-course chef packages by Duke Estime.",
   keywords: [
     "private events colonia nj",
     "private brunch venue woodbridge nj",
@@ -14,7 +14,6 @@ export const metadata: Metadata = {
     "bridal shower brunch nj",
     "private dinner packages nj",
     "intimate event space colonia",
-    "byob private event venue nj",
   ],
   alternates: {
     canonical: "https://www.estimescafe.com/private-events",

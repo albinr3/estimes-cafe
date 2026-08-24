@@ -6,25 +6,25 @@ export default function CateringSpotlight() {
     {
       name: "Amaretto Brioche French Toast Tray",
       price: "Half $65 • Full $125",
-      serves: "Serves 10–25 guests",
+      serves: "Half 8–10 • Full 15–20",
       desc: "Chunky brioche bread in sweet vanilla batter with Chef Duke's warm Amaretto sauce.",
     },
     {
       name: "Rasta Pasta Party Tray",
       price: "Half $70 • Full $130",
-      serves: "Serves 12–30 guests",
+      serves: "Half 8–10 • Full 15–20",
       desc: "Penne tossed with vibrant bell peppers in a creamy, mildly spiced Caribbean jerk reduction.",
     },
     {
       name: "Creole Haitian Salmon Tray",
       price: "Half $100 • Full $170",
-      serves: "Serves 10–20 guests",
+      serves: "Half 8–10 • Full 15–20",
       desc: "Fresh Atlantic salmon fillets sautéed in rich Haitian Creole tomato and pepper reduction.",
     },
     {
       name: "Scrambled Eggs & Bacon Breakfast Tray",
       price: "Half $55 • Full $100",
-      serves: "Serves 10–20 guests",
+      serves: "Half 8–10 • Full 15–20",
       desc: "Fluffy scrambled farm-raised eggs with home fries, crisp smoked bacon or turkey sausage.",
     },
   ];
@@ -43,13 +43,13 @@ export default function CateringSpotlight() {
             </span>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] font-normal leading-tight mb-5">
-              Corporate Breakfast &amp; Lunch Catering Services in Central NJ
+              Party Trays &amp; Corporate Lunch Catering in Central NJ
             </h2>
 
             <p className="font-serif text-base text-brand-cream/90 leading-relaxed mb-6">
-              Elevate your morning corporate meetings, office lunches, baby showers, and
-              celebrations with Chef Duke’s freshly prepared hot trays, scrambled egg platters, and
-              specialty breakfast catering delivered across Middlesex &amp; Union Counties.
+              Serve your office lunch, meeting, baby shower, or celebration with Chef Duke&apos;s freshly
+              prepared party trays. Choose pastas, proteins, seafood, salads, and breakfast favorites
+              delivered across Middlesex &amp; Union Counties.
             </p>
 
             {/* Feature bullets */}

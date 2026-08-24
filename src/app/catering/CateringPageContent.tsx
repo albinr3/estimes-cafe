@@ -286,7 +286,6 @@ const BRUNCH_PACKAGES = [
       "Fluffy Scrambled Farm Eggs",
       "Hardwood Smoked Bacon & Savory Sausage",
       "Seasoned Golden Home Fries",
-      "BYOB Friendly Setup",
     ],
   },
   {
@@ -303,7 +302,6 @@ const BRUNCH_PACKAGES = [
       "Fluffy Scrambled Farm Eggs",
       "Crispy Bacon & Savory Breakfast Sausage",
       "Seasoned Golden Home Fries",
-      "BYOB Friendly Setup",
     ],
   },
   {
@@ -320,92 +318,58 @@ const BRUNCH_PACKAGES = [
       "Fluffy Scrambled Farm Eggs",
       "Crispy Bacon & Savory Pork Sausage",
       "Seasoned Golden Home Fries",
-      "BYOB Friendly Setup",
     ],
   },
 ];
 
 export default function CateringPageContent() {
-  const [activeTab, setActiveTab] = useState("breakfast-trays");
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     date: "",
     guests: "20-30",
-    serviceType: "Corporate Office Breakfast",
+    serviceType: "Office Lunch & Platters",
     notes: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormSubmitted(true);
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    try {
+      const response = await fetch("/api/catering-leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const result = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        throw new Error(result.error || "We could not send your request. Please try again.");
+      }
+
+      setFormSubmitted(true);
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : "We could not send your request. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <>
-      {/* Schema.org Catering Service JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FoodService",
-            "name": "Estime's Café Catering Services",
-            "serviceType": "Corporate & Social Catering",
-            "provider": {
-              "@type": "Restaurant",
-              "name": "Estime's Café",
-              "telephone": "(732) 669-7581",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "238 Inman Avenue",
-                "addressLocality": "Colonia",
-                "addressRegion": "NJ",
-                "postalCode": "07067",
-                "addressCountry": "US",
-              },
-            },
-            "areaServed": [
-              "Colonia",
-              "Woodbridge",
-              "Edison",
-              "Clark",
-              "Rahway",
-              "Westfield",
-              "Cranford",
-              "Linden",
-              "Middlesex County",
-              "Union County",
-            ],
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "Catering Trays & Brunch Packages",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "name": "Half Tray Party Platters (Serves 8-10)",
-                  "priceCurrency": "USD",
-                },
-                {
-                  "@type": "Offer",
-                  "name": "Full Tray Party Platters (Serves 15-20)",
-                  "priceCurrency": "USD",
-                },
-              ],
-            },
-          }),
-        }}
-      />
-
       {/* Hero Header with Background Image & Ambient Overlay */}
       <section className="relative text-brand-cream py-18 sm:py-28 border-b border-[#3e4925] overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/assets/hero.jpg"
-            alt="Estime's Café Gourmet Breakfast, Brunch & Hot Party Trays Catering Spread in Central NJ"
+            src="/assets/catering-hero-party-trays.webp"
+            alt="Estime's Café party trays and corporate lunch catering spread in Central NJ"
             fill
             priority
             quality={90}
@@ -423,12 +387,12 @@ export default function CateringPageContent() {
           </div>
 
           <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white mb-6 leading-tight drop-shadow-sm">
-            Corporate Breakfast &amp; Event Catering in Central NJ
+            Party Trays &amp; Corporate Lunch Catering in Central NJ
           </h1>
 
           <p className="font-serif text-base sm:text-lg text-brand-cream/90 max-w-3xl mx-auto leading-relaxed mb-10 drop-shadow-sm">
-            From boardroom breakfasts and company lunches to baby showers, family reunions, and weekend celebrations.
-            Generous half &amp; full party trays crafted fresh from scratch by Executive Chef Duke Estime.
+            Chef-made half and full party trays for office lunches, meetings, celebrations, and family gatherings.
+            Order fresh pastas, chicken, seafood, salads, and Caribbean favorites from Colonia in Woodbridge Township.
           </p>
 
           {/* Action CTAs */}
@@ -452,14 +416,14 @@ export default function CateringPageContent() {
               </a>
             </div>
 
-            {/* Second Line: Brunch Catering Menu */}
+            {/* Secondary breakfast and brunch option */}
             <div className="pt-1">
               <a
                 href="#brunch-packages"
                 className="inline-flex items-center gap-2 bg-[#1c2410]/70 hover:bg-brand-gold hover:text-brand-green-dark border border-brand-gold/40 text-brand-gold-light px-5 py-2.5 backdrop-blur-sm text-xs font-bold uppercase tracking-wider transition-all transform hover:-translate-y-0.5 rounded-sm"
               >
                 <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
-                <span>Also Explore Brunch Catering Packages ($40–$50/pp) &rarr;</span>
+                <span>Breakfast &amp; Brunch Catering Packages ($40–$50/pp) &rarr;</span>
               </a>
             </div>
           </div>
@@ -469,14 +433,22 @@ export default function CateringPageContent() {
       {/* Value Pillars Bar */}
       <section className="bg-brand-cream border-b border-brand-line py-8">
         <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-7">
+            <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-brand-gold block mb-2">
+              Built for groups
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl text-brand-green font-normal">
+              Party Trays for Office Lunches &amp; Events
+            </h2>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center sm:text-left">
             <div className="flex items-start gap-3">
               <div className="w-10 h-10 rounded-full bg-brand-paper border border-brand-gold flex items-center justify-center text-brand-gold flex-shrink-0">
                 <Clock className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="font-serif text-base font-bold text-brand-text">Piping Hot &amp; On Time</h4>
-                <p className="text-xs font-serif text-brand-muted mt-0.5">Reliable scheduled delivery to offices and venues.</p>
+                <h3 className="font-serif text-base font-bold text-brand-text">Office Lunch Delivery</h3>
+                <p className="text-xs font-serif text-brand-muted mt-0.5">Reliable scheduled delivery for meetings, offices, and venues.</p>
               </div>
             </div>
 
@@ -485,8 +457,8 @@ export default function CateringPageContent() {
                 <Users className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="font-serif text-base font-bold text-brand-text">Generous Portion Sizes</h4>
-                <p className="text-xs font-serif text-brand-muted mt-0.5">Half trays feed 8–10; Full trays feed 15–20 guests.</p>
+                <h3 className="font-serif text-base font-bold text-brand-text">Party Trays for Groups</h3>
+                <p className="text-xs font-serif text-brand-muted mt-0.5">Half trays feed 8–10; full trays feed 15–20 guests.</p>
               </div>
             </div>
 
@@ -495,8 +467,8 @@ export default function CateringPageContent() {
                 <Sparkles className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="font-serif text-base font-bold text-brand-text">Signature Chef Recipes</h4>
-                <p className="text-xs font-serif text-brand-muted mt-0.5">Famous Amaretto Toast, Rasta Pasta &amp; Haitian Salmon.</p>
+                <h3 className="font-serif text-base font-bold text-brand-text">Chef-Made Favorites</h3>
+                <p className="text-xs font-serif text-brand-muted mt-0.5">Rasta Pasta, Jerk Chicken, Haitian Salmon, and more.</p>
               </div>
             </div>
 
@@ -505,7 +477,7 @@ export default function CateringPageContent() {
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="font-serif text-base font-bold text-brand-text">Dietary Customization</h4>
+                <h3 className="font-serif text-base font-bold text-brand-text">Dietary Customization</h3>
                 <p className="text-xs font-serif text-brand-muted mt-0.5">Keto, vegetarian, pescatarian &amp; protein-packed menus.</p>
               </div>
             </div>
@@ -522,9 +494,9 @@ export default function CateringPageContent() {
                 <Utensils className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="font-serif text-lg font-bold text-brand-green">
+                <h2 className="font-serif text-lg font-bold text-brand-green">
                   Tray Portioning &amp; Serving Guide
-                </h3>
+                </h2>
                 <p className="font-serif text-xs sm:text-sm text-brand-muted">
                   All catering platters are packaged in heavy-duty food-grade foil trays with lids to maintain heat and freshness.
                 </p>
@@ -560,102 +532,80 @@ export default function CateringPageContent() {
             </p>
           </div>
 
-          {/* Category Tabs */}
-          <div className="flex items-center justify-center gap-2 overflow-x-auto pb-4 mb-10 scrollbar-none">
-            {CATERING_PLATTERS.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setActiveTab(cat.id)}
-                className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-sm transition-all whitespace-nowrap ${
-                  activeTab === cat.id
-                    ? "bg-brand-green text-white shadow-sm"
-                    : "bg-white border border-brand-line text-brand-muted hover:text-brand-green hover:border-brand-green/40"
-                }`}
-              >
-                {cat.title}
-              </button>
-            ))}
-          </div>
+          <div className="space-y-16">
+            {[...CATERING_PLATTERS.slice(1), ...CATERING_PLATTERS.slice(0, 1)].map((cat) => (
+              <article key={cat.id} id={cat.id} className="scroll-mt-24">
+                <div className="text-center max-w-2xl mx-auto mb-7">
+                  <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-brand-gold block mb-2">
+                    {cat.id === "breakfast-trays" ? "Breakfast Catering" : "Party Trays Menu"}
+                  </span>
+                  <h3 className="font-serif text-2xl sm:text-3xl text-brand-green font-normal">{cat.title}</h3>
+                  <p className="font-serif text-sm text-brand-muted mt-2">{cat.description}</p>
+                </div>
 
-          {/* Platter Cards Grid */}
-          {CATERING_PLATTERS.filter((cat) => cat.id === activeTab).map((cat) => (
-            <div key={cat.id} className="space-y-6">
-              <div className="bg-[#f7f2e8] p-4 border border-brand-line rounded-sm text-center">
-                <p className="font-serif text-sm text-brand-text italic">{cat.description}</p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {cat.items.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className={`p-6 bg-white border rounded-sm flex flex-col justify-between transition-all ${
-                      item.popular
-                        ? "border-brand-gold/60 shadow-sm bg-gradient-to-br from-white to-[#fdfbf6]"
-                        : "border-brand-line hover:border-brand-green/30"
-                    }`}
-                  >
-                    <div>
-                      <div className="flex items-start justify-between gap-4 mb-2">
-                        <h3 className="font-serif text-lg font-bold text-brand-text">
-                          {item.name}
-                        </h3>
-                        {item.popular && (
-                          <span className="inline-flex items-center gap-1 bg-[#f4ede1] text-brand-green text-[10px] font-sans font-bold uppercase px-2.5 py-0.5 rounded-full flex-shrink-0">
-                            <Sparkles className="w-3 h-3 text-brand-gold" />
-                            Popular
-                          </span>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {cat.items.map((item) => (
+                    <div
+                      key={item.name}
+                      className={`p-6 bg-white border rounded-sm flex flex-col justify-between transition-all ${
+                        item.popular
+                          ? "border-brand-gold/60 shadow-sm bg-gradient-to-br from-white to-[#fdfbf6]"
+                          : "border-brand-line hover:border-brand-green/30"
+                      }`}
+                    >
+                      <div>
+                        <div className="flex items-start justify-between gap-4 mb-2">
+                          <h4 className="font-serif text-lg font-bold text-brand-text">{item.name}</h4>
+                          {item.popular && (
+                            <span className="inline-flex items-center gap-1 bg-[#f4ede1] text-brand-green text-[10px] font-sans font-bold uppercase px-2.5 py-0.5 rounded-full flex-shrink-0">
+                              <Sparkles className="w-3 h-3 text-brand-gold" />
+                              Popular
+                            </span>
+                          )}
+                        </div>
+                        {item.description && (
+                          <p className="font-serif text-xs text-brand-muted leading-relaxed mb-6">{item.description}</p>
                         )}
                       </div>
 
-                      {item.description && (
-                        <p className="font-serif text-xs text-brand-muted leading-relaxed mb-6">
-                          {item.description}
-                        </p>
-                      )}
+                      <div className="grid grid-cols-2 gap-3 pt-3 border-t border-brand-line/60">
+                        <div className="bg-brand-paper p-2.5 rounded text-center">
+                          <span className="block text-[10px] font-bold uppercase text-brand-muted tracking-wider">Half Tray (8-10)</span>
+                          <span className="font-serif text-base font-bold text-brand-green">{item.halfPrice}</span>
+                        </div>
+                        <div className="bg-brand-paper p-2.5 rounded text-center">
+                          <span className="block text-[10px] font-bold uppercase text-brand-muted tracking-wider">Full Tray (15-20)</span>
+                          <span className="font-serif text-base font-bold text-brand-green">{item.fullPrice}</span>
+                        </div>
+                      </div>
                     </div>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
-                    <div className="grid grid-cols-2 gap-3 pt-3 border-t border-brand-line/60">
-                      <div className="bg-brand-paper p-2.5 rounded text-center">
-                        <span className="block text-[10px] font-bold uppercase text-brand-muted tracking-wider">
-                          Half Tray (8-10)
-                        </span>
-                        <span className="font-serif text-base font-bold text-brand-green">
-                          {item.halfPrice}
-                        </span>
-                      </div>
-                      <div className="bg-brand-paper p-2.5 rounded text-center">
-                        <span className="block text-[10px] font-bold uppercase text-brand-muted tracking-wider">
-                          Full Tray (15-20)
-                        </span>
-                        <span className="font-serif text-base font-bold text-brand-green">
-                          {item.fullPrice}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+      <section className="py-16 bg-brand-green text-brand-cream">
+        <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-brand-gold-light block mb-3">For offices and teams</span>
+            <h2 className="font-serif text-3xl sm:text-4xl text-white font-normal">Office Lunch &amp; Corporate Catering</h2>
+            <p className="font-serif text-base text-brand-cream/85 leading-relaxed mt-4 max-w-xl">
+              Keep meetings moving with chef-made lunch trays delivered to your Central NJ office. Build a spread of pastas, proteins, salads, and Caribbean favorites for teams of 10 to 100+ guests.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {[
+              ["Easy group ordering", "Choose half or full trays based on your guest count."],
+              ["Scheduled delivery", "Coordinate a delivery window for your office or venue."],
+              ["Flexible menus", "Mix crowd-pleasing classics with signature Chef Duke dishes."],
+            ].map(([title, description]) => (
+              <div key={title} className="border border-brand-gold/30 bg-white/5 p-5">
+                <h3 className="font-serif text-lg text-white font-bold">{title}</h3>
+                <p className="font-serif text-xs text-brand-cream/80 mt-2 leading-relaxed">{description}</p>
               </div>
-            </div>
-          ))}
-
-          {/* Bottom Category Tabs (repeated below items, above Full-Service Package Menus) */}
-          <div className="mt-12 pt-8 border-t border-brand-line/60 flex items-center justify-center gap-2 overflow-x-auto pb-2 scrollbar-none">
-            {CATERING_PLATTERS.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => {
-                  setActiveTab(cat.id);
-                  const el = document.getElementById("platter-catalog");
-                  if (el) el.scrollIntoView({ behavior: "smooth" });
-                }}
-                className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-sm transition-all whitespace-nowrap ${
-                  activeTab === cat.id
-                    ? "bg-brand-green text-white shadow-sm"
-                    : "bg-white border border-brand-line text-brand-muted hover:text-brand-green hover:border-brand-green/40"
-                }`}
-              >
-                {cat.title}
-              </button>
             ))}
           </div>
         </div>
@@ -672,7 +622,7 @@ export default function CateringPageContent() {
               Weekend Brunch Catering Packages
             </h2>
             <p className="font-serif text-sm text-brand-muted mt-2">
-              Priced per guest with generous portions, table setups, and BYOB compatibility for showers &amp; celebrations.
+              Priced per guest with generous portions and table setups for showers &amp; celebrations.
             </p>
           </div>
 
@@ -792,9 +742,9 @@ export default function CateringPageContent() {
               </div>
 
               <div>
-                <h4 className="font-sans text-xs font-bold uppercase tracking-wider text-brand-text mb-3">
+                <h3 className="font-sans text-xs font-bold uppercase tracking-wider text-brand-text mb-3">
                   Delivery Coverage Areas in NJ:
-                </h4>
+                </h3>
                 <div className="flex flex-wrap gap-2 text-xs font-serif text-brand-muted">
                   {[
                     "Colonia",
@@ -832,7 +782,19 @@ export default function CateringPageContent() {
                     <strong>{formData.phone || formData.email}</strong> to finalize your custom catering proposal.
                   </p>
                   <button
-                    onClick={() => setFormSubmitted(false)}
+                    type="button"
+                    onClick={() => {
+                      setFormSubmitted(false);
+                      setFormData({
+                        name: "",
+                        email: "",
+                        phone: "",
+                        date: "",
+                        guests: "20-30",
+                        serviceType: "Office Lunch & Platters",
+                        notes: "",
+                      });
+                    }}
                     className="text-xs font-bold uppercase tracking-wider text-brand-green underline pt-4"
                   >
                     Submit Another Request
@@ -840,6 +802,11 @@ export default function CateringPageContent() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
+                  {submitError && (
+                    <p role="alert" className="border border-red-300 bg-red-50 px-4 py-3 text-sm font-serif text-red-800">
+                      {submitError}
+                    </p>
+                  )}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
@@ -926,8 +893,8 @@ export default function CateringPageContent() {
                         onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
                         className="w-full bg-brand-paper border border-brand-line px-3 py-2 text-xs font-sans rounded-sm focus:outline-none focus:border-brand-green text-brand-text"
                       >
+                        <option value="Office Lunch & Platters">Office Lunch &amp; Party Trays</option>
                         <option value="Corporate Office Breakfast">Corporate Office Breakfast</option>
-                        <option value="Office Lunch & Platters">Office Lunch &amp; Platters</option>
                         <option value="Weekend Brunch Package">Weekend Brunch Package</option>
                         <option value="Bridal / Baby Shower">Bridal / Baby Shower</option>
                         <option value="Private Celebration / Party">Private Celebration / Party</option>
@@ -941,7 +908,7 @@ export default function CateringPageContent() {
                     </label>
                     <textarea
                       rows={3}
-                      placeholder="Specify requested dishes (e.g. 2 full trays of French Toast, Rasta pasta, dietary restrictions)..."
+                      placeholder="Specify trays, dishes, delivery details, or dietary restrictions (e.g. Rasta Pasta, Jerk Chicken, Haitian Salmon)..."
                       value={formData.notes}
                       onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                       className="w-full bg-brand-paper border border-brand-line p-3 text-xs font-sans rounded-sm focus:outline-none focus:border-brand-green text-brand-text"
@@ -950,13 +917,36 @@ export default function CateringPageContent() {
 
                   <button
                     type="submit"
-                    className="w-full bg-brand-green hover:bg-brand-green-dark text-white py-3.5 text-xs font-bold uppercase tracking-wider shadow-md transition-all"
+                    disabled={isSubmitting}
+                    className="w-full bg-brand-green hover:bg-brand-green-dark text-white py-3.5 text-xs font-bold uppercase tracking-wider shadow-md transition-all disabled:cursor-not-allowed disabled:opacity-60"
                   >
-                    Submit Catering RFP &rarr;
+                    {isSubmitting ? "Sending Request..." : "Submit Catering RFP →"}
                   </button>
                 </form>
               )}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="catering-faq" className="py-16 bg-brand-cream border-t border-brand-line">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-brand-gold block mb-2">Catering questions</span>
+            <h2 className="font-serif text-3xl sm:text-4xl text-brand-green font-normal">Party Trays &amp; Catering FAQs</h2>
+          </div>
+          <div className="space-y-3">
+            {[
+              ["How many people do your party trays serve?", "Half trays typically serve 8–10 guests, and full trays typically serve 15–20 guests. Tell us your guest count and we will help you build the right order."],
+              ["Do you offer office lunch catering in Woodbridge and Central NJ?", "Yes. Estime's Café prepares office lunch catering and party trays for delivery across Woodbridge Township, Colonia, Edison, and surrounding Central NJ communities."],
+              ["Can I mix different trays for a corporate lunch or celebration?", "Yes. Combine pastas, proteins, seafood, salads, breakfast favorites, and brunch selections to create a menu that fits your guests and budget."],
+              ["How do I request a catering quote?", "Submit the catering request form with your date, guest count, and menu preferences, or call (732) 669-7581 to speak with our team."],
+            ].map(([question, answer]) => (
+              <details key={question} className="bg-white border border-brand-line p-5 group">
+                <summary className="font-serif text-lg font-bold text-brand-green cursor-pointer pr-8">{question}</summary>
+                <p className="font-serif text-sm text-brand-muted leading-relaxed mt-3">{answer}</p>
+              </details>
+            ))}
           </div>
         </div>
       </section>

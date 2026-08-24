@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactPageContent from "./ContactPageContent";
+import { BUSINESS_NAP_NAME } from "@/lib/business";
 
 export const metadata: Metadata = {
   title: "Contact Us, Hours & Directions | Estime's Café Colonia NJ",
@@ -59,13 +60,13 @@ export default function ContactPage() {
           "@type": "WebSite",
           "@id": "https://www.estimescafe.com/#website",
           "url": "https://www.estimescafe.com",
-          "name": "Estime's Café"
+          "name": BUSINESS_NAP_NAME
         }
       },
       {
         "@type": ["Restaurant", "CafeOrCoffeeShop", "LocalBusiness"],
         "@id": "https://www.estimescafe.com/#restaurant",
-        "name": "Estime's Café",
+        "name": BUSINESS_NAP_NAME,
         "telephone": "+1-732-669-7581",
         "email": "Estimecafe1@gmail.com",
         "url": "https://www.estimescafe.com",
@@ -124,14 +125,6 @@ export default function ContactPage() {
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "You can fill out our contact or catering inquiry form online, or call us directly at (732) 669-7581. We offer breakfast platters, hot lunch trays, and exclusive private dinner packages."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is Estime's Café BYOB?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes! Estime's Café is BYOB-friendly. Guests are welcome to bring their favorite champagne, prosecco, wine, or beer to pair with our signature brunch and lunch dishes."
             }
           }
         ]

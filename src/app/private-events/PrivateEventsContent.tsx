@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { BUSINESS_NAP_NAME } from "@/lib/business";
 import {
   Sparkles,
   Users,
@@ -12,7 +13,6 @@ import {
   Mail,
   MapPin,
   CheckCircle2,
-  Wine,
   Camera,
   Heart,
   ChevronRight,
@@ -60,7 +60,6 @@ const DINNER_PACKAGES: DinnerPackage[] = [
     ],
     beverages: [
       "Assorted Sodas, Fresh Brewed Coffee & Gourmet Teas",
-      "BYOB Friendly Setup (Glasses & Ice Provided)",
     ],
   },
   {
@@ -89,7 +88,6 @@ const DINNER_PACKAGES: DinnerPackage[] = [
     ],
     beverages: [
       "Assorted Sodas, Artisan Coffee & Herbal Teas",
-      "BYOB Friendly (No Corkage Fee)",
     ],
   },
   {
@@ -117,7 +115,6 @@ const DINNER_PACKAGES: DinnerPackage[] = [
     ],
     beverages: [
       "Assorted Sodas, Espresso & Coffee, Herbal Teas",
-      "Full BYOB Service (Wine buckets, glassware & setup)",
     ],
   },
 ];
@@ -129,14 +126,9 @@ const VENUE_HIGHLIGHTS = [
     desc: "Built-in luxury botanical greenery photo wall with custom lighting, perfect for guest memories.",
   },
   {
-    icon: Wine,
-    title: "100% BYOB Friendly",
-    desc: "Bring your favorite wines, champagnes, and spirits. We provide ice, wine chillers, and glassware free of charge.",
-  },
-  {
     icon: Users,
     title: "Intimate Private Buyout",
-    desc: "Host exclusive private parties from 20 up to 50 guests with dedicated waitstaff and private dining room access.",
+    desc: "Host exclusive private parties for up to 35 guests with dedicated waitstaff and private dining room access.",
   },
   {
     icon: Utensils,
@@ -183,7 +175,9 @@ export default function PrivateEventsContent() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": ["EventVenue", "Restaurant"],
-            "name": "Estime's Café Private Events Venue",
+            "@id": "https://www.estimescafe.com/private-events#venue",
+            "name": BUSINESS_NAP_NAME,
+            "alternateName": "Estime's Café Private Events Venue",
             "url": "https://www.estimescafe.com/private-events",
             "telephone": "(732) 669-7581",
             "address": {
@@ -194,9 +188,8 @@ export default function PrivateEventsContent() {
               "postalCode": "07067",
               "addressCountry": "US",
             },
-            "maximumAttendeeCapacity": 50,
+            "maximumAttendeeCapacity": 35,
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "BYOB Allowed", "value": "True" },
               { "@type": "LocationFeatureSpecification", "name": "Free Parking", "value": "True" },
               { "@type": "LocationFeatureSpecification", "name": "Private Dining Room", "value": "True" },
             ],
@@ -365,7 +358,7 @@ export default function PrivateEventsContent() {
                   Warm ambient lighting, long communal banquet seating, laughter, and Chef Duke serving gourmet Caribbean-American fusion directly to your guests. Unforgettable for birthday parties, anniversaries, and corporate dinners.
                 </p>
                 <div className="flex items-center gap-2 text-xs font-sans font-bold uppercase tracking-wider text-brand-green">
-                  <span>100% BYOB &bull; Dedicated Staff &bull; Custom Playlist Audio</span>
+                  <span>Dedicated Staff &bull; Custom Playlist Audio</span>
                 </div>
               </div>
             </div>
@@ -385,7 +378,7 @@ export default function PrivateEventsContent() {
             </h2>
             <p className="font-serif text-sm sm:text-base text-brand-muted leading-relaxed">
               Crafted by Executive Chef Duke Estime. All packages include family-style starters,
-              choice of gourmet entrées, hearty sides, artisan dessert, non-alcoholic beverages, and complete BYOB service.
+              choice of gourmet entrées, hearty sides, artisan dessert, and non-alcoholic beverages.
             </p>
           </div>
 
@@ -591,10 +584,9 @@ export default function PrivateEventsContent() {
                 <h4 className="font-sans font-bold uppercase tracking-wider text-brand-text text-[11px]">
                   Private Event Policies:
                 </h4>
-                <p>&bull; <strong>Capacity:</strong> Comfortably seats up to 50 guests.</p>
-                <p>&bull; <strong>Deposit:</strong> A 25% deposit secures your exclusive event date.</p>
-                <p>&bull; <strong>BYOB:</strong> Guests are welcome to bring wine, beer, champagne &amp; spirits.</p>
-                <p>&bull; <strong>Decorations:</strong> Early access provided for florals, balloons, and cake tables.</p>
+                <p>&bull; <strong>Capacity:</strong> Comfortably seats up to 35 guests.</p>
+                <p>&bull; <strong>Deposit:</strong> A 40% deposit secures your exclusive event date.</p>
+                <p>&bull; <strong>Decorations:</strong> Decorating time may be allotted based on your event start time. Brunches scheduled immediately after regular service may have limited early access.</p>
               </div>
             </div>
 
@@ -707,7 +699,7 @@ export default function PrivateEventsContent() {
                       >
                         <option value="15-25">15 – 25 Guests</option>
                         <option value="25-35">25 – 35 Guests</option>
-                        <option value="35-50">35 – 50 Guests</option>
+                        <option value="35">Up to 35 Guests</option>
                       </select>
                     </div>
 

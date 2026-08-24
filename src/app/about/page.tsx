@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AboutPageContent from "./AboutPageContent";
+import { BUSINESS_NAP_NAME } from "@/lib/business";
 
 export const metadata: Metadata = {
   title: "Meet The Chef & Our Story | Honoree Chef Duke Estime | Estime's Café Colonia NJ",
@@ -65,7 +66,7 @@ export default function AboutPage() {
           "@type": "WebSite",
           "@id": "https://www.estimescafe.com/#website",
           "url": "https://www.estimescafe.com",
-          "name": "Estime's Café"
+          "name": BUSINESS_NAP_NAME
         },
         "about": [
           {
@@ -85,7 +86,7 @@ export default function AboutPage() {
             "worksFor": {
               "@type": "Restaurant",
               "@id": "https://www.estimescafe.com/#restaurant",
-              "name": "Estime's Café"
+              "name": BUSINESS_NAP_NAME
             },
             "image": "https://www.estimescafe.com/assets/chef-duke-estime-james-beard-honoree.jpg",
             "sameAs": [
@@ -111,7 +112,7 @@ export default function AboutPage() {
             "worksFor": {
               "@type": "Restaurant",
               "@id": "https://www.estimescafe.com/#restaurant",
-              "name": "Estime's Café"
+              "name": BUSINESS_NAP_NAME
             }
           }
         ]
@@ -119,7 +120,7 @@ export default function AboutPage() {
       {
         "@type": "Restaurant",
         "@id": "https://www.estimescafe.com/#restaurant",
-        "name": "Estime's Café",
+        "name": BUSINESS_NAP_NAME,
         "url": "https://www.estimescafe.com",
         "telephone": "+1-732-669-7581",
         "servesCuisine": ["American", "Caribbean", "Haitian", "Breakfast", "Brunch"],

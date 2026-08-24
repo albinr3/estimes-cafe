@@ -78,8 +78,8 @@ export default function Hero() {
         {/* Right Visual Section */}
         <div className="lg:col-span-6 xl:col-span-7 relative min-h-[340px] sm:min-h-[400px] lg:min-h-[520px] bg-brand-cream border-t lg:border-t-0 lg:border-l border-brand-line overflow-hidden group">
           <Image
-            src="/assets/hero.jpg"
-            alt="Estime's Cafe Signature Breakfast and Brunch Spread in Colonia NJ"
+            src="/assets/estimes-cafe-breakfast-brunch-colonia-nj.webp"
+            alt="Estime's Café signature breakfast and brunch dishes in Colonia NJ including lemon ricotta pancakes, French toast, sandwiches, and steak and eggs"
             fill
             priority
             quality={95}

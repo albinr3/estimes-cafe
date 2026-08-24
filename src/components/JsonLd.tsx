@@ -1,3 +1,5 @@
+import { BUSINESS_BRAND_NAME, BUSINESS_NAP_NAME } from "@/lib/business";
+
 export default function JsonLd() {
   const structuredData = {
     "@context": "https://schema.org",
@@ -5,8 +7,8 @@ export default function JsonLd() {
       {
         "@type": ["Restaurant", "CafeOrCoffeeShop", "LocalBusiness"],
         "@id": "https://www.estimescafe.com/#restaurant",
-        "name": "Estime's Café",
-        "alternateName": "Estime Cafe",
+        "name": BUSINESS_NAP_NAME,
+        "alternateName": [BUSINESS_BRAND_NAME, "Estime Cafe"],
         "description": "Premier breakfast, signature brunch, lunch, and specialty artisan coffee featuring American comfort favorites fused with Haitian and Caribbean flavors by Chef Duke Estime in Colonia, NJ.",
         "url": "https://www.estimescafe.com/",
         "telephone": "+1-732-669-7581",
@@ -21,7 +23,7 @@ export default function JsonLd() {
           "Coffee"
         ],
         "image": [
-          "https://www.estimescafe.com/assets/hero.jpg",
+          "https://www.estimescafe.com/assets/estimes-cafe-breakfast-brunch-colonia-nj.jpg",
           "https://www.estimescafe.com/assets/signature.jpg",
           "https://www.estimescafe.com/assets/hash.jpg",
           "https://www.estimescafe.com/assets/estimes-cafe-dining-room-interior-colonia-nj.jpg",
@@ -111,7 +113,7 @@ export default function JsonLd() {
         "@type": "WebSite",
         "@id": "https://www.estimescafe.com/#website",
         "url": "https://www.estimescafe.com/",
-        "name": "Estime's Café",
+        "name": BUSINESS_NAP_NAME,
         "description": "Premier Breakfast, Brunch, Lunch & Artisan Coffee in Colonia, NJ",
         "publisher": {
           "@id": "https://www.estimescafe.com/#restaurant"

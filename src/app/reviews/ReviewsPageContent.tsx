@@ -116,7 +116,7 @@ export default function ReviewsPageContent() {
       date: "3 weeks ago",
       rating: 5,
       dish: "12oz NY Strip Steak & Eggs & Cold Brew",
-      text: "Came on a Sunday morning with friends. The steak and eggs was cooked to absolute medium-rare perfection—tender, seasoned brilliantly. Plus, being able to bring our own prosecco (BYOB) for mimosas makes the experience 10/10.",
+      text: "Came on a Sunday morning with friends. The steak and eggs was cooked to absolute medium-rare perfection—tender, seasoned brilliantly. The experience was 10/10.",
     },
     {
       id: 6,

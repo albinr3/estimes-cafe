@@ -10,7 +10,6 @@ import {
   CheckCircle2,
   Navigation,
   Sparkles,
-  Wine,
   Car,
 } from "lucide-react";
 
@@ -43,7 +42,7 @@ export default function ContactPageContent() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#fbf8f2] border border-brand-line text-xs font-semibold text-brand-green mb-4 shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
-            <span>Colonia, NJ &bull; Walk-Ins &amp; BYOB Welcome</span>
+            <span>Colonia, NJ &bull; Walk-Ins Welcome</span>
           </div>
 
           <h1 className="font-serif text-3xl sm:text-5xl text-brand-green font-normal tracking-tight mb-4">
@@ -153,11 +152,7 @@ export default function ContactPageContent() {
               </div>
 
               {/* Quick Perks Pill */}
-              <div className="mt-6 pt-5 border-t border-brand-line grid grid-cols-2 gap-3 text-xs font-serif text-[#48423c]">
-                <div className="flex items-center gap-2 bg-brand-paper p-2.5 rounded-md border border-brand-line/60">
-                  <Wine className="w-4 h-4 text-brand-green flex-shrink-0" />
-                  <span className="font-medium">BYOB Friendly</span>
-                </div>
+              <div className="mt-6 pt-5 border-t border-brand-line grid grid-cols-1 gap-3 text-xs font-serif text-[#48423c]">
                 <div className="flex items-center gap-2 bg-brand-paper p-2.5 rounded-md border border-brand-line/60">
                   <Car className="w-4 h-4 text-brand-green flex-shrink-0" />
                   <span className="font-medium">Free On-Site Parking</span>

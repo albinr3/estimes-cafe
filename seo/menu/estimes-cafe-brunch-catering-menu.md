@@ -7,7 +7,6 @@
 - Scrambled Eggs
 - Bacon / Sausage
 - Shrimp & Grits
-- BYOB
 
 **$45 per person**
 
@@ -20,7 +19,6 @@
 - Scrambled Eggs
 - Bacon / Sausage
 - NY Strip Steak
-- BYOB
 
 **$50 per person**
 
@@ -34,7 +32,6 @@
 - Bacon / Sausage
 - Honey Sriracha Fried Chicken Thighs
 - Brioche French Toast
-- BYOB
 
 **$40 per person**
 

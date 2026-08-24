@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ReviewsPageContent from "./ReviewsPageContent";
+import { BUSINESS_NAP_NAME } from "@/lib/business";
 
 export const metadata: Metadata = {
   title: "Guest Reviews & Press Features | Rated 4.8★ in Colonia NJ | Estime's Café",
@@ -60,13 +61,13 @@ export default function ReviewsPage() {
           "@type": "WebSite",
           "@id": "https://www.estimescafe.com/#website",
           "url": "https://www.estimescafe.com",
-          "name": "Estime's Café"
+          "name": BUSINESS_NAP_NAME
         }
       },
       {
         "@type": ["Restaurant", "CafeOrCoffeeShop", "LocalBusiness"],
         "@id": "https://www.estimescafe.com/#restaurant",
-        "name": "Estime's Café",
+        "name": BUSINESS_NAP_NAME,
         "url": "https://www.estimescafe.com",
         "telephone": "+1-732-669-7581",
         "address": {

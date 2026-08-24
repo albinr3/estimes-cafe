@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import OrderOnlineContent from "./OrderOnlineContent";
+import { BUSINESS_NAP_NAME } from "@/lib/business";
 
 export const metadata: Metadata = {
   title: "Order Online — Delivery & Takeout | Estime's Café Colonia NJ",
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/assets/hero.jpg",
+        url: "/assets/estimes-cafe-breakfast-brunch-colonia-nj.jpg",
         width: 1200,
         height: 630,
         alt: "Order Online from Estime's Cafe in Colonia NJ",
@@ -43,8 +44,9 @@ export default function OrderOnlinePage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Restaurant",
-    name: "Estime's Café",
-    image: "https://www.estimescafe.com/assets/hero.jpg",
+    "@id": "https://www.estimescafe.com/#restaurant",
+    name: BUSINESS_NAP_NAME,
+    image: "https://www.estimescafe.com/assets/estimes-cafe-breakfast-brunch-colonia-nj.jpg",
     url: "https://www.estimescafe.com/order-online",
     telephone: "+1-732-669-7581",
     priceRange: "$$",

@@ -20,7 +20,7 @@ export default function FeaturesBar() {
     {
       icon: Sparkles,
       title: "Full Catering Trays",
-      desc: "Corporate breakfast platters, hot lunch trays, and celebration catering across NJ.",
+      desc: "Party trays, corporate lunch catering, and breakfast platters across Central NJ.",
     },
   ];
 

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { BUSINESS_NAP_NAME } from "@/lib/business";
 
 export default function Footer() {
   return (
@@ -53,23 +54,13 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/menu#off-the-spatula" className="hover:text-white transition-colors">
-                  Signature Weekend Brunch
-                </Link>
-              </li>
-              <li>
-                <Link href="/menu#brunchy-bites" className="hover:text-white transition-colors">
-                  Lunch Specials &amp; Sandwiches
-                </Link>
-              </li>
-              <li>
                 <Link href="/catering#platter-catalog" className="hover:text-white transition-colors">
                   Catering Party Trays &amp; Platters
                 </Link>
               </li>
               <li>
                 <Link href="/catering" className="hover:text-white transition-colors">
-                  Corporate Breakfast &amp; Lunch Catering
+                  Party Trays &amp; Corporate Lunch Catering
                 </Link>
               </li>
               <li>
@@ -125,6 +116,7 @@ export default function Footer() {
               Location &amp; Contact
             </p>
             <div className="space-y-3 font-serif text-sm text-brand-cream/80">
+              <p className="font-bold text-white">{BUSINESS_NAP_NAME}</p>
               <p className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-brand-gold-light flex-shrink-0 mt-1" />
                 <span>
