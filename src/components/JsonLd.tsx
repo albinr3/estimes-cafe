@@ -24,8 +24,8 @@ export default function JsonLd() {
         ],
         "image": [
           "https://www.estimescafe.com/assets/estimes-cafe-breakfast-brunch-colonia-nj.jpg",
-          "https://www.estimescafe.com/assets/signature.jpg",
-          "https://www.estimescafe.com/assets/hash.jpg",
+          "https://www.estimescafe.com/assets/signature-weekend-brunch-specialty-pancakes-colonia-nj.jpg",
+          "https://www.estimescafe.com/assets/fresh-lunch-specials-handcrafted-sandwiches-colonia-nj.jpg",
           "https://www.estimescafe.com/assets/estimes-cafe-dining-room-interior-colonia-nj.jpg",
           "https://www.estimescafe.com/assets/estimes-cafe-storefront-colonia-nj.jpg"
         ],

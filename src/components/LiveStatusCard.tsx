@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Clock, Phone, MapPin, CheckCircle2, AlertCircle } from "lucide-react";
+import { Phone, MapPin, Sparkles, Clock } from "lucide-react";
 
 export default function LiveStatusCard() {
   const [isOpen, setIsOpen] = useState(false);
-  const [statusText, setStatusText] = useState("Checking hours...");
+  const [statusText, setStatusText] = useState("Checking schedule...");
 
   useEffect(() => {
     // Schedule (America/New_York):
@@ -57,24 +57,22 @@ export default function LiveStatusCard() {
   }, []);
 
   return (
-    <div className="bg-brand-green text-white p-8 sm:p-10 flex flex-col justify-between text-center relative overflow-hidden h-full">
+    <div className="bg-gradient-to-b from-[#384420] via-[#2f391b] to-[#252e15] border border-brand-gold/40 shadow-sm hover:shadow-md text-white p-7 sm:p-8 flex flex-col justify-between text-center relative overflow-hidden h-full group hover:border-brand-gold transition-all duration-300">
       {/* Decorative background accent */}
-      <div className="absolute top-0 right-0 transform translate-x-8 -translate-y-8 w-32 h-32 bg-brand-gold/10 rounded-full blur-2xl pointer-events-none" />
+      <div className="absolute top-0 right-0 transform translate-x-12 -translate-y-12 w-40 h-40 bg-brand-gold/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 transform -translate-x-12 translate-y-12 w-40 h-40 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none" />
 
+      {/* Top Header & Live Status */}
       <div>
-        <span className="text-[11px] tracking-[0.2em] uppercase font-bold text-brand-gold-light block mb-2">
-          Daily Hours &amp; Schedule
-        </span>
+        <div className="flex items-center justify-center gap-1.5 mb-3">
+          <Clock className="w-3.5 h-3.5 text-brand-gold-light" />
+          <span className="text-[11px] tracking-[0.2em] uppercase font-bold text-brand-gold-light">
+            Daily Hours &amp; Schedule
+          </span>
+        </div>
 
-        <p className="font-serif text-2xl sm:text-3xl font-medium mb-1">
-          Mon – Sat: 8am – 3pm
-        </p>
-        <p className="font-serif text-xl sm:text-2xl font-medium text-brand-gold-light mb-3">
-          Sunday: 8am – 4pm
-        </p>
-
-        {/* Live Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-[#3e4925] border border-brand-gold/40 mb-5">
+        {/* Live Status Badge */}
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-[#232a13]/90 border border-brand-gold/40 mb-6 shadow-inner">
           {isOpen ? (
             <>
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
@@ -88,18 +86,40 @@ export default function LiveStatusCard() {
           )}
         </div>
 
-        <p className="font-serif text-sm text-brand-cream/90 leading-relaxed mb-6">
+        {/* Operating Hours Box */}
+        <div className="bg-[#242c13]/60 border border-brand-gold/25 p-5 mb-5 space-y-2">
+          <div>
+            <span className="text-[10px] uppercase tracking-wider font-sans text-brand-gold-light/90 block">
+              Monday through Saturday
+            </span>
+            <p className="font-serif text-2xl sm:text-[26px] font-medium text-white tracking-tight">
+              8:00 AM – 3:00 PM
+            </p>
+          </div>
+
+          <div className="pt-2 border-t border-brand-cream/15">
+            <span className="text-[10px] uppercase tracking-wider font-sans text-brand-gold-light/90 block">
+              Sunday Brunch Hours
+            </span>
+            <p className="font-serif text-2xl sm:text-[26px] font-medium text-brand-gold-light tracking-tight">
+              8:00 AM – 4:00 PM
+            </p>
+          </div>
+        </div>
+
+        <p className="font-serif text-sm text-brand-cream/85 leading-relaxed mb-6">
           Serving hot breakfast, artisanal brioche French toast, weekend brunch, and midday lunch.
-          Dine-in, takeout, and curbside pickup available.
+          Dine-in, takeout, and curbside pickup available daily.
         </p>
       </div>
 
+      {/* Action Footer */}
       <div className="space-y-3 pt-4 border-t border-brand-cream/20">
         <a
           href="tel:7326697581"
-          className="w-full inline-flex items-center justify-center gap-2 bg-transparent hover:bg-white hover:text-brand-green text-white border border-brand-cream/40 px-4 py-3 text-xs font-bold uppercase tracking-wider transition-all duration-200"
+          className="w-full inline-flex items-center justify-center gap-2 bg-brand-gold hover:bg-brand-gold-light text-brand-text px-4 py-3 text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-sm"
         >
-          <Phone className="w-4 h-4 text-brand-gold-light" />
+          <Phone className="w-4 h-4 text-brand-text" />
           <span>Call (732) 669-7581</span>
         </a>
 
