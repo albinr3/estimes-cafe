@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asistente Rápido de Servicios GBP — Estime's Café</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f17;
+      --card-bg: #141c2b;
+      --card-border: #222f46;
+      --accent: #d97706;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --btn-bg: #1e293b;
+      --btn-border: #334155;
+      --success: #10b981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      position: sticky;
+      top: 12px;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .title-area h1 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge-biz {
+      background: rgba(217, 119, 6, 0.2);
+      color: #fbbf24;
+      font-size: 13px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(217, 119, 6, 0.4);
+      font-weight: 600;
+    }
+
+    .stats-bar {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--card-border);
+    }
+
+    .progress-track {
+      flex: 1;
+      height: 10px;
+      background: #1e293b;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #f59e0b, #10b981);
+      width: 0%;
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .progress-text {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-muted);
+      min-width: 180px;
+      text-align: right;
+    }
+
+    .actions-bar {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-gbp-link {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: white;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 9px 16px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .btn-gbp-link:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+    }
+
+    .btn-reset {
+      background: transparent;
+      border: 1px solid var(--btn-border);
+      color: var(--text-muted);
+      font-size: 12px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-reset:hover {
+      background: #1e293b;
+      color: #fff;
+    }
+
+    .category-section {
+      margin-bottom: 30px;
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      padding-left: 4px;
+    }
+
+    .category-badge {
+      background: #1e293b;
+      border: 1px solid #334155;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 800;
+      color: #38bdf8;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .category-badge.primary-tag {
+      background: rgba(245, 158, 11, 0.15);
+      border-color: rgba(245, 158, 11, 0.4);
+      color: #fbbf24;
+    }
+
+    .primary-pill {
+      background: #f59e0b;
+      color: #000;
+      font-size: 10px;
+      font-weight: 900;
+      padding: 2px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .category-count {
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .services-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      transition: all 0.2s ease;
+    }
+
+    .service-card:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+    }
+
+    .service-card.completed {
+      background: rgba(16, 185, 129, 0.04);
+      border-color: rgba(16, 185, 129, 0.35);
+      opacity: 0.75;
+    }
+
+    .service-card.completed .service-title {
+      text-decoration: line-through;
+      color: #64748b;
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 12px;
+    }
+
+    .title-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .check-box {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      accent-color: var(--success);
+    }
+
+    .service-number {
+      font-size: 12px;
+      font-weight: 800;
+      color: #fbbf24;
+      background: rgba(251, 191, 36, 0.12);
+      padding: 2px 8px;
+      border-radius: 5px;
+    }
+
+    .google-pill {
+      font-size: 11px;
+      font-weight: 700;
+      color: #34d399;
+      background: rgba(52, 211, 153, 0.12);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      padding: 2px 7px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .service-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #f8fafc;
+    }
+
+    .price-pill {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: #38bdf8;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .field-row {
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+
+    .field-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #64748b;
+      font-weight: 700;
+      width: 85px;
+      flex-shrink: 0;
+    }
+
+    .field-content {
+      font-size: 13px;
+      color: #cbd5e1;
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .field-content.desc {
+      white-space: normal;
+      line-height: 1.4;
+    }
+
+    .char-badge {
+      font-size: 11px;
+      color: #10b981;
+      font-weight: 600;
+      flex-shrink: 0;
+      background: rgba(16, 185, 129, 0.12);
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    .btn-copy {
+      background: var(--btn-bg);
+      border: 1px solid var(--btn-border);
+      color: #f1f5f9;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s ease;
+      flex-shrink: 0;
+    }
+
+    .btn-copy:hover {
+      background: #334155;
+      border-color: #64748b;
+    }
+
+    .btn-copy.copied {
+      background: var(--success);
+      border-color: var(--success);
+      color: #fff;
+    }
+
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #10b981;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      display: none;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="header-top">
+      <div class="title-area">
+        <h1>
+          <span>⚡ Asistente Rápido de Servicios GBP</span>
+          <span class="badge-biz">Estime's Café</span>
+        </h1>
+        <p style="color: var(--text-muted); font-size: 13px; margin-top: 4px;">
+          Configurado exactamente según tus <strong>5 categorías activas en Google Business Profile</strong>.
+        </p>
+      </div>
+      <div class="actions-bar">
+        <a href="https://business.google.com" target="_blank" class="btn-gbp-link">
+          🔗 Abrir Panel de GBP
+        </a>
+        <button class="btn-reset" onclick="resetProgress()">Reiniciar progreso</button>
+      </div>
+    </div>
+
+    <div class="stats-bar">
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="progress-text" id="progressText">0 / 29 Completados (0%)</div>
+    </div>
+  </header>
+
+  <div id="categoriesContainer"></div>
+</div>
+
+<div id="toast">✓ Copiado al portapapeles</div>
+
+<script>
+const servicesData = [
+  {
+    categoryName: "Brunch restaurant",
+    isPrimary: true,
+    note: "Categoría Principal en tu perfil",
+    services: [
+      {
+        num: 1,
+        name: "Weekend Brunch (Saturday & Sunday Brunch)",
+        price: "$16.95 - $45.00",
+        desc: "Looking for the best weekend brunch near me in Woodbridge & Colonia NJ? Enjoy Saturday & Sunday brunch with Lemon Ricotta Pancakes, Amaretto French Toast, Shrimp & Grits, and Chef Duke's signature drinks. Dine-in or takeout at Estime's Cafe on Inman Ave!",
+        chars: 254
+      },
+      {
+        num: 2,
+        name: "Pancakes & Brioche French Toast",
+        price: "$16.95",
+        desc: "Craving the best breakfast pancakes near me? Try our famous Lemon Ricotta Pancakes with lemon butter, Blueberry stacks, and Amaretto Brioche French Toast griddled in vanilla batter. Fluffy, chef-crafted breakfast favorites in Colonia NJ ($16.95).",
+        chars: 244
+      },
+      {
+        num: 3,
+        name: "Steak and Eggs Breakfast",
+        price: "$38.00",
+        desc: "Hungry for a hearty steak and eggs breakfast near you? Savor our 12oz NY Strip Steak with two eggs any style, seasoned home fries, toast, and house Creole chimichurri. The ultimate high-protein brunch plate in Woodbridge Township.",
+        chars: 230
+      },
+      {
+        num: 4,
+        name: "Brunch Tacos & Creole Plates",
+        price: "$20.00",
+        desc: "Best tacos for breakfast in Central NJ! Three warm tortillas stuffed with scrambled eggs, Haitian marinade, peppers, onions, and your choice of steak, chorizo, turkey bacon, or shrimp. Unmatched brunch flavor at Estime's Cafe.",
+        chars: 226
+      },
+      {
+        num: 5,
+        name: "Shrimp & Grits Creole Style",
+        price: "$28.00",
+        desc: "Signature Southern & Haitian fusion Shrimp and Grits in NJ. Succulent jumbo shrimp, sautéed peppers, onions, and creamy cheddar cheese grits drizzled with Chef Duke's Creole sauce. Top-rated brunch dish in Middlesex County!",
+        chars: 223
+      },
+      {
+        num: 6,
+        name: "Gourmet Benedicts & Specialty Omelets",
+        price: "$18.00 - $36.00",
+        desc: "Freshly prepared eggs Benedict with poached eggs and velvety Hollandaise over butter-poached lobster ($36), crispy shrimp, or pastrami. Plus gourmet 3-egg omelets served with crispy home fries and toast. Top breakfast spot in Colonia NJ.",
+        chars: 238
+      },
+      {
+        num: 7,
+        name: "Gourmet Lobster & Seafood Brunch Bowls",
+        price: "$28.00 - $42.00",
+        desc: "Looking for an upscale seafood brunch in NJ? Savor our Lobster Brunch Bowl ($42), Pan-Seared Salmon Bowl ($36), Crispy Catfish ($36), and Shrimp & Grits ($28) over rich Creole stone-ground cheddar grits. Dine in at Estime's Cafe on Inman Ave!",
+        chars: 236
+      },
+      {
+        num: 8,
+        name: "Chef Duke's Surf & Turf & Prime Cuts",
+        price: "$38.00 - $45.00",
+        desc: "Top luxury brunch plate in Central NJ! Featuring Surf & Turf Breakfast ($45 with NY Strip & lobster tail), Grilled Lamb Chops ($38), and 12oz Prime NY Strip Steak & eggs ($38) with house Creole chimichurri. Pure brunch excellence.",
+        chars: 232
+      },
+      {
+        num: 9,
+        name: "Haitian-Caribbean Fusion Specialties",
+        price: "$18.00 - $34.00",
+        desc: "Experience authentic Haitian fusion brunch in NJ! Featuring Haitian Herring Pasta ($34) with traditional epis, Haitian Spicy Omelet ($18) with smoked herring, and Creole Shrimp & Grits ($28). Chef Duke Estime's Caribbean culinary roots.",
+        chars: 240
+      }
+    ]
+  },
+  {
+    categoryName: "Cafe",
+    isPrimary: false,
+    note: "Bebidas, café y repostería",
+    services: [
+      {
+        num: 10,
+        name: "Handcrafted Cold Drinks, Fresh Juices & Coffee",
+        price: "$3.50 - $14.00",
+        desc: "Refreshing beverages at Estime's Cafe! Featuring 100% Fresh Squeezed Orange Juice ($14), Chef Duke's signature Jammin' Lemonade ($12), Raspberry Hibiscus iced tea ($8), chilled iced coffee ($6), and hot artisan drip coffee ($3.50) in Colonia NJ.",
+        chars: 238
+      },
+      {
+        num: 11,
+        name: "Artisan Espresso & Morning Specialty Drinks",
+        price: "$4.50 - $8.00",
+        desc: "Need your morning coffee fix in Colonia NJ? Enjoy artisan espresso drinks, iced lattes, fresh brewed coffees, seasonal teas, and Caribbean-inspired refreshments. Perfect sit-down cafe atmosphere or quick morning takeout.",
+        chars: 215
+      }
+    ]
+  },
+  {
+    categoryName: "Caterer",
+    isPrimary: false,
+    note: "Usa los botones verdes sugeridos por Google",
+    services: [
+      {
+        num: 12,
+        name: "Brunch catering",
+        price: "$40 - $50 per person",
+        desc: "Premier brunch catering in Central NJ! Enjoy full & half party trays of Lemon Ricotta Pancakes, Brioche French Toast, scrambled eggs, bacon, home fries, and Shrimp & Grits. Perfect for morning events, showers, and family gatherings in Colonia.",
+        chars: 248,
+        googleBtn: "Botón: + Brunch catering"
+      },
+      {
+        num: 13,
+        name: "Corporate catering",
+        price: "Custom Quote",
+        desc: "Reliable corporate catering for business meetings, conferences, and office lunches in Woodbridge, Edison, & Clark NJ. Gourmet sandwich platters, fresh salads, pasta trays, and hot chef entrées delivered on time. Call 732-669-7581 for quotes.",
+        chars: 246,
+        googleBtn: "Botón: + Corporate catering"
+      },
+      {
+        num: 14,
+        name: "Buffet catering",
+        price: "Starting from $65 (Trays)",
+        desc: "Delicious buffet catering with Chef Duke's half & full party trays: Rasta Pasta, Haitian Salmon, Jerk Chicken, Chicken Marsala, Baked Ziti, and Black Rice / Diri Djon Djon. Perfect buffet-style setup for birthdays and celebrations in NJ.",
+        chars: 242,
+        googleBtn: "Botón: + Buffet catering"
+      },
+      {
+        num: 15,
+        name: "Event catering",
+        price: "Starting from $40 / guest",
+        desc: "Full-service event catering across Middlesex County. Whether hosting at Estime's Cafe or your own venue, we provide elevated Caribbean-American fusion menus, brunch buffets, appetizers, and signature drinks tailored to your special event.",
+        chars: 245,
+        googleBtn: "Botón: + Event catering"
+      },
+      {
+        num: 16,
+        name: "Party catering",
+        price: "Custom Quote / Per Tray",
+        desc: "Make your next celebration unforgettable with Estime's Cafe party catering! From sweet brunch favorites to savory Haitian specialties and artisan sliders, we supply hot, fresh party trays for birthdays, anniversaries, and holidays in NJ.",
+        chars: 238,
+        googleBtn: "Botón: + Party catering"
+      },
+      {
+        num: 17,
+        name: "Private catering",
+        price: "$80 - $105 per person",
+        desc: "Bespoke private catering & VIP dining packages ($80-$105/guest). Featuring multi-course menus with Prime NY Strip Steak, Whole Red Snapper, Lamb Chops, and authentic Haitian desserts. Unmatched elegance for intimate dinners and celebrations.",
+        chars: 244,
+        googleBtn: "Botón: + Private catering"
+      },
+      {
+        num: 18,
+        name: "Dinner catering",
+        price: "Starting from $75 (Trays)",
+        desc: "Gourmet evening dinner catering in Central NJ. Indulge your guests with pan-seared salmon, Creole shrimp, steak entrées, artisan pasta, and Caribbean sides. Ideal for evening corporate dinners, holiday gatherings, and rehearsal dinners.",
+        chars: 246,
+        googleBtn: "Botón: + Dinner catering"
+      },
+      {
+        num: 19,
+        name: "Graduation catering",
+        price: "Custom Quote / Packages",
+        desc: "Celebrate your graduate with top-rated graduation catering in Colonia & Woodbridge NJ! Crowd-pleasing brunch platters, gourmet burgers, mac & cheese, wings, and Caribbean party trays. Stress-free setup and pickup for family grad parties.",
+        chars: 242,
+        googleBtn: "Botón: + Graduation catering"
+      },
+      {
+        num: 20,
+        name: "Personal chef catering",
+        price: "Custom Quote",
+        desc: "Experience private chef catering with Chef Duke Estime. Custom-curated Caribbean & modern American menus cooked with fresh local ingredients for your VIP gathering, micro-wedding, or executive retreat. Book your personal chef experience!",
+        chars: 240,
+        googleBtn: "Botón: + Personal chef catering"
+      },
+      {
+        num: 21,
+        name: "Wedding catering",
+        price: "Custom Quote",
+        desc: "Specialized wedding catering for intimate weddings, rehearsal dinners, and day-after wedding brunches in NJ. Featuring elegant brunch towers, seafood displays, steak carving, and tropical cocktails tailored to your unforgettable day.",
+        chars: 245,
+        googleBtn: "Botón: + Wedding catering"
+      }
+    ]
+  },
+  {
+    categoryName: "Lunch restaurant",
+    isPrimary: false,
+    note: "Hamburguesas, ensaladas, sándwiches y pastas de mediodía",
+    services: [
+      {
+        num: 22,
+        name: "Handcrafted Burgers & Artisan Sandwiches (with Fries)",
+        price: "$20.00 - $34.00",
+        desc: "Great lunch places in Colonia NJ! Savor our Gourmet Truffle Burger with Swiss ($30), All In Burger ($25), Deluxe Burger ($20), Crispy Catfish Sandwich ($27), and NY Strip Steak Sandwich ($34), all served with seasoned fries. Dine-in or takeout!",
+        chars: 248
+      },
+      {
+        num: 23,
+        name: "Fresh Salads & Healthy Lunch Bowls",
+        price: "$16.00 - $24.00",
+        desc: "Healthy gourmet lunch options in Woodbridge Township. Try our Rob the Garden Salad ($24) with goat cheese and aged balsamic, or our classic Kale Caesar ($16) with Parmesan and zesty dressing. Fresh, crisp, and delicious midday fuel.",
+        chars: 233
+      },
+      {
+        num: 24,
+        name: "Takeout Lunch & Online Food Ordering",
+        price: "A la carte",
+        desc: "Fast lunch takeout near Woodbridge and Colonia NJ. Order delicious burgers, crispy catfish sandwiches, fresh salads, and Creole bowls online for quick pickup. Fresh, chef-prepared hot lunch meals ready on your schedule!",
+        chars: 221
+      },
+      {
+        num: 25,
+        name: "Gourmet Lunch Entrées & Creole Pastas",
+        price: "$24.00 - $36.00",
+        desc: "Elevate your lunch in Central NJ with Chef Duke's signature entrées: Creole Rasta Pasta ($24), Pan-Seared Salmon ($36), and NY Strip Steak Lunch Platters ($38). Unmatched flavor and quality for sit-down lunch in Colonia.",
+        chars: 223
+      }
+    ]
+  },
+  {
+    categoryName: "Breakfast restaurant",
+    isPrimary: false,
+    note: "Huevos, sándwiches matutinos, opciones keto",
+    services: [
+      {
+        num: 26,
+        name: "Daily Breakfast & Morning Cafe Platters",
+        price: "$12.00 - $38.00",
+        desc: "Discover a top restaurant for breakfast near me in Colonia NJ. Serving locally farm-raised eggs, buttermilk pancakes, crispy bacon, sausage, and freshly brewed artisan coffee. Fast, friendly dine-in and takeout every morning!",
+        chars: 225
+      },
+      {
+        num: 27,
+        name: "Breakfast Sandwiches on Brioche & Handhelds",
+        price: "$12.00 - $25.00",
+        desc: "Searching for a gourmet breakfast sandwich near me? Grab 'The Mayor' ($12), 'The Jimmy' & 'The Inman' ($13), Steak Egg & Cheese ($20), or Chef Duke's Monte Estime ($25) on toasted bakery rolls. Perfect morning bite in Woodbridge Township.",
+        chars: 242
+      },
+      {
+        num: 28,
+        name: "Keto & High-Protein Breakfast",
+        price: "$19.00 - $26.00",
+        desc: "Looking for healthy & keto breakfast near me? Try our chef-crafted keto omelets: Alfano Omelet with grilled chicken and sausage ($26), and Beckler egg white omelet with avocado & goat cheese ($19). Clean nutritious fuel in Colonia NJ.",
+        chars: 229
+      },
+      {
+        num: 29,
+        name: "Farmer's Egg Platters & Sides",
+        price: "$15.00",
+        desc: "Classic farm-fresh 3-egg platters cooked your way including your choice of bacon, Taylor ham, or sausage, served with seasoned golden home fries and toast ($15). Authentic New Jersey breakfast comfort made to order.",
+        chars: 216
+      }
+    ]
+  }
+];
+
+let completedState = JSON.parse(localStorage.getItem('estimes_gbp_progress_v3') || '{}');
+
+function copyText(text, btnElement) {
+  navigator.clipboard.writeText(text).then(() => {
+    const originalText = btnElement.innerHTML;
+    btnElement.innerHTML = '✓ Copiado';
+    btnElement.classList.add('copied');
+    showToast();
+    setTimeout(() => {
+      btnElement.innerHTML = originalText;
+      btnElement.classList.remove('copied');
+    }, 1200);
+  });
+}
+
+function showToast() {
+  const toast = document.getElementById('toast');
+  toast.style.display = 'block';
+  setTimeout(() => {
+    toast.style.display = 'none';
+  }, 1200);
+}
+
+function toggleService(num) {
+  completedState[num] = !completedState[num];
+  localStorage.setItem('estimes_gbp_progress_v3', JSON.stringify(completedState));
+  render();
+}
+
+function resetProgress() {
+  if (confirm("¿Quieres reiniciar el progreso?")) {
+    completedState = {};
+    localStorage.removeItem('estimes_gbp_progress_v3');
+    render();
+  }
+}
+
+function render() {
+  const container = document.getElementById('categoriesContainer');
+  container.innerHTML = '';
+
+  let totalCount = 0;
+  let doneCount = 0;
+
+  servicesData.forEach(cat => {
+    const catSection = document.createElement('div');
+    catSection.className = 'category-section';
+
+    const catHeader = document.createElement('div');
+    catHeader.className = 'category-header';
+    catHeader.innerHTML = `
+      <span class="category-badge ${cat.isPrimary ? 'primary-tag' : ''}">
+        ${cat.categoryName}
+        ${cat.isPrimary ? '<span class="primary-pill">PRIMARY</span>' : ''}
+      </span>
+      <span class="category-count">— ${cat.note} (${cat.services.length} servicios)</span>
+    `;
+    catSection.appendChild(catHeader);
+
+    const grid = document.createElement('div');
+    grid.className = 'services-grid';
+
+    cat.services.forEach(s => {
+      totalCount++;
+      const isDone = !!completedState[s.num];
+      if (isDone) doneCount++;
+
+      const card = document.createElement('div');
+      card.className = `service-card ${isDone ? 'completed' : ''}`;
+      card.innerHTML = `
+        <div class="card-top">
+          <div class="title-group">
+            <input type="checkbox" class="check-box" ${isDone ? 'checked' : ''} onchange="toggleService(${s.num})" title="Marcar como añadido">
+            <span class="service-number">#${s.num}</span>
+            <span class="service-title">${s.name}</span>
+            ${s.googleBtn ? `<span class="google-pill">⚡ ${s.googleBtn}</span>` : ''}
+          </div>
+          <span class="price-pill">${s.price}</span>
+        </div>
+
+        <div class="field-row">
+          <span class="field-label">Nombre</span>
+          <span class="field-content">${s.name}</span>
+          <button class="btn-copy" onclick="copyText('${escapeQuotes(s.name)}', this)">📋 Copiar Nombre</button>
+        </div>
+
+        <div class="field-row">
+          <span class="field-label">Precio</span>
+          <span class="field-content">${s.price}</span>
+          <button class="btn-copy" onclick="copyText('${escapeQuotes(s.price)}', this)">📋 Copiar Precio</button>
+        </div>
+
+        <div class="field-row">
+          <span class="field-label">Descripción</span>
+          <span class="field-content desc">${s.desc}</span>
+          <span class="char-badge">${s.chars} / 300 car.</span>
+          <button class="btn-copy" onclick="copyText('${escapeQuotes(s.desc)}', this)">📋 Copiar Descripción</button>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+
+    catSection.appendChild(grid);
+    container.appendChild(catSection);
+  });
+
+  const percentage = Math.round((doneCount / totalCount) * 100);
+  document.getElementById('progressFill').style.width = percentage + '%';
+  document.getElementById('progressText').innerText = `${doneCount} / ${totalCount} Completados (${percentage}%)`;
+}
+
+function escapeQuotes(str) {
+  return str.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+}
+
+render();
+</script>
+
+</body>
+</html>
