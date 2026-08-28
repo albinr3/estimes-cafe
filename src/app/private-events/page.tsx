@@ -24,7 +24,9 @@ export const metadata: Metadata = {
       "Intimate private event dining space & custom multi-course menus crafted by Executive Chef Duke Estime in Colonia, New Jersey.",
     url: "https://www.estimescafe.com/private-events",
     type: "website",
+    images: [{ url: "/assets/private-events-social-preview.png", width: 1200, height: 630, alt: "Private event dining at Estime's Café in Colonia, NJ" }],
   },
+  twitter: { card: "summary_large_image", title: "Private Events & Dinner Packages | Estime's Café Colonia NJ", description: "Host a private event at Estime's Café in Colonia, NJ.", images: ["/assets/private-events-social-preview.png"] },
 };
 
 export default function PrivateEventsPage() {

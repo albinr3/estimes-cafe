@@ -121,7 +121,7 @@ export default function Footer() {
                 <MapPin className="w-4 h-4 text-brand-gold-light flex-shrink-0 mt-1" />
                 <span>
                   <a
-                    href="#location"
+                    href="/contact#location-map"
                     className="hover:text-white transition-colors"
                   >
                     238 Inman Avenue, Colonia, NJ 07067

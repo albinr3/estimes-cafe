@@ -60,15 +60,20 @@ Este documento mapea los datos de búsqueda obtenidos del Keyword Research (`key
 | `lunch menu` | 49,500 | 0.54 | 5 | 38 | Transaccional | Pestaña Almuerzos |
 | `cafes for breakfast` | 40,500 | 0.49 | 4 | **16** (Muy Fácil) | Local Transaccional | Encabezado de Categoría |
 | `brunch sunday near me` | 40,500 | 0.84 | 17 | **23** (Fácil) | Transaccional / Temporal | Sección Sunday Brunch Specials |
-| `steak and eggs breakfast` | 40,500 | 0.65 | 5 | 31 | Producto | Plato: 12oz NY Strip Steak & Eggs |
-| `potato breakfast` | 40,500 | 0.39 | 43 | 50 | Producto | Plato: Potato Bacon Lover |
-| `breakfast sausage` / `sausage for breakfast`| 81,000 | 0.65 | 99 | 52 | Producto | Acompañamientos / Sides |
+| `steak and eggs breakfast` | 40,500 | 0.65 | 5 | 31 | Producto | Plato: 12oz Prime NY Strip Breakfast ($38) |
+| `lobster eggs benedict` / `lobster brunch` | 18,100 | 1.35 | 12 | **24** (Fácil) | Producto Prémium | Platos: Lobster Benedict ($36) & Lobster Bowl ($42) |
+| `truffle burger` | 33,100 | 1.15 | 18 | 29 | Gourmet / Producto | Plato: Gourmet Truffle Burger ($30) |
+| `surf and turf breakfast` | 8,100 | 1.40 | 8 | **21** (Muy Fácil) | Alto Ticket / Gourmet | Plato: Surf & Turf Breakfast ($45) |
+| `lamb chops breakfast` | 4,400 | 1.10 | 6 | **19** (Muy Fácil) | High-Protein / Gourmet | Plato: Lamb Chops Breakfast ($38) |
+| `shrimp and grits` | 201,000 | 0.95 | 22 | 34 | Soul / Creole Fusion | Plato: Shrimp & Grits Bowl ($28) |
+| `blueberry pancakes` | 49,500 | 0.48 | 15 | **25** (Excelente) | Producto | Plato: Blueberry Pancakes ($16.95) |
+| `breakfast sausage` / `sausage for breakfast`| 81,000 | 0.65 | 99 | 52 | Producto | Acompañamientos / Sides & The Mayor |
 | `sunday brunch` | 14,800 | 0.93 | 20 | 43 | Temporal | Sección Fin de Semana |
 | `sunday brunch nearby` | 9,900 | 0.90 | 7 | **18** (Muy Fácil) | Local | CTA Menú Fin de Semana |
 | `saturday brunch` | 4,400 | 0.96 | 27 | **19** (Muy Fácil) | Temporal | Sección Saturday Specials |
-| `lemon ricotta pancakes` | 18,100 | 0.45 | 12 | 22 | Producto de Autor | Plato Estrella en Menú |
-| `brioche french toast nj` | 1,900 | 0.85 | 15 | 21 | Local / Producto | Plato Estrella: Amaretto Toast |
-| `brunch cafe menu` | 880 | 1.11 | 1 | 24 | Transaccional | Menú Interactivo |
+| `lemon ricotta pancakes` | 18,100 | 0.45 | 12 | 22 | Producto de Autor | Plato Estrella en Menú ($16.95) |
+| `brioche french toast nj` | 1,900 | 0.85 | 15 | 21 | Local / Producto | Plato Estrella: Amaretto Toast ($16.95) |
+| `brunch cafe menu` | 880 | 1.11 | 1 | 24 | Transaccional | Menú Interactivo de 8 Categorías |
 
 ---
 

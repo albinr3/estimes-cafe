@@ -161,7 +161,7 @@ export default function ContactPageContent() {
             </div>
 
             {/* Embedded Google Map */}
-            <div className="bg-white border border-brand-line rounded-xl overflow-hidden shadow-xs h-60 w-full relative">
+            <div id="location-map" className="bg-white border border-brand-line rounded-xl overflow-hidden shadow-xs h-60 w-full relative scroll-mt-24">
               <iframe
                 title="Estime's Cafe Location Map"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3028.922115982883!2d-74.31517532397935!3d40.60034317141103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3b78d2780b6fd%3A0xfa97f1d15128900a!2sEstime's%20Cafe!5e0!3m2!1sen!2sus!4v1710000000000!5m2!1sen!2sus"

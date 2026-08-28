@@ -55,18 +55,19 @@ https://www.estimescafe.com/
 *Estrategia:* Una única página interactiva y completa en HTML puro que reúne toda la oferta gastronómica regular para consumo en el local (*Dine-in*) y para llevar (*Takeout*), sin fragmentar el menú en páginas separadas por plato.
 
 - **Encabezado H1:** `Breakfast, Brunch & Lunch Menu: Daily Favorites & Artisan Coffee`
-- **Secciones Semánticas (Encabezados H2):**
-  1. `Farm-Fresh Breakfast Classics, Eggs & Artisan Omelets` (Ataca: `breakfast places`, `cafes for breakfast`, `eggs for breakfast`, `steak and eggs breakfast`).
-  2. `Signature Weekend Brunch, Specialty Pancakes & Brioche French Toast` (Ataca: `breakfast near me pancakes`, `lemon ricotta pancakes`, `brioche french toast nj`, `sunday brunch`, `saturday brunch`).
-  3. `Handcrafted Lunch Specials, Sandwiches & Smash Burgers` (Ataca: `lunch specials near me`, `breakfast sandwich near me`, `lunch menu`, `lunch restaurants`).
-  4. `Chef Duke’s Caribbean Fusion Specialties & Creole Grits` (Ataca: `haitian restaurant nj`, `shrimp and grits`, `haitian spicy omelet`).
-  5. `Keto-Friendly, High-Protein & Plant-Based Breakfast Options` (Ataca: `vegan breakfast near me`, `keto breakfast`, `power omelet`).
-  6. `Artisan Coffee, Espresso & Specialty Drinks` (Ataca: `cafe near me`, `specialty coffee nj`).
+- **Secciones Semánticas y Filtros Interactivos (8 Categorías Optimizadas):**
+  1. `Off the Spatula (Pancakes & French Toast — Flat $16.95)` (Ataca: `breakfast near me pancakes`, `lemon ricotta pancakes`, `amaretto brioche french toast`, `blueberry pancakes`).
+  2. `Chef Specials & Entrees` (Ataca: `surf and turf breakfast`, `lamb chops breakfast`, `prime ny strip steak and eggs`, `haitian herring pasta`).
+  3. `Brunch Bowls & Creole Grits` (Ataca: `lobster brunch`, `salmon and grits`, `creole catfish`, `shrimp and grits colonia nj`).
+  4. `Benedicts & Gourmet Omelets` (Ataca: `lobster benedict nj`, `keto breakfast near me`, `haitian spicy omelet`, `ny deli pastrami omelet`).
+  5. `Handcrafted Burgers & Sandwiches (with Fries)` (Ataca: `truffle burger colonia nj`, `best smash burger`, `catfish sandwich`, `steak sandwich`).
+  6. `Breakfast Classics & Handhelds` (Ataca: `breakfast sandwich near me`, `farmer's plate`, `monte estime`, `the mayor sandwich`).
+  7. `Let's Get Started & Fresh Salads` (Ataca: `brunch tacos`, `uncle dunn tempura shrimp`, `rob the garden salad`, `kale caesar`).
+  8. `Sides, Razzle Dazzle & Cold Drinks` (Ataca: `truffle fries`, `fresh orange juice`, `jammin lemonade`, `hibiscus iced tea`).
 - **Navegación Interna a Otros Menús:** Dentro de `/menu/` se incluyen banners destacados de acceso a:
-  - *¿Organizando un evento o reunión de oficina?* Ver [Catering Party Trays Menu](file:///catering/menu/).
-  - *¿Buscas brunch para tu fiesta matutina?* Ver [Weekend Brunch Catering Menu](file:///catering/brunch/).
-  - *¿Celebración privada en nuestro local?* Ver [Private Events Menu & Packages](file:///private-events/).
-- **Schema Markup:** `Menu`, `Restaurant`, `MenuItem` estructurados por `hasMenuSection`.
+  - *¿Organizando un evento o reunión de oficina?* Ver [Catering Party Trays Menu](/catering/).
+  - *¿Celebración privada en nuestro local?* Ver [Private Events Menu & Packages](/private-events/).
+- **Schema Markup:** `Menu`, `Restaurant`, `MenuItem`, `Offer` estructurados dinámicamente con precios y divisas exactas en `hasMenuSection`.
 
 ### 2.3 Páginas de Menús Especializados de Catering y Eventos
 

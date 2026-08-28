@@ -10,7 +10,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/private-events",
     "/order-online",
     "/about",
-    "/meet-the-chef",
     "/reviews",
     "/contact",
   ];

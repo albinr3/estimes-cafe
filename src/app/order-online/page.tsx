@@ -31,12 +31,18 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/assets/estimes-cafe-breakfast-brunch-colonia-nj.jpg",
+        url: "/assets/order-online-social-preview.png",
         width: 1200,
         height: 630,
-        alt: "Order Online from Estime's Cafe in Colonia NJ",
+        alt: "Order online from Estime's Café in Colonia, NJ",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Order Online — Delivery & Takeout | Estime's Café Colonia NJ",
+    description: "Order online for delivery or takeout from Estime's Café in Colonia, NJ.",
+    images: ["/assets/order-online-social-preview.png"],
   },
 };
 
@@ -46,7 +52,7 @@ export default function OrderOnlinePage() {
     "@type": "Restaurant",
     "@id": "https://www.estimescafe.com/#restaurant",
     name: BUSINESS_NAP_NAME,
-    image: "https://www.estimescafe.com/assets/estimes-cafe-breakfast-brunch-colonia-nj.jpg",
+    image: "https://www.estimescafe.com/assets/order-online-social-preview.png",
     url: "https://www.estimescafe.com/order-online",
     telephone: "+1-732-669-7581",
     priceRange: "$$",

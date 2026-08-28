@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import {
   ExternalLink,
@@ -12,7 +11,6 @@ import {
   Sparkles,
   ShoppingBag,
   Truck,
-  ArrowRight,
   ChevronDown,
   Info,
   ShieldCheck,
@@ -88,64 +86,6 @@ const DELIVERY_PLATFORMS: DeliveryPlatform[] = [
       "Contactless doorstep drop-off guaranteed",
       "Quick reordering of your favorite Estime's staples",
     ],
-  },
-];
-
-interface PopularItem {
-  name: string;
-  category: string;
-  price: string;
-  image: string;
-  description: string;
-  badge?: string;
-}
-
-const POPULAR_ITEMS: PopularItem[] = [
-  {
-    name: "Amaretto Brioche French Toast",
-    category: "Signature Brunch",
-    price: "$15.95",
-    image: "/assets/amaretto-french-toast.jpg",
-    description: "Thick brioche griddled golden brown, smothered in Chef Duke's signature warm amaretto sauce & fresh berries.",
-    badge: "Most Loved",
-  },
-  {
-    name: "Lemon Ricotta Pancakes",
-    category: "Breakfast Classics",
-    price: "$14.95",
-    image: "/assets/lemon-ricotta-pancakes.jpg",
-    description: "Fluffy pancakes whipped with sweet ricotta cheese, whipped lemon butter, and homemade berry compote.",
-    badge: "Fan Favorite",
-  },
-  {
-    name: "The Mayor Breakfast Sandwich",
-    category: "Handcrafted Sandwiches",
-    price: "$13.95",
-    image: "/assets/the-mayor-sandwich.jpg",
-    description: "Pastrami, crispy bacon, farm fried egg, sharp cheddar cheese & golden hash brown on a toasted brioche bun.",
-    badge: "Colonia Icon",
-  },
-  {
-    name: "Chef Duke's Sriracha Fried Chicken",
-    category: "Lunch & Sandwiches",
-    price: "$15.50",
-    image: "/assets/sriracha-chicken-sandwich.jpg",
-    description: "Crisp hand-breaded buttermilk chicken breast tossed in hot honey sriracha with creamy house slaw.",
-    badge: "Chef Pick",
-  },
-  {
-    name: "Steak & Eggs Breakfast Plate",
-    category: "Hearty Favorites",
-    price: "$19.95",
-    image: "/assets/steak-and-eggs.jpg",
-    description: "Tender grilled NY strip steak, farm eggs prepared your way, seasoned home fries, and buttered toast.",
-  },
-  {
-    name: "Creole Blackened Shrimp & Grits",
-    category: "Caribbean Fusion",
-    price: "$18.50",
-    image: "/assets/creole-shrimp-grits.jpg",
-    description: "Jumbo seasoned Gulf shrimp in a Creole tomato reduction over creamy aged white cheddar grits.",
   },
 ];
 
@@ -408,86 +348,7 @@ export default function OrderOnlineContent() {
         </div>
       </section>
 
-      {/* 3. Popular Delivery Favorites Showcase */}
-      <section className="py-16 sm:py-20 bg-brand-cream border-t border-b border-brand-line">
-        <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-gold block mb-2">
-                Top Ordered Online
-              </span>
-              <h2 className="font-serif text-3xl sm:text-4xl text-brand-green font-normal tracking-tight">
-                Guest Favorites for Delivery &amp; Takeout
-              </h2>
-            </div>
-            <Link
-              href="/menu"
-              className="mt-4 md:mt-0 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-green hover:text-brand-green-dark transition-colors"
-            >
-              <span>Explore Full Restaurant Menu</span>
-              <ArrowRight className="w-4 h-4 text-brand-gold" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {POPULAR_ITEMS.map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-brand-paper rounded-lg border border-brand-line overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col group"
-              >
-                <div className="relative h-48 sm:h-52 w-full bg-brand-cream overflow-hidden">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  {item.badge && (
-                    <span className="absolute top-3 right-3 bg-brand-green text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded shadow-sm">
-                      {item.badge}
-                    </span>
-                  )}
-                </div>
-
-                <div className="p-5 flex flex-col justify-between flex-grow">
-                  <div>
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-brand-gold">
-                        {item.category}
-                      </span>
-                      <span className="font-serif font-bold text-brand-green text-base">
-                        {item.price}
-                      </span>
-                    </div>
-                    <h3 className="font-serif text-lg font-bold text-brand-text mb-2 group-hover:text-brand-green transition-colors">
-                      {item.name}
-                    </h3>
-                    <p className="font-serif text-xs text-brand-muted leading-relaxed mb-4">
-                      {item.description}
-                    </p>
-                  </div>
-
-                  <div className="pt-3 border-t border-brand-line/60 flex items-center justify-between">
-                    <span className="text-[11px] font-sans text-brand-muted">
-                      Available on all platforms
-                    </span>
-                    <a
-                      href="#delivery-options"
-                      className="text-xs font-bold uppercase tracking-wider text-brand-green hover:underline flex items-center gap-1"
-                    >
-                      <span>Order Now</span>
-                      <ChevronDown className="w-3.5 h-3.5" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Catering & Large Events Banner */}
+      {/* 3. Catering & Large Events Banner */}
       <section className="py-14 bg-brand-paper">
         <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-[#f2ecde] border border-brand-line rounded-lg p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
@@ -513,7 +374,7 @@ export default function OrderOnlineContent() {
         </div>
       </section>
 
-      {/* 5. FAQs Accordion */}
+      {/* 4. FAQs Accordion */}
       <section className="py-16 sm:py-20 bg-brand-cream border-t border-brand-line">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -556,7 +417,7 @@ export default function OrderOnlineContent() {
         </div>
       </section>
 
-      {/* 6. Location & Hours Bar */}
+      {/* 5. Location & Hours Bar */}
       <section className="py-12 bg-[#2a3319] text-brand-cream border-t border-[#3e4925]">
         <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">

@@ -6,16 +6,18 @@ import MenuPageContent from "./MenuPageContent";
 export const metadata: Metadata = {
   title: "Full Breakfast, Brunch & Lunch Menu | Estime's Café Colonia NJ",
   description:
-    "Explore the complete dining menu at Estime's Café in Colonia, NJ. Chef Duke's famous Lemon Ricotta Pancakes, Amaretto French Toast, artisan omelets, keto bowls, smash burgers & Haitian Creole specialties.",
+    "Explore the current breakfast, brunch, and lunch menu at Estime's Café in Colonia, NJ, including pancakes, Benedicts, bowls, sandwiches, burgers, salads, sides, and drinks.",
   keywords: [
     "estimes cafe menu",
     "breakfast menu colonia nj",
     "brunch menu woodbridge nj",
     "lemon ricotta pancakes nj",
     "amaretto brioche french toast",
-    "keto breakfast near me",
+    "lobster benedict nj",
+    "surf and turf breakfast",
+    "truffle burger colonia nj",
     "shrimp and grits colonia nj",
-    "lunch specials inman ave",
+    "steak and eggs woodbridge nj",
   ],
   alternates: {
     canonical: "https://www.estimescafe.com/menu",
@@ -23,9 +25,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Full Breakfast, Brunch & Lunch Menu | Estime's Café Colonia NJ",
     description:
-      "Crafted by Executive Chef Duke Estime. Farm-fresh eggs, fluffy pancakes, artisan brioche french toast, smash burgers and creole specialties.",
+      "Explore the current breakfast, brunch, and lunch menu at Estime's Café in Colonia, NJ.",
     url: "https://www.estimescafe.com/menu",
     type: "website",
+    images: [{ url: "/assets/menu-social-preview.png", width: 1200, height: 630, alt: "Estime's Café breakfast, brunch, and lunch menu" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Full Breakfast, Brunch & Lunch Menu | Estime's Café Colonia NJ",
+    description: "Explore the current breakfast, brunch, and lunch menu at Estime's Café in Colonia, NJ.",
+    images: ["/assets/menu-social-preview.png"],
   },
 };
 

@@ -76,8 +76,8 @@ export default function JsonLd() {
             "jobTitle": "Co-Founder"
           }
         ],
-        "hasMenu": "https://www.estimescafe.com/#menu",
-        "acceptsReservations": "False",
+        "hasMenu": "https://www.estimescafe.com/menu",
+        "acceptsReservations": false,
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "4.8",
