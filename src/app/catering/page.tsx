@@ -30,9 +30,9 @@ export const metadata: Metadata = {
       "Chef-made party trays and corporate lunch catering for offices, celebrations and gatherings across Central NJ.",
     url: "https://www.estimescafe.com/catering",
     type: "website",
-    images: [{ url: "/assets/catering-social-preview.png", width: 1200, height: 630, alt: "Estime's Café catering trays in Colonia, NJ" }],
+    images: [{ url: "/assets/catering-social-preview.jpg", width: 1200, height: 630, alt: "Estime's Café catering trays in Colonia, NJ" }],
   },
-  twitter: { card: "summary_large_image", title: "Catering Menu & Party Trays in Woodbridge, NJ | Estime's Café", description: "Order catering menu favorites, party trays, and corporate lunch catering from Estime's Café in Colonia, Woodbridge Township.", images: ["/assets/catering-social-preview.png"] },
+  twitter: { card: "summary_large_image", title: "Catering Menu & Party Trays in Woodbridge, NJ | Estime's Café", description: "Order catering menu favorites, party trays, and corporate lunch catering from Estime's Café in Colonia, Woodbridge Township.", images: ["/assets/catering-social-preview.jpg"] },
 };
 
 export default function CateringPage() {

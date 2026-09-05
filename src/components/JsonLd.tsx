@@ -1,4 +1,13 @@
-import { BUSINESS_BRAND_NAME, BUSINESS_NAP_NAME } from "@/lib/business";
+import {
+  BUSINESS_ADDRESS,
+  BUSINESS_BRAND_NAME,
+  BUSINESS_EMAIL,
+  BUSINESS_GEO,
+  BUSINESS_MAP_URL,
+  BUSINESS_NAP_NAME,
+  BUSINESS_PHONE,
+  BUSINESS_RATING,
+} from "@/lib/business";
 
 export default function JsonLd() {
   const structuredData = {
@@ -11,8 +20,8 @@ export default function JsonLd() {
         "alternateName": [BUSINESS_BRAND_NAME, "Estime Cafe"],
         "description": "Premier breakfast, signature brunch, lunch, and specialty artisan coffee featuring American comfort favorites fused with Haitian and Caribbean flavors by Chef Duke Estime in Colonia, NJ.",
         "url": "https://www.estimescafe.com/",
-        "telephone": "+1-732-669-7581",
-        "email": "Estimecafe1@gmail.com",
+        "telephone": BUSINESS_PHONE,
+        "email": BUSINESS_EMAIL,
         "priceRange": "$$",
         "servesCuisine": [
           "American",
@@ -31,18 +40,13 @@ export default function JsonLd() {
         ],
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "238 Inman Avenue",
-          "addressLocality": "Colonia",
-          "addressRegion": "NJ",
-          "postalCode": "07067",
-          "addressCountry": "US"
+          ...BUSINESS_ADDRESS
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": 40.6003432,
-          "longitude": -74.3126004
+          ...BUSINESS_GEO
         },
-        "hasMap": "https://www.google.com/maps/place/Estime's+Cafe/@40.6003432,-74.3151753,17z/data=!3m1!4b1!4m6!3m5!1s0x89c3b78d2780b6fd:0xfa97f1d15128900a!8m2!3d40.6003432!4d-74.3126004!16s%2Fg%2F11fb18d03y",
+        "hasMap": BUSINESS_MAP_URL,
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",
@@ -80,9 +84,7 @@ export default function JsonLd() {
         "acceptsReservations": false,
         "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "reviewCount": "180",
-          "bestRating": "5"
+          ...BUSINESS_RATING
         },
         "areaServed": [
           { "@type": "City", "name": "Colonia" },

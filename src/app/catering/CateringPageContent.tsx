@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { BUSINESS_EMAIL, createMailtoUrl } from "@/lib/business";
 import {
   Users,
   Truck,
@@ -323,9 +324,6 @@ const BRUNCH_PACKAGES = [
 ];
 
 export default function CateringPageContent() {
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -336,29 +334,21 @@ export default function CateringPageContent() {
     notes: "",
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitError("");
-
-    try {
-      const response = await fetch("/api/catering-leads", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-      const result = (await response.json()) as { error?: string };
-
-      if (!response.ok) {
-        throw new Error(result.error || "We could not send your request. Please try again.");
-      }
-
-      setFormSubmitted(true);
-    } catch (error) {
-      setSubmitError(error instanceof Error ? error.message : "We could not send your request. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
+    window.location.href = createMailtoUrl("Catering quote request", [
+      "New catering quote request",
+      "",
+      `Name: ${formData.name}`,
+      `Email: ${formData.email}`,
+      `Phone: ${formData.phone}`,
+      `Event date: ${formData.date}`,
+      `Guest count: ${formData.guests}`,
+      `Service type: ${formData.serviceType}`,
+      "",
+      "Menu preferences / notes:",
+      formData.notes || "Not provided",
+    ]);
   };
 
   return (
@@ -716,7 +706,7 @@ export default function CateringPageContent() {
                   Request a Catering Proposal
                 </h2>
                 <p className="font-serif text-sm text-brand-muted leading-relaxed">
-                  Tell us about your event, and Executive Chef Duke will get back to you with custom pricing and recommendations within 24 hours.
+                  Tell us about your event, then open the email draft with your details for the Estime&apos;s Café team.
                 </p>
               </div>
 
@@ -729,8 +719,8 @@ export default function CateringPageContent() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Mail className="w-4 h-4 text-brand-gold" />
-                  <a href="mailto:Estimecafe1@gmail.com" className="text-xs text-brand-muted hover:underline">
-                    Estimecafe1@gmail.com
+                  <a href={`mailto:${BUSINESS_EMAIL}`} className="text-xs text-brand-muted hover:underline">
+                    {BUSINESS_EMAIL}
                   </a>
                 </div>
                 <div className="flex items-start gap-3">
@@ -769,44 +759,8 @@ export default function CateringPageContent() {
 
             {/* Right: Form */}
             <div className="lg:col-span-7 bg-white border border-brand-line p-8 sm:p-10 rounded-sm shadow-sm">
-              {formSubmitted ? (
-                <div className="text-center py-10 space-y-4">
-                  <div className="w-14 h-14 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto">
-                    <CheckCircle2 className="w-8 h-8" />
-                  </div>
-                  <h3 className="font-serif text-2xl text-brand-green">
-                    Thank You, {formData.name || "Valued Guest"}!
-                  </h3>
-                  <p className="font-serif text-sm text-brand-muted max-w-md mx-auto leading-relaxed">
-                    Your catering request has been received. Our team will contact you shortly at{" "}
-                    <strong>{formData.phone || formData.email}</strong> to finalize your custom catering proposal.
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setFormSubmitted(false);
-                      setFormData({
-                        name: "",
-                        email: "",
-                        phone: "",
-                        date: "",
-                        guests: "20-30",
-                        serviceType: "Office Lunch & Platters",
-                        notes: "",
-                      });
-                    }}
-                    className="text-xs font-bold uppercase tracking-wider text-brand-green underline pt-4"
-                  >
-                    Submit Another Request
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  {submitError && (
-                    <p role="alert" className="border border-red-300 bg-red-50 px-4 py-3 text-sm font-serif text-red-800">
-                      {submitError}
-                    </p>
-                  )}
+              <p className="mb-5 text-xs font-serif text-brand-muted">Submitting opens a pre-addressed email in your mail app. You can also call or email us directly.</p>
+              <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
@@ -917,13 +871,11 @@ export default function CateringPageContent() {
 
                   <button
                     type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-brand-green hover:bg-brand-green-dark text-white py-3.5 text-xs font-bold uppercase tracking-wider shadow-md transition-all disabled:cursor-not-allowed disabled:opacity-60"
+                    className="w-full bg-brand-green hover:bg-brand-green-dark text-white py-3.5 text-xs font-bold uppercase tracking-wider shadow-md transition-all"
                   >
-                    {isSubmitting ? "Sending Request..." : "Submit Catering RFP →"}
+                    Open Catering Email Draft →
                   </button>
-                </form>
-              )}
+              </form>
             </div>
           </div>
         </div>
@@ -940,7 +892,7 @@ export default function CateringPageContent() {
               ["How many people do your party trays serve?", "Half trays typically serve 8–10 guests, and full trays typically serve 15–20 guests. Tell us your guest count and we will help you build the right order."],
               ["Do you offer office lunch catering in Woodbridge and Central NJ?", "Yes. Estime's Café prepares office lunch catering and party trays for delivery across Woodbridge Township, Colonia, Edison, and surrounding Central NJ communities."],
               ["Can I mix different trays for a corporate lunch or celebration?", "Yes. Combine pastas, proteins, seafood, salads, breakfast favorites, and brunch selections to create a menu that fits your guests and budget."],
-              ["How do I request a catering quote?", "Submit the catering request form with your date, guest count, and menu preferences, or call (732) 669-7581 to speak with our team."],
+              ["How do I request a catering quote?", "Complete the catering form to open a pre-addressed email with your date, guest count, and menu preferences, or call (732) 669-7581 to speak with our team."],
             ].map(([question, answer]) => (
               <details key={question} className="bg-white border border-brand-line p-5 group">
                 <summary className="font-serif text-lg font-bold text-brand-green cursor-pointer pr-8">{question}</summary>

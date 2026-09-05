@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { BUSINESS_RATING } from "@/lib/business";
 import {
   Star,
   Sparkles,
@@ -178,7 +179,7 @@ export default function ReviewsPageContent() {
         <div className="relative max-w-container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 bg-brand-green-dark/70 border border-brand-gold/40 px-3.5 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.2em] text-brand-gold-light mb-5">
             <Award className="w-3.5 h-3.5 text-brand-gold" />
-            <span>4.8 ★ Rated &bull; 180+ Local Google Reviews</span>
+            <span>{BUSINESS_RATING.ratingValue} ★ Rated &bull; {BUSINESS_RATING.reviewCount}+ Local Google Reviews</span>
           </div>
 
           <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-white tracking-tight max-w-4xl mx-auto leading-tight mb-4">
@@ -197,7 +198,7 @@ export default function ReviewsPageContent() {
                 <Star key={i} className="w-5 h-5 fill-current" />
               ))}
             </div>
-            <span className="font-bold text-white text-base">4.8 out of 5.0</span>
+            <span className="font-bold text-white text-base">{BUSINESS_RATING.ratingValue} out of 5.0</span>
             <span className="text-brand-cream/70 text-xs font-serif">
               &bull; Verified Google &amp; Local Guest Ratings
             </span>
@@ -282,7 +283,7 @@ export default function ReviewsPageContent() {
           {/* Filter Pills */}
           <div className="flex flex-wrap justify-center gap-2 mb-12 font-sans">
             {[
-              { id: "all", label: "All Reviews (180+)" },
+              { id: "all", label: `All Reviews (${BUSINESS_RATING.reviewCount}+)` },
               { id: "pancakes", label: "Pancakes & French Toast" },
               { id: "fusion", label: "Haitian & Creole Specialties" },
               { id: "catering", label: "Office & Event Catering" },

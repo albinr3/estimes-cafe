@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import OrderOnlineContent from "./OrderOnlineContent";
-import { BUSINESS_NAP_NAME } from "@/lib/business";
+import { BUSINESS_ADDRESS, BUSINESS_GEO, BUSINESS_NAP_NAME, BUSINESS_PHONE } from "@/lib/business";
 
 export const metadata: Metadata = {
   title: "Order Online — Delivery & Takeout | Estime's Café Colonia NJ",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/assets/order-online-social-preview.png",
+        url: "/assets/order-online-social-preview.jpg",
         width: 1200,
         height: 630,
         alt: "Order online from Estime's Café in Colonia, NJ",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Order Online — Delivery & Takeout | Estime's Café Colonia NJ",
     description: "Order online for delivery or takeout from Estime's Café in Colonia, NJ.",
-    images: ["/assets/order-online-social-preview.png"],
+    images: ["/assets/order-online-social-preview.jpg"],
   },
 };
 
@@ -52,23 +52,18 @@ export default function OrderOnlinePage() {
     "@type": "Restaurant",
     "@id": "https://www.estimescafe.com/#restaurant",
     name: BUSINESS_NAP_NAME,
-    image: "https://www.estimescafe.com/assets/order-online-social-preview.png",
+    image: "https://www.estimescafe.com/assets/order-online-social-preview.jpg",
     url: "https://www.estimescafe.com/order-online",
-    telephone: "+1-732-669-7581",
+    telephone: BUSINESS_PHONE,
     priceRange: "$$",
     servesCuisine: ["American", "Caribbean", "Brunch", "Breakfast", "Haitian Fusion"],
     address: {
       "@type": "PostalAddress",
-      streetAddress: "238 Inman Avenue",
-      addressLocality: "Colonia",
-      addressRegion: "NJ",
-      postalCode: "07067",
-      addressCountry: "US",
+      ...BUSINESS_ADDRESS,
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: 40.59868,
-      longitude: -74.32115,
+      ...BUSINESS_GEO,
     },
     openingHoursSpecification: [
       {

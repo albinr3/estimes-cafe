@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { BUSINESS_RATING } from "@/lib/business";
 import {
   ExternalLink,
   Phone,
@@ -235,7 +236,7 @@ export default function OrderOnlineContent() {
               </div>
               <div className="flex items-center gap-2 text-xs font-medium text-brand-text">
                 <Star className="w-4 h-4 text-brand-gold flex-shrink-0 fill-brand-gold" />
-                <span>4.8★ Rated (180+ Reviews)</span>
+                <span>{BUSINESS_RATING.ratingValue}★ Rated ({BUSINESS_RATING.reviewCount}+ Reviews)</span>
               </div>
             </div>
           </div>

@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { BUSINESS_EMAIL, BUSINESS_PHONE_LINK, BUSINESS_MAP_URL, createMailtoUrl } from "@/lib/business";
 import {
   Phone,
   Mail,
   MapPin,
   Clock,
   Send,
-  CheckCircle2,
   Navigation,
   Sparkles,
   Car,
@@ -22,17 +22,19 @@ export default function ContactPageContent() {
     message: "",
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-    }, 700);
+    window.location.href = createMailtoUrl(`Contact inquiry: ${formState.subject}`, [
+      "New website contact inquiry",
+      "",
+      `Name: ${formState.name}`,
+      `Email: ${formState.email}`,
+      `Phone: ${formState.phone || "Not provided"}`,
+      `Topic: ${formState.subject}`,
+      "",
+      "Message:",
+      formState.message,
+    ]);
   };
 
   return (
@@ -78,7 +80,7 @@ export default function ContactPageContent() {
                       Phone &amp; Takeout Orders
                     </span>
                     <a
-                      href="tel:7326697581"
+                      href={BUSINESS_PHONE_LINK}
                       className="font-serif text-lg font-bold text-brand-green hover:text-brand-gold transition-colors"
                     >
                       (732) 669-7581
@@ -96,10 +98,10 @@ export default function ContactPageContent() {
                       Email Inquiries
                     </span>
                     <a
-                      href="mailto:Estimecafe1@gmail.com"
+                      href={`mailto:${BUSINESS_EMAIL}`}
                       className="font-serif text-sm font-bold text-brand-green hover:text-brand-gold transition-colors break-all"
                     >
-                      Estimecafe1@gmail.com
+                      {BUSINESS_EMAIL}
                     </a>
                   </div>
                 </div>
@@ -117,7 +119,7 @@ export default function ContactPageContent() {
                       238 Inman Avenue, Colonia, NJ 07067
                     </p>
                     <a
-                      href="https://maps.google.com/?q=238+Inman+Avenue,+Colonia,+NJ+07067"
+                      href={BUSINESS_MAP_URL}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-xs font-bold text-brand-gold hover:text-brand-green transition-colors mt-1"
@@ -164,7 +166,7 @@ export default function ContactPageContent() {
             <div id="location-map" className="bg-white border border-brand-line rounded-xl overflow-hidden shadow-xs h-60 w-full relative scroll-mt-24">
               <iframe
                 title="Estime's Cafe Location Map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3028.922115982883!2d-74.31517532397935!3d40.60034317141103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3b78d2780b6fd%3A0xfa97f1d15128900a!2sEstime's%20Cafe!5e0!3m2!1sen!2sus!4v1710000000000!5m2!1sen!2sus"
+                src="https://www.google.com/maps?q=40.60034991904395,-74.31259870657125&z=17&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -184,41 +186,10 @@ export default function ContactPageContent() {
                   Send a Message
                 </h2>
                 <p className="font-serif text-xs sm:text-sm text-brand-muted mt-1">
-                  Fill out the simple form below and we will get back to you promptly.
+                  Completing this form opens a pre-addressed email in your mail app.
                 </p>
               </div>
-
-              {isSubmitted ? (
-                <div className="bg-brand-cream/60 border border-brand-gold/50 p-8 text-center rounded-lg space-y-4 my-6">
-                  <div className="w-12 h-12 bg-brand-green text-white rounded-full flex items-center justify-center mx-auto shadow-sm">
-                    <CheckCircle2 className="w-6 h-6 text-brand-gold-light" />
-                  </div>
-                  <h3 className="font-serif text-2xl text-brand-green font-normal">
-                    Message Sent Successfully!
-                  </h3>
-                  <p className="font-serif text-sm text-[#48423c] max-w-md mx-auto leading-relaxed">
-                    Thank you for reaching out to Estime&apos;s Café. Our team will review your message
-                    and respond within 24 hours.
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setIsSubmitted(false);
-                      setFormState({
-                        name: "",
-                        email: "",
-                        phone: "",
-                        subject: "General Inquiry",
-                        message: "",
-                      });
-                    }}
-                    className="border border-brand-green text-brand-green hover:bg-brand-green hover:text-white px-6 py-2 rounded-md text-xs font-bold uppercase tracking-wider transition-colors mt-2"
-                  >
-                    Send Another Message
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-5 font-sans">
+              <form onSubmit={handleSubmit} className="space-y-5 font-sans">
                   {/* Name & Email */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
@@ -302,31 +273,20 @@ export default function ContactPageContent() {
                   <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <button
                       type="submit"
-                      disabled={isSubmitting}
-                      className="w-full sm:w-auto bg-brand-green hover:bg-brand-green-dark text-white px-7 py-3 rounded-md text-xs font-bold uppercase tracking-wider transition-all inline-flex items-center justify-center gap-2 shadow-sm disabled:opacity-50"
+                      className="w-full sm:w-auto bg-brand-green hover:bg-brand-green-dark text-white px-7 py-3 rounded-md text-xs font-bold uppercase tracking-wider transition-all inline-flex items-center justify-center gap-2 shadow-sm"
                     >
-                      {isSubmitting ? (
-                        <>
-                          <span className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                          <span>Sending...</span>
-                        </>
-                      ) : (
-                        <>
-                          <Send className="w-3.5 h-3.5 text-brand-gold-light" />
-                          <span>Send Message</span>
-                        </>
-                      )}
+                      <Send className="w-3.5 h-3.5 text-brand-gold-light" />
+                      <span>Open Email Draft</span>
                     </button>
 
                     <span className="text-[11px] text-brand-muted font-serif">
                       Prefer to call?{" "}
-                      <a href="tel:7326697581" className="font-bold text-brand-green hover:underline">
+                      <a href={BUSINESS_PHONE_LINK} className="font-bold text-brand-green hover:underline">
                         (732) 669-7581
                       </a>
                     </span>
                   </div>
-                </form>
-              )}
+              </form>
             </div>
           </div>
         </div>

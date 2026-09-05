@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ReviewsPageContent from "./ReviewsPageContent";
-import { BUSINESS_NAP_NAME } from "@/lib/business";
+import { BUSINESS_ADDRESS, BUSINESS_NAP_NAME, BUSINESS_PHONE, BUSINESS_RATING } from "@/lib/business";
 
 export const metadata: Metadata = {
   title: "Guest Reviews & Press Features | Rated 4.8★ in Colonia NJ | Estime's Café",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://www.estimescafe.com/assets/signature.jpg",
+        url: "https://www.estimescafe.com/assets/signature-weekend-brunch-specialty-pancakes-colonia-nj.jpg",
         width: 1200,
         height: 630,
         alt: "Estime's Café Signature Dishes & Guest Reviews",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "Guest Reviews & Press Accolades | Estime's Café Colonia NJ",
     description:
       "Read real customer reviews and press accolades for Estime's Café in Colonia, NJ. Rated 4.8/5.0 with 180+ reviews.",
-    images: ["https://www.estimescafe.com/assets/signature.jpg"],
+    images: ["https://www.estimescafe.com/assets/signature-weekend-brunch-specialty-pancakes-colonia-nj.jpg"],
   },
 };
 
@@ -69,21 +69,14 @@ export default function ReviewsPage() {
         "@id": "https://www.estimescafe.com/#restaurant",
         "name": BUSINESS_NAP_NAME,
         "url": "https://www.estimescafe.com",
-        "telephone": "+1-732-669-7581",
+        "telephone": BUSINESS_PHONE,
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "238 Inman Avenue",
-          "addressLocality": "Colonia",
-          "addressRegion": "NJ",
-          "postalCode": "07067",
-          "addressCountry": "US"
+          ...BUSINESS_ADDRESS
         },
         "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "reviewCount": "180",
-          "bestRating": "5",
-          "worstRating": "1"
+          ...BUSINESS_RATING
         },
         "review": [
           {

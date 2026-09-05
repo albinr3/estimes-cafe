@@ -33,8 +33,8 @@
 - **Deluxe Burger — $19.95**  
   Lean ground beef, topped with lettuce, tomato, and onion.  
   Add cheese — $2.00
-- **Siracha Chicken — $24.00**  
-  Breaded chicken thigh, served on a brioche roll, with Siracha and pickles.
+- **Sriracha Chicken — $24.00**
+  Breaded chicken thigh, served on a brioche roll, with Sriracha and pickles.
 - **The Fritz Grilled Cheese — $16.95**  
   Melted Swiss, goat cheese, and bacon on buttery, grilled rye bread.
 
@@ -100,13 +100,13 @@ Add cheese — $2.00
 **No substitutions.**
 
 - **Potato Bacon Lover — $16.95**  
-  Home fries and crisp bacon sautéed with melted cheddar, topped with two sunny side up eggs and Siracha.
+  Home fries and crisp bacon sautéed with melted cheddar, topped with two sunny side up eggs and Sriracha.
 - **Slab Bacon — $17.00**  
-  Gourmet slab bacon with a side of house made honey Siracha.
+  Gourmet slab bacon with a side of house made honey Sriracha.
 - **NY Strip Steak — $29.95**  
   12oz NY Strip served with two eggs any style and Creole chimichurri.
 - **Uncle Dunn's Shrimp — $28.00**  
-  Crispy tempura shrimp, tossed in Siracha sweet chili lime sauce.
+  Crispy tempura shrimp, tossed in Sriracha sweet chili lime sauce.
 - **Shrimp and Grits — $26.95**  
   8 shrimp, sautéed onions and peppers, stone grits & cheese, served with Chef Duke's Creole sauce.
 - **Herring and Grits — $26.95**  

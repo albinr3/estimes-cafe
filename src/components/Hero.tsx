@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { BUSINESS_RATING } from "@/lib/business";
 import Link from "next/link";
 import { ArrowRight, Phone, MapPin, ShoppingBag } from "lucide-react";
 
@@ -95,7 +96,7 @@ export default function Hero() {
               &ldquo;The best breakfast sandwiches and brunch fusion in Central NJ.&rdquo;
             </p>
             <div className="flex items-center gap-1 mt-2 text-brand-gold text-xs">
-              ★★★★★ <span className="text-brand-muted text-[11px] ml-1 font-sans">4.8 (180+ Reviews)</span>
+              ★★★★★ <span className="text-brand-muted text-[11px] ml-1 font-sans">{BUSINESS_RATING.ratingValue} ({BUSINESS_RATING.reviewCount}+ Reviews)</span>
             </div>
           </div>
         </div>

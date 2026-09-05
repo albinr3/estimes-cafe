@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AboutPageContent from "./AboutPageContent";
-import { BUSINESS_NAP_NAME } from "@/lib/business";
+import { BUSINESS_ADDRESS, BUSINESS_GEO, BUSINESS_NAP_NAME } from "@/lib/business";
 
 export const metadata: Metadata = {
   title: "Meet The Chef & Our Story | Honoree Chef Duke Estime | Estime's Café Colonia NJ",
@@ -126,16 +126,11 @@ export default function AboutPage() {
         "servesCuisine": ["American", "Caribbean", "Haitian", "Breakfast", "Brunch"],
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "238 Inman Avenue",
-          "addressLocality": "Colonia",
-          "addressRegion": "NJ",
-          "postalCode": "07067",
-          "addressCountry": "US"
+          ...BUSINESS_ADDRESS
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": 40.6003432,
-          "longitude": -74.3126004
+          ...BUSINESS_GEO
         }
       }
     ]

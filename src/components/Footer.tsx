@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
-import { BUSINESS_NAP_NAME } from "@/lib/business";
+import { BUSINESS_NAP_NAME, BUSINESS_RATING } from "@/lib/business";
 
 export default function Footer() {
   return (
@@ -89,7 +89,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/reviews" className="hover:text-white transition-colors font-medium">
-                  Customer Reviews (4.8★)
+                  Customer Reviews ({BUSINESS_RATING.ratingValue}★)
                 </Link>
               </li>
               <li>

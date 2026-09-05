@@ -1,0 +1,7 @@
+Options -MultiViews
+RewriteEngine On
+
+# Preserve the two legacy menu URLs after uploading the contents of /out
+# to Hostinger's public_html directory.
+RewriteRule ^catering-menu/?$ /catering/ [R=301,L]
+RewriteRule ^brunch-menu/?$ /catering/ [R=301,L]

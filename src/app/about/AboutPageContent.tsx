@@ -375,8 +375,8 @@ export default function AboutPageContent() {
               </p>
 
               <p className="text-[#3c362f]">
-                Today, our kitchen serves everything from our signature Lemon Ricotta Pancakes and Amaretto Brioche
-                French Toast to authentic Haitian Spicy Omelets, savory Creole Shrimp &amp; Grits, handcrafted smash
+                Today, our kitchen serves everything from our signature Lemon Ricotta Pancakes and Amaretto French
+                Toast to authentic Haitian Spicy Omelets, savory shrimp grits bowls with Creole sauce, signature
                 burgers, and premium corporate catering party platters.
               </p>
 

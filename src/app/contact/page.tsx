@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactPageContent from "./ContactPageContent";
-import { BUSINESS_NAP_NAME } from "@/lib/business";
+import { BUSINESS_ADDRESS, BUSINESS_EMAIL, BUSINESS_GEO, BUSINESS_MAP_URL, BUSINESS_NAP_NAME, BUSINESS_PHONE } from "@/lib/business";
 
 export const metadata: Metadata = {
   title: "Contact Us, Hours & Directions | Estime's Café Colonia NJ",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://www.estimescafe.com/assets/exterior.jpg",
+        url: "https://www.estimescafe.com/assets/estimes-cafe-storefront-colonia-nj.jpg",
         width: 1200,
         height: 630,
         alt: "Estime's Café Storefront - 238 Inman Ave, Colonia NJ",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: "Contact Us & Directions | Estime's Café Colonia NJ",
     description:
       "Visit us at 238 Inman Ave, Colonia NJ or call (732) 669-7581 for orders, catering, and event inquiries.",
-    images: ["https://www.estimescafe.com/assets/exterior.jpg"],
+    images: ["https://www.estimescafe.com/assets/estimes-cafe-storefront-colonia-nj.jpg"],
   },
 };
 
@@ -67,23 +67,18 @@ export default function ContactPage() {
         "@type": ["Restaurant", "CafeOrCoffeeShop", "LocalBusiness"],
         "@id": "https://www.estimescafe.com/#restaurant",
         "name": BUSINESS_NAP_NAME,
-        "telephone": "+1-732-669-7581",
-        "email": "Estimecafe1@gmail.com",
+        "telephone": BUSINESS_PHONE,
+        "email": BUSINESS_EMAIL,
         "url": "https://www.estimescafe.com",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "238 Inman Avenue",
-          "addressLocality": "Colonia",
-          "addressRegion": "NJ",
-          "postalCode": "07067",
-          "addressCountry": "US"
+          ...BUSINESS_ADDRESS
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": 40.6003432,
-          "longitude": -74.3126004
+          ...BUSINESS_GEO
         },
-        "hasMap": "https://www.google.com/maps/place/Estime's+Cafe/@40.6003432,-74.3151753,17z/data=!3m1!4b1!4m6!3m5!1s0x89c3b78d2780b6fd:0xfa97f1d15128900a!8m2!3d40.6003432!4d-74.3126004!16s%2Fg%2F11fb18d03y",
+        "hasMap": BUSINESS_MAP_URL,
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",

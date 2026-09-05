@@ -1,4 +1,5 @@
 import { MapPin, Phone, Clock, Navigation, Car, Utensils } from "lucide-react";
+import { BUSINESS_MAP_URL } from "@/lib/business";
 
 export default function LocationSection() {
   return (
@@ -32,7 +33,7 @@ export default function LocationSection() {
                       Colonia, NJ 07067 (Woodbridge Township)
                     </p>
                     <a
-                      href="https://www.google.com/maps/place/Estime's+Cafe/@40.6003432,-74.3151753,17z/data=!3m1!4b1!4m6!3m5!1s0x89c3b78d2780b6fd:0xfa97f1d15128900a!8m2!3d40.6003432!4d-74.3126004!16s%2Fg%2F11fb18d03y"
+                      href={BUSINESS_MAP_URL}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-green hover:text-brand-gold mt-2 transition-colors"
@@ -105,7 +106,7 @@ export default function LocationSection() {
           <div className="lg:col-span-7 h-[380px] sm:h-[450px] lg:h-full min-h-[380px] border border-brand-line relative overflow-hidden bg-brand-cream shadow-inner">
             <iframe
               title="Estime's Cafe Location on Google Maps"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3028.922115982883!2d-74.31517532397935!3d40.60034317141103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3b78d2780b6fd%3A0xfa97f1d15128900a!2sEstime's%20Cafe!5e0!3m2!1sen!2sus!4v1710000000000!5m2!1sen!2sus"
+              src="https://www.google.com/maps?q=40.60034991904395,-74.31259870657125&z=17&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}

@@ -37,8 +37,8 @@ const specialties: SpecialtyItem[] = [
     category: "Off the Spatula",
     desc: "See the full menu for current details.",
     href: "/menu#off-the-spatula",
-    image: "/assets/amaretto-french-toast.jpg",
-    alt: "Amaretto Brioche French Toast with sweet vanilla custard at Estime's Cafe in Colonia NJ",
+    image: "/assets/amaretto-brioche-french-toast.webp",
+    alt: "Signature Amaretto brioche French toast with sweet amaretto glaze, powdered sugar, and berry compote at Estime's Cafe in Colonia NJ",
   },
   {
     id: "truffle-burger",
@@ -55,8 +55,8 @@ const specialties: SpecialtyItem[] = [
     category: "Chef Specials",
     desc: "See the full menu for current details.",
     href: "/menu#chef-specials",
-    image: "/assets/steak-and-eggs.jpg",
-    alt: "12oz Prime NY Strip Steak and Eggs with seasoned home fries at Estime's Cafe in Central NJ",
+    image: "/assets/ny-strip-breakfast-steak.webp",
+    alt: "Juicy seared NY strip breakfast steak topped with pickled red onions and crispy shoestring potatoes at Estime's Cafe in Central NJ",
   },
   {
     id: "shrimp-and-grits",

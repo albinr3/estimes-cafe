@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BUSINESS_RATING } from "@/lib/business";
 import { Star, Quote, ThumbsUp } from "lucide-react";
 
 export default function Testimonials() {
@@ -43,8 +44,8 @@ export default function Testimonials() {
                 <Star key={i} className="w-4 h-4 fill-current" />
               ))}
             </div>
-            <span className="font-bold text-xs text-brand-text">4.8 / 5.0 Rating</span>
-            <span className="text-brand-muted text-xs">&bull; Based on 180+ Local Reviews</span>
+            <span className="font-bold text-xs text-brand-text">{BUSINESS_RATING.ratingValue} / 5.0 Rating</span>
+            <span className="text-brand-muted text-xs">&bull; Based on {BUSINESS_RATING.reviewCount}+ Local Reviews</span>
           </div>
         </div>
 
@@ -90,7 +91,7 @@ export default function Testimonials() {
               href="/reviews"
               className="inline-flex items-center gap-2 bg-brand-green text-white hover:bg-brand-green-dark px-5 py-2.5 text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
             >
-              <span>View All 180+ Reviews &amp; Press</span>
+              <span>View All {BUSINESS_RATING.reviewCount}+ Reviews &amp; Press</span>
               <Quote className="w-3.5 h-3.5 text-brand-gold-light" />
             </Link>
             <a

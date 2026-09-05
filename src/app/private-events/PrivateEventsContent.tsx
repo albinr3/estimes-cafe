@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { BUSINESS_NAP_NAME } from "@/lib/business";
+import { BUSINESS_EMAIL, BUSINESS_NAP_NAME, createMailtoUrl } from "@/lib/business";
 import {
   Sparkles,
   Users,
@@ -148,7 +148,6 @@ const VENUE_HIGHLIGHTS = [
 ];
 
 export default function PrivateEventsContent() {
-  const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -163,7 +162,21 @@ export default function PrivateEventsContent() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setFormSubmitted(true);
+    window.location.href = createMailtoUrl("Private event inquiry", [
+      "New private event inquiry",
+      "",
+      `Name: ${formData.name}`,
+      `Email: ${formData.email}`,
+      `Phone: ${formData.phone}`,
+      `Event date: ${formData.date}`,
+      `Event time: ${formData.time}`,
+      `Guest count: ${formData.guests}`,
+      `Event type: ${formData.eventType}`,
+      `Package: ${formData.packageChoice}`,
+      "",
+      "Special requests / notes:",
+      formData.notes || "Not provided",
+    ]);
   };
 
   return (
@@ -555,7 +568,7 @@ export default function PrivateEventsContent() {
                   Request Private Venue Availability
                 </h2>
                 <p className="font-serif text-sm text-brand-muted leading-relaxed">
-                  Private room buyouts are available 7 days a week. Complete the inquiry form with your preferred date, and our event manager will confirm availability and send a customized quote within 24 hours.
+                  Complete the inquiry form with your preferred date to open a pre-addressed email for the Estime&apos;s Café events team. You can also call or email us directly.
                 </p>
               </div>
 
@@ -568,8 +581,8 @@ export default function PrivateEventsContent() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Mail className="w-4 h-4 text-brand-gold" />
-                  <a href="mailto:Estimecafe1@gmail.com" className="text-xs text-brand-muted hover:underline">
-                    Estimecafe1@gmail.com
+                  <a href={`mailto:${BUSINESS_EMAIL}`} className="text-xs text-brand-muted hover:underline">
+                    {BUSINESS_EMAIL}
                   </a>
                 </div>
                 <div className="flex items-start gap-3">
@@ -592,26 +605,8 @@ export default function PrivateEventsContent() {
 
             {/* Right Column: Interactive Booking Form */}
             <div className="lg:col-span-7 bg-white border border-brand-line p-8 sm:p-10 rounded-sm shadow-md">
-              {formSubmitted ? (
-                <div className="text-center py-10 space-y-4">
-                  <div className="w-14 h-14 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto">
-                    <CheckCircle2 className="w-8 h-8" />
-                  </div>
-                  <h3 className="font-serif text-2xl text-brand-green">
-                    Thank You, {formData.name || "Valued Host"}!
-                  </h3>
-                  <p className="font-serif text-sm text-brand-muted max-w-md mx-auto leading-relaxed">
-                    Your private event inquiry has been received. Executive Chef Duke and our event coordinator will review your requested date (<strong>{formData.date}</strong>) and contact you shortly at <strong>{formData.phone || formData.email}</strong>.
-                  </p>
-                  <button
-                    onClick={() => setFormSubmitted(false)}
-                    className="text-xs font-bold uppercase tracking-wider text-brand-green underline pt-4"
-                  >
-                    Submit Another Inquiry
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
+              <p className="mb-5 text-xs font-serif text-brand-muted">Submitting opens a pre-addressed email in your mail app. You can also call or email us directly.</p>
+              <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
@@ -757,10 +752,9 @@ export default function PrivateEventsContent() {
                     type="submit"
                     className="w-full bg-brand-green hover:bg-brand-green-dark text-white py-3.5 text-xs font-bold uppercase tracking-wider shadow-md transition-all"
                   >
-                    Submit Private Event Request &rarr;
+                    Open Private Event Email Draft &rarr;
                   </button>
-                </form>
-              )}
+              </form>
             </div>
           </div>
         </div>

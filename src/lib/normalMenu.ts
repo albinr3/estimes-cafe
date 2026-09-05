@@ -3,6 +3,8 @@ export interface NormalMenuItem {
   price: string;
   description?: string;
   diet?: "Keto";
+  image?: string;
+  imageAlt?: string;
 }
 
 export interface NormalMenuCategory {
@@ -27,7 +29,12 @@ export const NORMAL_MENU_DATA: NormalMenuCategory[] = [
     id: "benedicts",
     title: "Benedicts",
     items: [
-      { name: "Crispy Shrimp / Pastrami", price: "$22" },
+      {
+        name: "Crispy Shrimp / Pastrami",
+        price: "$22",
+        image: "/assets/crispy-benedict-eggs-hollandaise.webp",
+        imageAlt: "Gourmet eggs Benedict with creamy Hollandaise sauce, crispy topping, and seasoned breakfast potatoes at Estime's Cafe",
+      },
       { name: "Lobster", price: "$36" },
     ],
   },
@@ -37,9 +44,20 @@ export const NORMAL_MENU_DATA: NormalMenuCategory[] = [
     items: [
       { name: "The Jimmy (bacon)", price: "$13", description: "Omelet style on a roll." },
       { name: "The Inman (turkey bacon)", price: "$13", description: "Omelet style on a roll." },
-      { name: "The Mayor (sausage egg & cheese)", price: "$12" },
+      {
+        name: "The Mayor (sausage egg & cheese)",
+        price: "$12",
+        image: "/assets/the-mayor-sausage-egg-cheese-sandwich.webp",
+        imageAlt: "The Mayor breakfast sandwich with savory sausage patty, melted cheddar cheese, and fried egg on a brioche roll at Estime's Cafe",
+      },
       { name: "Steak, Egg & Cheese", price: "$20" },
-      { name: "Monte Estime", price: "$25", description: "French toast, sausage, egg, and cheddar." },
+      {
+        name: "Monte Estime",
+        price: "$25",
+        description: "French toast, sausage, egg, and cheddar.",
+        image: "/assets/monte-estime-breakfast-sandwich.webp",
+        imageAlt: "Chef Duke's signature Monte Estime breakfast sandwich on sweet powdered French toast with sausage, egg, and melted cheddar at Estime's Cafe",
+      },
     ],
   },
   {
@@ -67,10 +85,25 @@ export const NORMAL_MENU_DATA: NormalMenuCategory[] = [
     title: "Off the Spatula",
     subtitle: "$16.95 each",
     items: [
-      { name: "Blueberry Pancakes", price: "$16.95" },
+      {
+        name: "Blueberry Pancakes",
+        price: "$16.95",
+        image: "/assets/blueberry-pancakes.webp",
+        imageAlt: "Stack of fluffy blueberry pancakes topped with fresh blueberry compote and whipped cream at Estime's Cafe in Colonia NJ",
+      },
       { name: "Lemon Ricotta Pancakes", price: "$16.95" },
-      { name: "Buttermilk Pancakes", price: "$16.95" },
-      { name: "Amaretto French Toast", price: "$16.95" },
+      {
+        name: "Buttermilk Pancakes",
+        price: "$16.95",
+        image: "/assets/buttermilk-pancakes.webp",
+        imageAlt: "Fluffy golden buttermilk pancakes topped with whipped butter and powdered sugar at Estime's Cafe in Colonia NJ",
+      },
+      {
+        name: "Amaretto French Toast",
+        price: "$16.95",
+        image: "/assets/amaretto-brioche-french-toast.webp",
+        imageAlt: "Decadent Amaretto brioche French toast with sweet glaze, powdered sugar, and berry compote at Estime's Cafe",
+      },
       { name: "Chocolate Chip", price: "$16.95" },
     ],
   },
@@ -92,8 +125,18 @@ export const NORMAL_MENU_DATA: NormalMenuCategory[] = [
       { name: "Surf & Turf Breakfast", price: "$45" },
       { name: "Haitian Herring Pasta", price: "$34" },
       { name: "Lamb Chops Breakfast", price: "$38" },
-      { name: "NY Strip Breakfast", price: "$38" },
-      { name: "Honey Siracha Fried Chicken & French Toast", price: "$25" },
+      {
+        name: "NY Strip Breakfast",
+        price: "$38",
+        image: "/assets/ny-strip-breakfast-steak.webp",
+        imageAlt: "Juicy seared NY strip breakfast steak topped with pickled red onions and crispy shoestring potatoes at Estime's Cafe",
+      },
+      {
+        name: "Honey Sriracha Fried Chicken & French Toast",
+        price: "$25",
+        image: "/assets/honey-sriracha-fried-chicken-french-toast.webp",
+        imageAlt: "Crispy honey sriracha fried chicken over golden French toast dusted with powdered sugar at Estime's Cafe Colonia NJ",
+      },
     ],
   },
   {
@@ -130,7 +173,7 @@ export const NORMAL_MENU_DATA: NormalMenuCategory[] = [
     title: "Sandwiches",
     subtitle: "With fries",
     items: [
-      { name: "Honey Siracha Crispy Chicken", price: "$25", description: "Sliced pickles with honey Siracha sauce." },
+      { name: "Honey Sriracha Crispy Chicken", price: "$25", description: "Sliced pickles with honey Sriracha sauce." },
       { name: "Grilled Chicken BLT", price: "$25" },
       { name: "Catfish", price: "$27", description: "Crispy catfish, lettuce, tomato, and tartar sauce." },
       { name: "Prime NY Strip Steak", price: "$34", description: "Onions, peppers, and mushrooms on a steak roll." },

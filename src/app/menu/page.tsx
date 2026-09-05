@@ -28,13 +28,13 @@ export const metadata: Metadata = {
       "Explore the current breakfast, brunch, and lunch menu at Estime's Café in Colonia, NJ.",
     url: "https://www.estimescafe.com/menu",
     type: "website",
-    images: [{ url: "/assets/menu-social-preview.png", width: 1200, height: 630, alt: "Estime's Café breakfast, brunch, and lunch menu" }],
+    images: [{ url: "/assets/menu-social-preview.jpg", width: 1200, height: 630, alt: "Estime's Café breakfast, brunch, and lunch menu" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Full Breakfast, Brunch & Lunch Menu | Estime's Café Colonia NJ",
     description: "Explore the current breakfast, brunch, and lunch menu at Estime's Café in Colonia, NJ.",
-    images: ["/assets/menu-social-preview.png"],
+    images: ["/assets/menu-social-preview.jpg"],
   },
 };
 
