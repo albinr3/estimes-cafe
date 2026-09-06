@@ -32,6 +32,8 @@
   - Alt: The Mayor breakfast sandwich with savory sausage patty, melted cheddar cheese, and fried egg on a brioche roll at Estime's Cafe
 - Steak, Egg & Cheese — $20
   - Description: Tender steak, egg, and melted cheese on a roll for a satisfying New Jersey brunch.
+  - Image: /assets/steak-egg-cheese-breakfast-sandwich.webp
+  - Alt: Steak, Egg & Cheese breakfast sandwich with folded eggs and melted cheddar on a toasted brioche roll at Estime's Cafe Colonia NJ
 - Monte Estime — $25
   - Description: Sweet French toast, sausage, egg, and cheddar combined in Chef Duke's signature breakfast sandwich.
   - Image: /assets/monte-estime-breakfast-sandwich.webp
@@ -41,6 +43,8 @@
 
 - 3 Eggs any style, Choice of Meat, Home fries and toast — $15
   - Description: Three eggs cooked your way with your choice of meat, crispy home fries, and toast.
+  - Image: /assets/farmers-plate-eggs-sausage-home-fries.webp
+  - Alt: Farmer's Plate with scrambled eggs, melted cheddar cheese, breakfast sausage, seasoned home fries, and toast at Estime's Cafe Colonia NJ
 
 ## Brunch Bowls
 
@@ -69,6 +73,8 @@
   - Alt: Stack of fluffy blueberry pancakes topped with fresh blueberry compote and whipped cream at Estime's Cafe in Colonia NJ
 - Lemon Ricotta Pancakes
   - Description: Light, fluffy pancakes with creamy ricotta and bright lemon flavor.
+  - Image: /assets/lemon-ricotta-pancakes.webp
+  - Alt: Chef Duke's signature Lemon Ricotta Pancakes topped with whipped butter, powdered sugar, and strawberry compote at Estime's Cafe Colonia NJ
 - Buttermilk Pancakes
   - Description: Classic golden buttermilk pancakes, fluffy and made to order.
   - Image: /assets/buttermilk-pancakes.webp
@@ -120,6 +126,8 @@
   - Description: Classic New Jersey Taylor ham side.
 - Home Fries — $6
   - Description: Seasoned, crispy home fries.
+  - Image: /assets/seasoned-home-fries-side.webp
+  - Alt: Bowl of seasoned crispy breakfast home fries side at Estime's Cafe Colonia NJ
 - Turkey Bacon — $8
   - Description: Lean turkey bacon, cooked to order.
 - Chorizo — $8
@@ -130,6 +138,8 @@
   - Description: Five seasoned shrimp, perfect as a brunch add-on.
 - Fried Chicken (2) — $14
   - Description: Two pieces of crispy fried chicken.
+  - Image: /assets/crispy-fried-chicken-side.webp
+  - Alt: Two pieces of crispy golden fried chicken side at Estime's Cafe in Colonia NJ
 - Duke's Fries — $14
   - Description: Chef Duke's signature seasoned fries.
 - Truffle Fries — $14
@@ -140,6 +150,8 @@
   - Description: Warm, creamy Southern-style grits.
 - Grits w/ Cheese — $8
   - Description: Creamy grits with melted cheese.
+  - Image: /assets/creamy-cheesy-grits.webp
+  - Alt: Warm creamy Southern-style cheesy grits served in a blue ceramic dish at Estime's Cafe Colonia NJ
 
 ## Burgers
 
@@ -183,6 +195,8 @@
   - Description: Grilled chicken BLT sandwich served with fries.
 - Catfish — $27
   - Description: Crispy catfish sandwich with lettuce, tomato, tartar sauce, and fries.
+  - Image: /assets/crispy-catfish-sandwich.webp
+  - Alt: Crispy catfish sandwich on a brioche roll with lettuce, tomato, tartar sauce, served with french fries and pickle at Estime's Cafe Colonia NJ
 - Prime NY Strip Steak — $34
   - Description: Prime New York strip steak sandwich with onions, peppers, mushrooms, and fries.
 

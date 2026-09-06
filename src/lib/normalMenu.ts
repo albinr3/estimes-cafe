@@ -50,7 +50,13 @@ export const NORMAL_MENU_DATA: NormalMenuCategory[] = [
         image: "/assets/the-mayor-sausage-egg-cheese-sandwich.webp",
         imageAlt: "The Mayor breakfast sandwich with savory sausage patty, melted cheddar cheese, and fried egg on a brioche roll at Estime's Cafe",
       },
-      { name: "Steak, Egg & Cheese", price: "$20" },
+      {
+        name: "Steak, Egg & Cheese",
+        price: "$20",
+        description: "Tender steak, scrambled egg, and melted cheddar cheese on a toasted brioche roll.",
+        image: "/assets/steak-egg-cheese-breakfast-sandwich.webp",
+        imageAlt: "Steak, Egg & Cheese breakfast sandwich with folded eggs and melted cheddar on a toasted brioche roll at Estime's Cafe Colonia NJ",
+      },
       {
         name: "Monte Estime",
         price: "$25",
@@ -64,7 +70,13 @@ export const NORMAL_MENU_DATA: NormalMenuCategory[] = [
     id: "farmers-plate",
     title: "Farmer's Plate",
     items: [
-      { name: "3 Eggs Any Style, Choice of Meat, Home Fries and Toast", price: "$15" },
+      {
+        name: "3 Eggs Any Style, Choice of Meat, Home Fries and Toast",
+        price: "$15",
+        description: "Three eggs cooked your way, choice of meat, crispy seasoned home fries, and toast.",
+        image: "/assets/farmers-plate-eggs-sausage-home-fries.webp",
+        imageAlt: "Farmer's Plate with scrambled eggs, melted cheddar cheese, breakfast sausage, seasoned home fries, and toast at Estime's Cafe Colonia NJ",
+      },
     ],
   },
   {
@@ -91,7 +103,13 @@ export const NORMAL_MENU_DATA: NormalMenuCategory[] = [
         image: "/assets/blueberry-pancakes.webp",
         imageAlt: "Stack of fluffy blueberry pancakes topped with fresh blueberry compote and whipped cream at Estime's Cafe in Colonia NJ",
       },
-      { name: "Lemon Ricotta Pancakes", price: "$16.95" },
+      {
+        name: "Lemon Ricotta Pancakes",
+        price: "$16.95",
+        description: "Fluffy pancakes folded with sweet ricotta, served with lemon butter, powdered sugar, and strawberry compote.",
+        image: "/assets/lemon-ricotta-pancakes.webp",
+        imageAlt: "Chef Duke's signature Lemon Ricotta Pancakes topped with whipped butter, powdered sugar, and strawberry compote at Estime's Cafe Colonia NJ",
+      },
       {
         name: "Buttermilk Pancakes",
         price: "$16.95",
@@ -143,10 +161,31 @@ export const NORMAL_MENU_DATA: NormalMenuCategory[] = [
     id: "sides",
     title: "Sides",
     items: [
-      { name: "Bacon", price: "$6" }, { name: "Sausage", price: "$6" }, { name: "Taylor Ham", price: "$6" }, { name: "Home Fries", price: "$6" },
+      { name: "Bacon", price: "$6" }, { name: "Sausage", price: "$6" }, { name: "Taylor Ham", price: "$6" },
+      {
+        name: "Home Fries",
+        price: "$6",
+        description: "Seasoned, crispy home fries.",
+        image: "/assets/seasoned-home-fries-side.webp",
+        imageAlt: "Bowl of seasoned crispy breakfast home fries side at Estime's Cafe Colonia NJ",
+      },
       { name: "Turkey Bacon", price: "$8" }, { name: "Chorizo", price: "$8" }, { name: "Beef Sausage", price: "$8" }, { name: "Shrimp (5)", price: "$12" },
-      { name: "Fried Chicken (2)", price: "$14" }, { name: "Duke's Fries", price: "$14" }, { name: "Truffle Fries", price: "$14" }, { name: "French Fries", price: "$10" },
-      { name: "Grits", price: "$6" }, { name: "Grits w/ Cheese", price: "$8" },
+      {
+        name: "Fried Chicken (2)",
+        price: "$14",
+        description: "Two pieces of crispy golden fried chicken.",
+        image: "/assets/crispy-fried-chicken-side.webp",
+        imageAlt: "Two pieces of crispy golden fried chicken side at Estime's Cafe Colonia NJ",
+      },
+      { name: "Duke's Fries", price: "$14" }, { name: "Truffle Fries", price: "$14" }, { name: "French Fries", price: "$10" },
+      { name: "Grits", price: "$6" },
+      {
+        name: "Grits w/ Cheese",
+        price: "$8",
+        description: "Creamy grits with melted cheese.",
+        image: "/assets/creamy-cheesy-grits.webp",
+        imageAlt: "Warm creamy Southern-style cheesy grits served in a blue ceramic dish at Estime's Cafe Colonia NJ",
+      },
     ],
   },
   {
@@ -175,7 +214,13 @@ export const NORMAL_MENU_DATA: NormalMenuCategory[] = [
     items: [
       { name: "Honey Sriracha Crispy Chicken", price: "$25", description: "Sliced pickles with honey Sriracha sauce." },
       { name: "Grilled Chicken BLT", price: "$25" },
-      { name: "Catfish", price: "$27", description: "Crispy catfish, lettuce, tomato, and tartar sauce." },
+      {
+        name: "Catfish",
+        price: "$27",
+        description: "Crispy catfish sandwich with lettuce, tomato, tartar sauce, and fries.",
+        image: "/assets/crispy-catfish-sandwich.webp",
+        imageAlt: "Crispy catfish sandwich on a brioche roll with lettuce, tomato, tartar sauce, served with french fries and pickle at Estime's Cafe Colonia NJ",
+      },
       { name: "Prime NY Strip Steak", price: "$34", description: "Onions, peppers, and mushrooms on a steak roll." },
     ],
   },

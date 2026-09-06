@@ -19,8 +19,8 @@ const specialties: SpecialtyItem[] = [
     category: "Off the Spatula",
     desc: "See the full menu for current details.",
     href: "/menu#off-the-spatula",
-    image: "/assets/lemon-ricotta-pancakes.jpg",
-    alt: "Signature Lemon Ricotta Pancakes with warm lemon butter glaze and berries at Estime's Cafe in Colonia NJ",
+    image: "/assets/lemon-ricotta-pancakes.webp",
+    alt: "Chef Duke's signature Lemon Ricotta Pancakes topped with whipped lemon butter, powdered sugar, and strawberry compote at Estime's Cafe Colonia NJ",
   },
   {
     id: "lobster-benedict",

@@ -436,7 +436,7 @@ export default function AboutPageContent() {
             <div className="lg:col-span-6 grid grid-cols-2 gap-4">
               <div className="relative h-56 sm:h-72 border border-brand-line overflow-hidden group">
                 <Image
-                  src="/assets/lemon-ricotta-pancakes.jpg"
+                  src="/assets/lemon-ricotta-pancakes.webp"
                   alt="Estime's Cafe famous Lemon Ricotta Pancakes topped with fresh berry compote"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
