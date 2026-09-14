@@ -24,7 +24,10 @@ export const BUSINESS_GEO = {
 } as const;
 
 export const BUSINESS_MAP_URL =
-  "https://www.google.com/maps/search/?api=1&query=40.60034991904395,-74.31259870657125";
+  "https://maps.app.goo.gl/DvqrZrWoMCUL7PF5A";
+
+export const BUSINESS_GBP_PHOTOS_URL =
+  "https://share.google/KQNeNGzk90kfuniRn";
 
 export const BUSINESS_RATING = {
   ratingValue: "4.8",

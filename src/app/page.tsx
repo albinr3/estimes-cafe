@@ -6,6 +6,7 @@ import MenuShowcase from "@/components/MenuShowcase";
 import CateringSpotlight from "@/components/CateringSpotlight";
 import ChefStory from "@/components/ChefStory";
 import Testimonials from "@/components/Testimonials";
+import HomeFaq from "@/components/HomeFaq";
 import LocationSection from "@/components/LocationSection";
 import Footer from "@/components/Footer";
 
@@ -36,6 +37,9 @@ export default function HomePage() {
 
         {/* Social Proof & Customer Reviews */}
         <Testimonials />
+
+        {/* Frequently Asked Questions (SEO & AI Answer Engine Optimization) */}
+        <HomeFaq />
 
         {/* Location, Hours & Google Maps Embed */}
         <LocationSection />

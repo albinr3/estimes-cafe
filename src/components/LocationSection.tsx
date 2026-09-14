@@ -1,5 +1,5 @@
-import { MapPin, Phone, Clock, Navigation, Car, Utensils } from "lucide-react";
-import { BUSINESS_MAP_URL } from "@/lib/business";
+import { MapPin, Phone, Clock, Navigation, Car, Utensils, Camera } from "lucide-react";
+import { BUSINESS_MAP_URL, BUSINESS_GBP_PHOTOS_URL } from "@/lib/business";
 
 export default function LocationSection() {
   return (
@@ -32,15 +32,27 @@ export default function LocationSection() {
                       <br />
                       Colonia, NJ 07067 (Woodbridge Township)
                     </p>
-                    <a
-                      href={BUSINESS_MAP_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-green hover:text-brand-gold mt-2 transition-colors"
-                    >
-                      <Navigation className="w-3.5 h-3.5" />
-                      <span>Open in Google Maps &rarr;</span>
-                    </a>
+                    <div className="flex flex-wrap items-center gap-3 mt-2">
+                      <a
+                        href={BUSINESS_MAP_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-green hover:text-brand-gold transition-colors"
+                      >
+                        <Navigation className="w-3.5 h-3.5" />
+                        <span>Open in Google Maps &rarr;</span>
+                      </a>
+                      <span className="text-brand-line">&bull;</span>
+                      <a
+                        href={BUSINESS_GBP_PHOTOS_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-gold hover:text-brand-green transition-colors"
+                      >
+                        <Camera className="w-3.5 h-3.5" />
+                        <span>See Photos on Google &rarr;</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
@@ -106,7 +118,7 @@ export default function LocationSection() {
           <div className="lg:col-span-7 h-[380px] sm:h-[450px] lg:h-full min-h-[380px] border border-brand-line relative overflow-hidden bg-brand-cream shadow-inner">
             <iframe
               title="Estime's Cafe Location on Google Maps"
-              src="https://www.google.com/maps?q=40.60034991904395,-74.31259870657125&z=17&output=embed"
+              src="https://www.google.com/maps?q=Estime's+Caf%C3%A9,+238+Inman+Ave,+Colonia,+NJ+07067&z=16&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}

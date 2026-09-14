@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
-import { BUSINESS_NAP_NAME, BUSINESS_RATING } from "@/lib/business";
+import { Phone, Mail, MapPin, Clock, Camera } from "lucide-react";
+import { BUSINESS_NAP_NAME, BUSINESS_RATING, BUSINESS_GBP_PHOTOS_URL } from "@/lib/business";
 
 export default function Footer() {
   return (
@@ -154,6 +154,17 @@ export default function Footer() {
                   Sunday: 8:00 AM – 4:00 PM
                 </span>
               </p>
+              <div className="pt-2">
+                <a
+                  href={BUSINESS_GBP_PHOTOS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs text-brand-gold-light hover:text-white transition-colors font-medium underline underline-offset-4"
+                >
+                  <Camera className="w-3.5 h-3.5 text-brand-gold-light" />
+                  <span>See Restaurant Photos on Google &rarr;</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>

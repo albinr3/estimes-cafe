@@ -166,7 +166,7 @@ export default function ContactPageContent() {
             <div id="location-map" className="bg-white border border-brand-line rounded-xl overflow-hidden shadow-xs h-60 w-full relative scroll-mt-24">
               <iframe
                 title="Estime's Cafe Location Map"
-                src="https://www.google.com/maps?q=40.60034991904395,-74.31259870657125&z=17&output=embed"
+                src="https://www.google.com/maps?q=Estime's+Caf%C3%A9,+238+Inman+Ave,+Colonia,+NJ+07067&z=16&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -189,103 +189,95 @@ export default function ContactPageContent() {
                   Completing this form opens a pre-addressed email in your mail app.
                 </p>
               </div>
+
               <form onSubmit={handleSubmit} className="space-y-5 font-sans">
-                  {/* Name & Email */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1.5">
-                        Your Name <span className="text-red-600">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        value={formState.name}
-                        onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                        placeholder="John Doe"
-                        className="w-full bg-brand-paper border border-brand-line rounded-md px-3.5 py-2.5 text-sm focus:outline-none focus:border-brand-green focus:bg-white text-brand-text"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1.5">
-                        Email Address <span className="text-red-600">*</span>
-                      </label>
-                      <input
-                        type="email"
-                        required
-                        value={formState.email}
-                        onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                        placeholder="john@example.com"
-                        className="w-full bg-brand-paper border border-brand-line rounded-md px-3.5 py-2.5 text-sm focus:outline-none focus:border-brand-green focus:bg-white text-brand-text"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Phone & Subject */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1.5">
-                        Phone Number
-                      </label>
-                      <input
-                        type="tel"
-                        value={formState.phone}
-                        onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
-                        placeholder="(732) 555-0123"
-                        className="w-full bg-brand-paper border border-brand-line rounded-md px-3.5 py-2.5 text-sm focus:outline-none focus:border-brand-green focus:bg-white text-brand-text"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1.5">
-                        Topic / Subject
-                      </label>
-                      <select
-                        value={formState.subject}
-                        onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
-                        className="w-full bg-brand-paper border border-brand-line rounded-md px-3.5 py-2.5 text-sm focus:outline-none focus:border-brand-green focus:bg-white text-brand-text"
-                      >
-                        <option value="General Inquiry">General Inquiry</option>
-                        <option value="Group / Large Table Inquiry">Group / Large Party (6+)</option>
-                        <option value="Catering Question">Catering Question</option>
-                        <option value="Private Event Inquiries">Private Dining / Events</option>
-                        <option value="Feedback">Feedback / Review</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  {/* Message */}
+                {/* Name & Email */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1.5">
-                      Message <span className="text-red-600">*</span>
+                      Your Name <span className="text-red-600">*</span>
                     </label>
-                    <textarea
+                    <input
+                      type="text"
                       required
-                      rows={4}
-                      value={formState.message}
-                      onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                      placeholder="How can we help you?"
-                      className="w-full bg-brand-paper border border-brand-line rounded-md p-3.5 text-sm focus:outline-none focus:border-brand-green focus:bg-white text-brand-text resize-y"
+                      value={formState.name}
+                      onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                      placeholder="John Doe"
+                      className="w-full bg-brand-paper border border-brand-line rounded-md px-3.5 py-2.5 text-sm focus:outline-none focus:border-brand-green focus:bg-white text-brand-text"
                     />
                   </div>
 
-                  {/* Submit Button */}
-                  <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <button
-                      type="submit"
-                      className="w-full sm:w-auto bg-brand-green hover:bg-brand-green-dark text-white px-7 py-3 rounded-md text-xs font-bold uppercase tracking-wider transition-all inline-flex items-center justify-center gap-2 shadow-sm"
-                    >
-                      <Send className="w-3.5 h-3.5 text-brand-gold-light" />
-                      <span>Open Email Draft</span>
-                    </button>
-
-                    <span className="text-[11px] text-brand-muted font-serif">
-                      Prefer to call?{" "}
-                      <a href={BUSINESS_PHONE_LINK} className="font-bold text-brand-green hover:underline">
-                        (732) 669-7581
-                      </a>
-                    </span>
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1.5">
+                      Email Address <span className="text-red-600">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      value={formState.email}
+                      onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                      placeholder="john@example.com"
+                      className="w-full bg-brand-paper border border-brand-line rounded-md px-3.5 py-2.5 text-sm focus:outline-none focus:border-brand-green focus:bg-white text-brand-text"
+                    />
                   </div>
+                </div>
+
+                {/* Phone & Subject */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1.5">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      value={formState.phone}
+                      onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
+                      placeholder="(732) 555-0123"
+                      className="w-full bg-brand-paper border border-brand-line rounded-md px-3.5 py-2.5 text-sm focus:outline-none focus:border-brand-green focus:bg-white text-brand-text"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1.5">
+                      Topic / Subject
+                    </label>
+                    <select
+                      value={formState.subject}
+                      onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
+                      className="w-full bg-brand-paper border border-brand-line rounded-md px-3.5 py-2.5 text-sm focus:outline-none focus:border-brand-green focus:bg-white text-brand-text"
+                    >
+                      <option value="General Inquiry">General Inquiry</option>
+                      <option value="Group / Large Table Inquiry">Group / Large Party (6+)</option>
+                      <option value="Catering Question">Catering Question</option>
+                      <option value="Menu Question">Menu Question</option>
+                      <option value="Feedback / Experience">Feedback / Experience</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1.5">
+                    Your Message <span className="text-red-600">*</span>
+                  </label>
+                  <textarea
+                    required
+                    rows={5}
+                    value={formState.message}
+                    onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                    placeholder="Tell us how we can help you..."
+                    className="w-full bg-brand-paper border border-brand-line rounded-md px-3.5 py-2.5 text-sm focus:outline-none focus:border-brand-green focus:bg-white text-brand-text leading-relaxed"
+                  />
+                </div>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  className="w-full sm:w-auto px-8 py-3.5 bg-brand-green text-white font-sans text-sm font-bold uppercase tracking-wider rounded-md hover:bg-brand-green-dark transition-colors inline-flex items-center justify-center gap-2 shadow-xs cursor-pointer"
+                >
+                  <Send className="w-4 h-4 text-brand-gold" />
+                  <span>Send Message via Email</span>
+                </button>
               </form>
             </div>
           </div>
