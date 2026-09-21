@@ -5,6 +5,8 @@ export const dynamic = "force-static";
 const baseUrl = "https://www.estimescafe.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const lastModified = new Date();
+
   const routes = [
     "",
     "/menu",
@@ -16,5 +18,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/contact",
   ];
 
-  return routes.map((route) => ({ url: `${baseUrl}${route}` }));
+  return routes.map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified,
+  }));
 }
+

@@ -16,12 +16,12 @@ export default function Hero() {
           </div>
 
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-normal leading-[1.08] text-brand-green tracking-tight mb-5">
-            Estime&apos;s Café — Premier Breakfast, Brunch, Lunch &amp; Artisan Coffee in Colonia, NJ
+            Estime&apos;s Café: Breakfast, Weekend Brunch, Lunch &amp; Artisan Coffee in Colonia, NJ
           </h1>
 
           <p className="font-serif text-base sm:text-lg text-[#48423c] leading-relaxed max-w-xl mb-8">
-            A vibrant neighborhood table where American comfort classics meet authentic Haitian and
-            Caribbean flavor. Crafted daily with fresh ingredients by Chef Duke Estime.
+            A neighborhood kitchen serving buttermilk pancakes, brioche French toast, and fresh lunch
+            with Haitian and Caribbean spices. Cooked to order every morning by Chef Duke Estime.
           </p>
 
           {/* Action CTAs */}

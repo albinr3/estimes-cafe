@@ -16,8 +16,8 @@ export default function CulinaryTrilogy() {
             Handcrafted Morning Brunch &amp; Midday Lunch
           </h2>
           <p className="font-serif text-sm sm:text-base text-brand-muted leading-relaxed">
-            Two distinct culinary experiences crafted from scratch daily with farm-fresh eggs,
-            artisan bakery brioche, and Chef Duke&apos;s signature Caribbean flair.
+            Scratch cooking every day with farm-fresh eggs, thick brioche,
+            and Chef Duke&apos;s signature Caribbean seasonings.
           </p>
         </div>
 
@@ -118,9 +118,9 @@ export default function CulinaryTrilogy() {
                   Fresh Lunch Specials &amp; Handcrafted Sandwiches in Colonia, NJ
                 </h3>
                 <p className="font-serif text-sm text-[#48423c] leading-relaxed mb-5">
-                  Your premier midday lunch restaurant in Woodbridge Township. Savor handcrafted
-                  breakfast sandwiches like &ldquo;The Mayor,&rdquo; Crispy Sriracha Chicken, savory
-                  burgers, and flavorful Haitian omelets.
+                  Midday lunch in Woodbridge Township. Savor breakfast sandwiches like
+                  &ldquo;The Mayor,&rdquo; Crispy Sriracha Chicken, savory burgers, and
+                  flavorful Haitian omelets.
                 </p>
 
                 {/* Dish Tags */}

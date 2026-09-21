@@ -74,7 +74,7 @@ export default function AboutPageContent() {
       type: "Broadcast Television",
       date: "Broadcast Feature",
       icon: Tv,
-      highlight: "Special broadcast presentation showcasing Chef Duke's scratch recipes and Haitian culinary craft.",
+      highlight: "Broadcast feature on Chef Duke's scratch recipes and Haitian culinary craft.",
     },
   ];
 
@@ -100,8 +100,8 @@ export default function AboutPageContent() {
             </h1>
 
             <p className="font-serif text-lg sm:text-xl text-brand-cream/85 leading-relaxed">
-              Founded by brothers Dumond and Duke Estime in Colonia, New Jersey. A harmonious fusion of Caribbean soul,
-              classical New York culinary rigor, and unmatched hospitality.
+              Founded by brothers Dumond and Duke Estime in Colonia, New Jersey, bringing Haitian family traditions
+              and New York culinary training to morning breakfast and weekend brunch.
             </p>
           </div>
         </div>
@@ -119,19 +119,18 @@ export default function AboutPageContent() {
               </div>
 
               <h2 className="font-serif text-2xl sm:text-4xl text-brand-green font-normal leading-tight">
-                Two Brothers Creating the Perfect Storm for Something Delicious
+                Two Brothers, One Kitchen
               </h2>
 
               <p className="text-[#3c362f]">
-                <strong>Estime’s Cafe</strong> is a new traditional restaurant opened by brothers{" "}
-                <strong>Dumond and Duke Estime</strong>. Dumond is on the business aspect, while Duke is the creative
-                one. With their heads together, it’s creating the perfect storm for something delicious.
+                <strong>Estime’s Café</strong> was founded by brothers <strong>Dumond and Duke Estime</strong>.
+                Dumond manages business and operations, while Duke leads the kitchen. Together, they bring
+                neighborhood warmth and scratch cooking to Colonia.
               </p>
 
               <p className="text-[#3c362f]">
-                Duke, the executive chef, cultivated his love of cooking while growing up in the Caribbean alongside his
-                mother and five siblings. Those family dishes and trade secrets laid the foundation for Chef Duke to
-                become a ground-breaking Haitian chef.
+                Duke learned to cook growing up in Haiti alongside his mother and five siblings. Those family recipes
+                and techniques formed the foundation of his career in New York kitchens.
               </p>
 
               {/* Complementary Pillars */}
@@ -147,7 +146,7 @@ export default function AboutPageContent() {
                     </div>
                   </div>
                   <p className="font-serif text-xs sm:text-sm text-[#554e46] leading-relaxed">
-                    Spearheading strategic business operations, hospitality excellence, and community relationships.
+                    Manages business operations, guest service, catering logistics, and community partnerships.
                   </p>
                 </div>
 
@@ -158,11 +157,11 @@ export default function AboutPageContent() {
                     </div>
                     <div>
                       <h4 className="font-bold text-sm text-brand-green">Chef Duke Estime</h4>
-                      <p className="text-xs text-brand-muted uppercase tracking-wider">Executive Chef &amp; Culinary Visionary</p>
+                      <p className="text-xs text-brand-muted uppercase tracking-wider">Executive Chef &amp; Co-Founder</p>
                     </div>
                   </div>
                   <p className="font-serif text-xs sm:text-sm text-[#554e46] leading-relaxed">
-                    James Beard Honoree crafting authentic Caribbean-American fusion breakfast, brunch, and catering.
+                    James Beard Foundation Honoree leading scratch cooking across our breakfast, brunch, and catering menus.
                   </p>
                 </div>
               </div>
@@ -183,7 +182,7 @@ export default function AboutPageContent() {
                     Warm Hospitality &bull; Colonia, NJ
                   </span>
                   <p className="font-serif text-base text-white/90">
-                    A welcoming neighborhood café where family values and culinary artistry meet every morning.
+                    A welcoming neighborhood café serving scratch-made breakfast and brunch on Inman Avenue.
                   </p>
                 </div>
               </div>
@@ -243,9 +242,9 @@ export default function AboutPageContent() {
 
               <div className="space-y-4 font-serif text-base sm:text-lg text-brand-cream/85 leading-relaxed">
                 <p>
-                  Following his passion, Chef Duke went on to study culinary art at the prestigious{" "}
-                  <strong className="text-white">NY Institute for Culinary Education (ICE)</strong>. There, Chef Duke
-                  learned to hone in on his own creative style and embodied his deep respect for food.
+                  Chef Duke studied at the <strong className="text-white">Institute of Culinary Education (ICE)</strong> in
+                  New York City. At ICE, he trained in classical French technique while refining his own
+                  Caribbean-influenced cooking style.
                 </p>
 
                 {/* Stylized Quote Card */}
@@ -256,7 +255,7 @@ export default function AboutPageContent() {
                     prep chefs, and innovative ideas.”
                   </p>
                   <p className="font-sans text-xs font-bold uppercase tracking-widest text-brand-gold-light mt-3">
-                    — Executive Chef Duke Estime
+                    Executive Chef Duke Estime
                   </p>
                 </div>
 
@@ -267,15 +266,14 @@ export default function AboutPageContent() {
                 </p>
 
                 <p>
-                  He went on to be featured at the <strong className="text-white">James Beard House</strong> in New York
-                  City, one of the best culinary awards there is. Ironically, Chef Duke also volunteered at the James
-                  Beard House when he was younger. Little did he know he would be accepting an award from that very
-                  foundation one day.
+                  He was later honored as a presenter at the historic <strong className="text-white">James Beard House</strong> in
+                  Manhattan. Years earlier, he had volunteered in the very same kitchen as a young culinary student,
+                  making his return as a featured chef a full-circle milestone.
                 </p>
 
                 <p>
-                  Alongside that recognition, he has been specially presented on NBC New York Live, in The New York Times,
-                  The Star Ledger, Industry Magazine, &amp; Golf Styles.
+                  His cooking has also been featured on NBC New York Live, and in The New York Times, The Star-Ledger,
+                  Industry Magazine, and Golf Styles.
                 </p>
               </div>
             </div>
@@ -370,8 +368,8 @@ export default function AboutPageContent() {
               </h2>
 
               <p className="text-[#3c362f]">
-                Chef Duke finally decided to open a place to call his own. He will continue to perfect his craft and
-                teach others, bringing only the very best to a new Estime’s Cafe.
+                After years in fine-dining kitchens and private catering, Chef Duke partnered with his brother Dumond
+                to open Estime’s Café in Colonia, bringing scratch morning comfort food to Central Jersey.
               </p>
 
               <p className="text-[#3c362f]">
@@ -425,7 +423,7 @@ export default function AboutPageContent() {
                       Teaching &amp; Mentorship
                     </h5>
                     <p className="text-xs text-brand-muted font-serif mt-0.5">
-                      Perpetuating culinary craft and empowering youth.
+                      Training kitchen staff and mentoring young cooks in classical culinary techniques.
                     </p>
                   </div>
                 </div>
@@ -453,7 +451,7 @@ export default function AboutPageContent() {
               <div className="relative h-56 sm:h-72 border border-brand-line overflow-hidden group">
                 <Image
                   src="/assets/creole-shrimp-grits.jpg"
-                  alt="Authentic Creole Shrimp and Grits crafted by Executive Chef Duke Estime"
+                  alt="Creole Shrimp and Grits prepared by Executive Chef Duke Estime"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                   sizes="(max-width: 768px) 50vw, 25vw"
@@ -506,7 +504,7 @@ export default function AboutPageContent() {
       <section className="py-16 sm:py-20 bg-brand-cream border-b border-brand-line">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-gold block mb-2">
-            Experience The Craft
+            Visit Estime&apos;s Café
           </span>
 
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-green font-normal leading-tight mb-4">
@@ -514,8 +512,8 @@ export default function AboutPageContent() {
           </h2>
 
           <p className="font-serif text-base sm:text-lg text-[#48423c] leading-relaxed max-w-2xl mx-auto mb-8">
-            Whether you&apos;re joining us for a weekend brunch with family, ordering catering for your corporate office,
-            or planning an intimate private celebration, Chef Duke and the Estime family look forward to welcoming you.
+            Join us for breakfast or weekend brunch, order catering for your next gathering,
+            or reserve our dining room for a private dinner. We look forward to cooking for you.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4">

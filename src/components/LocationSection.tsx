@@ -14,7 +14,7 @@ export default function LocationSection() {
               </span>
 
               <h2 className="font-serif text-3xl sm:text-4xl text-brand-green font-normal leading-tight mb-6">
-                Visit Our Breakfast &amp; Lunch Restaurant in Colonia, NJ (238 Inman Ave)
+                Visit Estime&apos;s Café in Colonia, NJ
               </h2>
 
               <div className="space-y-6">
@@ -63,7 +63,7 @@ export default function LocationSection() {
                   </div>
                   <div>
                     <p className="font-sans text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
-                      Operating Hours
+                      Hours
                     </p>
                     <div className="font-serif text-sm text-[#48423c] space-y-1">
                       <p className="flex justify-between gap-6">
@@ -107,7 +107,7 @@ export default function LocationSection() {
                   </div>
                   <div className="flex items-center gap-2">
                     <Utensils className="w-4 h-4 text-brand-gold" />
-                    <span>Serving Colonia, Woodbridge, Clark, Rahway, Edison &amp; Westfield.</span>
+                    <span>Minutes from Route 27, Parkway Exit 131, and MetroPark station.</span>
                   </div>
                 </div>
               </div>

@@ -139,7 +139,7 @@ const CATERING_PLATTERS: CateringCategory[] = [
         name: "Seasonal Fresh Fruit Salad",
         halfPrice: "$75",
         fullPrice: "$120",
-        description: "Vibrant medley of sliced seasonal melons, fresh berries, grapes, and pineapple.",
+        description: "Fresh sliced seasonal melons, ripe berries, seedless grapes, and sweet pineapple.",
       },
     ],
   },
@@ -178,7 +178,7 @@ const CATERING_PLATTERS: CateringCategory[] = [
         name: "Chicken Scampi",
         halfPrice: "$75",
         fullPrice: "$130",
-        description: "Sautéed chicken in a vibrant garlic, white wine, lemon, and herb butter sauce.",
+        description: "Sautéed chicken breast cutlets in a garlic, white wine, fresh lemon, and herb butter reduction.",
       },
       {
         name: "Asian Glazed Chicken",
@@ -241,7 +241,7 @@ const CATERING_PLATTERS: CateringCategory[] = [
         name: "Haitian Black Rice (Djon Djon)",
         halfPrice: "$125",
         fullPrice: "$230",
-        description: "Authentic island delicacy prepared with northern black mushroom infusion, green peas, and spices.",
+        description: "Traditional Haitian specialty rice simmered with dried black mushroom broth (djon djon), tender green peas, and island seasonings.",
         popular: true,
       },
       {
@@ -311,7 +311,7 @@ const BRUNCH_PACKAGES = [
     price: "$50",
     image: "/assets/catering-pkg-steak.jpg",
     imageAlt: "Executive Steak & Sweet Griddle Catering Feast with NY Strip Steak and Brioche French Toast",
-    description: "The ultimate elevated brunch experience featuring prime cuts and gourmet sweet stacks.",
+    description: "The ultimate steak and griddle brunch featuring hand-cut NY strip, lemon ricotta pancakes, and Amaretto brioche French toast.",
     popular: false,
     inclusions: [
       "Hand-Cut NY Strip Steak with Creole Chimichurri",
@@ -518,7 +518,7 @@ export default function CateringPageContent() {
               Full Catering Party Trays Menu
             </h2>
             <p className="font-serif text-sm text-brand-muted mt-2">
-              Select half or full platters to customize the perfect spread for your event.
+              Select half or full platters to build your group order for pickup or delivery.
             </p>
           </div>
 

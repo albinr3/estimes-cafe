@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.estimescafe.com"),
   title: "Estime's Café - Breakfast, Brunch & Lunch | Colonia, NJ",
   description:
-    "Experience handcrafted breakfast, signature weekend brunch, and fresh midday lunch in Colonia, NJ. Chef Duke Estime fuses American comfort classics with vibrant Haitian & Caribbean flavors at 238 Inman Ave.",
+    "Handcrafted breakfast, weekend brunch, and lunch in Colonia, NJ. Chef Duke Estime pairs American comfort classics with Haitian & Caribbean spices at 238 Inman Ave.",
   keywords: [
     "breakfast near me",
     "best brunch near me",
@@ -56,9 +56,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://www.estimescafe.com/",
     siteName: BUSINESS_NAP_NAME,
-    title: "Estime's Café — Premier Breakfast, Brunch & Lunch in Colonia, NJ",
+    title: "Estime's Café: Breakfast, Brunch & Lunch in Colonia, NJ",
     description:
-      "Handcrafted breakfast, signature weekend brunch, and fresh midday lunch featuring American comfort food with Caribbean fusion. Visit us at 238 Inman Ave, Colonia, NJ.",
+      "Handcrafted breakfast, weekend brunch, and fresh lunch featuring American comfort food with Caribbean fusion. Visit us at 238 Inman Ave, Colonia, NJ.",
     images: [
       {
         url: "/assets/estimes-cafe-breakfast-brunch-colonia-nj.jpg",
@@ -70,9 +70,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Estime's Café — Premier Breakfast, Brunch & Lunch in Colonia, NJ",
+    title: "Estime's Café: Breakfast, Brunch & Lunch in Colonia, NJ",
     description:
-      "Handcrafted breakfast, signature weekend brunch, and fresh lunch with Caribbean fusion in Colonia, NJ.",
+      "Handcrafted breakfast, weekend brunch, and fresh lunch with Caribbean fusion in Colonia, NJ.",
     images: ["/assets/estimes-cafe-breakfast-brunch-colonia-nj.jpg"],
   },
   alternates: {

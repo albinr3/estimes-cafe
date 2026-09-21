@@ -5,22 +5,22 @@ export default function FeaturesBar() {
     {
       icon: Coffee,
       title: "Artisan Coffee",
-      desc: "Specialty brews, espresso, and seasonal house syrups brewed fresh all morning.",
+      desc: "Espresso, cold brew, and house-made syrups brewed fresh every morning.",
     },
     {
       icon: Egg,
-      title: "Farm-Fresh Eggs & Bread",
-      desc: "Cage-free eggs, artisanal brioche, and local bakery-crafted breakfast rolls.",
+      title: "Farm Eggs & Brioche",
+      desc: "Cage-free eggs, thick-cut brioche, and fresh rolls from local bakeries.",
     },
     {
       icon: UtensilsCrossed,
-      title: "Caribbean Fusion",
-      desc: "Haitian spices, savory house marinades, and Caribbean comfort culinary twists.",
+      title: "Haitian Seasonings",
+      desc: "House-made epis, citrus marinades, and Creole spices cooked into everyday morning classics.",
     },
     {
       icon: Sparkles,
-      title: "Full Catering Trays",
-      desc: "Party trays, corporate lunch catering, and breakfast platters across Central NJ.",
+      title: "Catering Platters",
+      desc: "Hot breakfast trays, sandwich platters, and hot lunch delivered across Central NJ.",
     },
   ];
 

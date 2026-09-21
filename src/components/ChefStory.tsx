@@ -42,17 +42,16 @@ export default function ChefStory() {
             <div className="space-y-4 font-serif text-base text-[#48423c] leading-relaxed mb-8">
               <p>
                 Founded in Colonia, New Jersey by brothers <strong>Duke and Dumond Estime</strong>,
-                Estime’s Café is Central NJ&apos;s premier destination for chef-driven breakfast and
-                weekend brunch infused with authentic Haitian and Caribbean culinary traditions.
+                Estime’s Café brings Haitian home cooking into dialogue with the American breakfast table.
               </p>
               <p>
-                Led by <strong>Executive Chef Duke Estime</strong>, our scratch kitchen masterfully merges
-                classic American morning comfort food—golden buttermilk pancakes, farm egg omelets,
-                and crisp breakfast sandwiches—with bold Creole spices, marinated meats, and stone-ground grits.
+                Led by <strong>Executive Chef Duke Estime</strong>, our scratch kitchen pairs
+                classic American morning comfort food, like golden buttermilk pancakes and farm egg omelets,
+                with bold Creole spices, citrus marinades, and stone-ground grits.
               </p>
               <p>
-                From our signature Haitian spicy omelet to velvety Amaretto brioche French toast,
-                every recipe reflects over 8 years of passion, flavor, and warm neighborhood hospitality.
+                Whether you stop in for a spicy Haitian omelet or a stack of lemon ricotta pancakes,
+                the food is cooked to order by a local family serving Colonia since 2018.
               </p>
             </div>
 

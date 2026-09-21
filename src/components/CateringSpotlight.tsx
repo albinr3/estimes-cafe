@@ -13,7 +13,7 @@ export default function CateringSpotlight() {
       name: "Rasta Pasta Party Tray",
       price: "Half $70 • Full $130",
       serves: "Half 8–10 • Full 15–20",
-      desc: "Penne tossed with vibrant bell peppers in a creamy, mildly spiced Caribbean jerk reduction.",
+      desc: "Penne tossed with sweet bell peppers in a creamy, mildly spiced Caribbean jerk reduction.",
     },
     {
       name: "Creole Haitian Salmon Tray",

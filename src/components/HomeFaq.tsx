@@ -33,10 +33,10 @@ export default function HomeFaq() {
             id="faq-heading"
             className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-brand-text tracking-tight mb-4"
           >
-            Everything You Need to Know Before Visiting
+            Frequently Asked Questions
           </h2>
           <p className="text-base sm:text-lg text-brand-muted leading-relaxed">
-            Have questions about our signature Haitian-American brunch, hours, takeout, or catering in Colonia, NJ? Find your answers below.
+            Details on our menu, opening hours, takeout pickup, and catering across Central New Jersey.
           </p>
         </div>
 
@@ -61,8 +61,8 @@ export default function HomeFaq() {
                   id={`faq-question-${faq.id}`}
                 >
                   <span className="flex items-center gap-3 text-lg font-serif font-semibold text-brand-text pr-2">
-                    <span className="text-sm font-sans font-bold text-brand-gold min-w-[1.5rem]">
-                      0{index + 1}.
+                    <span className="text-sm font-sans font-bold text-brand-gold min-w-[1.75rem]">
+                      {String(index + 1).padStart(2, "0")}.
                     </span>
                     {faq.question}
                   </span>

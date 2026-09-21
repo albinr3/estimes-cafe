@@ -13,16 +13,15 @@ export default function Footer() {
             <Link href="/" className="inline-block mb-4 group">
               <Image
                 src="/assets/estimes-cafe-logo.webp"
-                alt="Estimé by chef Duke — Estime's Café"
+                alt="Estimé by chef Duke - Estime's Café"
                 width={180}
                 height={70}
                 className="h-12 sm:h-14 w-auto object-contain brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity"
               />
             </Link>
             <p className="font-serif text-sm text-brand-cream/80 leading-relaxed mb-4">
-              Premier breakfast, signature brunch, and lunch crafted by Executive Chef Duke Estime.
-              Blending classic American comfort favorites with authentic Caribbean culinary craft
-              in Colonia, New Jersey.
+              Breakfast, weekend brunch, and fresh lunch from Executive Chef Duke Estime.
+              American comfort food seasoned with Caribbean spices, cooked daily at 238 Inman Ave in Colonia, NJ.
             </p>
             <div className="mb-6">
               <Link
@@ -45,7 +44,7 @@ export default function Footer() {
             <ul className="font-serif text-sm space-y-2.5 text-brand-cream/80">
               <li>
                 <Link href="/order-online" className="text-brand-gold-light font-bold hover:text-white transition-colors flex items-center gap-1.5">
-                  <span>Order Online (Delivery &amp; Pickup)</span>
+                  <span>Order Online (Pickup &amp; Delivery)</span>
                 </Link>
               </li>
               <li>
@@ -55,17 +54,17 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/catering#platter-catalog" className="hover:text-white transition-colors">
-                  Catering Party Trays &amp; Platters
+                  A La Carte Party Trays Menu
                 </Link>
               </li>
               <li>
-                <Link href="/catering" className="hover:text-white transition-colors">
-                  Party Trays &amp; Corporate Lunch Catering
+                <Link href="/catering#brunch-packages" className="hover:text-white transition-colors">
+                  Brunch Catering Packages ($40–$50/pp)
                 </Link>
               </li>
               <li>
                 <Link href="/private-events" className="hover:text-white transition-colors">
-                  Private Events &amp; Dinner Packages
+                  Private Events &amp; Venue Rental
                 </Link>
               </li>
             </ul>
@@ -78,23 +77,18 @@ export default function Footer() {
             </p>
             <ul className="font-serif text-sm space-y-2.5 text-brand-cream/80">
               <li>
-                <Link href="/order-online" className="hover:text-white transition-colors font-medium">
-                  Order Online
+                <Link href="/about" className="hover:text-white transition-colors font-medium">
+                  Our Story &amp; Founders
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-white transition-colors font-medium">
-                  About Us &amp; Story
+                <Link href="/meet-the-chef" className="hover:text-white transition-colors font-medium">
+                  Meet Chef Duke Estime
                 </Link>
               </li>
               <li>
                 <Link href="/reviews" className="hover:text-white transition-colors font-medium">
                   Customer Reviews ({BUSINESS_RATING.ratingValue}★)
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact#location-map" className="hover:text-white transition-colors font-medium">
-                  Our Location &amp; Map
                 </Link>
               </li>
               <li>
@@ -104,7 +98,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/catering#inquiry-form" className="hover:text-white transition-colors">
-                  Catering Inquiries
+                  Catering Quote Request
                 </Link>
               </li>
             </ul>
@@ -169,11 +163,18 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* SEO Local Footer Tags */}
-        <div className="pt-8 text-center text-xs text-brand-cream/50 font-serif leading-relaxed">
+        {/* SEO Local Footer Tags & Sitemap */}
+        <div className="pt-8 text-center text-xs text-brand-cream/50 font-serif leading-relaxed flex flex-col items-center gap-2">
           <p>
-            Estime’s Café proudly serves guests across Central New Jersey: Colonia, Woodbridge,
-            Iselin, Clark, Rahway, Edison, Scotch Plains, Westfield, Cranford, Fanwood, and Linden.
+            Serving guests across Colonia, Woodbridge, Iselin, Clark, Rahway, Edison, Scotch Plains, Westfield, Cranford, and Central New Jersey.
+          </p>
+          <p>
+            <a
+              href="/sitemap.xml"
+              className="text-brand-cream/40 hover:text-white transition-colors underline underline-offset-2"
+            >
+              Sitemap
+            </a>
           </p>
         </div>
       </div>

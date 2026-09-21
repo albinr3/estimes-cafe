@@ -84,7 +84,7 @@ export default function Testimonials() {
         {/* Callout to leave a review and view all reviews */}
         <div className="mt-10 text-center">
           <p className="font-serif text-xs text-brand-muted mb-4">
-            Have you dined with us recently? We would love to hear about your experience!
+            Dined with us recently? Share your review with our team on Google.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Link

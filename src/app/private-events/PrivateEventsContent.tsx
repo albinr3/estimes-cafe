@@ -66,7 +66,7 @@ const DINNER_PACKAGES: DinnerPackage[] = [
     tier: "$90 / Person",
     price: "$90",
     name: "Signature Steak & Salmon Celebration",
-    description: "Our most popular private dinner experience featuring prime NY Strip, handcrafted pasta, and Caribbean starters.",
+    description: "Our most popular private dinner menu with prime NY Strip, handcrafted pasta, and Caribbean starters.",
     popular: true,
     starters: [
       "Chorizo Sausage & Jumbo Shrimp with Garlic Sauce",
@@ -94,7 +94,7 @@ const DINNER_PACKAGES: DinnerPackage[] = [
     tier: "$105 / Person",
     price: "$105",
     name: "Executive Grand Tasting & Whole Snapper",
-    description: "The pinnacle of private luxury dining featuring lollipop lamb chops, whole red snapper, and artisanal Haitian desserts.",
+    description: "Three-course dinner with lollipop lamb chops, whole red snapper, and traditional Haitian desserts.",
     popular: false,
     starters: [
       "Crispy Tempura Battered Jumbo Shrimp",
@@ -123,27 +123,27 @@ const VENUE_HIGHLIGHTS = [
   {
     icon: Camera,
     title: "Botanical Floral Photo Wall",
-    desc: "Built-in luxury botanical greenery photo wall with custom lighting, perfect for guest memories.",
+    desc: "Botanical greenery photo wall with dedicated lighting for photos and guest memories.",
   },
   {
     icon: Users,
     title: "Intimate Private Buyout",
-    desc: "Host exclusive private parties for up to 35 guests with dedicated waitstaff and private dining room access.",
+    desc: "Host private parties for up to 35 guests with dedicated waitstaff and private dining room access.",
   },
   {
     icon: Utensils,
     title: "Chef Duke Custom Menus",
-    desc: "Custom printed menus with your event title or honoree name, tailored for dietary and culinary preferences.",
+    desc: "Custom printed menus with your event title or honoree name, tailored to dietary requests and menu preferences.",
   },
   {
     icon: Music,
     title: "Sound & Ambient Lighting",
-    desc: "Seamless Bluetooth audio connectivity for your curated playlists and dimmable rustic ambient lighting.",
+    desc: "Bluetooth audio for your own playlists and dimmable rustic ambient lighting.",
   },
   {
     icon: ShieldCheck,
     title: "Free On-Site Parking",
-    desc: "Convenient parking lot on Inman Avenue for seamless arrival and departure for all your guests.",
+    desc: "Dedicated parking lot on Inman Avenue right outside the restaurant.",
   },
 ];
 
@@ -238,9 +238,8 @@ export default function PrivateEventsContent() {
           </h1>
 
           <p className="font-serif text-base sm:text-lg text-brand-cream/90 max-w-3xl mx-auto leading-relaxed mb-10 drop-shadow-sm">
-            Celebrate life&apos;s most meaningful moments in an intimate, beautifully styled dining room.
-            From private dinner parties and milestone birthdays to baby showers and bridal brunches,
-            Executive Chef Duke Estime creates unforgettable multi-course culinary experiences.
+            Host your private dinner party, birthday, baby shower, or bridal brunch in our Colonia dining room.
+            Executive Chef Duke Estime prepares custom multi-course dinners and daytime menus for up to 35 guests.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-sans uppercase font-bold tracking-wider">
@@ -270,10 +269,10 @@ export default function PrivateEventsContent() {
               Why Host With Us
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl text-brand-green font-normal">
-              An Elevated, Intimate Event Space in Central NJ
+              An Intimate Event Space in Central NJ
             </h2>
             <p className="font-serif text-sm text-brand-muted mt-2">
-              Every detail is designed to make your guests feel pampered and comfortable.
+              We handle the cooking, setup, and service so you can enjoy your guests.
             </p>
           </div>
 
@@ -308,10 +307,10 @@ export default function PrivateEventsContent() {
               Atmosphere &amp; Memories
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl text-brand-green font-normal">
-              Daytime Elegance &amp; Evening Vibrance
+              Daytime Celebrations &amp; Evening Dinners
             </h2>
             <p className="font-serif text-sm text-brand-muted mt-2">
-              Whether you are planning a bright morning shower or a warm candlelit dinner celebration, our dining room adapts seamlessly to your vision.
+              From morning baby showers with natural sunlight to candlelit evening dinner parties, the dining room is reserved exclusively for your event.
             </p>
           </div>
 
@@ -338,7 +337,7 @@ export default function PrivateEventsContent() {
               </div>
               <div className="p-6 sm:p-7 bg-white">
                 <p className="font-serif text-xs sm:text-sm text-brand-muted leading-relaxed mb-4">
-                  Crisp linens, polished glassware, custom folded napkins, and luminous natural sunlight. Ideal for baby showers, bridal showers, communions, and daytime milestone brunches.
+                  Table linens, glassware, and natural sunlight. Set up for baby showers, bridal showers, communions, and family brunches.
                 </p>
                 <div className="flex items-center gap-2 text-xs font-sans font-bold uppercase tracking-wider text-brand-green">
                   <span>Private Room Access &bull; Full Table &amp; Glassware Setup</span>
@@ -368,7 +367,7 @@ export default function PrivateEventsContent() {
               </div>
               <div className="p-6 sm:p-7 bg-white">
                 <p className="font-serif text-xs sm:text-sm text-brand-muted leading-relaxed mb-4">
-                  Warm ambient lighting, long communal banquet seating, laughter, and Chef Duke serving gourmet Caribbean-American fusion directly to your guests. Unforgettable for birthday parties, anniversaries, and corporate dinners.
+                  Warm lighting, communal banquet seating, and Chef Duke cooking Caribbean-American dishes for your table. Built for birthday parties, anniversaries, and private dinners.
                 </p>
                 <div className="flex items-center gap-2 text-xs font-sans font-bold uppercase tracking-wider text-brand-green">
                   <span>Dedicated Staff &bull; Custom Playlist Audio</span>
@@ -384,14 +383,14 @@ export default function PrivateEventsContent() {
         <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-brand-gold block mb-2">
-              Chef-Curated Evening Experiences
+              Multi-Course Evening Menus
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-green font-normal mb-4">
-              Private Event Multi-Course Dinner Packages
+              Private Event Dinner Packages
             </h2>
             <p className="font-serif text-sm sm:text-base text-brand-muted leading-relaxed">
-              Crafted by Executive Chef Duke Estime. All packages include family-style starters,
-              choice of gourmet entrées, hearty sides, artisan dessert, and non-alcoholic beverages.
+              Prepared by Executive Chef Duke Estime. All packages include family-style starters,
+              choice of entrées, sides, dessert, and beverages.
             </p>
           </div>
 
@@ -727,10 +726,10 @@ export default function PrivateEventsContent() {
                       onChange={(e) => setFormData({ ...formData, packageChoice: e.target.value })}
                       className="w-full bg-brand-paper border border-brand-line px-3 py-2 text-xs font-sans rounded-sm focus:outline-none focus:border-brand-green text-brand-text"
                     >
-                      <option value="$80 Classic Dinner Package">$80 / Person — Classic Private Dinner Package</option>
-                      <option value="$90 Signature Dinner Package">$90 / Person — Signature Steak & Salmon Package (Popular)</option>
-                      <option value="$105 Executive Dinner Package">$105 / Person — Executive Tasting & Whole Snapper</option>
-                      <option value="$40-$50 Daytime Brunch Package">$40 - $50 / Person — Private Daytime Brunch Package</option>
+                      <option value="$80 Classic Dinner Package">$80 / Person - Classic Private Dinner Package</option>
+                      <option value="$90 Signature Dinner Package">$90 / Person - Signature Steak & Salmon Package (Popular)</option>
+                      <option value="$105 Executive Dinner Package">$105 / Person - Executive Tasting & Whole Snapper</option>
+                      <option value="$40-$50 Daytime Brunch Package">$40 - $50 / Person - Private Daytime Brunch Package</option>
                       <option value="Custom Tailored Menu">Custom Tailored Menu (Discuss with Chef Duke)</option>
                     </select>
                   </div>

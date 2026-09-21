@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Private Events & Dinner Packages | Estime's Café Colonia NJ",
     description:
-      "Intimate private event dining space & custom multi-course menus crafted by Executive Chef Duke Estime in Colonia, New Jersey.",
+      "Intimate private event dining space & custom multi-course menus by Executive Chef Duke Estime in Colonia, New Jersey.",
     url: "https://www.estimescafe.com/private-events",
     type: "website",
     images: [{ url: "/assets/private-events-social-preview.jpg", width: 1200, height: 630, alt: "Private event dining at Estime's Café in Colonia, NJ" }],
