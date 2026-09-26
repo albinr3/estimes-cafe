@@ -402,7 +402,7 @@ export default function CateringPageContent() {
                 className="inline-flex items-center gap-2 bg-white/10 hover:bg-white border border-brand-cream/50 text-white hover:text-brand-green px-6 py-3.5 backdrop-blur-sm transition-all transform hover:-translate-y-0.5"
               >
                 <Phone className="w-4 h-4 text-brand-gold-light" />
-                <span>Call Hotline: (732) 669-7581</span>
+                <span>Call (732) 669-7581</span>
               </a>
             </div>
 
