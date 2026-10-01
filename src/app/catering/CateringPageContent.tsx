@@ -413,7 +413,7 @@ export default function CateringPageContent() {
                 className="inline-flex items-center gap-2 bg-[#1c2410]/70 hover:bg-brand-gold hover:text-brand-green-dark border border-brand-gold/40 text-brand-gold-light px-5 py-2.5 backdrop-blur-sm text-xs font-bold uppercase tracking-wider transition-all transform hover:-translate-y-0.5 rounded-sm"
               >
                 <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
-                <span>Breakfast &amp; Brunch Catering Packages ($40–$50/pp) &rarr;</span>
+                <span>Brunch Catering Packages ($40–$50/pp) &rarr;</span>
               </a>
             </div>
           </div>

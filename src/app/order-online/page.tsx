@@ -5,9 +5,9 @@ import OrderOnlineContent from "./OrderOnlineContent";
 import { BUSINESS_ADDRESS, BUSINESS_GEO, BUSINESS_NAP_NAME, BUSINESS_PHONE } from "@/lib/business";
 
 export const metadata: Metadata = {
-  title: "Order Online — Delivery & Takeout | Estime's Café Colonia NJ",
+  title: "Order Online: Delivery & Takeout | Estime's Café Colonia NJ",
   description:
-    "Order online from Estime's Café in Colonia, NJ. Fast breakfast, brunch & lunch delivery via DoorDash, Uber Eats, and Grubhub. Or call (732) 669-7581 for direct pickup.",
+    "Order breakfast, brunch and lunch from Estime's Café in Colonia, NJ, through DoorDash, Uber Eats or Grubhub. Call (732) 669-7581 for pickup.",
   keywords: [
     "order online estimes cafe",
     "estimes cafe delivery",
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     canonical: "https://www.estimescafe.com/order-online",
   },
   openGraph: {
-    title: "Order Online — Delivery & Takeout | Estime's Café Colonia NJ",
+    title: "Order Online: Delivery & Takeout | Estime's Café Colonia NJ",
     description:
-      "Craving chef-crafted breakfast, brunch or lunch? Order online now from Estime's Café via DoorDash, Uber Eats, and Grubhub, or call for direct pickup in Colonia, NJ.",
+      "Order breakfast, brunch or lunch from Estime's Café via DoorDash, Uber Eats or Grubhub, or call for pickup in Colonia, NJ.",
     url: "https://www.estimescafe.com/order-online",
     type: "website",
     images: [
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Order Online — Delivery & Takeout | Estime's Café Colonia NJ",
+    title: "Order Online: Delivery & Takeout | Estime's Café Colonia NJ",
     description: "Order online for delivery or takeout from Estime's Café in Colonia, NJ.",
     images: ["/assets/order-online-social-preview.jpg"],
   },

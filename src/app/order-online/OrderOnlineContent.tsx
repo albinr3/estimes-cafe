@@ -83,8 +83,7 @@ const DELIVERY_PLATFORMS: DeliveryPlatform[] = [
     buttonHover: "hover:shadow-amber-200",
     perks: [
       "Grubhub+ member rewards & free delivery perks",
-      "Powered by our official verified digital menu",
-      "Contactless doorstep drop-off guaranteed",
+      "Browse our menu and order through Grubhub",
       "Quick reordering of your favorite Estime's staples",
     ],
   },
@@ -99,7 +98,7 @@ const FAQS: FaqItem[] = [
   {
     question: "What are your online ordering and delivery hours?",
     answer:
-      "We accept delivery and takeout orders during our regular operating hours: Monday through Saturday from 8:00 AM to 3:00 PM, and Sunday from 8:00 AM to 4:00 PM. Our kitchen prepares every order fresh right before the driver arrives.",
+      "We accept delivery and takeout orders during our regular operating hours: Monday through Saturday from 8:00 AM to 3:00 PM, and Sunday from 8:00 AM to 4:00 PM. Our kitchen prepares orders fresh for pickup or delivery.",
   },
   {
     question: "Which towns and areas are within your delivery radius?",
@@ -109,17 +108,17 @@ const FAQS: FaqItem[] = [
   {
     question: "How do I place a direct call-in order for takeout pickup?",
     answer:
-      "To skip third-party service fees and support our kitchen directly, call us at (732) 669-7581. We'll take your customized order over the phone and have it packed hot and ready when you arrive at 238 Inman Ave, Colonia, NJ.",
+      "Call (732) 669-7581 to place your order directly with our kitchen and avoid third-party ordering fees. We'll have it ready for pickup at 238 Inman Ave, Colonia, NJ.",
   },
   {
     question: "Can I order catering platters for office or family gatherings?",
     answer:
-      "Yes! For larger orders (half trays and full trays serving 8 to 20+ guests), please visit our Catering page or call our catering hotline. We offer Rasta Pasta, Brioche French Toast trays, Haitian Salmon, and more with 24-48 hours advance notice.",
+      "For larger orders (half trays and full trays serving 8 to 20+ guests), please visit our Catering page or call our catering hotline. We offer Rasta Pasta, Brioche French Toast trays, Haitian Salmon, and more with 24-48 hours advance notice.",
   },
   {
     question: "Are special dietary requests or modifications supported?",
     answer:
-      "Absolutely. You can add special instructions directly on DoorDash, Uber Eats, or Grubhub, or let our staff know over the phone. We accommodate gluten-friendly, vegetarian, keto, and allergy-sensitive requests whenever possible.",
+      "Add special instructions on DoorDash, Uber Eats, or Grubhub, or let our staff know over the phone. We accommodate gluten-friendly, vegetarian, keto, and allergy-sensitive requests whenever possible.",
   },
 ];
 
@@ -176,8 +175,8 @@ export default function OrderOnlineContent() {
               ></span>
               <span className="text-brand-text">
                 {isOpenNow
-                  ? "Kitchen is Open — Taking Orders Now"
-                  : "Currently Closed — Check Regular Hours Below"}
+                  ? "Kitchen is open. Taking orders now."
+                  : "Currently closed. Check regular hours below."}
               </span>
               <span className="text-brand-muted">•</span>
               <span className="text-brand-gold font-bold uppercase tracking-wider text-[11px]">
@@ -190,9 +189,8 @@ export default function OrderOnlineContent() {
             </h1>
 
             <p className="font-serif text-lg sm:text-xl text-[#48423c] leading-relaxed mb-6">
-              Craving Chef Duke Estime&apos;s famous breakfast sandwiches, brioche French toast, or
-              flavorful Caribbean brunch? Choose your favorite delivery app below or call us for direct
-              curbside pickup.
+              Order Chef Duke Estime&apos;s breakfast sandwiches, brioche French toast, and Caribbean
+              brunch through DoorDash, Uber Eats, or Grubhub. For pickup, call us directly.
             </p>
 
             {/* Quick Delivery Partners Bar */}
@@ -236,7 +234,7 @@ export default function OrderOnlineContent() {
               </div>
               <div className="flex items-center gap-2 text-xs font-medium text-brand-text">
                 <Star className="w-4 h-4 text-brand-gold flex-shrink-0 fill-brand-gold" />
-                <span>{BUSINESS_RATING.ratingValue}★ Rated ({BUSINESS_RATING.reviewCount}+ Reviews)</span>
+                <span>{BUSINESS_RATING.ratingValue}★ on Google</span>
               </div>
             </div>
           </div>
@@ -315,14 +313,14 @@ export default function OrderOnlineContent() {
               <div className="lg:col-span-8">
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-gold/20 text-brand-gold-light border border-brand-gold/40 text-[11px] font-bold uppercase tracking-wider mb-3">
                   <Sparkles className="w-3 h-3" />
-                  <span>Direct Kitchen Pickup &bull; 0% 3rd Party Fees</span>
+                  <span>Direct Kitchen Pickup &bull; No Third-Party Ordering Fees</span>
                 </div>
                 <h3 className="font-serif text-2xl sm:text-3xl font-normal text-white mb-2">
                   Prefer Call-Ahead Pickup at the Café?
                 </h3>
                 <p className="font-serif text-sm sm:text-base text-brand-cream/80 leading-relaxed max-w-2xl">
-                  Order directly with our kitchen staff. 100% of your payment directly supports our local
-                  team, and we&apos;ll have your order piping hot and ready when you pull up to 238 Inman Ave in Colonia.
+                  Place your order directly with our kitchen to avoid third-party ordering fees and support our local
+                  team. We&apos;ll have it ready for pickup at 238 Inman Ave in Colonia.
                 </p>
               </div>
 

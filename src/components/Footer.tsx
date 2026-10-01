@@ -82,7 +82,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/meet-the-chef" className="hover:text-white transition-colors font-medium">
+                <Link href="/about" className="hover:text-white transition-colors font-medium">
                   Meet Chef Duke Estime
                 </Link>
               </li>

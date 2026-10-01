@@ -1,13 +1,11 @@
 import { HOME_FAQS } from "@/lib/homeFaqs";
 import {
   BUSINESS_ADDRESS,
-  BUSINESS_BRAND_NAME,
   BUSINESS_EMAIL,
   BUSINESS_GEO,
   BUSINESS_MAP_URL,
   BUSINESS_NAP_NAME,
   BUSINESS_PHONE,
-  BUSINESS_RATING,
 } from "@/lib/business";
 
 export default function JsonLd() {
@@ -18,7 +16,7 @@ export default function JsonLd() {
         "@type": ["Restaurant", "CafeOrCoffeeShop", "LocalBusiness"],
         "@id": "https://www.estimescafe.com/#restaurant",
         "name": BUSINESS_NAP_NAME,
-        "alternateName": [BUSINESS_BRAND_NAME, "Estime Cafe"],
+        "alternateName": ["Estime Cafe"],
         "description": "Premier breakfast, signature brunch, lunch, and specialty artisan coffee featuring American comfort favorites fused with Haitian and Caribbean flavors by Chef Duke Estime in Colonia, NJ.",
         "url": "https://www.estimescafe.com/",
         "telephone": BUSINESS_PHONE,
@@ -81,12 +79,8 @@ export default function JsonLd() {
             "jobTitle": "Co-Founder"
           }
         ],
-        "hasMenu": "https://www.estimescafe.com/menu",
+        "hasMenu": "https://www.estimescafe.com/menu/",
         "acceptsReservations": false,
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          ...BUSINESS_RATING
-        },
         "areaServed": [
           { "@type": "City", "name": "Colonia" },
           { "@type": "City", "name": "Woodbridge" },
@@ -106,9 +100,6 @@ export default function JsonLd() {
               "http://schema.org/DesktopWebPlatform",
               "http://schema.org/MobileWebPlatform"
             ]
-          },
-          "result": {
-            "@type": "FoodEstablishmentReservation"
           }
         }
       },

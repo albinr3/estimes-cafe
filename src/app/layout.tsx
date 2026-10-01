@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import JsonLd from "@/components/JsonLd";
 import StickyMobileBar from "@/components/StickyMobileBar";
@@ -98,6 +99,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-WZTNVR2FKQ"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-WZTNVR2FKQ');`}
+      </Script>
       <body className="font-sans antialiased bg-brand-paper text-brand-text flex flex-col min-h-screen">
         <JsonLd />
         {children}

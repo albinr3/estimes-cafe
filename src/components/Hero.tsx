@@ -93,10 +93,10 @@ export default function Hero() {
               Colonia Favorite
             </span>
             <p className="font-serif text-sm text-brand-green font-medium leading-snug">
-              &ldquo;The best breakfast sandwiches and brunch fusion in Central NJ.&rdquo;
+              Breakfast, brunch and Caribbean flavors in Colonia, NJ.
             </p>
             <div className="flex items-center gap-1 mt-2 text-brand-gold text-xs">
-              ★★★★★ <span className="text-brand-muted text-[11px] ml-1 font-sans">{BUSINESS_RATING.ratingValue} ({BUSINESS_RATING.reviewCount}+ Reviews)</span>
+              ★★★★★ <span className="text-brand-muted text-[11px] ml-1 font-sans">{BUSINESS_RATING.ratingValue} on Google</span>
             </div>
           </div>
         </div>
