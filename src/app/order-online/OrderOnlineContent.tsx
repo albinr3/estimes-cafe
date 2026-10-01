@@ -296,6 +296,7 @@ export default function OrderOnlineContent() {
                 {/* Direct External CTA Button */}
                 <a
                   href={platform.url}
+                  data-order-platform={platform.id}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`w-full flex items-center justify-center gap-2 py-4 px-6 rounded-md text-white font-sans text-xs sm:text-sm font-bold uppercase tracking-wider shadow-md ${platform.buttonBg} transition-all duration-200 hover:shadow-lg`}

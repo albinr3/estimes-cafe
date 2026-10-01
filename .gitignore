@@ -39,3 +39,5 @@ next-env.d.ts
 # caches and tools
 .seo-cache/
 .turbo
+/.ga4-mcp-venv/
+/.ga4-mcp-packages/

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Phone, Mail, MapPin, Clock, Camera } from "lucide-react";
-import { BUSINESS_NAP_NAME, BUSINESS_RATING, BUSINESS_GBP_PHOTOS_URL } from "@/lib/business";
+import { BUSINESS_EMAIL, BUSINESS_NAP_NAME, BUSINESS_RATING, BUSINESS_GBP_PHOTOS_URL } from "@/lib/business";
 
 export default function Footer() {
   return (
@@ -134,10 +134,10 @@ export default function Footer() {
               <p className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-brand-gold-light flex-shrink-0" />
                 <a
-                  href="mailto:Estimecafe1@gmail.com"
+                  href={`mailto:${BUSINESS_EMAIL}`}
                   className="hover:text-white transition-colors text-xs"
                 >
-                  Estimecafe1@gmail.com
+                  {BUSINESS_EMAIL}
                 </a>
               </p>
               <p className="flex items-start gap-2 pt-2 text-xs">

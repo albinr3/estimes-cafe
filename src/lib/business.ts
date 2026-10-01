@@ -16,7 +16,7 @@ export const BUSINESS_ADDRESS = {
 
 export const BUSINESS_PHONE = "+1-732-669-7581";
 export const BUSINESS_PHONE_LINK = "tel:7326697581";
-export const BUSINESS_EMAIL = "Estimecafe1@gmail.com";
+export const BUSINESS_EMAIL = "Estimecafe@gmail.com";
 
 export const BUSINESS_GEO = {
   latitude: 40.60034991904395,

@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { BUSINESS_EMAIL, BUSINESS_PHONE_LINK, BUSINESS_MAP_URL, createMailtoUrl } from "@/lib/business";
+import { BUSINESS_EMAIL, BUSINESS_PHONE_LINK, BUSINESS_MAP_URL } from "@/lib/business";
+import { trackAnalyticsEvent } from "@/lib/analytics";
 import {
   Phone,
   Mail,
@@ -14,6 +15,7 @@ import {
 } from "lucide-react";
 
 export default function ContactPageContent() {
+  const formspreeEndpoint = "https://formspree.io/f/xwlpjyaa";
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -21,20 +23,31 @@ export default function ContactPageContent() {
     subject: "General Inquiry",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    window.location.href = createMailtoUrl(`Contact inquiry: ${formState.subject}`, [
-      "New website contact inquiry",
-      "",
-      `Name: ${formState.name}`,
-      `Email: ${formState.email}`,
-      `Phone: ${formState.phone || "Not provided"}`,
-      `Topic: ${formState.subject}`,
-      "",
-      "Message:",
-      formState.message,
-    ]);
+    setSubmitStatus(null);
+
+    setIsSubmitting(true);
+    try {
+      const response = await fetch(formspreeEndpoint, {
+        method: "POST",
+        body: new FormData(e.currentTarget),
+        headers: { Accept: "application/json" },
+      });
+
+      if (!response.ok) throw new Error("Formspree rejected the submission");
+
+      trackAnalyticsEvent("contact_form_submit", { contact_type: "contact_form" });
+      setSubmitStatus("success");
+      setFormState({ name: "", email: "", phone: "", subject: "General Inquiry", message: "" });
+    } catch {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -186,18 +199,21 @@ export default function ContactPageContent() {
                   Send a Message
                 </h2>
                 <p className="font-serif text-xs sm:text-sm text-brand-muted mt-1">
-                  Completing this form opens a pre-addressed email in your mail app.
+                  Send your question directly to our team.
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-5 font-sans">
+              <form action={formspreeEndpoint} method="POST" onSubmit={handleSubmit} className="space-y-5 font-sans">
+                <input type="hidden" name="_subject" value={`Contact inquiry: ${formState.subject}`} />
                 {/* Name & Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1.5">
+                    <label htmlFor="contact-name" className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1.5">
                       Your Name <span className="text-red-600">*</span>
                     </label>
                     <input
+                      id="contact-name"
+                      name="name"
                       type="text"
                       required
                       value={formState.name}
@@ -208,10 +224,12 @@ export default function ContactPageContent() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1.5">
+                    <label htmlFor="contact-email" className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1.5">
                       Email Address <span className="text-red-600">*</span>
                     </label>
                     <input
+                      id="contact-email"
+                      name="email"
                       type="email"
                       required
                       value={formState.email}
@@ -225,10 +243,12 @@ export default function ContactPageContent() {
                 {/* Phone & Subject */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1.5">
+                    <label htmlFor="contact-phone" className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1.5">
                       Phone Number
                     </label>
                     <input
+                      id="contact-phone"
+                      name="phone"
                       type="tel"
                       value={formState.phone}
                       onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
@@ -238,10 +258,12 @@ export default function ContactPageContent() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1.5">
+                    <label htmlFor="contact-subject" className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1.5">
                       Topic / Subject
                     </label>
                     <select
+                      id="contact-subject"
+                      name="subject"
                       value={formState.subject}
                       onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
                       className="w-full bg-brand-paper border border-brand-line rounded-md px-3.5 py-2.5 text-sm focus:outline-none focus:border-brand-green focus:bg-white text-brand-text"
@@ -257,10 +279,12 @@ export default function ContactPageContent() {
 
                 {/* Message */}
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1.5">
+                  <label htmlFor="contact-message" className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1.5">
                     Your Message <span className="text-red-600">*</span>
                   </label>
                   <textarea
+                    id="contact-message"
+                    name="message"
                     required
                     rows={5}
                     value={formState.message}
@@ -270,13 +294,22 @@ export default function ContactPageContent() {
                   />
                 </div>
 
+                {submitStatus && (
+                  <p role="status" aria-live="polite" className={`text-sm ${submitStatus === "success" ? "text-brand-green" : "text-red-700"}`}>
+                    {submitStatus === "success"
+                      ? "Thanks! Your message was sent. We'll be in touch soon."
+                      : <>We couldn&apos;t send your message. Please try again or email us at <a className="underline" href={`mailto:${BUSINESS_EMAIL}`}>{BUSINESS_EMAIL}</a>.</>}
+                  </p>
+                )}
+
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full sm:w-auto px-8 py-3.5 bg-brand-green text-white font-sans text-sm font-bold uppercase tracking-wider rounded-md hover:bg-brand-green-dark transition-colors inline-flex items-center justify-center gap-2 shadow-xs cursor-pointer"
+                  disabled={isSubmitting}
+                  className="w-full sm:w-auto px-8 py-3.5 bg-brand-green text-white font-sans text-sm font-bold uppercase tracking-wider rounded-md hover:bg-brand-green-dark transition-colors inline-flex items-center justify-center gap-2 shadow-xs cursor-pointer disabled:opacity-60 disabled:cursor-wait"
                 >
                   <Send className="w-4 h-4 text-brand-gold" />
-                  <span>Send Message via Email</span>
+                  <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
                 </button>
               </form>
             </div>

@@ -4,9 +4,7 @@
 **Dirección:** 238 Inman Avenue, Colonia, NJ 07067  
 **Teléfono:** (732) 669-7581  
 **Período:** 7 de septiembre de 2026 – 30 de agosto de 2027 (52 semanas, frecuencia semanal)  
-**Archivos Excel generados:**
-- Repositorio: [`seo/Calendario_Estimes_Cafe.xlsx`](file:///c:/Users/Albin%20Rodriguez/Documents/estimes-cafe/seo/Calendario_Estimes_Cafe.xlsx)
-- Descargas: `C:\Users\Albin Rodriguez\Downloads\Calendario_Estimes_Cafe.xlsx`
+**Archivo Excel vigente:** [`seo/Calendario_Estimes_Cafe.xlsx`](Calendario_Estimes_Cafe.xlsx). Copias anteriores en Descargas pueden tener las UTMs antiguas.
 
 ---
 
@@ -15,11 +13,12 @@
 1. **Una sola keyword principal por post:** Evitar canibalización semántica y concentrar la relevancia en una única intención de búsqueda.
 2. **Reemplazo de "near me":** Google prohíbe el uso literal de "near me" en los textos de publicación. Sustituirlo siempre por referencias locales fluidas: *Colonia NJ*, *Woodbridge Township*, *Clark*, *Edison* o *Central Jersey*.
 3. **Fotografía y video 100% auténticos:** Utilizar exclusivamente material gráfico real capturado en el local (238 Inman Ave). No utilizar fotos de stock.
-4. **Trazabilidad con UTMs:** Todos los enlaces web llevan parámetros UTM estandarizados para su medición en Google Analytics 4:
-   - `utm_source=google_business_profile`
+4. **Trazabilidad con UTMs:** Los 49 enlaces que llevan a la web usan UTMs. Las semanas 1–4 ya publicadas conservan `utm_source=google_business_profile`; los 45 enlaces web aún en borrador usan la estructura nueva:
+   - `utm_source=google`
    - `utm_medium=organic`
    - `utm_campaign=gbp_post`
    - `utm_content=week_{01..52}_{slug_descriptivo}`
+   Las semanas 8, 20 y 34 enlazan directamente a Google Maps para solicitar indicaciones. No llevan UTMs ni generan visitas a la web en GA4. La convención completa y los enlaces exactos están en [`analytics/UTM_PLAYBOOK.md`](../analytics/UTM_PLAYBOOK.md) y [`analytics/utm_registry.json`](../analytics/utm_registry.json).
 5. **Enrutamiento por intención:**
    - Pedidos para llevar y delivery matutino: `/order-online`
    - Platos de salón y exploración de menú: `/menu`

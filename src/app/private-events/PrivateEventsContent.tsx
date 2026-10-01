@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { BUSINESS_EMAIL, BUSINESS_NAP_NAME, createMailtoUrl } from "@/lib/business";
+import { trackAnalyticsEvent } from "@/lib/analytics";
 import {
   Sparkles,
   Users,
@@ -162,6 +163,7 @@ export default function PrivateEventsContent() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    trackAnalyticsEvent("contact_email_intent", { contact_type: "private_events_form" });
     window.location.href = createMailtoUrl("Private event inquiry", [
       "New private event inquiry",
       "",

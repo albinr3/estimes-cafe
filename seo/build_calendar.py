@@ -91,7 +91,8 @@ for col_idx, (header_text, width) in enumerate(headers_cal, 1):
 # 52 Posts data definition
 # (date_str, objetivo, keyword, volumen, titulo_gbp, copy_en, visual_idea, boton, url_utm, revision, estado)
 base_url = "https://www.estimescafe.com"
-utm_base = "utm_source=google_business_profile&utm_medium=organic&utm_campaign=gbp_post"
+utm_base = "utm_source=google&utm_medium=organic&utm_campaign=gbp_post"
+utm_base_legacy = "utm_source=google_business_profile&utm_medium=organic&utm_campaign=gbp_post"
 
 posts_data = [
     # MONTH 1: September 2026
@@ -104,7 +105,7 @@ posts_data = [
         "Looking for the fluffiest pancakes near you? Taste our signature Lemon Ricotta Pancakes topped with whipped lemon butter, powdered sugar, and fresh blueberries. Made fresh daily at Estime's Cafe on Inman Ave. Order online or join us for breakfast!",
         "Foto primer plano del stack de Lemon Ricotta con la mantequilla derritiéndose y blueberries frescos.",
         "Order",
-        f"{base_url}/order-online?{utm_base}&utm_content=week_01_lemon_ricotta_pancakes",
+        f"{base_url}/order-online?{utm_base_legacy}&utm_content=week_01_lemon_ricotta_pancakes",
         "Verificar disponibilidad de blueberries frescos y mantequilla de limón casera.",
         "Publicado"
     ),
@@ -117,7 +118,7 @@ posts_data = [
         "Grab the ultimate morning sandwich in Colonia! From 'The Mayor' with eggs and savory sausage to 'The Inman' on toasted brioche, Estime's Cafe serves hot, chef-crafted breakfast sandwiches built to start your day right. Fast pickup available online.",
         "Foto cenital y en corte diagonal de 'The Mayor' mostrando el queso derretido y huevo.",
         "Order",
-        f"{base_url}/order-online?{utm_base}&utm_content=week_02_breakfast_sandwich",
+        f"{base_url}/order-online?{utm_base_legacy}&utm_content=week_02_breakfast_sandwich",
         "Confirmar que los pedidos online para pickup matutino estén activos antes de las 8 AM.",
         "Publicado"
     ),
@@ -130,7 +131,7 @@ posts_data = [
         "Planning a morning team meeting in Middlesex or Union County? Estime's Cafe delivers gourmet corporate breakfast platters, from scrambled egg trays and crispy bacon to brioche French toast bundles. Request a catering quote today!",
         "Foto de presentación de bandejas de catering listas para entrega corporativa con frutas y repostería.",
         "Learn more",
-        f"{base_url}/catering?{utm_base}&utm_content=week_03_office_breakfast_catering",
+        f"{base_url}/catering?{utm_base_legacy}&utm_content=week_03_office_breakfast_catering",
         "Comprobar disponibilidad del formulario de catering y tiempos mínimos de entrega.",
         "Publicado"
     ),
@@ -143,7 +144,7 @@ posts_data = [
         "Craving authentic Southern & Creole comfort? Enjoy jumbo succulent shrimp over stone-ground cheddar grits, simmered in Chef Duke's signature Creole herb reduction. The most talked-about seafood brunch dish in Colonia, NJ. Try it this weekend!",
         "Video corto vertical de Chef Duke vertiendo la salsa criolla caliente sobre los grits cremosos.",
         "Order",
-        f"{base_url}/menu?{utm_base}&utm_content=week_04_creole_shrimp_and_grits",
+        f"{base_url}/menu?{utm_base_legacy}&utm_content=week_04_creole_shrimp_and_grits",
         "Validar calidad y frescura de los camarones jumbo de la semana.",
         "Publicado"
     ),

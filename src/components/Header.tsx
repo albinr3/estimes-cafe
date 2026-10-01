@@ -9,6 +9,7 @@ import { Menu as MenuIcon, X, Phone, Clock, MapPin } from "lucide-react";
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const showOrderOnline = pathname !== "/school" && pathname !== "/school/";
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -85,12 +86,14 @@ export default function Header() {
 
           {/* Action CTAs */}
           <div className="hidden sm:flex items-center gap-2.5">
-            <Link
-              href="/order-online"
-              className="bg-brand-green text-white hover:bg-brand-green-dark px-4 py-2.5 text-xs font-bold uppercase tracking-wider shadow-sm transition-all duration-200"
-            >
-              Order Online
-            </Link>
+            {showOrderOnline && (
+              <Link
+                href="/order-online"
+                className="bg-brand-green text-white hover:bg-brand-green-dark px-4 py-2.5 text-xs font-bold uppercase tracking-wider shadow-sm transition-all duration-200"
+              >
+                Order Online
+              </Link>
+            )}
             <a
               href="tel:7326697581"
               className="border border-brand-green text-brand-green hover:bg-brand-green hover:text-white px-3.5 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-200"
@@ -101,12 +104,14 @@ export default function Header() {
 
           {/* Mobile menu button */}
           <div className="flex lg:hidden items-center gap-2">
-            <Link
-              href="/order-online"
-              className="px-3 py-1.5 bg-brand-green text-white text-[11px] font-bold uppercase tracking-wider rounded-sm sm:hidden"
-            >
-              Order
-            </Link>
+            {showOrderOnline && (
+              <Link
+                href="/order-online"
+                className="px-3 py-1.5 bg-brand-green text-white text-[11px] font-bold uppercase tracking-wider rounded-sm sm:hidden"
+              >
+                Order
+              </Link>
+            )}
             <a
               href="tel:7326697581"
               className="p-2 border border-brand-green text-brand-green rounded-sm sm:hidden"
@@ -150,13 +155,15 @@ export default function Header() {
           </div>
 
           <div className="pt-2 flex flex-col gap-2.5 font-sans">
-            <Link
-              href="/order-online"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center bg-brand-green text-white py-3 text-xs font-bold uppercase tracking-wider"
-            >
-              Order Online (Delivery &amp; Pickup)
-            </Link>
+            {showOrderOnline && (
+              <Link
+                href="/order-online"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full text-center bg-brand-green text-white py-3 text-xs font-bold uppercase tracking-wider"
+              >
+                Order Online (Delivery &amp; Pickup)
+              </Link>
+            )}
             <a
               href="tel:7326697581"
               className="w-full text-center border border-brand-green text-brand-green py-3 text-xs font-bold uppercase tracking-wider"

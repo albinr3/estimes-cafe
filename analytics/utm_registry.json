@@ -1,0 +1,839 @@
+{
+  "property": "properties/556917509",
+  "gbp_location": "locations/16081983341986978598",
+  "last_verified": "2026-10-01",
+  "records": [
+    {
+      "id": "gbp_profile_website",
+      "channel": "gbp",
+      "placement": "profile_website",
+      "date": "",
+      "status": "configured_pending_review",
+      "created_by": "unknown_preexisting",
+      "destination": "https://www.estimescafe.com/",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp"
+      },
+      "url": "https://www.estimescafe.com/?utm_source=google&utm_medium=organic&utm_campaign=gbp"
+    },
+    {
+      "id": "gbp_week_01",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2026-09-07",
+      "status": "published",
+      "created_by": "unknown_preexisting",
+      "destination": "https://www.estimescafe.com/order-online",
+      "utms": {
+        "utm_source": "google_business_profile",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_01_lemon_ricotta_pancakes"
+      },
+      "url": "https://www.estimescafe.com/order-online?utm_source=google_business_profile&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_01_lemon_ricotta_pancakes"
+    },
+    {
+      "id": "gbp_week_02",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2026-09-14",
+      "status": "published",
+      "created_by": "unknown_preexisting",
+      "destination": "https://www.estimescafe.com/order-online",
+      "utms": {
+        "utm_source": "google_business_profile",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_02_breakfast_sandwich"
+      },
+      "url": "https://www.estimescafe.com/order-online?utm_source=google_business_profile&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_02_breakfast_sandwich"
+    },
+    {
+      "id": "gbp_week_03",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2026-09-21",
+      "status": "published",
+      "created_by": "unknown_preexisting",
+      "destination": "https://www.estimescafe.com/catering",
+      "utms": {
+        "utm_source": "google_business_profile",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_03_office_breakfast_catering"
+      },
+      "url": "https://www.estimescafe.com/catering?utm_source=google_business_profile&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_03_office_breakfast_catering"
+    },
+    {
+      "id": "gbp_week_04",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2026-09-28",
+      "status": "published",
+      "created_by": "unknown_preexisting",
+      "destination": "https://www.estimescafe.com/menu",
+      "utms": {
+        "utm_source": "google_business_profile",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_04_creole_shrimp_and_grits"
+      },
+      "url": "https://www.estimescafe.com/menu?utm_source=google_business_profile&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_04_creole_shrimp_and_grits"
+    },
+    {
+      "id": "gbp_week_05",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2026-10-05",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/menu",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_05_weekend_brunch_experience"
+      },
+      "url": "https://www.estimescafe.com/menu?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_05_weekend_brunch_experience"
+    },
+    {
+      "id": "gbp_week_06",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2026-10-12",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/meet-the-chef",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_06_chef_duke_haitian_heritage"
+      },
+      "url": "https://www.estimescafe.com/meet-the-chef?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_06_chef_duke_haitian_heritage"
+    },
+    {
+      "id": "gbp_week_07",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2026-10-19",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/catering",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_07_corporate_lunch_catering"
+      },
+      "url": "https://www.estimescafe.com/catering?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_07_corporate_lunch_catering"
+    },
+    {
+      "id": "gbp_week_08",
+      "channel": "gbp",
+      "placement": "directions",
+      "date": "2026-10-26",
+      "status": "draft",
+      "created_by": "unknown_preexisting",
+      "destination": "https://www.google.com/maps/search/",
+      "utms": {},
+      "url": "https://www.google.com/maps/search/?api=1&query=40.60034991904395,-74.31259870657125"
+    },
+    {
+      "id": "gbp_week_09",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2026-11-02",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/order-online",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_09_amaretto_brioche_french_toast"
+      },
+      "url": "https://www.estimescafe.com/order-online?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_09_amaretto_brioche_french_toast"
+    },
+    {
+      "id": "gbp_week_10",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2026-11-09",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/menu",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_10_healthy_keto_breakfast"
+      },
+      "url": "https://www.estimescafe.com/menu?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_10_healthy_keto_breakfast"
+    },
+    {
+      "id": "gbp_week_11",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2026-11-16",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/private-events",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_11_private_brunch_events"
+      },
+      "url": "https://www.estimescafe.com/private-events?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_11_private_brunch_events"
+    },
+    {
+      "id": "gbp_week_12",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2026-11-23",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/catering",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_12_thanksgiving_holiday_catering"
+      },
+      "url": "https://www.estimescafe.com/catering?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_12_thanksgiving_holiday_catering"
+    },
+    {
+      "id": "gbp_week_13",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2026-11-30",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/order-online",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_13_breakfast_takeout_pickup"
+      },
+      "url": "https://www.estimescafe.com/order-online?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_13_breakfast_takeout_pickup"
+    },
+    {
+      "id": "gbp_week_14",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2026-12-07",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/order-online",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_14_breakfast_tacos_creole"
+      },
+      "url": "https://www.estimescafe.com/order-online?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_14_breakfast_tacos_creole"
+    },
+    {
+      "id": "gbp_week_15",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2026-12-14",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/catering",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_15_office_holiday_party_catering"
+      },
+      "url": "https://www.estimescafe.com/catering?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_15_office_holiday_party_catering"
+    },
+    {
+      "id": "gbp_week_16",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2026-12-21",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/menu",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_16_warm_artisan_coffee_breakfast"
+      },
+      "url": "https://www.estimescafe.com/menu?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_16_warm_artisan_coffee_breakfast"
+    },
+    {
+      "id": "gbp_week_17",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2026-12-28",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/menu",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_17_new_year_brunch_celebration"
+      },
+      "url": "https://www.estimescafe.com/menu?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_17_new_year_brunch_celebration"
+    },
+    {
+      "id": "gbp_week_18",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-01-04",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/order-online",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_18_healthy_new_year_breakfast"
+      },
+      "url": "https://www.estimescafe.com/order-online?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_18_healthy_new_year_breakfast"
+    },
+    {
+      "id": "gbp_week_19",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-01-11",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/menu",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_19_steak_and_eggs_breakfast"
+      },
+      "url": "https://www.estimescafe.com/menu?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_19_steak_and_eggs_breakfast"
+    },
+    {
+      "id": "gbp_week_20",
+      "channel": "gbp",
+      "placement": "directions",
+      "date": "2027-01-18",
+      "status": "draft",
+      "created_by": "unknown_preexisting",
+      "destination": "https://www.google.com/maps/search/",
+      "utms": {},
+      "url": "https://www.google.com/maps/search/?api=1&query=40.60034991904395,-74.31259870657125"
+    },
+    {
+      "id": "gbp_week_21",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-01-25",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/about",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_21_estime_brothers_story"
+      },
+      "url": "https://www.estimescafe.com/about?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_21_estime_brothers_story"
+    },
+    {
+      "id": "gbp_week_22",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-02-01",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/menu",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_22_valentines_brunch_date"
+      },
+      "url": "https://www.estimescafe.com/menu?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_22_valentines_brunch_date"
+    },
+    {
+      "id": "gbp_week_23",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-02-08",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/catering",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_23_super_bowl_brunch_catering"
+      },
+      "url": "https://www.estimescafe.com/catering?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_23_super_bowl_brunch_catering"
+    },
+    {
+      "id": "gbp_week_24",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-02-15",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/menu",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_24_crispy_seasoned_home_fries"
+      },
+      "url": "https://www.estimescafe.com/menu?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_24_crispy_seasoned_home_fries"
+    },
+    {
+      "id": "gbp_week_25",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-02-22",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/order-online",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_25_weekday_lunch_specials"
+      },
+      "url": "https://www.estimescafe.com/order-online?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_25_weekday_lunch_specials"
+    },
+    {
+      "id": "gbp_week_26",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-03-01",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/order-online",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_26_fresh_mornings_cafe_breakfast"
+      },
+      "url": "https://www.estimescafe.com/order-online?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_26_fresh_mornings_cafe_breakfast"
+    },
+    {
+      "id": "gbp_week_27",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-03-08",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/menu",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_27_gourmet_eggs_benedict"
+      },
+      "url": "https://www.estimescafe.com/menu?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_27_gourmet_eggs_benedict"
+    },
+    {
+      "id": "gbp_week_28",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-03-15",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/menu",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_28_midday_team_lunch_dining"
+      },
+      "url": "https://www.estimescafe.com/menu?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_28_midday_team_lunch_dining"
+    },
+    {
+      "id": "gbp_week_29",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-03-22",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/private-events",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_29_spring_shower_brunch_venue"
+      },
+      "url": "https://www.estimescafe.com/private-events?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_29_spring_shower_brunch_venue"
+    },
+    {
+      "id": "gbp_week_30",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-03-29",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/menu",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_30_family_breakfast_woodbridge"
+      },
+      "url": "https://www.estimescafe.com/menu?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_30_family_breakfast_woodbridge"
+    },
+    {
+      "id": "gbp_week_31",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-04-05",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/menu",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_31_easter_weekend_brunch"
+      },
+      "url": "https://www.estimescafe.com/menu?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_31_easter_weekend_brunch"
+    },
+    {
+      "id": "gbp_week_32",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-04-12",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/order-online",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_32_gourmet_brioche_sandwiches"
+      },
+      "url": "https://www.estimescafe.com/order-online?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_32_gourmet_brioche_sandwiches"
+    },
+    {
+      "id": "gbp_week_33",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-04-19",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/menu",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_33_savory_sausage_breakfast_skillet"
+      },
+      "url": "https://www.estimescafe.com/menu?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_33_savory_sausage_breakfast_skillet"
+    },
+    {
+      "id": "gbp_week_34",
+      "channel": "gbp",
+      "placement": "directions",
+      "date": "2027-04-26",
+      "status": "draft",
+      "created_by": "unknown_preexisting",
+      "destination": "https://www.google.com/maps/search/",
+      "utms": {},
+      "url": "https://www.google.com/maps/search/?api=1&query=40.60034991904395,-74.31259870657125"
+    },
+    {
+      "id": "gbp_week_35",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-05-03",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/menu",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_35_mothers_day_brunch"
+      },
+      "url": "https://www.estimescafe.com/menu?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_35_mothers_day_brunch"
+    },
+    {
+      "id": "gbp_week_36",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-05-10",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/catering",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_36_graduation_party_catering"
+      },
+      "url": "https://www.estimescafe.com/catering?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_36_graduation_party_catering"
+    },
+    {
+      "id": "gbp_week_37",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-05-17",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/menu",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_37_caribbean_seafood_brunch_bowls"
+      },
+      "url": "https://www.estimescafe.com/menu?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_37_caribbean_seafood_brunch_bowls"
+    },
+    {
+      "id": "gbp_week_38",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-05-24",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/menu",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_38_memorial_day_weekend_brunch"
+      },
+      "url": "https://www.estimescafe.com/menu?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_38_memorial_day_weekend_brunch"
+    },
+    {
+      "id": "gbp_week_39",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-05-31",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/order-online",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_39_fresh_flavorful_lunch_bowls"
+      },
+      "url": "https://www.estimescafe.com/order-online?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_39_fresh_flavorful_lunch_bowls"
+    },
+    {
+      "id": "gbp_week_40",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-06-07",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/menu",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_40_fathers_day_steak_and_eggs"
+      },
+      "url": "https://www.estimescafe.com/menu?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_40_fathers_day_steak_and_eggs"
+    },
+    {
+      "id": "gbp_week_41",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-06-14",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/catering",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_41_summer_corporate_family_catering"
+      },
+      "url": "https://www.estimescafe.com/catering?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_41_summer_corporate_family_catering"
+    },
+    {
+      "id": "gbp_week_42",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-06-21",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/order-online",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_42_iced_coffee_summer_brunch"
+      },
+      "url": "https://www.estimescafe.com/order-online?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_42_iced_coffee_summer_brunch"
+    },
+    {
+      "id": "gbp_week_43",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-06-28",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/order-online",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_43_fourth_of_july_breakfast"
+      },
+      "url": "https://www.estimescafe.com/order-online?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_43_fourth_of_july_breakfast"
+    },
+    {
+      "id": "gbp_week_44",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-07-05",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/order-online",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_44_summer_berry_pancakes"
+      },
+      "url": "https://www.estimescafe.com/order-online?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_44_summer_berry_pancakes"
+    },
+    {
+      "id": "gbp_week_45",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-07-12",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/menu",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_45_sunny_sunday_summer_brunch"
+      },
+      "url": "https://www.estimescafe.com/menu?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_45_sunny_sunday_summer_brunch"
+    },
+    {
+      "id": "gbp_week_46",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-07-19",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/meet-the-chef",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_46_creole_spices_heritage"
+      },
+      "url": "https://www.estimescafe.com/meet-the-chef?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_46_creole_spices_heritage"
+    },
+    {
+      "id": "gbp_week_47",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-07-26",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/order-online",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_47_quick_weekday_lunch_spots"
+      },
+      "url": "https://www.estimescafe.com/order-online?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_47_quick_weekday_lunch_spots"
+    },
+    {
+      "id": "gbp_week_48",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-08-02",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/catering",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_48_back_to_work_catering"
+      },
+      "url": "https://www.estimescafe.com/catering?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_48_back_to_work_catering"
+    },
+    {
+      "id": "gbp_week_49",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-08-09",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/reviews",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_49_verified_customer_reviews"
+      },
+      "url": "https://www.estimescafe.com/reviews?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_49_verified_customer_reviews"
+    },
+    {
+      "id": "gbp_week_50",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-08-16",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/order-online",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_50_weekend_breakfast_shop"
+      },
+      "url": "https://www.estimescafe.com/order-online?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_50_weekend_breakfast_shop"
+    },
+    {
+      "id": "gbp_week_51",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-08-23",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/menu",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_51_labor_day_brunch_tradition"
+      },
+      "url": "https://www.estimescafe.com/menu?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_51_labor_day_brunch_tradition"
+    },
+    {
+      "id": "gbp_week_52",
+      "channel": "gbp",
+      "placement": "post_website",
+      "date": "2027-08-30",
+      "status": "draft",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/about",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp_post",
+        "utm_content": "week_52_eight_years_community_tradition"
+      },
+      "url": "https://www.estimescafe.com/about?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_52_eight_years_community_tradition"
+    }
+  ]
+}

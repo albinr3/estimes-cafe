@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import JsonLd from "@/components/JsonLd";
 import StickyMobileBar from "@/components/StickyMobileBar";
+import AnalyticsEvents from "@/components/AnalyticsEvents";
 import { BUSINESS_NAP_NAME } from "@/lib/business";
 
 const playfair = Playfair_Display({
@@ -111,6 +112,7 @@ gtag('config', 'G-WZTNVR2FKQ');`}
       </Script>
       <body className="font-sans antialiased bg-brand-paper text-brand-text flex flex-col min-h-screen">
         <JsonLd />
+        <AnalyticsEvents />
         {children}
         <StickyMobileBar />
       </body>

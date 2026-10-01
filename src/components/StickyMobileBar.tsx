@@ -1,9 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Phone, Utensils, ShoppingBag, Sparkles } from "lucide-react";
 
 export default function StickyMobileBar() {
+  const pathname = usePathname();
+
+  if (pathname === "/school" || pathname === "/school/") return null;
+
   return (
     <aside
       aria-label="Quick mobile actions"

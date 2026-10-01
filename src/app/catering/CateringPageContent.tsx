@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { BUSINESS_EMAIL, createMailtoUrl } from "@/lib/business";
+import { trackAnalyticsEvent } from "@/lib/analytics";
 import {
   Users,
   Truck,
@@ -336,6 +337,7 @@ export default function CateringPageContent() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    trackAnalyticsEvent("contact_email_intent", { contact_type: "catering_form" });
     window.location.href = createMailtoUrl("Catering quote request", [
       "New catering quote request",
       "",

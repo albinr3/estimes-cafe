@@ -7,7 +7,7 @@ Business Phone Number
 Primary Contact Name
 Dandley Alexandre 
 Primary Contact Email
-Estimecafe1@gmail.com
+Estimecafe@gmail.com
 Preferred Method of Communication
 Email
 Briefly describe your business and what you offer:

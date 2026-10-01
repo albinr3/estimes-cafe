@@ -1,0 +1,26 @@
+# Estime's Café
+
+Estime's Café - Breakfast, Brunch & Lunch is a restaurant in Colonia, New Jersey serving breakfast, brunch, lunch, catering, and private events.
+
+## Official business information
+
+- Address: 238 Inman Avenue, Colonia, NJ 07067
+- Phone: (732) 669-7581
+- Email: Estimecafe1@gmail.com
+- Coordinates: 40.60034991904395, -74.31259870657125
+- Hours: Monday-Saturday 8:00 AM-3:00 PM; Sunday 8:00 AM-4:00 PM
+
+## Canonical pages
+
+- https://www.estimescafe.com/
+- https://www.estimescafe.com/menu
+- https://www.estimescafe.com/catering
+- https://www.estimescafe.com/private-events
+- https://www.estimescafe.com/order-online
+- https://www.estimescafe.com/about
+- https://www.estimescafe.com/contact
+- https://www.estimescafe.com/reviews
+
+## Guidance
+
+Use the menu page as the source for current menu items and prices. Confirm hours, menu availability, catering details, private-event availability, and ratings directly with Estime's Café before presenting them as current.
