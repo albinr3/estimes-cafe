@@ -1,4 +1,4 @@
-"""Build and validate Estime's approved GBP URL registry.
+"""Build and validate Estime's approved local-listing URL registry.
 
 Usage:
     python analytics/utm_registry.py refresh
@@ -24,6 +24,11 @@ ROOT = Path(__file__).resolve().parents[1]
 WORKBOOK = ROOT / "seo" / "Calendario_Estimes_Cafe.xlsx"
 REGISTRY = ROOT / "analytics" / "utm_registry.json"
 PROFILE_URL = "https://www.estimescafe.com/?utm_source=google&utm_medium=organic&utm_campaign=gbp"
+GBP_MENU_URL = "https://www.estimescafe.com/menu?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_content=menu"
+APPLE_BUSINESS_CONNECT_URL = "https://www.estimescafe.com/?utm_source=apple_maps&utm_medium=organic&utm_campaign=apple_business_connect"
+BING_PLACES_URL = "https://www.estimescafe.com/?utm_source=bing_places&utm_medium=organic&utm_campaign=bing_places"
+BING_PLACES_MENU_URL = "https://www.estimescafe.com/menu?utm_source=bing_places&utm_medium=organic&utm_campaign=bing_places&utm_content=menu"
+BING_PLACES_ORDER_ONLINE_URL = "https://www.estimescafe.com/order-online?utm_source=bing_places&utm_medium=organic&utm_campaign=bing_places&utm_content=order_online"
 SOURCE_LEGACY = "google_business_profile"
 SOURCE_CURRENT = "google"
 GBP_LOCATION = "locations/16081983341986978598"
@@ -76,21 +81,42 @@ def _record(record_id: str, channel: str, placement: str, status: str, created_b
 
 def refresh() -> dict:
     other_channels = []
-    previous_profile = None
     previous_by_id: dict[str, dict] = {}
     if REGISTRY.exists():
         existing = json.loads(REGISTRY.read_text(encoding="utf-8"))
         previous_by_id = {item["id"]: item for item in existing.get("records", [])}
-        other_channels = [item for item in existing.get("records", []) if item.get("channel") != "gbp"]
-        previous_profile = previous_by_id.get("gbp_profile_website")
+        managed_ids = {"gbp_profile_website", "gbp_profile_menu", "apple_business_connect_website", "bing_places_website", "bing_places_menu", "bing_places_order_online"}
+        other_channels = [item for item in existing.get("records", []) if item.get("id") not in managed_ids and item.get("channel") != "gbp"]
     profile = _record(
         "gbp_profile_website", "gbp", "profile_website",
         "configured_pending_review", "unknown_preexisting", PROFILE_URL,
     )
-    if previous_profile:
-        profile["status"] = previous_profile["status"]
-        profile["created_by"] = previous_profile["created_by"]
-    records = [profile]
+    menu = _record(
+        "gbp_profile_menu", "gbp", "profile_menu",
+        "ready_to_configure", "Codex_updated_2026_10_01", GBP_MENU_URL,
+    )
+    apple = _record(
+        "apple_business_connect_website", "apple_maps", "profile_website",
+        "ready_to_configure", "Codex_updated_2026_10_01", APPLE_BUSINESS_CONNECT_URL,
+    )
+    bing = _record(
+        "bing_places_website", "bing_places", "profile_website",
+        "ready_to_configure", "Codex_updated_2026_10_01", BING_PLACES_URL,
+    )
+    bing_menu = _record(
+        "bing_places_menu", "bing_places", "profile_menu",
+        "ready_to_configure", "Codex_updated_2026_10_01", BING_PLACES_MENU_URL,
+    )
+    bing_order_online = _record(
+        "bing_places_order_online", "bing_places", "profile_order_online",
+        "ready_to_configure", "Codex_updated_2026_10_01", BING_PLACES_ORDER_ONLINE_URL,
+    )
+    for item in (profile, menu, apple, bing, bing_menu, bing_order_online):
+        previous = previous_by_id.get(item["id"])
+        if previous:
+            item["status"] = previous["status"]
+            item["created_by"] = previous["created_by"]
+    records = [profile, menu]
     for row in _read_calendar():
         maps = urlparse(row["url"]).netloc == "www.google.com"
         record_id = f"gbp_week_{row['week']:02d}"
@@ -109,7 +135,7 @@ def refresh() -> dict:
                 else "unknown_updated_from_calendar"
             )
         records.append(record)
-    records.extend(other_channels)
+    records.extend([apple, bing, bing_menu, bing_order_online, *other_channels])
     document = {
         "property": "properties/556917509",
         "gbp_location": GBP_LOCATION,
@@ -127,12 +153,12 @@ def validate(document: dict | None = None) -> dict:
     assert document["property"] == "properties/556917509"
     assert document["gbp_location"] == GBP_LOCATION
     records = document["records"]
-    assert len(records) >= 53, f"Expected at least 53 records, got {len(records)}"
+    assert len(records) >= 58, f"Expected at least 58 records, got {len(records)}"
     by_id = {item["id"]: item for item in records}
     assert len(by_id) == len(records), "Duplicate registry IDs"
     assert by_id["gbp_profile_website"]["url"] == PROFILE_URL
-    assert sum(item["channel"] == "gbp" for item in records) == 53
-    seen_web_urls: set[str] = {PROFILE_URL}
+    assert sum(item["channel"] == "gbp" for item in records) == 54
+    seen_web_urls: set[str] = {PROFILE_URL, GBP_MENU_URL}
     counts = {"published_posts": 0, "draft_web_posts": 0, "directions": 0}
     for row in _read_calendar():
         item = by_id[f"gbp_week_{row['week']:02d}"]
@@ -168,6 +194,30 @@ def validate(document: dict | None = None) -> dict:
     main = by_id["gbp_profile_website"]
     assert main["destination"] == "https://www.estimescafe.com/"
     assert main["utms"] == {"utm_source": "google", "utm_medium": "organic", "utm_campaign": "gbp"}
+    menu = by_id["gbp_profile_menu"]
+    assert menu["placement"] == "profile_menu"
+    assert menu["destination"] == "https://www.estimescafe.com/menu"
+    assert menu["utms"] == {"utm_source": "google", "utm_medium": "organic", "utm_campaign": "gbp", "utm_content": "menu"}
+    apple = by_id["apple_business_connect_website"]
+    assert apple["channel"] == "apple_maps"
+    assert apple["placement"] == "profile_website"
+    assert apple["destination"] == "https://www.estimescafe.com/"
+    assert apple["utms"] == {"utm_source": "apple_maps", "utm_medium": "organic", "utm_campaign": "apple_business_connect"}
+    bing = by_id["bing_places_website"]
+    assert bing["channel"] == "bing_places"
+    assert bing["placement"] == "profile_website"
+    assert bing["destination"] == "https://www.estimescafe.com/"
+    assert bing["utms"] == {"utm_source": "bing_places", "utm_medium": "organic", "utm_campaign": "bing_places"}
+    bing_menu = by_id["bing_places_menu"]
+    assert bing_menu["channel"] == "bing_places"
+    assert bing_menu["placement"] == "profile_menu"
+    assert bing_menu["destination"] == "https://www.estimescafe.com/menu"
+    assert bing_menu["utms"] == {"utm_source": "bing_places", "utm_medium": "organic", "utm_campaign": "bing_places", "utm_content": "menu"}
+    bing_order_online = by_id["bing_places_order_online"]
+    assert bing_order_online["channel"] == "bing_places"
+    assert bing_order_online["placement"] == "profile_order_online"
+    assert bing_order_online["destination"] == "https://www.estimescafe.com/order-online"
+    assert bing_order_online["utms"] == {"utm_source": "bing_places", "utm_medium": "organic", "utm_campaign": "bing_places", "utm_content": "order_online"}
     for item in records:
         if item["channel"] == "gbp":
             continue

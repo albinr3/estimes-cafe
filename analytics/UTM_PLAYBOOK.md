@@ -19,11 +19,30 @@ Los tres primeros parámetros son obligatorios en enlaces etiquetados. Escribir 
 | Ubicación | Estructura | Estado |
 | --- | --- | --- |
 | Botón «Website» del perfil | `https://www.estimescafe.com/?utm_source=google&utm_medium=organic&utm_campaign=gbp` | Configurado en GBP; revisión de Google pendiente al 2026-10-01 |
+| Enlace «Menu» del perfil | `https://www.estimescafe.com/menu?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_content=menu` | Listo para configurar en el campo de menú de GBP |
 | Publicaciones web de semanas 1–4 | `google_business_profile / organic / gbp_post`, con `utm_content=week_XX_slug` | Publicadas; conservar URL histórica |
 | Publicaciones web futuras | `google / organic / gbp_post`, con `utm_content=week_XX_slug` | 45 borradores actualizados en calendario |
 | Semanas 8, 20 y 34 | Enlace directo a Google Maps sin UTMs | Borradores; medir solicitudes de indicaciones en GBP |
 
 El valor histórico `google_business_profile` no se reescribe en publicaciones ya hechas. Las audiencias GBP de GA4 incluyen esa fuente cuando la campaña es `gbp_post`. El valor nuevo `google` mantiene una fuente coherente con el enlace principal; `gbp` y `gbp_post` distinguen el perfil de las publicaciones en los informes de campaña.
+
+## Apple Business Connect / Apple Maps
+
+| Ubicación | URL exacta | Estado |
+| --- | --- | --- |
+| Botón «Website» de la ficha | `https://www.estimescafe.com/?utm_source=apple_maps&utm_medium=organic&utm_campaign=apple_business_connect` | Listo para configurar en Apple Business Connect |
+
+Este enlace se usa únicamente en la ficha de Apple Business Connect (visible en Apple Maps). No reutilizarlo en Google ni en enlaces internos. En GA4 se podrá comparar como `apple_maps / organic` y campaña `apple_business_connect`.
+
+## Bing Places
+
+| Ubicación | URL exacta | Estado |
+| --- | --- | --- |
+| Botón «Website» de la ficha | `https://www.estimescafe.com/?utm_source=bing_places&utm_medium=organic&utm_campaign=bing_places` | Listo para configurar en Bing Places for Business |
+| Enlace «Menu» de la ficha | `https://www.estimescafe.com/menu?utm_source=bing_places&utm_medium=organic&utm_campaign=bing_places&utm_content=menu` | Listo para configurar en el campo de menú de Bing Places |
+| Enlace «Order online» de la ficha | `https://www.estimescafe.com/order-online?utm_source=bing_places&utm_medium=organic&utm_campaign=bing_places&utm_content=order_online` | Listo para configurar en el campo de pedido en línea de Bing Places |
+
+Este enlace se usa únicamente en la ficha de Bing Places. En GA4 se podrá comparar como `bing_places / organic` y campaña `bing_places`.
 
 ## Plantillas para otros canales
 

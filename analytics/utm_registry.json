@@ -19,6 +19,22 @@
       "url": "https://www.estimescafe.com/?utm_source=google&utm_medium=organic&utm_campaign=gbp"
     },
     {
+      "id": "gbp_profile_menu",
+      "channel": "gbp",
+      "placement": "profile_menu",
+      "date": "",
+      "status": "ready_to_configure",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/menu",
+      "utms": {
+        "utm_source": "google",
+        "utm_medium": "organic",
+        "utm_campaign": "gbp",
+        "utm_content": "menu"
+      },
+      "url": "https://www.estimescafe.com/menu?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_content=menu"
+    },
+    {
       "id": "gbp_week_01",
       "channel": "gbp",
       "placement": "post_website",
@@ -834,6 +850,68 @@
         "utm_content": "week_52_eight_years_community_tradition"
       },
       "url": "https://www.estimescafe.com/about?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=week_52_eight_years_community_tradition"
+    },
+    {
+      "id": "apple_business_connect_website",
+      "channel": "apple_maps",
+      "placement": "profile_website",
+      "date": "",
+      "status": "ready_to_configure",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/",
+      "utms": {
+        "utm_source": "apple_maps",
+        "utm_medium": "organic",
+        "utm_campaign": "apple_business_connect"
+      },
+      "url": "https://www.estimescafe.com/?utm_source=apple_maps&utm_medium=organic&utm_campaign=apple_business_connect"
+    },
+    {
+      "id": "bing_places_website",
+      "channel": "bing_places",
+      "placement": "profile_website",
+      "date": "",
+      "status": "ready_to_configure",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/",
+      "utms": {
+        "utm_source": "bing_places",
+        "utm_medium": "organic",
+        "utm_campaign": "bing_places"
+      },
+      "url": "https://www.estimescafe.com/?utm_source=bing_places&utm_medium=organic&utm_campaign=bing_places"
+    },
+    {
+      "id": "bing_places_menu",
+      "channel": "bing_places",
+      "placement": "profile_menu",
+      "date": "",
+      "status": "ready_to_configure",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/menu",
+      "utms": {
+        "utm_source": "bing_places",
+        "utm_medium": "organic",
+        "utm_campaign": "bing_places",
+        "utm_content": "menu"
+      },
+      "url": "https://www.estimescafe.com/menu?utm_source=bing_places&utm_medium=organic&utm_campaign=bing_places&utm_content=menu"
+    },
+    {
+      "id": "bing_places_order_online",
+      "channel": "bing_places",
+      "placement": "profile_order_online",
+      "date": "",
+      "status": "ready_to_configure",
+      "created_by": "Codex_updated_2026_10_01",
+      "destination": "https://www.estimescafe.com/order-online",
+      "utms": {
+        "utm_source": "bing_places",
+        "utm_medium": "organic",
+        "utm_campaign": "bing_places",
+        "utm_content": "order_online"
+      },
+      "url": "https://www.estimescafe.com/order-online?utm_source=bing_places&utm_medium=organic&utm_campaign=bing_places&utm_content=order_online"
     }
   ]
 }

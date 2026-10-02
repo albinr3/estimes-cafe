@@ -2,6 +2,7 @@ Options -MultiViews
 RewriteEngine On
 
 # Redirect legacy Wix URLs directly to their final canonical destinations.
+RewriteRule ^menus-1/?$ https://www.estimescafe.com/menu/ [R=301,L,NC]
 RewriteRule ^full-menu/?$ https://www.estimescafe.com/menu/ [R=301,L,NC]
 RewriteRule ^(catering-menu|brunch-menu)/?$ https://www.estimescafe.com/catering/ [R=301,L,NC]
 RewriteRule ^(private-event|specialevents|dinner-menu)/?$ https://www.estimescafe.com/private-events/ [R=301,L,NC]
