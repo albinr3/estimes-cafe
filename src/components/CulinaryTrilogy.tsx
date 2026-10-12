@@ -75,7 +75,7 @@ export default function CulinaryTrilogy() {
             {/* Action Footer */}
             <div className="p-6 sm:p-7 pt-0">
               <Link
-                href="/menu"
+                href="/menu/"
                 className="w-full inline-flex items-center justify-center gap-2 border border-brand-green/30 group-hover:border-brand-green bg-transparent group-hover:bg-brand-green text-brand-green group-hover:text-white px-5 py-3 text-xs font-bold uppercase tracking-wider transition-all duration-200"
               >
                 <span>Explore Brunch &amp; Pancakes</span>
@@ -141,7 +141,7 @@ export default function CulinaryTrilogy() {
             {/* Action Footer */}
             <div className="p-6 sm:p-7 pt-0">
               <Link
-                href="/menu"
+                href="/menu/"
                 className="w-full inline-flex items-center justify-center gap-2 border border-brand-green/30 group-hover:border-brand-green bg-transparent group-hover:bg-brand-green text-brand-green group-hover:text-white px-5 py-3 text-xs font-bold uppercase tracking-wider transition-all duration-200"
               >
                 <span>Explore Lunch &amp; Sandwiches</span>

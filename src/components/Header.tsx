@@ -13,10 +13,10 @@ export default function Header() {
 
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/menu", label: "Menu" },
-    { href: "/catering", label: "Catering" },
-    { href: "/private-events", label: "Private Events" },
-    { href: "/about", label: "About" },
+    { href: "/menu/", label: "Menu" },
+    { href: "/catering/", label: "Catering" },
+    { href: "/private-events/", label: "Private Events" },
+    { href: "/about/", label: "About" },
   ];
 
   return (
@@ -88,7 +88,7 @@ export default function Header() {
           <div className="hidden sm:flex items-center gap-2.5">
             {showOrderOnline && (
               <Link
-                href="/order-online"
+                href="/order-online/"
                 className="bg-brand-green text-white hover:bg-brand-green-dark px-4 py-2.5 text-xs font-bold uppercase tracking-wider shadow-sm transition-all duration-200"
               >
                 Order Online
@@ -106,7 +106,7 @@ export default function Header() {
           <div className="flex lg:hidden items-center gap-2">
             {showOrderOnline && (
               <Link
-                href="/order-online"
+                href="/order-online/"
                 className="px-3 py-1.5 bg-brand-green text-white text-[11px] font-bold uppercase tracking-wider rounded-sm sm:hidden"
               >
                 Order
@@ -157,7 +157,7 @@ export default function Header() {
           <div className="pt-2 flex flex-col gap-2.5 font-sans">
             {showOrderOnline && (
               <Link
-                href="/order-online"
+                href="/order-online/"
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full text-center bg-brand-green text-white py-3 text-xs font-bold uppercase tracking-wider"
               >
@@ -171,7 +171,7 @@ export default function Header() {
               Call: (732) 669-7581
             </a>
             <Link
-              href="/menu"
+              href="/menu/"
               onClick={() => setMobileMenuOpen(false)}
               className="w-full text-center bg-brand-cream text-brand-text py-2.5 text-xs font-bold uppercase tracking-wider"
             >

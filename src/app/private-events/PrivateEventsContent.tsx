@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { BUSINESS_EMAIL, BUSINESS_NAP_NAME, createMailtoUrl } from "@/lib/business";
+import { BUSINESS_EMAIL, BUSINESS_NAP_NAME } from "@/lib/business";
 import { trackAnalyticsEvent } from "@/lib/analytics";
 import {
   Sparkles,
@@ -148,37 +148,53 @@ const VENUE_HIGHLIGHTS = [
   },
 ];
 
-export default function PrivateEventsContent() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    date: "",
-    time: "Evening Dinner (5:00 PM - 9:00 PM)",
-    guests: "25-35",
-    eventType: "Birthday Celebration",
-    packageChoice: "$90 Signature Dinner Package",
-    notes: "",
-  });
+const INITIAL_FORM_DATA = {
+  name: "",
+  email: "",
+  phone: "",
+  date: "",
+  time: "Evening Dinner (5:00 PM - 9:00 PM)",
+  guests: "25-35",
+  eventType: "Birthday Celebration",
+  packageChoice: "$90 Signature Dinner Package",
+  notes: "",
+};
 
-  const handleSubmit = (e: React.FormEvent) => {
+export default function PrivateEventsContent() {
+  const formspreeEndpoint = "https://formspree.io/f/mkjozkbj";
+  const [formData, setFormData] = useState(INITIAL_FORM_DATA);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | "rate_limit" | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    trackAnalyticsEvent("contact_email_intent", { contact_type: "private_events_form" });
-    window.location.href = createMailtoUrl("Private event inquiry", [
-      "New private event inquiry",
-      "",
-      `Name: ${formData.name}`,
-      `Email: ${formData.email}`,
-      `Phone: ${formData.phone}`,
-      `Event date: ${formData.date}`,
-      `Event time: ${formData.time}`,
-      `Guest count: ${formData.guests}`,
-      `Event type: ${formData.eventType}`,
-      `Package: ${formData.packageChoice}`,
-      "",
-      "Special requests / notes:",
-      formData.notes || "Not provided",
-    ]);
+    if (isSubmitting || !formspreeEndpoint) return;
+
+    const submission = new FormData(e.currentTarget);
+    setSubmitStatus(null);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(formspreeEndpoint, {
+        method: "POST",
+        body: submission,
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.status === 429) {
+        setSubmitStatus("rate_limit");
+      } else if (!response.ok) {
+        setSubmitStatus("error");
+      } else {
+        trackAnalyticsEvent("contact_form_submit", { contact_type: "private_events_form" });
+        setFormData(INITIAL_FORM_DATA);
+        setSubmitStatus("success");
+      }
+    } catch {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -556,7 +572,7 @@ export default function PrivateEventsContent() {
       </section>
 
       {/* Event Booking Form & Space Details */}
-      <section id="booking-form" className="py-16 sm:py-24">
+      <section id="booking-form" className="scroll-mt-24 py-16 sm:py-24">
         <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Left Column: Venue FAQ & Policy */}
@@ -569,7 +585,7 @@ export default function PrivateEventsContent() {
                   Request Private Venue Availability
                 </h2>
                 <p className="font-serif text-sm text-brand-muted leading-relaxed">
-                  Complete the inquiry form with your preferred date to open a pre-addressed email for the Estime&apos;s Café events team. You can also call or email us directly.
+                  Send your preferred date and event details to the Estime&apos;s Café team. We&apos;ll follow up to discuss availability. You can also call or email us directly.
                 </p>
               </div>
 
@@ -606,15 +622,19 @@ export default function PrivateEventsContent() {
 
             {/* Right Column: Interactive Booking Form */}
             <div className="lg:col-span-7 bg-white border border-brand-line p-8 sm:p-10 rounded-sm shadow-md">
-              <p className="mb-5 text-xs font-serif text-brand-muted">Submitting opens a pre-addressed email in your mail app. You can also call or email us directly.</p>
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <p className="mb-5 text-xs font-serif text-brand-muted">Send your inquiry directly to our events team. We&apos;ll contact you to confirm availability; submitting does not reserve your date.</p>
+              <form action={formspreeEndpoint || undefined} method="POST" onSubmit={handleSubmit} className="space-y-5">
+                  <input type="hidden" name="subject" value="Private event availability request" />
+                  <input type="hidden" name="form_type" value="private_event" />
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
+                      <label htmlFor="private-event-name" className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
                         Your Full Name *
                       </label>
                       <input
+                        id="private-event-name"
                         type="text"
+                        name="name"
                         required
                         placeholder="Sarah Jenkins"
                         value={formData.name}
@@ -624,11 +644,13 @@ export default function PrivateEventsContent() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
+                      <label htmlFor="private-event-phone" className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
                         Phone Number *
                       </label>
                       <input
+                        id="private-event-phone"
                         type="tel"
+                        name="phone"
                         required
                         placeholder="(732) 555-0199"
                         value={formData.phone}
@@ -640,11 +662,13 @@ export default function PrivateEventsContent() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
+                      <label htmlFor="private-event-email" className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
                         Email Address *
                       </label>
                       <input
+                        id="private-event-email"
                         type="email"
+                        name="email"
                         required
                         placeholder="sarah@example.com"
                         value={formData.email}
@@ -654,11 +678,13 @@ export default function PrivateEventsContent() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
+                      <label htmlFor="private-event-date" className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
                         Target Event Date *
                       </label>
                       <input
+                        id="private-event-date"
                         type="date"
+                        name="event_date"
                         required
                         value={formData.date}
                         onChange={(e) => setFormData({ ...formData, date: e.target.value })}
@@ -669,10 +695,12 @@ export default function PrivateEventsContent() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
+                      <label htmlFor="private-event-time" className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
                         Event Time
                       </label>
                       <select
+                        id="private-event-time"
+                        name="event_time"
                         value={formData.time}
                         onChange={(e) => setFormData({ ...formData, time: e.target.value })}
                         className="w-full bg-brand-paper border border-brand-line px-3 py-2 text-xs font-sans rounded-sm focus:outline-none focus:border-brand-green text-brand-text"
@@ -685,10 +713,12 @@ export default function PrivateEventsContent() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
+                      <label htmlFor="private-event-guests" className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
                         Guest Count
                       </label>
                       <select
+                        id="private-event-guests"
+                        name="guest_count"
                         value={formData.guests}
                         onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
                         className="w-full bg-brand-paper border border-brand-line px-3 py-2 text-xs font-sans rounded-sm focus:outline-none focus:border-brand-green text-brand-text"
@@ -700,10 +730,12 @@ export default function PrivateEventsContent() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
+                      <label htmlFor="private-event-type" className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
                         Event Type
                       </label>
                       <select
+                        id="private-event-type"
+                        name="event_type"
                         value={formData.eventType}
                         onChange={(e) => setFormData({ ...formData, eventType: e.target.value })}
                         className="w-full bg-brand-paper border border-brand-line px-3 py-2 text-xs font-sans rounded-sm focus:outline-none focus:border-brand-green text-brand-text"
@@ -720,10 +752,12 @@ export default function PrivateEventsContent() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
+                    <label htmlFor="private-event-package" className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
                       Preferred Package Selection
                     </label>
                     <select
+                      id="private-event-package"
+                      name="package"
                       value={formData.packageChoice}
                       onChange={(e) => setFormData({ ...formData, packageChoice: e.target.value })}
                       className="w-full bg-brand-paper border border-brand-line px-3 py-2 text-xs font-sans rounded-sm focus:outline-none focus:border-brand-green text-brand-text"
@@ -737,10 +771,12 @@ export default function PrivateEventsContent() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
+                    <label htmlFor="private-event-notes" className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
                       Special Requests / Notes / Dietary Needs
                     </label>
                     <textarea
+                      id="private-event-notes"
+                      name="message"
                       rows={3}
                       placeholder="Tell us about the celebration, honoree name for menu cards, dietary restrictions, setup needs..."
                       value={formData.notes}
@@ -751,10 +787,20 @@ export default function PrivateEventsContent() {
 
                   <button
                     type="submit"
-                    className="w-full bg-brand-green hover:bg-brand-green-dark text-white py-3.5 text-xs font-bold uppercase tracking-wider shadow-md transition-all"
+                    disabled={isSubmitting || !formspreeEndpoint}
+                    className="w-full bg-brand-green hover:bg-brand-green-dark disabled:opacity-60 disabled:cursor-not-allowed text-white py-3.5 text-xs font-bold uppercase tracking-wider shadow-md transition-all"
                   >
-                    Open Private Event Email Draft &rarr;
+                    {isSubmitting ? "Sending inquiry..." : "Send Private Event Inquiry →"}
                   </button>
+                  {submitStatus === "success" && (
+                    <p role="status" className="text-sm text-brand-green">Your inquiry was sent. We&apos;ll follow up to discuss availability; your date is not reserved yet.</p>
+                  )}
+                  {submitStatus === "error" && (
+                    <p role="alert" className="text-sm text-red-700">We couldn&apos;t send your inquiry. Please try again or call us at (732) 669-7581.</p>
+                  )}
+                  {submitStatus === "rate_limit" && (
+                    <p role="alert" className="text-sm text-red-700">Too many requests right now. Please wait a moment and try again, or call us at (732) 669-7581.</p>
+                  )}
               </form>
             </div>
           </div>

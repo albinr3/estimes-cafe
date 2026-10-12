@@ -1,7 +1,23 @@
+DirectoryIndex index.html index.php
 Options -MultiViews
 RewriteEngine On
 
-# Redirect legacy Wix URLs directly to their final canonical destinations.
+# 1. Single-hop canonical HTTPS & www domain consolidation
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^www\.estimescafe\.com$ [NC]
+RewriteRule ^(.*)$ https://www.estimescafe.com/$1 [R=301,L]
+
+# 2. Prevent direct browser visits to Next.js RSC payload files (.txt)
+# When Next.js navigates via client router, it sends header 'RSC: 1'.
+# Direct visits by users or web crawlers lack 'RSC: 1' and are redirected to the clean HTML page.
+RewriteCond %{HTTP:RSC} !^1$
+RewriteRule ^index\.txt$ https://www.estimescafe.com/ [R=301,L,NC]
+
+RewriteCond %{HTTP:RSC} !^1$
+RewriteRule ^(.+)/index\.txt$ https://www.estimescafe.com/$1/ [R=301,L,NC]
+
+# 3. Direct route aliases and legacy redirects
+RewriteRule ^reviews?/?$ https://www.estimescafe.com/reviews/ [R=301,L,NC]
 RewriteRule ^menus-1/?$ https://www.estimescafe.com/menu/ [R=301,L,NC]
 RewriteRule ^full-menu/?$ https://www.estimescafe.com/menu/ [R=301,L,NC]
 RewriteRule ^(catering-menu|brunch-menu)/?$ https://www.estimescafe.com/catering/ [R=301,L,NC]
@@ -9,12 +25,15 @@ RewriteRule ^(private-event|specialevents|dinner-menu)/?$ https://www.estimescaf
 RewriteRule ^meet-the-chef/?$ https://www.estimescafe.com/about/ [R=301,L,NC]
 RewriteRule ^(maps|reservations)/?$ https://www.estimescafe.com/contact/ [R=301,L,NC]
 
-# Use one public origin for all remaining URLs.
-RewriteCond %{HTTPS} !=on [OR]
-RewriteCond %{HTTP_HOST} !^www\.estimescafe\.com$ [NC]
-RewriteRule ^(.*)$ https://www.estimescafe.com/$1 [R=301,L]
-
-# These Wix services have ended and have no replacement pages.
+# 4. These Wix services have ended and have no replacement pages.
 RewriteRule ^(join-our-team|experiences|experience-details)/?$ - [G,L,NC]
+
+# 5. Security headers
+<IfModule mod_headers.c>
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
 
 ErrorDocument 404 /404.html

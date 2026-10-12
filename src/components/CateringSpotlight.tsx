@@ -70,7 +70,7 @@ export default function CateringSpotlight() {
 
             <div className="flex flex-wrap items-center gap-4">
               <Link
-                href="/catering"
+                href="/catering/"
                 className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-light text-brand-text px-6 py-3.5 text-xs font-bold uppercase tracking-wider transition-all shadow-md"
               >
                 <span>View Full Catering Menu</span>

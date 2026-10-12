@@ -7,7 +7,7 @@ import { BUSINESS_ADDRESS, BUSINESS_EMAIL, BUSINESS_GEO, BUSINESS_MAP_URL, BUSIN
 export const metadata: Metadata = {
   title: "Contact Us, Hours & Directions | Estime's Café Colonia NJ",
   description:
-    "Get in touch with Estime's Café in Colonia, NJ. Contact our team for general inquiries, large party table accommodations, catering quotes, hours & directions to 238 Inman Ave.",
+    "Visit Estime's Café at 238 Inman Ave in Colonia, NJ. Find our hours and directions, call (732) 669-7581, or ask about catering and private events.",
   keywords: [
     "contact estimes cafe",
     "estimes cafe phone number",

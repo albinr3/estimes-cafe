@@ -7,7 +7,7 @@ import CateringPageContent from "./CateringPageContent";
 export const metadata: Metadata = {
   title: "Catering Menu & Party Trays in Woodbridge, NJ | Estime's Café",
   description:
-    "Order catering menu favorites, party trays and corporate lunch catering from Estime's Café in Colonia, Woodbridge Township. Half and full trays for offices, celebrations and events across Central NJ.",
+    "Order Estime's Café catering in Colonia, NJ: breakfast platters, party trays and corporate lunches for offices, celebrations and events across Central NJ.",
   keywords: [
     "catering menu",
     "party trays",

@@ -30,7 +30,7 @@ export default function NotFound() {
               <span>Back to Home</span>
             </Link>
             <Link
-              href="/menu"
+              href="/menu/"
               className="inline-flex items-center justify-center gap-2 border border-brand-green text-brand-green hover:bg-brand-green hover:text-white px-5 py-3 text-xs font-bold uppercase tracking-wider transition-all"
             >
               <span>Explore Menu</span>

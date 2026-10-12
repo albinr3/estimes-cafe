@@ -518,7 +518,7 @@ export default function AboutPageContent() {
 
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link
-              href="/menu"
+              href="/menu/"
               className="bg-brand-green hover:bg-brand-green-dark text-white px-7 py-3.5 text-xs font-bold uppercase tracking-widest shadow-sm transition-colors flex items-center gap-2"
             >
               <Utensils className="w-4 h-4" />
@@ -526,7 +526,7 @@ export default function AboutPageContent() {
             </Link>
 
             <Link
-              href="/catering"
+              href="/catering/"
               className="bg-brand-gold hover:bg-brand-gold/90 text-white px-7 py-3.5 text-xs font-bold uppercase tracking-widest shadow-sm transition-colors flex items-center gap-2"
             >
               <Coffee className="w-4 h-4" />
@@ -534,7 +534,7 @@ export default function AboutPageContent() {
             </Link>
 
             <Link
-              href="/private-events"
+              href="/private-events/"
               className="border border-brand-green text-brand-green hover:bg-brand-green hover:text-white px-7 py-3.5 text-xs font-bold uppercase tracking-widest transition-colors flex items-center gap-2"
             >
               <Calendar className="w-4 h-4" />

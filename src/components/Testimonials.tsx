@@ -34,7 +34,7 @@ export default function Testimonials() {
             <ExternalLink className="w-4 h-4" />
           </a>
           <Link
-            href="/reviews"
+            href="/reviews/"
             className="inline-flex items-center gap-2 border border-brand-green text-brand-green hover:bg-brand-green hover:text-white px-5 py-3 text-xs font-bold uppercase tracking-wider transition-colors"
           >
             Explore Press Coverage

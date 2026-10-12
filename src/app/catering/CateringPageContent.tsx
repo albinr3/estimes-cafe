@@ -695,7 +695,7 @@ export default function CateringPageContent() {
       </section>
 
       {/* Inquiry Form & Service Areas */}
-      <section id="inquiry-form" className="py-16 sm:py-20">
+      <section id="inquiry-form" className="scroll-mt-24 py-16 sm:py-20">
         <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Left: Contact Info & Coverage */}

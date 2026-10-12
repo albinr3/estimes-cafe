@@ -145,7 +145,7 @@ export default function MenuShowcase() {
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
-                href="/menu"
+                href="/menu/"
                 className="inline-flex items-center gap-2 bg-brand-green text-white hover:bg-brand-green-dark px-7 py-3.5 text-xs font-bold uppercase tracking-wider shadow-sm transition-all"
               >
                 <span>View Full Menu &amp; Prices</span>

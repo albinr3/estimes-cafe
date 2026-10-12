@@ -25,7 +25,7 @@ export default function Footer() {
             </p>
             <div className="mb-6">
               <Link
-                href="/about"
+                href="/about/"
                 className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-brand-gold-light hover:text-white transition-colors"
               >
                 About Our Story &amp; Chef Duke &rarr;
@@ -43,12 +43,12 @@ export default function Footer() {
             </p>
             <ul className="font-serif text-sm space-y-2.5 text-brand-cream/80">
               <li>
-                <Link href="/order-online" className="text-brand-gold-light font-bold hover:text-white transition-colors flex items-center gap-1.5">
+                <Link href="/order-online/" className="text-brand-gold-light font-bold hover:text-white transition-colors flex items-center gap-1.5">
                   <span>Order Online (Pickup &amp; Delivery)</span>
                 </Link>
               </li>
               <li>
-                <Link href="/menu" className="hover:text-white transition-colors">
+                <Link href="/menu/" className="hover:text-white transition-colors">
                   Breakfast, Brunch &amp; Lunch Menu
                 </Link>
               </li>
@@ -63,7 +63,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/private-events" className="hover:text-white transition-colors">
+                <Link href="/private-events/" className="hover:text-white transition-colors">
                   Private Events &amp; Venue Rental
                 </Link>
               </li>
@@ -77,22 +77,22 @@ export default function Footer() {
             </p>
             <ul className="font-serif text-sm space-y-2.5 text-brand-cream/80">
               <li>
-                <Link href="/about" className="hover:text-white transition-colors font-medium">
+                <Link href="/about/" className="hover:text-white transition-colors font-medium">
                   Our Story &amp; Founders
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-white transition-colors font-medium">
+                <Link href="/about/" className="hover:text-white transition-colors font-medium">
                   Meet Chef Duke Estime
                 </Link>
               </li>
               <li>
-                <Link href="/reviews" className="hover:text-white transition-colors font-medium">
+                <Link href="/reviews/" className="hover:text-white transition-colors font-medium">
                   Customer Reviews ({BUSINESS_RATING.ratingValue}★)
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-white transition-colors font-medium">
+                <Link href="/contact/" className="hover:text-white transition-colors font-medium">
                   Contact Us
                 </Link>
               </li>

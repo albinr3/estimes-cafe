@@ -365,7 +365,7 @@ export default function OrderOnlineContent() {
               </p>
             </div>
             <Link
-              href="/catering"
+              href="/catering/"
               className="flex-shrink-0 bg-brand-green hover:bg-brand-green-dark text-white py-3.5 px-6 rounded-md font-sans text-xs font-bold uppercase tracking-wider shadow-sm transition-colors text-center"
             >
               View Catering Trays &rarr;

@@ -27,7 +27,7 @@ export default function Hero() {
           {/* Action CTAs */}
           <div className="flex flex-wrap items-center gap-3.5 mb-6">
             <Link
-              href="/order-online"
+              href="/order-online/"
               className="inline-flex items-center justify-center gap-2 bg-brand-green text-white hover:bg-brand-green-dark border border-brand-green px-6 py-3.5 text-xs font-bold uppercase tracking-[0.1em] shadow-sm transition-all duration-200"
             >
               <ShoppingBag className="w-3.5 h-3.5 text-brand-gold-light" />
@@ -35,7 +35,7 @@ export default function Hero() {
             </Link>
 
             <Link
-              href="/menu"
+              href="/menu/"
               className="inline-flex items-center justify-center gap-2 bg-transparent text-brand-green hover:bg-brand-green hover:text-white border border-brand-green px-5 py-3.5 text-xs font-bold uppercase tracking-[0.1em] transition-all duration-200"
             >
               <span>Explore Menu</span>

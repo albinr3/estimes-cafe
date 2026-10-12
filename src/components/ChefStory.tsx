@@ -103,7 +103,7 @@ export default function ChefStory() {
             {/* Read Full Story Button */}
             <div className="pt-6">
               <Link
-                href="/about"
+                href="/about/"
                 className="inline-flex items-center gap-2 bg-brand-green hover:bg-brand-green-dark text-white px-6 py-3 text-xs font-bold uppercase tracking-wider transition-colors"
               >
                 Read Full Story &amp; Chef Duke&apos;s Accolades

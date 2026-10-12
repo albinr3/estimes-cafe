@@ -5,9 +5,9 @@ import AboutPageContent from "./AboutPageContent";
 import { BUSINESS_ADDRESS, BUSINESS_GEO, BUSINESS_NAP_NAME } from "@/lib/business";
 
 export const metadata: Metadata = {
-  title: "Meet The Chef & Our Story | Honoree Chef Duke Estime | Estime's Café Colonia NJ",
+  title: "Chef Duke Estime & Our Story | Estime's Café Colonia NJ",
   description:
-    "Discover the story of Estime's Café in Colonia, NJ, founded by brothers Dumond and Duke Estime. Meet James Beard House Awarded Executive Chef Duke Estime and explore our Haitian-American culinary heritage.",
+    "Meet Duke Estime, a James Beard House honoree, and discover the Haitian-American roots of Estime's Café, founded with his brother Dumond in Colonia, NJ.",
   keywords: [
     "meet the chef",
     "honoree chef duke estime",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     canonical: "https://www.estimescafe.com/about",
   },
   openGraph: {
-    title: "Meet The Chef & Our Story | Honoree Chef Duke Estime | Estime's Café Colonia NJ",
+    title: "Chef Duke Estime & Our Story | Estime's Café Colonia NJ",
     description:
       "The story of brothers Dumond and Duke Estime: Caribbean family recipes, James Beard House Honoree recognition, NYC fine-dining training, and scratch morning comfort in Colonia, NJ.",
     url: "https://www.estimescafe.com/about",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Meet The Chef & Our Story | Honoree Chef Duke Estime | Estime's Café",
+    title: "Chef Duke Estime & Our Story | Estime's Café Colonia NJ",
     description:
       "Meet James Beard House Awarded Executive Chef Duke Estime and discover the Caribbean-American culinary story behind Estime's Café in Colonia, NJ.",
     images: ["https://www.estimescafe.com/assets/chef-duke-estime-james-beard-honoree.jpg"],
@@ -59,7 +59,7 @@ export default function AboutPage() {
         "@type": "AboutPage",
         "@id": "https://www.estimescafe.com/about#webpage",
         "url": "https://www.estimescafe.com/about",
-        "name": "Meet The Chef & Our Story | Honoree Chef Duke Estime | Estime's Café Colonia NJ",
+        "name": "Chef Duke Estime & Our Story | Estime's Café Colonia NJ",
         "description":
           "The story of brothers Dumond and Duke Estime: Caribbean roots, NYC culinary education, James Beard House Awarded recognition, and the founding of Estime's Café in Colonia, NJ.",
         "isPartOf": {

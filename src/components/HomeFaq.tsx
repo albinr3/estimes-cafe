@@ -104,7 +104,7 @@ export default function HomeFaq() {
           </div>
           <div className="flex flex-wrap items-center justify-center gap-3 w-full sm:w-auto">
             <Link
-              href="/menu"
+              href="/menu/"
               className="px-5 py-3 rounded-xl bg-brand-gold text-brand-green-deep font-bold hover:bg-brand-gold-light transition-colors duration-200 inline-flex items-center gap-2 text-sm shadow-md"
             >
               <span>Explore Menu</span>

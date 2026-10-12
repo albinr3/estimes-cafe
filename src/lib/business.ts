@@ -31,6 +31,7 @@ export const BUSINESS_GBP_PHOTOS_URL =
 
 export const BUSINESS_RATING = {
   ratingValue: "4.8",
+  reviewCount: "604",
 } as const;
 
 export function createMailtoUrl(subject: string, lines: string[]) {

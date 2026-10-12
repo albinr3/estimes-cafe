@@ -71,7 +71,7 @@ export default function MenuPageContentV2() {
           <p className="mx-auto max-w-2xl font-serif text-base leading-relaxed text-brand-cream/90 sm:text-lg">Explore the current dining menu at Estime&apos;s Café.</p>
           <div className="mt-7 flex flex-wrap justify-center gap-3 text-xs font-bold uppercase tracking-wider">
             <a href="tel:7326697581" className="inline-flex items-center gap-2 bg-brand-gold px-5 py-3 text-brand-green-dark"><Phone className="h-4 w-4" />Call Ahead: (732) 669-7581</a>
-            <Link href="/catering" className="inline-flex items-center gap-2 border border-white/50 bg-white/10 px-5 py-3 text-white"><span>View Catering</span><ChevronRight className="h-4 w-4" /></Link>
+            <Link href="/catering/" className="inline-flex items-center gap-2 border border-white/50 bg-white/10 px-5 py-3 text-white"><span>View Catering</span><ChevronRight className="h-4 w-4" /></Link>
           </div>
         </div>
       </section>
@@ -214,7 +214,7 @@ export default function MenuPageContentV2() {
             <h2 className="font-serif text-2xl text-brand-green">Ordering for a crowd?</h2>
             <p className="mt-1 font-serif text-sm text-brand-muted">Explore catering options for your gathering.</p>
           </div>
-          <Link href="/catering" className="bg-brand-green px-6 py-3 text-xs font-bold uppercase tracking-wider text-white">
+          <Link href="/catering/" className="bg-brand-green px-6 py-3 text-xs font-bold uppercase tracking-wider text-white">
             Explore Catering
           </Link>
         </div>
