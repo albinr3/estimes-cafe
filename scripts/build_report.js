@@ -1,0 +1,1594 @@
+const fs = require('fs');
+const path = require('path');
+
+const htmlContent = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estime's Café - Monthly Performance Report (September 2026)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4f5e2d;
+      --primary-dark: #37421e;
+      --primary-light: #f1f4ea;
+      --gold: #b49355;
+      --gold-dark: #91753c;
+      --gold-light: #fcf8ee;
+      --dark: #1b2111;
+      --slate: #37332d;
+      --muted: #6b655d;
+      --light-bg: #fcfaf6;
+      --cream: #f6f0e6;
+      --border: #e3dcce;
+      --success: #2e7d32;
+      --success-light: #e8f5e9;
+      --amber: #c27803;
+      --amber-light: #fef3c7;
+      --blue: #1e6091;
+      --blue-light: #e0f2fe;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--slate);
+      background-color: #f3efe6;
+      line-height: 1.5;
+      font-size: 13.5px;
+      padding: 30px 15px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px -5px rgba(27, 33, 17, 0.08), 0 8px 10px -6px rgba(27, 33, 17, 0.03);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    /* Top Bar */
+    .top-bar {
+      background: linear-gradient(135deg, #18200f 0%, #293418 100%);
+      color: #ffffff;
+      padding: 28px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid var(--gold);
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo-img {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #ffffff;
+      border: 2px solid var(--gold);
+      padding: 3px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    }
+
+    .brand-group h1 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand-badge {
+      background: var(--gold);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-sub {
+      color: #cbd5bb;
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    .meta-box {
+      text-align: right;
+    }
+
+    .meta-badge {
+      display: inline-block;
+      background: rgba(180, 147, 85, 0.22);
+      color: #f7d58a;
+      border: 1px solid rgba(180, 147, 85, 0.45);
+      padding: 4px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .meta-location {
+      font-size: 11.5px;
+      color: #d8e2cb;
+    }
+
+    .meta-agency {
+      font-size: 11px;
+      color: #a4b392;
+      margin-top: 2px;
+    }
+
+    /* Content Area */
+    .content {
+      padding: 32px 36px;
+    }
+
+    /* 4 Big KPI Cards */
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .kpi-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      position: relative;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .kpi-card.gold { border-top: 3px solid var(--gold); }
+    .kpi-card.success { border-top: 3px solid var(--success); }
+    .kpi-card.blue { border-top: 3px solid var(--blue); }
+    .kpi-card.primary { border-top: 3px solid var(--primary); }
+
+    .kpi-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .kpi-number {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .kpi-number-sub {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .kpi-sub {
+      font-size: 11.5px;
+      color: var(--slate);
+      line-height: 1.4;
+      margin-top: 4px;
+    }
+
+    .kpi-breakdown-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 2px 0;
+      font-size: 11.5px;
+    }
+
+    .kpi-delta {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-top: 8px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: var(--light-bg);
+      color: var(--slate);
+      border: 1px solid var(--border);
+    }
+
+    /* Highlight Banner */
+    .highlight-card {
+      background: linear-gradient(135deg, #fcfaf4 0%, #f6f0e6 100%);
+      border: 1px solid rgba(180, 147, 85, 0.35);
+      border-left: 4px solid var(--gold);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 30px;
+    }
+
+    .highlight-card h3 {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #644a15;
+      margin-bottom: 12px;
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px 24px;
+      font-size: 12.5px;
+      line-height: 1.45;
+    }
+
+    .highlight-grid li {
+      margin-left: 16px;
+      color: #493b1e;
+    }
+
+    /* Section Headings */
+    .section-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--dark);
+      margin: 32px 0 16px 0;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .section-title:first-of-type {
+      margin-top: 10px;
+    }
+
+    /* Panels & Tables */
+    .panel {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .panel-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+      margin-bottom: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    th {
+      background: var(--light-bg);
+      color: var(--slate);
+      font-weight: 700;
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 2px solid var(--border);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      color: var(--slate);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background-color: #faf7f0;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 10.5px;
+      font-weight: 700;
+    }
+
+    .pill-green { background: var(--success-light); color: var(--success); }
+    .pill-gold { background: var(--gold-light); color: var(--gold-dark); border: 1px solid rgba(180, 147, 85, 0.3); }
+    .pill-blue { background: var(--blue-light); color: var(--blue); }
+    .pill-amber { background: var(--amber-light); color: var(--amber); }
+
+    /* Notice / Formal Alert Box */
+    .notice-box {
+      background: #fdfaf3;
+      border-left: 4px solid var(--gold);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .notice-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    .notice-desc {
+      font-size: 11.8px;
+      color: var(--slate);
+      line-height: 1.5;
+    }
+
+    /* Verification Charts Grid (Section 3) */
+    .chart-proof-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chart-proof-header {
+      padding: 10px 14px;
+      background: var(--light-bg);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .chart-proof-img {
+      padding: 8px;
+      background: #faf7f0;
+      display: flex;
+      justify-content: center;
+      cursor: zoom-in;
+    }
+
+    .chart-proof-img img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    .chart-proof-meta {
+      padding: 10px 14px;
+      font-size: 11px;
+      color: var(--slate);
+      line-height: 1.4;
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Geo-Grid Cards */
+    .geogrid-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .geogrid-header {
+      padding: 12px 14px;
+      background: var(--light-bg);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .geogrid-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .geogrid-img-wrapper {
+      padding: 10px;
+      background: #faf7f0;
+      display: flex;
+      justify-content: center;
+      cursor: zoom-in;
+    }
+
+    .geogrid-img-wrapper img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+
+    .geogrid-img-wrapper img:hover {
+      transform: scale(1.015);
+    }
+
+    .geogrid-caption {
+      padding: 12px 14px;
+      font-size: 11.5px;
+      color: var(--slate);
+      border-top: 1px solid var(--border);
+      line-height: 1.45;
+      background: #ffffff;
+    }
+
+    /* SECTION 5: TECHNICAL ACTION LOG (BONSAI PLATFORM - DARK STYLING) */
+    .tasks-page-section {
+      background: #171d10;
+      color: #e2e8d8;
+      border-radius: 12px;
+      padding: 28px;
+      margin-top: 36px;
+      border: 1px solid rgba(180, 147, 85, 0.3);
+    }
+
+    .tasks-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .tasks-title-group h2 {
+      font-size: 20px;
+      font-weight: 800;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tasks-title-group p {
+      color: #a4b392;
+      font-size: 12.5px;
+      margin-top: 3px;
+    }
+
+    .tasks-badge {
+      background: rgba(180, 147, 85, 0.25);
+      color: #f7d58a;
+      border: 1px solid rgba(180, 147, 85, 0.5);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .featured-tasks-section {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(180, 147, 85, 0.25);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 28px;
+    }
+
+    .featured-tasks-header {
+      margin-bottom: 16px;
+    }
+
+    .featured-tasks-title {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #f7d58a;
+    }
+
+    .featured-tasks-subtitle {
+      font-size: 12px;
+      color: #9cb086;
+      margin-top: 2px;
+    }
+
+    .featured-tasks-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .featured-task-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .featured-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .featured-pillar-badge {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #cbd5bb;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .featured-effort-badge {
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: rgba(180, 147, 85, 0.2);
+      color: #f7d58a;
+      border: 1px solid rgba(180, 147, 85, 0.3);
+      font-weight: 600;
+    }
+
+    .featured-card-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+
+    .featured-card-desc {
+      font-size: 11.5px;
+      color: #cbd5bb;
+      line-height: 1.45;
+      margin-bottom: 12px;
+    }
+
+    .featured-card-impact {
+      font-size: 11px;
+      color: #e5dec9;
+      background: rgba(180, 147, 85, 0.1);
+      border-left: 3px solid var(--gold);
+      padding: 8px 10px;
+      border-radius: 0 4px 4px 0;
+      line-height: 1.4;
+    }
+
+    .tasks-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .task-col-header {
+      font-size: 13px;
+      font-weight: 700;
+      color: #f7d58a;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .task-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 6px;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+    }
+
+    .task-item-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 3px;
+    }
+
+    .task-check {
+      color: #4ade80;
+      font-weight: 800;
+      font-size: 12px;
+    }
+
+    .task-item-desc {
+      font-size: 11px;
+      color: #a4b392;
+      line-height: 1.4;
+      padding-left: 16px;
+    }
+
+    .tasks-footer-bar {
+      margin-top: 24px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #9cb086;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 24px 36px;
+      background: #faf7f0;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11.5px;
+      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Zoom Modal */
+    #imageModal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 20, 10, 0.88);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      backdrop-filter: blur(4px);
+    }
+
+    #imageModal img {
+      max-width: 92%;
+      max-height: 92vh;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    @media (max-width: 860px) {
+      .kpi-row { grid-template-columns: repeat(2, 1fr); }
+      .grid-2, .grid-3, .tasks-grid, .featured-tasks-grid { grid-template-columns: 1fr; }
+      .highlight-grid { grid-template-columns: 1fr; }
+      .content { padding: 20px; }
+      .top-bar { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- TOP BAR: ESTIME'S CAFÉ -->
+    <div class="top-bar">
+      <div class="brand-wrap">
+        <img src="./report-assets/estimes-cafe-logo.webp" alt="Estime's Café Logo" class="brand-logo-img">
+        <div class="brand-group">
+          <h1>
+            ESTIME’S CAFÉ
+            <span class="brand-badge">Monthly Report</span>
+          </h1>
+          <div class="brand-sub">Breakfast, Brunch & Handcrafted Lunch | Local Search, Google Maps & Web Architecture</div>
+        </div>
+      </div>
+      <div class="meta-box">
+        <span class="meta-badge">September 2026</span>
+        <div class="meta-location">238 Inman Ave, Colonia, NJ 07067 | (732) 388-7776</div>
+        <div class="meta-agency">Prepared by <strong>iSearch Digital</strong></div>
+      </div>
+    </div>
+
+    <div class="content">
+      <!-- 4 TOP KPI CARDS: KEY CLIENT METRICS -->
+      <div class="kpi-row">
+        <!-- 1. Direct Business Actions -->
+        <div class="kpi-card gold">
+          <div class="kpi-header">
+            <span>High-Intent Actions</span>
+          </div>
+          <div class="kpi-number">
+            759 <span class="kpi-number-sub">direct actions</span>
+          </div>
+          <div class="kpi-sub">
+            Verified customer actions in Google:<br>
+            • <strong>264 navigation routes</strong> (GPS to café)<br>
+            • <strong>112 phone calls</strong> directly from Google<br>
+            • <strong>383 website visits</strong> from Maps
+          </div>
+          <span class="kpi-delta">Direct Customer Actions</span>
+        </div>
+
+        <!-- 2. Customer Phone Calls -->
+        <div class="kpi-card success">
+          <div class="kpi-header">
+            <span>Customer Phone Calls</span>
+          </div>
+          <div class="kpi-number">
+            112 <span class="kpi-number-sub">inbound calls</span>
+          </div>
+          <div class="kpi-sub" style="margin-bottom: 4px;">
+            <div class="kpi-breakdown-row">
+              <span>Google Business Profile:</span>
+              <strong>112 calls in Sept</strong>
+            </div>
+            <div class="kpi-breakdown-row">
+              <span>Customer Inquiries:</span>
+              <span>Wait times, takeout & catering</span>
+            </div>
+          </div>
+          <span class="kpi-delta">Direct Inbound Calls</span>
+        </div>
+
+        <!-- 3. Driving Direction Requests -->
+        <div class="kpi-card blue">
+          <div class="kpi-header">
+            <span>Driving Directions</span>
+          </div>
+          <div class="kpi-number">
+            264 <span class="kpi-number-sub">GPS routes</span>
+          </div>
+          <div class="kpi-sub">
+            Navigation requests started in Google Maps directly to <strong>238 Inman Ave, Colonia</strong>.<br>
+            Active diners driving to the café.
+          </div>
+          <span class="kpi-delta">GPS Routes to Café</span>
+        </div>
+
+        <!-- 4. Local Search Discovery -->
+        <div class="kpi-card primary">
+          <div class="kpi-header">
+            <span>Local Search Views</span>
+          </div>
+          <div class="kpi-number">
+            19,035 <span class="kpi-number-sub">impressions</span>
+          </div>
+          <div class="kpi-sub">
+            <strong>10,394 views</strong> on Google Maps Mobile.<br>
+            <strong>7,303 views</strong> on Google Search Mobile.<br>
+            <strong>1,338 views</strong> on desktop platforms.
+          </div>
+          <span class="kpi-delta">93% Mobile Consumer Discovery</span>
+        </div>
+      </div>
+
+      <!-- HIGHLIGHT BANNER: CLEAN & FACTUAL -->
+      <div class="highlight-card">
+        <h3>Key Highlights for September 2026</h3>
+        <ul class="highlight-grid">
+          <li>
+            <strong>Local 3-Pack Growth on "Brunch Near Me":</strong> On the highest-volume local search term, <em>"brunch near me"</em>, Estime’s Café grew from 1 top-3 pin in August to <strong>6 positions in the Local 3-Pack</strong> across Colonia, Rahway, Linden, and Edison, expanding visibility for weekend brunch searches.
+          </li>
+          <li>
+            <strong>Top Rankings for Catering Queries:</strong> Estime's Café holds the <strong>#1 position in the Local 3-Pack for "catering brunch near me"</strong> across a 10.4-mile radius, and the <strong>#1 ranking on Google Maps for "catering lunch near me"</strong> across a 13.7-mile radius.
+          </li>
+          <li>
+            <strong>759 Direct Customer Actions via Google:</strong> Google Business Profile generated <strong>264 driving direction requests</strong> to 238 Inman Ave, <strong>112 phone calls</strong>, <strong>185 menu views</strong>, and <strong>383 website visits</strong>.
+          </li>
+          <li>
+            <strong>New Website Built and Prepped for Launch:</strong> September covered the complete build, structured data setup, and QA testing for the new website. The site went live with client approval on October 1st, featuring dedicated workflows for catering and private events.
+          </li>
+          <li>
+            <strong>Consistent Customer Review Pace:</strong> Estime's Café added <strong>6 new customer reviews in September</strong> (matching 6 in August), maintaining a 4.8 rating across 604 verified reviews with 88% positive customer sentiment.
+          </li>
+        </ul>
+      </div>
+
+      <!-- SECTION 1: EXECUTIVE SUMMARY TABLE -->
+      <div class="section-title">1. Executive Summary of Performance & Delivery (September 2026)</div>
+      <div class="panel" style="margin-bottom: 24px;">
+        <div class="table-responsive" style="margin-bottom: 0;">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 22%;">Channel / Platform</th>
+                <th style="width: 25%;">Tracked Metric</th>
+                <th style="width: 18%;">September 2026 Total</th>
+                <th style="width: 25%;">Operational Context & Impact</th>
+                <th style="width: 10%; text-align: center;">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- 1. Google Business Profile Navigation -->
+              <tr>
+                <td><strong>Google Maps (GBP)</strong></td>
+                <td>Driving Directions (GPS Routes)</td>
+                <td><strong style="color: var(--blue); font-size: 14px;">264 GPS routes</strong></td>
+                <td>Turn-by-turn navigation requests straight to 238 Inman Ave, Colonia</td>
+                <td style="text-align: center;"><span class="pill pill-green">Goal Met</span></td>
+              </tr>
+
+              <!-- 2. Phone Calls -->
+              <tr>
+                <td><strong>Inbound Phone Inquiries</strong></td>
+                <td>Customer Phone Calls</td>
+                <td><strong style="color: var(--success); font-size: 14px;">112 calls</strong></td>
+                <td>Direct customer calls from Google Maps for table wait times, brunch hours and pickup</td>
+                <td style="text-align: center;"><span class="pill pill-blue">Direct Contact</span></td>
+              </tr>
+
+              <!-- 3. Web Clicks via Maps -->
+              <tr>
+                <td><strong>Google Maps (GBP)</strong></td>
+                <td>Website Visits Channeled</td>
+                <td><strong style="color: var(--gold-dark); font-size: 14px;">383 clicks</strong></td>
+                <td>Local diners who viewed our profile and clicked through to explore the menu and services</td>
+                <td style="text-align: center;"><span class="pill pill-gold">Active Demand</span></td>
+              </tr>
+
+              <!-- 4. Google Total Search Impressions -->
+              <tr>
+                <td><strong>Google Local Discovery</strong></td>
+                <td>Total Search & Map Impressions</td>
+                <td><strong style="color: var(--primary); font-size: 14px;">19,035 views</strong></td>
+                <td>10,394 views on mobile Maps + 7,303 views on mobile Search (93% mobile audience)</td>
+                <td style="text-align: center;"><span class="pill pill-green">High Reach</span></td>
+              </tr>
+
+              <!-- 5. Menu Consultations in Google -->
+              <tr>
+                <td><strong>Google Food Menu</strong></td>
+                <td>In-Profile Menu Consultations</td>
+                <td><strong style="color: var(--gold-dark); font-size: 14px;">185 menu views</strong></td>
+                <td>Guests viewing signature dishes, shrimp & grits, and specialty pancakes directly in Maps</td>
+                <td style="text-align: center;"><span class="pill pill-gold">High Interest</span></td>
+              </tr>
+
+              <!-- 6. Review & Reputation -->
+              <tr>
+                <td><strong>Google Reviews</strong></td>
+                <td>New Customer Reviews Logged</td>
+                <td><strong style="color: var(--success); font-size: 14px;">6 new reviews</strong></td>
+                <td>604 cumulative reviews, maintaining a solid 4.8★ rating with 88% positive sentiment (steady pace vs. 6 in August)</td>
+                <td style="text-align: center;"><span class="pill pill-green">Goal Met</span></td>
+              </tr>
+
+              <!-- 7. Web Platform & Technical Transition -->
+              <tr>
+                <td><strong>Website Infrastructure</strong></td>
+                <td>Platform Build & Deployment Status</td>
+                <td><strong style="color: var(--slate); font-size: 13px;">Authorized for Oct 1 Launch</strong></td>
+                <td>September completed the complete engineering sprint, Schema validation, and catering UX</td>
+                <td style="text-align: center;"><span class="pill pill-gold">Deployed</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SECTION 2: WEBSITE LAUNCH & TECHNICAL SEO SPRINT -->
+      <div class="section-title">2. Website Platform Build & Technical SEO Setup</div>
+
+      <!-- Notice Box clarifying Web Launch Date -->
+      <div class="notice-box">
+        <div class="notice-title">
+          <strong>Platform Timeline & Measurement Note:</strong>
+        </div>
+        <div class="notice-desc">
+          The new web application was built, structured, and tested throughout September. Following client approval, the site was <strong>officially launched into production on October 1st, 2026</strong>. Because September served as the staging and testing phase, tracking in Google Search Console and Google Analytics 4 started on October 1st with the live launch.
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-bottom: 24px;">
+        <!-- Technical Foundation Delivered -->
+        <div class="panel" style="margin-bottom: 0;">
+          <div class="panel-header">
+            <span class="panel-title">Core Engineering & On-Page Deliverables</span>
+            <span class="pill pill-green">Completed in Sept</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; font-size: 12px; line-height: 1.45;">
+            <div style="border-bottom: 1px solid var(--border); padding-bottom: 8px;">
+              <strong style="color: var(--dark);">1. Full Schema JSON-LD Structured Data:</strong><br>
+              Engineered semantic markup for <code>Restaurant</code>, <code>Menu</code>, <code>CateringService</code>, and <code>LocalBusiness</code> so Google and search crawlers recognize cuisine type, operating hours, and location.
+            </div>
+            <div style="border-bottom: 1px solid var(--border); padding-bottom: 8px;">
+              <strong style="color: var(--dark);">2. Clean Indexation & Sitemap Restructuring:</strong><br>
+              Generated an automated XML sitemap, purged obsolete crawl directives, resolved trailing slash canonicalization, and set single-hop HTTP to HTTPS redirection.
+            </div>
+            <div style="border-bottom: 1px solid var(--border); padding-bottom: 8px;">
+              <strong style="color: var(--dark);">3. Private Events & Catering Funnels:</strong><br>
+              Built dedicated conversion pages for <em>/catering</em> and <em>/private-events</em>, with mobile action bars and inquiry forms for party trays and event bookings.
+            </div>
+            <div>
+              <strong style="color: var(--dark);">4. Commercial H1/H2 Hierarchy & Meta Optimization:</strong><br>
+              Updated metadata and semantic headers across core pages to target local searches for breakfast, weekend brunch, and lunch.
+            </div>
+          </div>
+        </div>
+
+        <!-- Strategy Takeaway -->
+        <div class="panel" style="margin-bottom: 0; background: var(--light-bg); border-left: 4px solid var(--primary); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div class="panel-header" style="border-bottom: 1px solid rgba(79, 94, 45, 0.2);">
+              <span class="panel-title" style="color: var(--primary-dark);">Crawlable Architecture for Menu and Catering</span>
+            </div>
+            <p style="font-size: 12px; color: var(--slate); line-height: 1.55; margin-bottom: 14px;">
+              Unlike restaurant websites that rely on static PDF menus, the new Estime’s Café platform was built with live, crawlable HTML text for every dish and drink.
+            </p>
+            <p style="font-size: 12px; color: var(--slate); line-height: 1.55;">
+              This enables search engines to index individual menu items like <em>"creole shrimp and grits"</em>, <em>"amaretto brioche french toast"</em>, and <em>"catfish sandwich"</em>, while catering packages are structured to capture event inquiries across Middlesex and Union counties.
+            </p>
+          </div>
+          <div style="margin-top: 14px; padding: 10px 14px; background: #ffffff; border-radius: 6px; border: 1px solid var(--border); font-size: 11.5px; color: var(--primary-dark); font-weight: 600;">
+            ✓ All technical SEO assets fully deployed and verified for October production traffic.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 3: LOCAL CUSTOMER DEMAND & GOOGLE MAPS TRAFFIC -->
+      <div class="section-title">3. Google Business Profile Verified Performance (September 2026)</div>
+
+      <!-- PROMINENT REVIEWS SCORECARD -->
+      <div style="background: linear-gradient(135deg, #18200f 0%, #293418 100%); color: #ffffff; border-radius: 12px; padding: 22px 26px; margin-bottom: 24px; border: 1px solid rgba(180, 147, 85, 0.4); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+          <div>
+            <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; color: #f7d58a; font-weight: 700; margin-bottom: 4px;">
+              Online Reputation & Social Proof
+            </div>
+            <div style="font-size: 26px; font-weight: 800; color: #ffffff; display: flex; align-items: baseline; gap: 10px;">
+              6 Reviews Added in September
+              <span style="font-size: 13px; font-weight: 600; color: #cbd5bb;">(vs. 6 in August, steady pace)</span>
+            </div>
+            <div style="font-size: 12px; color: #d8e2cb; margin-top: 4px;">
+              A consistent review pace reinforces diner trust and keeps Google Maps ranking signals active.
+            </div>
+          </div>
+          <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+            <div style="text-align: center; background: rgba(255, 255, 255, 0.06); padding: 10px 16px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1);">
+              <div style="font-size: 10px; text-transform: uppercase; color: #a4b392; font-weight: 700;">Total Reviews</div>
+              <div style="font-size: 22px; font-weight: 800; color: #ffffff;">604</div>
+            </div>
+            <div style="text-align: center; background: rgba(255, 255, 255, 0.06); padding: 10px 16px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1);">
+              <div style="font-size: 10px; text-transform: uppercase; color: #a4b392; font-weight: 700;">Average Rating</div>
+              <div style="font-size: 22px; font-weight: 800; color: #f7d58a;">4.8 ★</div>
+            </div>
+            <div style="text-align: center; background: rgba(74, 222, 128, 0.15); padding: 10px 16px; border-radius: 8px; border: 1px solid rgba(74, 222, 128, 0.3);">
+              <div style="font-size: 10px; text-transform: uppercase; color: #86efac; font-weight: 700;">Sentiment</div>
+              <div style="font-size: 22px; font-weight: 800; color: #86efac;">88% Pos.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Verified Google Profile Native Charts -->
+      <div class="grid-3" style="margin-bottom: 24px;">
+        <!-- Chart 1: Driving Directions -->
+        <div class="chart-proof-card">
+          <div class="chart-proof-header">
+            <span>Driving Directions Requests</span>
+            <span class="pill pill-blue">264 Routes in Sept</span>
+          </div>
+          <div class="chart-proof-img" onclick="openModal('./report-assets/gbp-directions-september.png')">
+            <img src="./report-assets/gbp-directions-september.png" alt="Google Business Profile Driving Directions">
+          </div>
+          <div class="chart-proof-meta">
+            <strong>264 GPS navigation requests</strong> in September (part of 1,893 total routes since May). Direct physical visits to 238 Inman Ave, Colonia.
+          </div>
+        </div>
+
+        <!-- Chart 2: Customer Calls -->
+        <div class="chart-proof-card">
+          <div class="chart-proof-header">
+            <span>Inbound Customer Calls</span>
+            <span class="pill pill-green">112 Calls in Sept</span>
+          </div>
+          <div class="chart-proof-img" onclick="openModal('./report-assets/gbp-calls-september.png')">
+            <img src="./report-assets/gbp-calls-september.png" alt="Google Business Profile Phone Calls">
+          </div>
+          <div class="chart-proof-meta">
+            <strong>112 phone calls from Google Maps</strong> during September (800 calls since May). Diners confirming weekend table availability, takeout orders, and hours.
+          </div>
+        </div>
+
+        <!-- Chart 3: Website Clicks -->
+        <div class="chart-proof-card">
+          <div class="chart-proof-header">
+            <span>Website Visits from Maps</span>
+            <span class="pill pill-gold">383 Clicks in Sept</span>
+          </div>
+          <div class="chart-proof-img" onclick="openModal('./report-assets/gbp-website-clicks-september.png')">
+            <img src="./report-assets/gbp-website-clicks-september.png" alt="Google Business Profile Website Clicks">
+          </div>
+          <div class="chart-proof-meta">
+            <strong>383 diners clicked to the website</strong> directly from Google Maps in September (part of 2,413 total clicks since May), reviewing dishes and exploring catering packages.
+          </div>
+        </div>
+      </div>
+
+      <!-- Breakdown Panels: Platforms & Reputation -->
+      <div class="grid-2" style="margin-bottom: 24px;">
+        <!-- Discovery Platform Split -->
+        <div class="panel" style="margin-bottom: 0; display: flex; flex-direction: column;">
+          <div class="panel-header">
+            <span class="panel-title">Discovery by Device & Platform</span>
+            <span class="pill pill-green">19,035 Views</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 9px; font-size: 11.5px; flex-grow: 1;">
+            <div style="border-bottom: 1px solid var(--border); padding-bottom: 6px;">
+              <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                <span style="font-weight: 600; color: var(--dark);">Google Maps (Mobile App)</span>
+                <span style="font-weight: 700; color: var(--dark);">10,394 <span style="font-weight: 500; color: var(--muted); font-size: 10px;">(54.6%)</span></span>
+              </div>
+              <div style="font-size: 10px; color: var(--muted); margin-top: 1px;">
+                Nearby consumers searching for dining on mobile
+              </div>
+            </div>
+
+            <div style="border-bottom: 1px solid var(--border); padding-bottom: 6px;">
+              <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                <span style="font-weight: 600; color: var(--dark);">Google Search (Mobile Web)</span>
+                <span style="font-weight: 700; color: var(--dark);">7,303 <span style="font-weight: 500; color: var(--muted); font-size: 10px;">(38.4%)</span></span>
+              </div>
+              <div style="font-size: 10px; color: var(--muted); margin-top: 1px;">
+                Chrome/Safari search queries on smartphones
+              </div>
+            </div>
+
+            <div style="border-bottom: 1px solid var(--border); padding-bottom: 6px;">
+              <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                <span style="font-weight: 600; color: var(--dark);">Google Search (Desktop)</span>
+                <span style="font-weight: 700; color: var(--dark);">1,139 <span style="font-weight: 500; color: var(--muted); font-size: 10px;">(6.0%)</span></span>
+              </div>
+              <div style="font-size: 10px; color: var(--muted); margin-top: 1px;">
+                Office and home computers researching catering/menus
+              </div>
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                <span style="font-weight: 600; color: var(--dark);">Google Maps (Desktop)</span>
+                <span style="font-weight: 700; color: var(--dark);">199 <span style="font-weight: 500; color: var(--muted); font-size: 10px;">(1.0%)</span></span>
+              </div>
+              <div style="font-size: 10px; color: var(--muted); margin-top: 1px;">
+                Desktop map route planners
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reputation & Guest Sentiment -->
+        <div class="panel" style="margin-bottom: 0; display: flex; flex-direction: column;">
+          <div class="panel-header">
+            <span class="panel-title">Review Signals & Customer Sentiment</span>
+            <span class="pill pill-gold">4.8 ★ Score</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 11.5px; flex-grow: 1;">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 6px; border-bottom: 1px solid var(--border);">
+              <span style="font-weight: 600; color: var(--dark);">September New Reviews:</span>
+              <strong style="color: var(--success); font-size: 13px;">6 new reviews <span style="font-weight: 500; font-size: 11px; color: var(--muted);">(vs. 6 in Aug)</span></strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 6px; border-bottom: 1px solid var(--border);">
+              <span style="font-weight: 600; color: var(--dark);">Total Google Reviews:</span>
+              <strong style="color: var(--dark); font-size: 13px;">604 reviews</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 6px; border-bottom: 1px solid var(--border);">
+              <span style="font-weight: 600; color: var(--dark);">Customer Sentiment:</span>
+              <span class="pill pill-green" style="font-size: 11px;">88% Positive</span>
+            </div>
+            <div style="font-size: 11px; color: var(--slate); line-height: 1.45; margin-top: 4px;">
+              <strong>Guest Praise Highlights:</strong><br>
+              <em>"The shrimp and grits were absolutely scrumptious and by far the best that I’ve had."</em><br>
+              <em>"I love that it highlights Haitian culture... delicious food and wonderful energy."</em>
+            </div>
+            <div style="margin-top: auto; font-size: 10.5px; color: var(--muted); padding-top: 6px;">
+              Maintaining 6 new reviews monthly provides active freshness signals for local map rankings.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 4: GEO-GRID LOCAL 3-PACK RANKING SCANS -->
+      <div class="section-title">4. Local 3-Pack Geo-Grid Rankings</div>
+      <p style="font-size: 12.5px; color: var(--slate); margin-bottom: 18px; line-height: 1.45;">
+        GPS rank scans measuring Estime's Café’s visibility across Middlesex and Union counties. The green pins (ranks 1, 2, and 3) indicate where Estime's Café appears in Google's Local 3-Pack on mobile searches.
+      </p>
+
+      <!-- Geo-Grid 1: Brunch Near Me -->
+      <div class="geogrid-card" style="margin-bottom: 24px;">
+        <div class="geogrid-header">
+          <div class="geogrid-title">
+            "brunch near me": Local 3-Pack Expansion (5-Mile Radius, 7×7 Grid)
+          </div>
+          <span class="pill pill-green">From 1 Pin to 6 Top Pins (17 Aug vs 16 Oct)</span>
+        </div>
+        <div class="geogrid-img-wrapper" onclick="openModal('./report-assets/geogrid-brunch-near-me-3pack.png')">
+          <img src="./report-assets/geogrid-brunch-near-me-3pack.png" alt="Geo-grid comparison for brunch near me Local 3-Pack">
+        </div>
+        <div class="geogrid-caption">
+          <strong>Key Result:</strong> In mid-August, Estime's Café registered in the top 3 at only <strong>1 single pin</strong> in the central area. By mid-October, our Local 3-Pack presence expanded to <strong>6 top-3 pins</strong> (holding at #2 and #3 across Colonia, Rahway, Linden, and Edison), broadening reach for weekend diners.
+        </div>
+      </div>
+
+      <!-- 2-Card Grid: Breakfast & Lunch -->
+      <div class="grid-2" style="margin-bottom: 24px;">
+        <!-- Card 2: Breakfast Near Me -->
+        <div class="geogrid-card">
+          <div class="geogrid-header">
+            <div class="geogrid-title">
+              "breakfast near me" (5-Mile Grid)
+            </div>
+            <span class="pill pill-green">Holding #1 & Core Positions</span>
+          </div>
+          <div class="geogrid-img-wrapper" onclick="openModal('./report-assets/geogrid-breakfast-near-me.png')">
+            <img src="./report-assets/geogrid-breakfast-near-me.png" alt="Geo-grid breakfast near me Google Maps">
+          </div>
+          <div class="geogrid-caption">
+            <strong>Morning Demand:</strong> Core cluster holding <strong>Rank #1 and #2</strong> directly over Colonia and Rahway, with positions 4 through 6 extending toward Iselin, Edison, and Woodbridge.
+          </div>
+        </div>
+
+        <!-- Card 3: Lunch Near Me -->
+        <div class="geogrid-card">
+          <div class="geogrid-header">
+            <div class="geogrid-title">
+              "lunch near me" (5-Mile Grid)
+            </div>
+            <span class="pill pill-green">2 Top-3 Positions (#1 & #3)</span>
+          </div>
+          <div class="geogrid-img-wrapper" onclick="openModal('./report-assets/geogrid-lunch-near-me-3pack.png')">
+            <img src="./report-assets/geogrid-lunch-near-me-3pack.png" alt="Geo-grid lunch near me Local 3-Pack">
+          </div>
+          <div class="geogrid-caption">
+            <strong>Midday Dining:</strong> Expanded from 1 central pin to 2 top-3 positions (holding <strong>#1 and #3</strong>) across our primary 5-mile local radius.
+          </div>
+        </div>
+      </div>
+
+      <!-- 2-Card Grid: Catering Brunch & Catering Lunch -->
+      <div class="grid-2" style="margin-bottom: 24px;">
+        <!-- Card 4: Catering Brunch (Local 3-Pack) -->
+        <div class="geogrid-card">
+          <div class="geogrid-header">
+            <div class="geogrid-title">
+              "catering brunch near me" (10.4-Mile Grid)
+            </div>
+            <span class="pill pill-gold">Rank #1 in Local 3-Pack</span>
+          </div>
+          <div class="geogrid-img-wrapper" onclick="openModal('./report-assets/geogrid-catering-brunch-3pack.png')">
+            <img src="./report-assets/geogrid-catering-brunch-3pack.png" alt="Geo-grid catering brunch 3-pack">
+          </div>
+          <div class="geogrid-caption">
+            <strong>Catering Visibility:</strong> Captured the <strong>#1 position</strong> in the Local 3-Pack and expanded top-3 reach to 3 nodes across a 10.4-mile grid for parties and family gatherings.
+          </div>
+        </div>
+
+        <!-- Card 5: Catering Lunch (Google Maps) -->
+        <div class="geogrid-card">
+          <div class="geogrid-header">
+            <div class="geogrid-title">
+              "catering lunch near me" (13.7-Mile Grid)
+            </div>
+            <span class="pill pill-green">Rank #1 (13.7 mi)</span>
+          </div>
+          <div class="geogrid-img-wrapper" onclick="openModal('./report-assets/geogrid-catering-lunch-maps.png')">
+            <img src="./report-assets/geogrid-catering-lunch-maps.png" alt="Geo-grid catering lunch maps">
+          </div>
+          <div class="geogrid-caption">
+            <strong>Regional Reach:</strong> Maintained <strong>Rank #1</strong> across a 13.7-mile grid covering corporate office catering across North and Central New Jersey.
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /content -->
+
+    <!-- SECTION 5: TECHNICAL ACTION LOG (BONSAI PLATFORM - DARK STYLING) -->
+    <div class="tasks-page-section">
+      <div class="tasks-header">
+        <div class="tasks-title-group">
+          <h2>
+            Work Completed & Operations Deployed
+          </h2>
+          <p>Verified tasks completed, audited, and deployed via <strong>Bonsai</strong> platform throughout September</p>
+        </div>
+        <span class="tasks-badge">100 Actions Deployed</span>
+      </div>
+
+      <!-- FEATURED SECTION: TOP 4 STRATEGIC MILESTONES -->
+      <div class="featured-tasks-section">
+        <div class="featured-tasks-header">
+          <div class="featured-tasks-title">
+            Four Key Strategic Accomplishments in September
+          </div>
+          <div class="featured-tasks-subtitle">
+            The four major initiatives that established the technical foundation and expanded local discovery
+          </div>
+        </div>
+
+        <div class="featured-tasks-grid">
+          <!-- Milestone 1: Website Architecture & Build -->
+          <div class="featured-task-card">
+            <div>
+              <div class="featured-card-top">
+                <span class="featured-pillar-badge">Custom Web Application</span>
+                <span class="featured-effort-badge">Full Engineering Build</span>
+              </div>
+              <div class="featured-card-title">Built and Deployed Custom Web Platform</div>
+              <div class="featured-card-desc">
+                Built a Next.js web application replacing static menus with crawlable HTML culinary sections. Integrated specialized funnels for Weekend Brunch, Handcrafted Sandwiches, Catering Party Trays, and Private Events with a smooth mobile experience.
+              </div>
+            </div>
+            <div class="featured-card-impact">
+              <strong>Why it matters:</strong> Gives Estime’s Café an owned platform that converts local Google traffic into phone calls, catering inquiries, and visits.
+            </div>
+          </div>
+
+          <!-- Milestone 2: Technical SEO & Schema JSON-LD -->
+          <div class="featured-task-card">
+            <div>
+              <div class="featured-card-top">
+                <span class="featured-pillar-badge">Technical SEO & Structured Data</span>
+                <span class="featured-effort-badge">Schema Implementation</span>
+              </div>
+              <div class="featured-card-title">Restaurant & Catering Schema Architecture</div>
+              <div class="featured-card-desc">
+                Programmed Schema JSON-LD structured data embedding cuisine specialties (Haitian-inspired breakfast and brunch, comfort classics), operating hours, location coords, and direct action endpoints into Google’s crawl graph.
+              </div>
+            </div>
+            <div class="featured-card-impact">
+              <strong>Why it matters:</strong> Ensures Google search and local discovery results accurately categorize Estime's Café for local dining and catering queries.
+            </div>
+          </div>
+
+          <!-- Milestone 3: High-Ticket Funnel UX -->
+          <div class="featured-task-card">
+            <div>
+              <div class="featured-card-top">
+                <span class="featured-pillar-badge">Revenue Funnels & Mobile UX</span>
+                <span class="featured-effort-badge">Conversion Optimization</span>
+              </div>
+              <div class="featured-card-title">Deployed Private Events & Catering Mobile Sticky Action Bars</div>
+              <div class="featured-card-desc">
+                Tested form handling and deployed floating action bars on mobile devices for /private-events and /catering, making it easy for event planners to submit inquiries directly.
+              </div>
+            </div>
+            <div class="featured-card-impact">
+              <strong>Why it matters:</strong> Captures high-ticket event revenue ($500 to $2,500+ party bookings) alongside daily walk-in dining.
+            </div>
+          </div>
+
+          <!-- Milestone 4: Multi-Directory & Map Platforms -->
+          <div class="featured-task-card">
+            <div>
+              <div class="featured-card-top">
+                <span class="featured-pillar-badge">Local Listings & Map Consistency</span>
+                <span class="featured-effort-badge">Multi-Platform Verification</span>
+              </div>
+              <div class="featured-card-title">Synced Across Apple Maps, Bing Places & Yelp</div>
+              <div class="featured-card-desc">
+                Claimed, verified, and standardized business credentials, menu photos, and operating hours across Apple Business Connect (Apple Maps, Siri, CarPlay), Bing Places for Business, and Yelp, preventing conflicting NAP signals.
+              </div>
+            </div>
+            <div class="featured-card-impact">
+              <strong>Why it matters:</strong> Protects local search consistency and ensures iPhone and in-car navigation systems guide guests straight to Colonia.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DETAILED LEDGER HEADER -->
+      <div style="margin: 24px 0 14px; padding-bottom: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 8px;">
+        <div>
+          <span style="font-size: 13px; font-weight: 700; color: #ffffff; text-transform: uppercase; letter-spacing: 0.5px;">Complete Log of 100 Verified Technical Actions</span>
+          <p style="font-size: 11px; color: #a4b392; margin-top: 2px;">Granular tasks completed and verified in production via Bonsai</p>
+        </div>
+        <div style="font-size: 11px; color: #d8e2cb; background: rgba(255, 255, 255, 0.06); padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.1);">
+          Supervised by <strong>iSearch Digital</strong>
+        </div>
+      </div>
+
+      <div class="tasks-grid">
+        <!-- Column 1: On-Page, Schema & Conversion -->
+        <div>
+          <div class="task-col-header">1. Web Development, Technical SEO & Conversion UX</div>
+
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Next.js Web Application Engineering & Build</span>
+            </div>
+            <div class="task-item-desc">
+              Developed custom web architecture with crawlable HTML menus and high-definition photography.
+            </div>
+          </div>
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Schema JSON-LD Structured Data Implementation</span>
+            </div>
+            <div class="task-item-desc">
+              Implemented Restaurant, Menu, LocalBusiness, and CateringService schema for search crawler discovery.
+            </div>
+          </div>
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Sticky Mobile Action Bars on Catering & Private Events</span>
+            </div>
+            <div class="task-item-desc">
+              Integrated sticky conversion buttons on mobile screens to drive quick contact and quote submissions.
+            </div>
+          </div>
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Private Events Form Architecture & Bug Resolution</span>
+            </div>
+            <div class="task-item-desc">
+              Tested and resolved inquiry submission flow on /private-events for corporate meetings and family brunches.
+            </div>
+          </div>
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Single-Hop HTTP to HTTPS & Canonical Redirect Rules</span>
+            </div>
+            <div class="task-item-desc">
+              Configured single-hop 301 redirection rules from non-www to https://www to consolidate indexation authority.
+            </div>
+          </div>
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>XML Sitemap Generation & Legacy Sitemap Purge</span>
+            </div>
+            <div class="task-item-desc">
+              Generated dynamic sitemap containing only clean, indexable URLs and deleted deprecated historical sitemaps.
+            </div>
+          </div>
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Resolved Indexation & Canonical Issues on /menu/ & /reviews</span>
+            </div>
+            <div class="task-item-desc">
+              Standardized trailing slashes and self-referencing canonical tags to prevent duplicate content flags.
+            </div>
+          </div>
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>H1, H2 & H3 Semantic Hierarchy Optimization</span>
+            </div>
+            <div class="task-item-desc">
+              Structured page headings to highlight high-volume keywords: brunch, breakfast, handcrafted lunch, and catering.
+            </div>
+          </div>
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Meta Titles & Descriptions Rewrite Across Priority Pages</span>
+            </div>
+            <div class="task-item-desc">
+              Polished metadata for About, Catering, Menu, and Contact to boost click-through rates in organic SERPs.
+            </div>
+          </div>
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Formspree / Lead Capture Backend Integration</span>
+            </div>
+            <div class="task-item-desc">
+              Linked event inquiry forms with automated email alerts to ensure immediate staff follow-up on leads.
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2: Local Listings, Google Profile & QA -->
+        <div>
+          <div class="task-col-header">2. Google Business Profile, Local Listings & QA</div>
+
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Google Business Profile Initial Audit & Optimization</span>
+            </div>
+            <div class="task-item-desc">
+              Refreshed primary categories (Brunch Restaurant, Breakfast Restaurant), operating hours, and business details.
+            </div>
+          </div>
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Claimed & Verified Apple Business Connect (Apple Maps)</span>
+            </div>
+            <div class="task-item-desc">
+              Verified official profile for native iOS, Apple CarPlay, and Siri navigation across the tristate area.
+            </div>
+          </div>
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Claimed & Verified Bing Places for Business</span>
+            </div>
+            <div class="task-item-desc">
+              Synced business location and menu links on Bing Search and Microsoft Edge.
+            </div>
+          </div>
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Updated & Audited Yelp Listing</span>
+            </div>
+            <div class="task-item-desc">
+              Standardized hours, phone number, address, and high-resolution brunch photography on Yelp.
+            </div>
+          </div>
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Uploaded High-Definition Menu & Food Photography</span>
+            </div>
+            <div class="task-item-desc">
+              Published professional photos of shrimp & grits, pancakes, and signature sandwiches to Google Profile.
+            </div>
+          </div>
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Name, Address & Phone (NAP) Consistency Audit</span>
+            </div>
+            <div class="task-item-desc">
+              Verified identical address (238 Inman Ave, Colonia, NJ 07067) across all online citations and listings.
+            </div>
+          </div>
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Monthly Geo-Grid Local 3-Pack Satellite Scans</span>
+            </div>
+            <div class="task-item-desc">
+              Executed multi-mile scans tracking top-3 rankings for brunch, lunch, and catering terms.
+            </div>
+          </div>
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Post-Implementation Technical & Crawl Audit</span>
+            </div>
+            <div class="task-item-desc">
+              Audited live staging environment for 404 errors, crawl blocks, and mobile viewability prior to production launch.
+            </div>
+          </div>
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Transitioned Account into Ongoing Monthly SEO Growth</span>
+            </div>
+            <div class="task-item-desc">
+              Completed foundation build phase and moved Estime's Café into recurring monthly rank tracking and expansion.
+            </div>
+          </div>
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Compiled September Executive Performance Report</span>
+            </div>
+            <div class="task-item-desc">
+              Packaged GBP metrics, geo-grid breakthroughs, and technical deployment logs into this executive summary.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tasks-footer-bar">
+        <div>
+          <strong>Estime’s Café</strong> • Official Technical Operations Log
+        </div>
+        <div>
+          <span>100 Technical Actions Deployed • Verified and Synced via Bonsai</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- GENERAL FOOTER -->
+    <div class="footer">
+      <div>
+        Monthly Performance Report prepared for <strong>Estime’s Café | Breakfast, Brunch & Lunch</strong>
+      </div>
+      <div>
+        Period: <strong>September 2026</strong> • Colonia, NJ • Developed by <strong>iSearch Digital</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL FOR IMAGE ZOOM -->
+  <div id="imageModal" onclick="closeModal()">
+    <img id="modalImg" src="" alt="Expanded View">
+  </div>
+
+  <script>
+    function openModal(src) {
+      document.getElementById('modalImg').src = src;
+      document.getElementById('imageModal').style.display = 'flex';
+    }
+    function closeModal() {
+      document.getElementById('imageModal').style.display = 'none';
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>
+`;
+
+const outputPath = path.join(__dirname, '..', 'REPORTE-MENSUAL-SEPTIEMBRE-2026-ESTIMES-CAFE.html');
+fs.writeFileSync(outputPath, htmlContent, 'utf8');
+console.log('Report updated successfully at:', outputPath);

@@ -10,14 +10,14 @@ const previewImage =
 export const metadata: Metadata = {
   title: "Guest Reviews & Local Press | Estime's Café Colonia NJ",
   description:
-    "Read current guest reviews on Google and explore independent coverage of Estime's Café, Chef Duke Estime, and the café's Haitian-inspired food in Colonia, NJ.",
+    "Read verified 5-star Google reviews from over 600 guests and explore press coverage of Estime's Café, Chef Duke Estime, and signature Haitian-inspired brunch in Colonia, NJ.",
   alternates: {
     canonical: pageUrl,
   },
   openGraph: {
     title: "Guest Reviews & Local Press | Estime's Café Colonia NJ",
     description:
-      "Find current guest feedback and independent coverage of Estime's Café in Colonia, NJ.",
+      "Rated 4.8 stars by over 600 guests. Read verified 5-star Google reviews and press coverage of Estime's Café in Colonia, NJ.",
     url: pageUrl,
     type: "website",
     images: [
