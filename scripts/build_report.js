@@ -835,7 +835,7 @@ const htmlContent = `<!DOCTYPE html>
             <strong>Local 3-Pack Growth on "Brunch Near Me":</strong> On the highest-volume local search term, <em>"brunch near me"</em>, Estime’s Café grew from 1 top-3 pin in August to <strong>6 positions in the Local 3-Pack</strong> across Colonia, Rahway, Linden, and Edison, expanding visibility for weekend brunch searches.
           </li>
           <li>
-            <strong>Top Rankings for Catering Queries:</strong> Estime's Café holds the <strong>#1 position in the Local 3-Pack for "catering brunch near me"</strong> across a 10.4-mile radius, and the <strong>#1 ranking on Google Maps for "catering lunch near me"</strong> across a 13.7-mile radius.
+            <strong>Top Rankings for Catering Queries:</strong> Estime's Café maintains the <strong>#1 position in select localities in the Local 3-Pack for "catering brunch near me"</strong> across a 10.4-mile radius, and the <strong>#1 ranking in select localities on Google Maps for "catering lunch near me"</strong> across a 13.7-mile radius.
           </li>
           <li>
             <strong>759 Direct Customer Actions via Google:</strong> Google Business Profile generated <strong>264 driving direction requests</strong> to 238 Inman Ave, <strong>112 phone calls</strong>, <strong>185 menu views</strong>, and <strong>383 website visits</strong>.
@@ -1217,13 +1217,13 @@ const htmlContent = `<!DOCTYPE html>
             <div class="geogrid-title">
               "catering brunch near me" (10.4-Mile Grid)
             </div>
-            <span class="pill pill-gold">Rank #1 in Local 3-Pack</span>
+            <span class="pill pill-gold">Rank #1 in Select Localities</span>
           </div>
           <div class="geogrid-img-wrapper" onclick="openModal('./report-assets/geogrid-catering-brunch-3pack.png')">
             <img src="./report-assets/geogrid-catering-brunch-3pack.png" alt="Geo-grid catering brunch 3-pack">
           </div>
           <div class="geogrid-caption">
-            <strong>Catering Visibility:</strong> Captured the <strong>#1 position</strong> in the Local 3-Pack and expanded top-3 reach to 3 nodes across a 10.4-mile grid for parties and family gatherings.
+            <strong>Catering Visibility:</strong> Holds the <strong>#1 position in select localities</strong> in the Local 3-Pack and expanded top-3 reach to 3 nodes across a 10.4-mile grid for parties and family gatherings.
           </div>
         </div>
 
@@ -1233,13 +1233,13 @@ const htmlContent = `<!DOCTYPE html>
             <div class="geogrid-title">
               "catering lunch near me" (13.7-Mile Grid)
             </div>
-            <span class="pill pill-green">Rank #1 (13.7 mi)</span>
+            <span class="pill pill-green">Rank #1 in Select Localities</span>
           </div>
           <div class="geogrid-img-wrapper" onclick="openModal('./report-assets/geogrid-catering-lunch-maps.png')">
             <img src="./report-assets/geogrid-catering-lunch-maps.png" alt="Geo-grid catering lunch maps">
           </div>
           <div class="geogrid-caption">
-            <strong>Regional Reach:</strong> Maintained <strong>Rank #1</strong> across a 13.7-mile grid covering corporate office catering across North and Central New Jersey.
+            <strong>Regional Reach:</strong> Maintained <strong>Rank #1 in select localities</strong> across a 13.7-mile grid covering corporate office catering across North and Central New Jersey.
           </div>
         </div>
       </div>
