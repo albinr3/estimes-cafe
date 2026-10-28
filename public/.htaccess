@@ -17,7 +17,9 @@ RewriteCond %{HTTP:RSC} !^1$
 RewriteRule ^(.+)/index\.txt$ https://www.estimescafe.com/$1/ [R=301,L,NC]
 
 # 3. Direct route aliases and legacy redirects
-RewriteRule ^reviews?/?$ https://www.estimescafe.com/reviews/ [R=301,L,NC]
+RewriteRule ^home/?$ https://www.estimescafe.com/ [R=301,L,NC]
+RewriteRule ^review/?$ https://www.estimescafe.com/reviews/ [R=301,L,NC]
+RewriteRule ^reviews$ https://www.estimescafe.com/reviews/ [R=301,L,NC]
 RewriteRule ^menus-1/?$ https://www.estimescafe.com/menu/ [R=301,L,NC]
 RewriteRule ^full-menu/?$ https://www.estimescafe.com/menu/ [R=301,L,NC]
 RewriteRule ^(catering-menu|brunch-menu)/?$ https://www.estimescafe.com/catering/ [R=301,L,NC]
