@@ -7,7 +7,7 @@ import { BUSINESS_ADDRESS, BUSINESS_EMAIL, BUSINESS_GEO, BUSINESS_MAP_URL, BUSIN
 export const metadata: Metadata = {
   title: "Contact Us, Hours & Directions | Estime's Café Colonia NJ",
   description:
-    "Visit Estime's Café at 238 Inman Ave in Colonia, NJ. Find our hours and directions, call (732) 669-7581, or ask about catering and private events.",
+    "Visit Estime's Café | Breakfast, Brunch & Lunch at 238 Inman Ave in Colonia, NJ. Find our hours and directions, call (732) 669-7581, or ask about catering and private events.",
   keywords: [
     "contact estimes cafe",
     "estimes cafe phone number",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact Us, Hours & Directions | Estime's Café Colonia NJ",
     description:
-      "Connect with Estime's Café at 238 Inman Ave, Colonia NJ. Call (732) 669-7581 or send us a message for table inquiries, catering quotes & events.",
+      "Connect with Estime's Café | Breakfast, Brunch & Lunch at 238 Inman Ave, Colonia NJ. Call (732) 669-7581 or send us a message for table inquiries, catering quotes & events.",
     url: "https://www.estimescafe.com/contact",
     type: "website",
     images: [
@@ -55,7 +55,7 @@ export default function ContactPage() {
         "url": "https://www.estimescafe.com/contact",
         "name": "Contact Us, Hours & Directions | Estime's Café Colonia NJ",
         "description":
-          "Contact information, operating hours, directions, and inquiry form for Estime's Café in Colonia, NJ.",
+          "Contact information, operating hours, directions, and inquiry form for Estime's Café | Breakfast, Brunch & Lunch in Colonia, NJ.",
         "isPartOf": {
           "@type": "WebSite",
           "@id": "https://www.estimescafe.com/#website",

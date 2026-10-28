@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Phone, Mail, MapPin, Clock, Camera } from "lucide-react";
-import { BUSINESS_EMAIL, BUSINESS_NAP_NAME, BUSINESS_RATING, BUSINESS_GBP_PHOTOS_URL } from "@/lib/business";
+import { BUSINESS_EMAIL, BUSINESS_RATING, BUSINESS_GBP_PHOTOS_URL } from "@/lib/business";
 
 export default function Footer() {
   return (
@@ -13,7 +13,7 @@ export default function Footer() {
             <Link href="/" className="inline-block mb-4 group">
               <Image
                 src="/assets/estimes-cafe-logo.webp"
-                alt="Estimé by chef Duke - Estime's Café"
+                alt="Estimé by chef Duke - Estime's Café | Breakfast, Brunch & Lunch"
                 width={180}
                 height={70}
                 className="h-12 sm:h-14 w-auto object-contain brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity"
@@ -32,7 +32,7 @@ export default function Footer() {
               </Link>
             </div>
             <div className="text-xs text-brand-gold-light font-medium">
-              &copy; {new Date().getFullYear()} Estime&apos;s Café. All rights reserved.
+              &copy; {new Date().getFullYear()} Estime&apos;s Café | Breakfast, Brunch &amp; Lunch. All rights reserved.
             </div>
           </div>
 
@@ -110,7 +110,7 @@ export default function Footer() {
               Location &amp; Contact
             </p>
             <div className="space-y-3 font-serif text-sm text-brand-cream/80">
-              <p className="font-bold text-white">{BUSINESS_NAP_NAME}</p>
+              <p className="font-bold text-white">Estime&apos;s Café | Breakfast, Brunch &amp; Lunch</p>
               <p className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-brand-gold-light flex-shrink-0 mt-1" />
                 <span>

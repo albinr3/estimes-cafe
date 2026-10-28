@@ -61,7 +61,7 @@ export default function ContactPageContent() {
           </div>
 
           <h1 className="font-serif text-3xl sm:text-5xl text-brand-green font-normal tracking-tight mb-4">
-            Contact Estime&apos;s Café
+            Contact Estime&apos;s Café | Breakfast, Brunch &amp; Lunch
           </h1>
 
           <p className="font-serif text-base sm:text-lg text-brand-muted max-w-xl mx-auto leading-relaxed">
@@ -128,6 +128,9 @@ export default function ContactPageContent() {
                     <span className="font-sans text-xs font-bold uppercase tracking-wider text-brand-muted block mb-0.5">
                       Location
                     </span>
+                    <p className="font-serif text-sm font-semibold text-brand-green mb-0.5">
+                      Estime&apos;s Café | Breakfast, Brunch &amp; Lunch
+                    </p>
                     <p className="font-serif text-sm text-brand-text">
                       238 Inman Avenue, Colonia, NJ 07067
                     </p>
@@ -178,7 +181,7 @@ export default function ContactPageContent() {
             {/* Embedded Google Map */}
             <div id="location-map" className="bg-white border border-brand-line rounded-xl overflow-hidden shadow-xs h-60 w-full relative scroll-mt-24">
               <iframe
-                title="Estime's Cafe Location Map"
+                title="Estime's Café | Breakfast, Brunch &amp; Lunch Location Map"
                 src="https://www.google.com/maps?q=Estime's+Caf%C3%A9,+238+Inman+Ave,+Colonia,+NJ+07067&z=16&output=embed"
                 width="100%"
                 height="100%"
