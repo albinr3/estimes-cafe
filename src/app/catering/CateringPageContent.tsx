@@ -19,6 +19,8 @@ import {
   Coffee,
   ChevronRight,
   ShieldCheck,
+  Loader2,
+  AlertCircle,
 } from "lucide-react";
 
 interface CateringPlatter {
@@ -39,8 +41,8 @@ interface CateringCategory {
 const CATERING_PLATTERS: CateringCategory[] = [
   {
     id: "breakfast-trays",
-    title: "Morning & Breakfast Platters",
-    description: "Fluffy pancakes, French toast, farm eggs & golden home fries for office breakfasts & morning gatherings.",
+    title: "Morning, Breakfast & Brunch Platters",
+    description: "Fluffy pancakes, brioche French toast, farm eggs & golden home fries for brunch catering, morning celebrations & office meetings.",
     items: [
       {
         name: "Amaretto Brioche French Toast",
@@ -324,33 +326,51 @@ const BRUNCH_PACKAGES = [
   },
 ];
 
-export default function CateringPageContent() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    date: "",
-    guests: "20-30",
-    serviceType: "Office Lunch & Platters",
-    notes: "",
-  });
+const INITIAL_FORM_DATA = {
+  name: "",
+  email: "",
+  phone: "",
+  date: "",
+  guests: "20-30",
+  serviceType: "Office Lunch & Platters",
+  notes: "",
+};
 
-  const handleSubmit = (e: React.FormEvent) => {
+export default function CateringPageContent() {
+  const [formData, setFormData] = useState(INITIAL_FORM_DATA);
+  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | "rate_limit" | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const formspreeEndpoint = process.env.NEXT_PUBLIC_FORMSPREE_CATERING || "https://formspree.io/f/meaggjvn";
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    trackAnalyticsEvent("contact_email_intent", { contact_type: "catering_form" });
-    window.location.href = createMailtoUrl("Catering quote request", [
-      "New catering quote request",
-      "",
-      `Name: ${formData.name}`,
-      `Email: ${formData.email}`,
-      `Phone: ${formData.phone}`,
-      `Event date: ${formData.date}`,
-      `Guest count: ${formData.guests}`,
-      `Service type: ${formData.serviceType}`,
-      "",
-      "Menu preferences / notes:",
-      formData.notes || "Not provided",
-    ]);
+    if (isSubmitting || !formspreeEndpoint) return;
+
+    setSubmitStatus(null);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(formspreeEndpoint, {
+        method: "POST",
+        body: new FormData(e.currentTarget),
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.status === 429) {
+        setSubmitStatus("rate_limit");
+      } else if (!response.ok) {
+        setSubmitStatus("error");
+      } else {
+        trackAnalyticsEvent("contact_form_submit", { contact_type: "catering_form" });
+        setFormData(INITIAL_FORM_DATA);
+        setSubmitStatus("success");
+      }
+    } catch {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -379,12 +399,12 @@ export default function CateringPageContent() {
           </div>
 
           <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white mb-6 leading-tight drop-shadow-sm">
-            Party Trays &amp; Corporate Lunch Catering in Central NJ
+            Breakfast, Brunch &amp; Corporate Catering Menu in Central NJ
           </h1>
 
           <p className="font-serif text-base sm:text-lg text-brand-cream/90 max-w-3xl mx-auto leading-relaxed mb-10 drop-shadow-sm">
-            Chef-made half and full party trays for office lunches, meetings, celebrations, and family gatherings.
-            Order fresh pastas, chicken, seafood, salads, and Caribbean favorites from Colonia in Woodbridge Township.
+            Chef Duke Estime crafts gourmet breakfast &amp; brunch catering trays, corporate luncheons, and celebration packages.
+            From Lemon Ricotta Pancakes and Amaretto Brioche French Toast to savory pastas and Caribbean specialties, delivered across Colonia, Woodbridge Township, and Central NJ.
           </p>
 
           {/* Action CTAs */}
@@ -761,122 +781,178 @@ export default function CateringPageContent() {
 
             {/* Right: Form */}
             <div className="lg:col-span-7 bg-white border border-brand-line p-8 sm:p-10 rounded-sm shadow-sm">
-              <p className="mb-5 text-xs font-serif text-brand-muted">Submitting opens a pre-addressed email in your mail app. You can also call or email us directly.</p>
-              <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
-                        Full Name *
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="John Doe"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full bg-brand-paper border border-brand-line px-3 py-2 text-xs font-sans rounded-sm focus:outline-none focus:border-brand-green text-brand-text"
-                      />
-                    </div>
+              <p className="mb-5 text-xs font-serif text-brand-muted">
+                Submit your event details below to receive a direct catering proposal from Chef Duke and our team within 24 hours.
+              </p>
 
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
-                        Phone Number *
-                      </label>
-                      <input
-                        type="tel"
-                        required
-                        placeholder="(732) 000-0000"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full bg-brand-paper border border-brand-line px-3 py-2 text-xs font-sans rounded-sm focus:outline-none focus:border-brand-green text-brand-text"
-                      />
-                    </div>
+              {submitStatus === "success" && (
+                <div className="mb-6 bg-[#f0fdf4] border border-emerald-300 text-emerald-900 p-4 rounded-sm">
+                  <div className="font-bold flex items-center gap-2 mb-1">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
+                    <span>Catering Quote Request Received!</span>
                   </div>
+                  <p className="text-xs text-emerald-800 leading-relaxed">
+                    Thank you! Chef Duke and our catering team have received your request and will contact you via phone or email within 24 hours with a custom proposal.
+                  </p>
+                </div>
+              )}
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        required
-                        placeholder="john@company.com"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full bg-brand-paper border border-brand-line px-3 py-2 text-xs font-sans rounded-sm focus:outline-none focus:border-brand-green text-brand-text"
-                      />
-                    </div>
+              {submitStatus === "rate_limit" && (
+                <div className="mb-6 bg-amber-50 border border-amber-300 text-amber-900 p-4 rounded-sm text-xs">
+                  Too many submissions received. Please call our team directly at{" "}
+                  <a href="tel:7326697581" className="underline font-bold">
+                    (732) 669-7581
+                  </a>
+                  .
+                </div>
+              )}
 
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
-                        Event Date *
-                      </label>
-                      <input
-                        type="date"
-                        required
-                        value={formData.date}
-                        onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                        className="w-full bg-brand-paper border border-brand-line px-3 py-2 text-xs font-sans rounded-sm focus:outline-none focus:border-brand-green text-brand-text"
-                      />
-                    </div>
+              {submitStatus === "error" && (
+                <div className="mb-6 bg-red-50 border border-red-200 text-red-800 p-4 rounded-sm text-xs flex items-start gap-2">
+                  <AlertCircle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    There was an issue submitting your request online. Please call us directly at{" "}
+                    <a href="tel:7326697581" className="underline font-bold">
+                      (732) 669-7581
+                    </a>
+                    .
                   </div>
+                </div>
+              )}
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
-                        Estimated Guest Count
-                      </label>
-                      <select
-                        value={formData.guests}
-                        onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
-                        className="w-full bg-brand-paper border border-brand-line px-3 py-2 text-xs font-sans rounded-sm focus:outline-none focus:border-brand-green text-brand-text"
-                      >
-                        <option value="10-20">10 – 20 Guests</option>
-                        <option value="20-30">20 – 30 Guests</option>
-                        <option value="30-50">30 – 50 Guests</option>
-                        <option value="50-100">50 – 100 Guests</option>
-                        <option value="100+">100+ Guests</option>
-                      </select>
-                    </div>
+              <form action={formspreeEndpoint} method="POST" onSubmit={handleSubmit} className="space-y-5">
+                <input type="hidden" name="_subject" value="New Catering Quote Request - Estime's Café" />
+                <input type="hidden" name="form_type" value="catering_quote" />
 
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
-                        Service Type
-                      </label>
-                      <select
-                        value={formData.serviceType}
-                        onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
-                        className="w-full bg-brand-paper border border-brand-line px-3 py-2 text-xs font-sans rounded-sm focus:outline-none focus:border-brand-green text-brand-text"
-                      >
-                        <option value="Office Lunch & Platters">Office Lunch &amp; Party Trays</option>
-                        <option value="Corporate Office Breakfast">Corporate Office Breakfast</option>
-                        <option value="Weekend Brunch Package">Weekend Brunch Package</option>
-                        <option value="Bridal / Baby Shower">Bridal / Baby Shower</option>
-                        <option value="Private Celebration / Party">Private Celebration / Party</option>
-                      </select>
-                    </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      placeholder="John Doe"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full bg-brand-paper border border-brand-line px-3 py-2 text-xs font-sans rounded-sm focus:outline-none focus:border-brand-green text-brand-text"
+                    />
                   </div>
 
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
-                      Event Details / Menu Preferences
+                      Phone Number *
                     </label>
-                    <textarea
-                      rows={3}
-                      placeholder="Specify trays, dishes, delivery details, or dietary restrictions (e.g. Rasta Pasta, Jerk Chicken, Haitian Salmon)..."
-                      value={formData.notes}
-                      onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                      className="w-full bg-brand-paper border border-brand-line p-3 text-xs font-sans rounded-sm focus:outline-none focus:border-brand-green text-brand-text"
+                    <input
+                      type="tel"
+                      name="phone"
+                      required
+                      placeholder="(732) 000-0000"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="w-full bg-brand-paper border border-brand-line px-3 py-2 text-xs font-sans rounded-sm focus:outline-none focus:border-brand-green text-brand-text"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      placeholder="john@company.com"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full bg-brand-paper border border-brand-line px-3 py-2 text-xs font-sans rounded-sm focus:outline-none focus:border-brand-green text-brand-text"
                     />
                   </div>
 
-                  <button
-                    type="submit"
-                    className="w-full bg-brand-green hover:bg-brand-green-dark text-white py-3.5 text-xs font-bold uppercase tracking-wider shadow-md transition-all"
-                  >
-                    Open Catering Email Draft →
-                  </button>
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
+                      Event Date *
+                    </label>
+                    <input
+                      type="date"
+                      name="event_date"
+                      required
+                      value={formData.date}
+                      onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                      className="w-full bg-brand-paper border border-brand-line px-3 py-2 text-xs font-sans rounded-sm focus:outline-none focus:border-brand-green text-brand-text"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
+                      Estimated Guest Count
+                    </label>
+                    <select
+                      name="guest_count"
+                      value={formData.guests}
+                      onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
+                      className="w-full bg-brand-paper border border-brand-line px-3 py-2 text-xs font-sans rounded-sm focus:outline-none focus:border-brand-green text-brand-text"
+                    >
+                      <option value="10-20">10 – 20 Guests</option>
+                      <option value="20-30">20 – 30 Guests</option>
+                      <option value="30-50">30 – 50 Guests</option>
+                      <option value="50-100">50 – 100 Guests</option>
+                      <option value="100+">100+ Guests</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
+                      Service Type
+                    </label>
+                    <select
+                      name="service_type"
+                      value={formData.serviceType}
+                      onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
+                      className="w-full bg-brand-paper border border-brand-line px-3 py-2 text-xs font-sans rounded-sm focus:outline-none focus:border-brand-green text-brand-text"
+                    >
+                      <option value="Office Lunch & Platters">Office Lunch &amp; Party Trays</option>
+                      <option value="Corporate Office Breakfast">Corporate Office Breakfast</option>
+                      <option value="Weekend Brunch Package">Weekend Brunch Package</option>
+                      <option value="Bridal / Baby Shower">Bridal / Baby Shower</option>
+                      <option value="Private Celebration / Party">Private Celebration / Party</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-brand-text mb-1">
+                    Event Details / Menu Preferences
+                  </label>
+                  <textarea
+                    name="message"
+                    rows={3}
+                    placeholder="Specify trays, dishes, delivery details, or dietary restrictions (e.g. Rasta Pasta, Jerk Chicken, Haitian Salmon)..."
+                    value={formData.notes}
+                    onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+                    className="w-full bg-brand-paper border border-brand-line p-3 text-xs font-sans rounded-sm focus:outline-none focus:border-brand-green text-brand-text"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-brand-green hover:bg-brand-green-dark disabled:opacity-50 text-white py-3.5 text-xs font-bold uppercase tracking-wider shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>Submitting Catering Request...</span>
+                    </>
+                  ) : (
+                    <span>Request Catering Proposal →</span>
+                  )}
+                </button>
               </form>
             </div>
           </div>

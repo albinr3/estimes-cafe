@@ -5,10 +5,15 @@ import { BUSINESS_NAP_NAME } from "@/lib/business";
 import CateringPageContent from "./CateringPageContent";
 
 export const metadata: Metadata = {
-  title: "Catering Menu & Party Trays in Woodbridge, NJ | Estime's Café",
+  title: "Brunch Catering Menu & Party Trays | Colonia & Woodbridge NJ | Estime's Café",
   description:
-    "Order Estime's Café catering in Colonia, NJ: breakfast platters, party trays and corporate lunches for offices, celebrations and events across Central NJ.",
+    "Order chef-crafted breakfast & brunch catering in Colonia & Woodbridge, NJ. Trays of lemon ricotta pancakes, brioche French toast, eggs, meats & corporate lunch packages.",
   keywords: [
+    "brunch catering menu",
+    "brunch catering menus",
+    "catering brunch menu",
+    "breakfast catering",
+    "brunch catering",
     "catering menu",
     "party trays",
     "party trays catering",
@@ -18,21 +23,19 @@ export const metadata: Metadata = {
     "catering woodbridge nj",
     "catering edison nj",
     "central nj catering",
-    "breakfast catering",
-    "brunch catering",
   ],
   alternates: {
     canonical: "https://www.estimescafe.com/catering",
   },
   openGraph: {
-    title: "Catering Menu & Party Trays in Woodbridge, NJ | Estime's Café",
+    title: "Brunch Catering Menu & Party Trays | Colonia & Woodbridge NJ | Estime's Café",
     description:
-      "Chef-made party trays and corporate lunch catering for offices, celebrations and gatherings across Central NJ.",
+      "Chef-made breakfast & brunch party trays and corporate lunch catering for offices, celebrations and gatherings across Central NJ.",
     url: "https://www.estimescafe.com/catering",
     type: "website",
     images: [{ url: "/assets/catering-social-preview.jpg", width: 1200, height: 630, alt: "Estime's Café catering trays in Colonia, NJ" }],
   },
-  twitter: { card: "summary_large_image", title: "Catering Menu & Party Trays in Woodbridge, NJ | Estime's Café", description: "Order catering menu favorites, party trays, and corporate lunch catering from Estime's Café in Colonia, Woodbridge Township.", images: ["/assets/catering-social-preview.jpg"] },
+  twitter: { card: "summary_large_image", title: "Brunch Catering Menu & Party Trays | Colonia & Woodbridge NJ | Estime's Café", description: "Order brunch catering menu favorites, party trays, and corporate lunch catering from Estime's Café in Colonia, Woodbridge Township.", images: ["/assets/catering-social-preview.jpg"] },
 };
 
 export default function CateringPage() {
@@ -43,8 +46,8 @@ export default function CateringPage() {
         "@type": "WebPage",
         "@id": "https://www.estimescafe.com/catering#webpage",
         "url": "https://www.estimescafe.com/catering",
-        "name": "Catering Menu & Party Trays in Woodbridge, NJ | Estime's Café",
-        "description": "Catering menu, party trays, and corporate lunch catering from Estime's Café in Colonia, Woodbridge Township.",
+        "name": "Brunch Catering Menu & Party Trays | Colonia & Woodbridge NJ | Estime's Café",
+        "description": "Brunch catering menu, party trays, and corporate lunch catering from Estime's Café in Colonia, Woodbridge Township.",
         "isPartOf": { "@id": "https://www.estimescafe.com/#website" },
         "about": { "@id": "https://www.estimescafe.com/catering#service" },
         "inLanguage": "en-US"

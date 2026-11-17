@@ -76,6 +76,28 @@ export default function MenuPageContentV2() {
         </div>
       </section>
 
+      {/* Highlights: BYOB & Halal-Friendly Dietary Options */}
+      <section className="bg-brand-cream/80 border-b border-brand-line py-4">
+        <div className="mx-auto max-w-container px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-sans">
+            <div className="flex items-center gap-3 bg-white p-3.5 rounded-lg border border-brand-line shadow-2xs">
+              <span className="text-lg">🍾</span>
+              <div>
+                <strong className="block text-brand-green font-bold text-sm">BYOB Friendly Weekend Brunch</strong>
+                <span className="text-brand-muted">Bring your favorite champagne or wine to pair with brunch and craft your own fresh mimosas!</span>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 bg-white p-3.5 rounded-lg border border-brand-line shadow-2xs">
+              <span className="text-lg">🍳</span>
+              <div>
+                <strong className="block text-brand-green font-bold text-sm">Halal-Friendly &amp; Dietary Selections</strong>
+                <span className="text-brand-muted">Savory turkey bacon, chicken sausage, and vegetarian/pescetarian options available daily upon request.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="sticky top-20 z-30 border-b border-brand-line bg-[#fbf8f2]/95 py-3 backdrop-blur-md">
         <div className="mx-auto max-w-container px-4 sm:px-6 lg:px-8"><label className="relative block max-w-md"><Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-muted" /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search dish or ingredient..." className="w-full border border-brand-line bg-white py-2 pl-9 pr-3 text-sm text-brand-text focus:border-brand-green focus:outline-none" /></label></div>
       </section>

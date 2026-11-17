@@ -173,7 +173,38 @@ export default function ContactPageContent() {
               <div className="mt-6 pt-5 border-t border-brand-line grid grid-cols-1 gap-3 text-xs font-serif text-[#48423c]">
                 <div className="flex items-center gap-2 bg-brand-paper p-2.5 rounded-md border border-brand-line/60">
                   <Car className="w-4 h-4 text-brand-green flex-shrink-0" />
-                  <span className="font-medium">Free On-Site Parking</span>
+                  <span className="font-medium">Free On-Site Parking Available</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Serving Neighbors Card */}
+            <div className="bg-brand-cream/70 border border-brand-line rounded-xl p-5 sm:p-6 shadow-2xs">
+              <div className="flex items-center gap-2 mb-2.5">
+                <Navigation className="w-4 h-4 text-brand-gold flex-shrink-0" />
+                <h3 className="font-serif text-base font-bold text-brand-green">
+                  Proudly Serving Our Central NJ Neighbors
+                </h3>
+              </div>
+              <p className="font-serif text-xs text-[#48423c] leading-relaxed mb-3.5">
+                Conveniently located on Inman Avenue in Colonia, we warmly welcome breakfast, brunch, and catering guests from across Middlesex and Union counties:
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs font-sans">
+                <div className="bg-white p-2.5 rounded-lg border border-brand-line">
+                  <strong className="block text-brand-green font-bold">Woodbridge</strong>
+                  <span className="text-[11px] text-brand-muted">5–8 min drive</span>
+                </div>
+                <div className="bg-white p-2.5 rounded-lg border border-brand-line">
+                  <strong className="block text-brand-green font-bold">Rahway</strong>
+                  <span className="text-[11px] text-brand-muted">6–9 min drive</span>
+                </div>
+                <div className="bg-white p-2.5 rounded-lg border border-brand-line">
+                  <strong className="block text-brand-green font-bold">Clark</strong>
+                  <span className="text-[11px] text-brand-muted">7–10 min drive</span>
+                </div>
+                <div className="bg-white p-2.5 rounded-lg border border-brand-line">
+                  <strong className="block text-brand-green font-bold">Edison</strong>
+                  <span className="text-[11px] text-brand-muted">8–12 min drive</span>
                 </div>
               </div>
             </div>

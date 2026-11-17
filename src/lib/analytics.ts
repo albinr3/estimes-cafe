@@ -18,8 +18,10 @@ export function trackAnalyticsEvent(
   name: AnalyticsEventName,
   parameters: AnalyticsParameters = {},
 ) {
-  window.gtag?.("event", name, {
-    ...parameters,
-    page_path: window.location.pathname,
-  });
+  if (typeof window !== "undefined" && !navigator.webdriver) {
+    window.gtag?.("event", name, {
+      ...parameters,
+      page_path: window.location.pathname,
+    });
+  }
 }

@@ -279,6 +279,32 @@ export default function PrivateEventsContent() {
         </div>
       </section>
 
+      {/* Contextual Notice for Dinner & Evening Inquiries */}
+      <section className="bg-brand-paper border-b border-brand-line py-3.5">
+        <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-white border border-brand-line p-4 rounded-lg shadow-2xs">
+            <div className="flex items-center gap-3">
+              <Utensils className="w-5 h-5 text-brand-gold flex-shrink-0" />
+              <div>
+                <p className="font-serif text-sm font-bold text-brand-green">
+                  Looking for Our Dinner Offerings?
+                </p>
+                <p className="font-serif text-xs text-[#48423c]">
+                  Estime&apos;s Café hosts exclusive multi-course Private Dinner Feasts &amp; Evening Events. Explore our chef dinner packages below or view our daytime brunch menu.
+                </p>
+              </div>
+            </div>
+            <Link
+              href="/menu/"
+              className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-brand-green hover:text-brand-gold whitespace-nowrap transition-colors"
+            >
+              <span>View Brunch Menu</span>
+              <ChevronRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Venue Features / Amenities */}
       <section className="py-16 sm:py-20 bg-brand-cream border-b border-brand-line">
         <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">

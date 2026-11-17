@@ -83,9 +83,9 @@ export default function Hero() {
             alt="Estime's Café signature breakfast and brunch dishes in Colonia NJ including lemon ricotta pancakes, French toast, sandwiches, and steak and eggs"
             fill
             priority
-            quality={95}
+            quality={80}
             className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
-            sizes="(max-width: 1024px) 100vw, 55vw"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 55vw"
           />
           {/* Badge Overlay */}
           <div className="absolute bottom-6 right-6 bg-[#fbf8f2]/95 backdrop-blur-md border border-brand-line p-4 shadow-lg hidden sm:block max-w-xs">

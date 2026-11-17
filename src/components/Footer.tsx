@@ -166,7 +166,7 @@ export default function Footer() {
         {/* SEO Local Footer Tags & Sitemap */}
         <div className="pt-8 text-center text-xs text-brand-cream/50 font-serif leading-relaxed flex flex-col items-center gap-2">
           <p>
-            Serving guests across Colonia, Woodbridge, Iselin, Clark, Rahway, Edison, Scotch Plains, Westfield, Cranford, and Central New Jersey.
+            Proudly serving handcrafted breakfast, weekend brunch, party catering &amp; private events across Colonia, Woodbridge Township, Iselin, Clark, Rahway, Edison, and Central New Jersey.
           </p>
           <p>
             <a

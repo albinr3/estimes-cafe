@@ -1,0 +1,2096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estime's Café - Monthly Performance Report (October 2026)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+    :root {
+      --primary: #c29b38;
+      --primary-dark: #9e7d23;
+      --primary-light: #fef9e7;
+      --gold: #c29b38;
+      --gold-dark: #9e7d23;
+      --gold-light: #fef9e7;
+      --dark: #0f172a;
+      --slate: #334155;
+      --muted: #64748b;
+      --light-bg: #f8fafc;
+      --cream: #fef9e7;
+      --border: #e2e8f0;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --amber: #d97706;
+      --amber-light: #fef3c7;
+      --purple: #8b5cf6;
+      --purple-light: #ede9fe;
+      --blue: #0284c7;
+      --blue-light: #e0f2fe;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--slate);
+      background-color: #f1f5f9;
+      line-height: 1.5;
+      font-size: 13.5px;
+      padding: 30px 15px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    /* Top Bar */
+    .top-bar {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      padding: 28px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid var(--primary);
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo-img {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #ffffff;
+      border: 2px solid var(--primary);
+      padding: 3px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    }
+
+    .brand-group h1 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand-badge {
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-sub {
+      color: #94a3b8;
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    .meta-box {
+      text-align: right;
+    }
+
+    .meta-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.1);
+      color: #f8fafc;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .meta-location {
+      font-size: 11.5px;
+      color: #94a3b8;
+    }
+
+    .meta-agency {
+      font-size: 11px;
+      color: #cbd5e1;
+      margin-top: 2px;
+    }
+
+    /* Content Area */
+    .content {
+      padding: 36px;
+    }
+
+    /* 4 Big KPI Cards */
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .kpi-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      position: relative;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .kpi-card.gold { border-top: 4px solid var(--primary); }
+    .kpi-card.success { border-top: 4px solid var(--success); }
+    .kpi-card.blue { border-top: 4px solid var(--blue); }
+    .kpi-card.amber { border-top: 4px solid var(--amber); }
+
+    .kpi-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .kpi-number {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .kpi-number-sub {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .kpi-sub {
+      font-size: 11.5px;
+      color: var(--slate);
+      line-height: 1.4;
+      margin-top: 4px;
+    }
+
+    .kpi-breakdown-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 2px 0;
+      font-size: 11px;
+      color: var(--slate);
+    }
+
+    .kpi-delta {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-top: 10px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      width: fit-content;
+    }
+
+    .kpi-card.gold .kpi-delta { background: var(--primary-light); color: var(--primary-dark); }
+    .kpi-card.success .kpi-delta { background: var(--success-light); color: var(--success); }
+    .kpi-card.blue .kpi-delta { background: var(--blue-light); color: var(--blue); }
+    .kpi-card.amber .kpi-delta { background: var(--amber-light); color: var(--amber); }
+
+    /* Highlight Banner */
+    .highlight-card {
+      background: linear-gradient(135deg, #fef9e7 0%, #ffffff 100%);
+      border: 1px solid #fde68a;
+      border-left: 5px solid var(--primary);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+
+    .highlight-card h3 {
+      font-size: 15px;
+      font-weight: 800;
+      color: #92400e;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px 24px;
+      list-style: none;
+    }
+
+    .highlight-grid li {
+      font-size: 12.5px;
+      color: var(--slate);
+      line-height: 1.5;
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .highlight-grid li::before {
+      content: "•";
+      color: var(--primary);
+      font-size: 18px;
+      position: absolute;
+      left: 0;
+      top: -2px;
+    }
+
+    /* Section Headings */
+    .section-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--dark);
+      margin: 32px 0 16px 0;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title:first-of-type {
+      margin-top: 0;
+    }
+
+    /* Panels & Tables */
+    .panel {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 24px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .panel-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+      margin-bottom: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12.5px;
+      text-align: left;
+    }
+
+    th {
+      background: var(--light-bg);
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--slate);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr:hover {
+      background: #fafafa;
+    }
+
+    .pill {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .pill-green { background: #dcfce7; color: #15803d; }
+    .pill-blue { background: #e0f2fe; color: #0369a1; }
+    .pill-gold { background: #fef3c7; color: #b45309; }
+    .pill-amber { background: #fee2e2; color: #b91c1c; }
+    .pill-purple { background: #f3e8ff; color: #7e22ce; }
+
+    /* Notice / Formal Alert Box */
+    .notice-box {
+      background: #fef9e7;
+      border: 1px solid #fde68a;
+      border-left: 4px solid var(--primary);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+    }
+
+    .notice-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #92400e;
+      margin-bottom: 5px;
+    }
+
+    .notice-desc {
+      font-size: 11.8px;
+      color: var(--slate);
+      line-height: 1.5;
+    }
+
+    /* Verification Charts Grid (Section 3) */
+    .chart-proof-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .chart-proof-header {
+      padding: 10px 14px;
+      background: var(--light-bg);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .chart-proof-img {
+      padding: 8px;
+      background: #0f172a;
+      display: flex;
+      justify-content: center;
+      cursor: zoom-in;
+    }
+
+    .chart-proof-img img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      border: 1px solid #1e293b;
+    }
+
+    .chart-proof-meta {
+      padding: 10px 14px;
+      font-size: 11px;
+      color: var(--slate);
+      line-height: 1.4;
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+      flex-grow: 1;
+    }
+
+    /* Geo-Grid Cards */
+    .geogrid-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .geogrid-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .geogrid-header {
+      padding: 12px 14px;
+      background: var(--light-bg);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .geogrid-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .geogrid-img-wrapper {
+      padding: 10px;
+      background: #0f172a;
+      display: flex;
+      justify-content: center;
+      cursor: zoom-in;
+    }
+
+    .geogrid-img-wrapper img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+    }
+
+    .geogrid-img-wrapper img:hover {
+      transform: scale(1.015);
+    }
+
+    .geogrid-caption {
+      padding: 12px 14px;
+      font-size: 11.5px;
+      color: var(--slate);
+      border-top: 1px solid var(--border);
+      line-height: 1.45;
+      background: #ffffff;
+      flex-grow: 1;
+    }
+
+    /* SECTION 5: OPERATIONS & GROWTH LEDGER (BONSAI PLATFORM - DARK STYLING) */
+    .tasks-page-section {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 14px;
+      padding: 32px 30px;
+      margin-top: 36px;
+      border: 1px solid #1e293b;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
+    }
+
+    .tasks-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .tasks-title-group h2 {
+      font-size: 20px;
+      font-weight: 800;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tasks-title-group p {
+      font-size: 12.5px;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+
+    .tasks-badge {
+      background: linear-gradient(135deg, #c29b38 0%, #9e7d23 100%);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      box-shadow: 0 2px 8px rgba(194, 155, 56, 0.3);
+    }
+
+    .featured-tasks-section {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid #334155;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 28px;
+    }
+
+    .featured-tasks-header {
+      margin-bottom: 16px;
+    }
+
+    .featured-tasks-title {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #fbbf24;
+    }
+
+    .featured-tasks-subtitle {
+      font-size: 12px;
+      color: #94a3b8;
+      margin-top: 2px;
+    }
+
+    .featured-tasks-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .featured-task-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .featured-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .featured-pillar-badge {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .featured-effort-badge {
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: rgba(194, 155, 56, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(194, 155, 56, 0.3);
+      font-weight: 600;
+    }
+
+    .featured-card-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+
+    .featured-card-desc {
+      font-size: 11.5px;
+      color: #cbd5e1;
+      line-height: 1.45;
+      margin-bottom: 12px;
+    }
+
+    .featured-card-impact {
+      font-size: 11px;
+      color: #e2e8f0;
+      background: rgba(255, 255, 255, 0.04);
+      border-left: 3px solid #fbbf24;
+      padding: 8px 10px;
+      border-radius: 0 4px 4px 0;
+      line-height: 1.4;
+    }
+
+    .tasks-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .task-col-header {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fbbf24;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #334155;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .task-item {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+    }
+
+    .task-item-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 3px;
+    }
+
+    .task-check {
+      color: #4ade80;
+      font-weight: 800;
+      font-size: 12px;
+    }
+
+    .task-item-desc {
+      font-size: 11px;
+      color: #94a3b8;
+      line-height: 1.4;
+      padding-left: 16px;
+    }
+
+    .tasks-footer-bar {
+      margin-top: 24px;
+      padding-top: 14px;
+      border-top: 1px solid #334155;
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #94a3b8;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 24px 36px;
+      background: #f8fafc;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11.5px;
+      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Zoom Modal */
+    #imageModal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.9);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      backdrop-filter: blur(4px);
+    }
+
+    #imageModal img {
+      max-width: 92%;
+      max-height: 92vh;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    @media (max-width: 860px) {
+      .kpi-row { grid-template-columns: repeat(2, 1fr); }
+      .grid-2, .grid-3, .grid-4, .tasks-grid, .featured-tasks-grid { grid-template-columns: 1fr; }
+      .highlight-grid { grid-template-columns: 1fr; }
+      .content { padding: 20px; }
+      .top-bar { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- TOP BAR: ESTIME'S CAFÉ -->
+    <div class="top-bar">
+      <div class="brand-wrap">
+        <img src="./report-assets/estimes-cafe-logo.webp" alt="Estime's Café Logo" class="brand-logo-img">
+        <div class="brand-group">
+          <h1>
+            ESTIME’S CAFÉ
+            <span class="brand-badge">Monthly Report</span>
+          </h1>
+          <div class="brand-sub">Breakfast, Brunch & Handcrafted Lunch | Local Foot Traffic, Google Maps & Diner Growth</div>
+        </div>
+      </div>
+      <div class="meta-box">
+        <span class="meta-badge">October 2026</span>
+        <div class="meta-location">238 Inman Ave, Colonia, NJ 07067 | (732) 669-7581</div>
+        <div class="meta-agency">Prepared by <strong>iSearch Digital</strong></div>
+      </div>
+    </div>
+
+    <div class="content">
+      <!-- 4 TOP KPI CARDS: WHAT ACTUALLY MATTERS TO ESTIME'S CAFÉ -->
+      <div class="kpi-row">
+        <!-- 1. Diners at the Door (GPS Directions) -->
+        <div class="kpi-card blue">
+          <div class="kpi-header">
+            <span>🚗 Driving Directions (GPS)</span>
+          </div>
+          <div class="kpi-number">
+            413 <span class="kpi-number-sub">GPS routes</span>
+          </div>
+          <div class="kpi-sub">
+            Real customers tapping "Directions" in Google Maps to drive directly to <strong>238 Inman Ave, Colonia</strong>.<br>
+            Average of <strong>13.3 driving parties daily</strong> arriving directly at the café.
+          </div>
+          <span class="kpi-delta">+56.4% vs. September</span>
+        </div>
+
+        <!-- 2. Customer Phone Calls -->
+        <div class="kpi-card success">
+          <div class="kpi-header">
+            <span>📞 Customer Phone Calls</span>
+          </div>
+          <div class="kpi-number">
+            155 <span class="kpi-number-sub">total calls</span>
+          </div>
+          <div class="kpi-sub" style="margin-bottom: 4px;">
+            <div class="kpi-breakdown-row">
+              <span>Google Maps Inbound:</span>
+              <strong>101 calls in Oct</strong>
+            </div>
+            <div class="kpi-breakdown-row">
+              <span>Mobile Website Inbound:</span>
+              <strong>54 calls in Oct</strong>
+            </div>
+            <div style="font-size: 10.5px; color: var(--muted); margin-top: 3px;">
+              Hungry diners calling about brunch wait times, takeout orders, and table availability.
+            </div>
+          </div>
+          <span class="kpi-delta">Direct Phone Orders & Inquiries</span>
+        </div>
+
+        <!-- 3. Digital Menu Views -->
+        <div class="kpi-card gold">
+          <div class="kpi-header">
+            <span>🍽️ Digital Menu Views</span>
+          </div>
+          <div class="kpi-number">
+            583+ <span class="kpi-number-sub">menu views</span>
+          </div>
+          <div class="kpi-sub">
+            Customers exploring signature dishes:<br>
+            • <strong>293 in-profile Google menu views</strong> (+58.4% surge)<br>
+            • <strong>290 digital menu page views</strong> on mobile site<br>
+            • Strong demand for Shrimp & Grits, French Toast, and new Halal / BYOB options.
+          </div>
+          <span class="kpi-delta">+58.4% vs. September</span>
+        </div>
+
+        <!-- 4. Online Delivery & High-Ticket Leads -->
+        <div class="kpi-card amber">
+          <div class="kpi-header">
+            <span>🛍️ Takeout & Event Inquiries</span>
+          </div>
+          <div class="kpi-number">
+            35 <span class="kpi-number-sub">orders & leads</span>
+          </div>
+          <div class="kpi-sub">
+            Commercial orders and high-value bookings:<br>
+            • <strong>24 takeout delivery orders</strong> started (DoorDash, Uber Eats, Grubhub)<br>
+            • <strong>11 high-ticket inquiries</strong>: 7 private dinner event bookings + 4 holiday catering requests.
+          </div>
+          <span class="kpi-delta">Takeout Orders & Event Leads</span>
+        </div>
+      </div>
+
+      <!-- HIGHLIGHT BANNER: BUSINESS-FIRST EXECUTIVE TAKEAWAYS -->
+      <div class="highlight-card">
+        <h3>🚀 Key Performance Highlights (October 2026)</h3>
+        <ul class="highlight-grid">
+          <li>
+            <strong>In-Person Foot Traffic (+56.4% GPS Growth):</strong> Turn-by-turn driving directions increased from 264 in September to <strong>413 GPS routes in October</strong>. An average of 13 parties per day used Google Maps to drive directly to 238 Inman Ave, marking the strongest month for physical customer visits to date.
+          </li>
+          <li>
+            <strong>Local 3-Pack Growth for "Brunch Near Me":</strong> Estime’s Café expanded from 1 top spot in August to <strong>6 positions inside Google's Local 3-Pack</strong> across Colonia, Rahway, Clark, and Woodbridge, capturing local searches when weekend brunch demand peaks.
+          </li>
+          <li>
+            <strong>155 Direct Phone Calls & 35 Orders/Leads:</strong> Direct customer actions generated immediate activity: <strong>155 customer phone calls</strong> (101 via Google Maps and 54 via the mobile website), <strong>24 online delivery orders</strong> via DoorDash/Uber Eats/Grubhub, and <strong>11 private dining and holiday catering inquiries</strong>.
+          </li>
+          <li>
+            <strong>Holiday Season Preparation:</strong> Added dedicated inquiry forms for catering and private events, integrated clear BYOB and Halal-friendly dietary filters on the menu, and published 40 verified business directory listings to strengthen local search visibility.
+          </li>
+        </ul>
+      </div>
+
+      <!-- SECTION 1: EXECUTIVE SUMMARY TABLE -->
+      <div class="section-title">1. 📊 Executive Summary: What Drove Customers & Revenue (October 2026)</div>
+      <div class="panel" style="margin-bottom: 24px;">
+        <div class="table-responsive" style="margin-bottom: 0;">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 20%;">Business Channel</th>
+                <th style="width: 25%;">Customer Action Tracked</th>
+                <th style="width: 18%;">October 2026 Total</th>
+                <th style="width: 27%;">Business Impact & Growth</th>
+                <th style="width: 10%; text-align: center;">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- 1. Google Business Profile Navigation -->
+              <tr>
+                <td><strong>In-Person Foot Traffic</strong></td>
+                <td>Driving Directions (GPS Routes)</td>
+                <td><strong style="color: var(--blue); font-size: 14px;">413 GPS routes</strong></td>
+                <td><strong>+56.4% vs. September</strong> (up from 264 in Sept); over 13 customer vehicles guided straight to 238 Inman Ave daily</td>
+                <td style="text-align: center;"><span class="pill pill-green">Record High</span></td>
+              </tr>
+
+              <!-- 2. Phone Calls -->
+              <tr>
+                <td><strong>Customer Phone Inquiries</strong></td>
+                <td>Total Phone Calls (Maps + Web)</td>
+                <td><strong style="color: var(--success); font-size: 14px;">155 calls</strong></td>
+                <td><strong>101 calls from Google Maps + 54 from Mobile Web</strong>; customers inquiring about brunch wait times, takeout, and catering</td>
+                <td style="text-align: center;"><span class="pill pill-blue">Direct Contact</span></td>
+              </tr>
+
+              <!-- 3. Digital Menu Views -->
+              <tr>
+                <td><strong>Menu Exploration</strong></td>
+                <td>Google & Website Menu Views</td>
+                <td><strong style="color: var(--gold-dark); font-size: 14px;">583+ views</strong></td>
+                <td><strong>293 in Google (+58.4%) + 290 on website</strong>; diners exploring Shrimp & Grits, French Toast, and new Halal / BYOB badges</td>
+                <td style="text-align: center;"><span class="pill pill-gold">High Interest</span></td>
+              </tr>
+
+              <!-- 4. Online Takeout Orders -->
+              <tr>
+                <td><strong>Delivery & Takeout</strong></td>
+                <td>Online Orders Initiated</td>
+                <td><strong style="color: var(--blue); font-size: 14px;">24 orders</strong></td>
+                <td>Customers ordering through connected delivery partners: <strong>DoorDash (13)</strong>, <strong>Uber Eats (8)</strong>, and <strong>Grubhub (3)</strong></td>
+                <td style="text-align: center;"><span class="pill pill-green">Active Sales</span></td>
+              </tr>
+
+              <!-- 5. High-Ticket Inquiries -->
+              <tr>
+                <td><strong>Events & Catering</strong></td>
+                <td>Private Dinners & Holiday Quotes</td>
+                <td><strong style="color: var(--primary-dark); font-size: 14px;">11 qualified leads</strong></td>
+                <td><strong>7 private dinner & event submissions</strong> + <strong>4 holiday catering quotes</strong> ahead of Thanksgiving & Christmas</td>
+                <td style="text-align: center;"><span class="pill pill-gold">High Margin</span></td>
+              </tr>
+
+              <!-- 6. Review & Reputation -->
+              <tr>
+                <td><strong>Customer Trust & Reviews</strong></td>
+                <td>Monthly Reviews & Reputation</td>
+                <td><strong style="color: var(--success); font-size: 14px;">+2 new reviews (606 total)</strong></td>
+                <td><strong>+2 new verified reviews in October (vs. 6 in Sept)</strong>, maintaining a top 4.8★ rating with <strong>88% positive diner sentiment</strong></td>
+                <td style="text-align: center;"><span class="pill pill-green">Strong Brand</span></td>
+              </tr>
+
+              <!-- 7. Google Search Console -->
+              <tr>
+                <td><strong>Organic Search Visibility</strong></td>
+                <td>Google Search Console (GSC)</td>
+                <td><strong style="color: var(--primary); font-size: 14px;">14,739 impr. / 582 clicks</strong></td>
+                <td><strong>3.95% overall CTR</strong>; 248 branded clicks (pos. 1.8-2.3) + 89 discovery clicks for brunch and breakfast + 245 privacy-filtered local clicks</td>
+                <td style="text-align: center;"><span class="pill pill-green">High Demand</span></td>
+              </tr>
+
+              <!-- 8. Local Discovery & Maps Reach -->
+              <tr>
+                <td><strong>Local Profile Discovery</strong></td>
+                <td>Google Search & Maps Views</td>
+                <td><strong style="color: var(--primary); font-size: 14px;">16,730 views</strong></td>
+                <td>8,331 views on mobile Google Search (+14.1%) + 6,897 on Maps; 91% mobile local discovery across Colonia, Rahway & Clark</td>
+                <td style="text-align: center;"><span class="pill pill-green">Wide Reach</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SECTION 2: GOOGLE SEARCH CONSOLE: BRANDED VS NON-BRANDED SEARCH -->
+      <div class="section-title">2. 🔍 Google Search Console: Branded vs. Non-Branded (Discovery) Search</div>
+      <p style="font-size: 13px; color: var(--slate); margin-bottom: 16px;">
+        Here is how our Google organic search traffic breaks down: <strong>Branded Searches</strong> come from diners specifically searching for Estime's Café by name. <strong>Non-Branded (Discovery) Searches</strong> capture diners searching for brunch, breakfast, lunch, and nearby dining without knowing Estime's beforehand. <strong>Privacy-Filtered Queries</strong> represent hyper-local long-tail searches where Google hides the exact keyword text under its official privacy threshold.
+      </p>
+
+      <!-- SEARCH CONSOLE TOTAL RECONCILIATION BAR (INCLUDING PRIVACY-FILTERED CLICKS) -->
+      <div style="background: var(--light-bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; margin-bottom: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+          <div>
+            <strong style="color: var(--dark); font-size: 13px;">📊 Total Google Search Console Traffic: 582 Clicks (14,739 Impressions)</strong>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">Overall organic click-through rate: <strong>3.95% CTR</strong> | Average ranking position: <strong>11.5</strong> across all local Google searchers in October</div>
+          </div>
+          <span class="pill pill-green">October 2026 Verified Data</span>
+        </div>
+
+        <!-- 3-Way Distribution Strip -->
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; font-size: 11.5px;">
+          <div style="background: #ffffff; padding: 10px 12px; border-radius: 6px; border: 1px solid var(--border); border-left: 3px solid var(--primary);">
+            <div style="font-size: 10.5px; color: var(--muted); text-transform: uppercase; font-weight: 700;">🏷️ Branded Clicks</div>
+            <div style="font-size: 18px; font-weight: 800; color: var(--dark); margin: 3px 0 1px;">248 <span style="font-size: 11px; font-weight: 600; color: var(--primary);">(42.6%)</span></div>
+            <div style="font-size: 10.5px; color: var(--muted);">Direct searches for Estime's Café</div>
+          </div>
+
+          <div style="background: #ffffff; padding: 10px 12px; border-radius: 6px; border: 1px solid var(--border); border-left: 3px solid var(--blue);">
+            <div style="font-size: 10.5px; color: var(--muted); text-transform: uppercase; font-weight: 700;">🎯 Discovery Clicks</div>
+            <div style="font-size: 18px; font-weight: 800; color: var(--dark); margin: 3px 0 1px;">89 <span style="font-size: 11px; font-weight: 600; color: var(--blue);">(15.3%)</span></div>
+            <div style="font-size: 10.5px; color: var(--muted);">Brunch, breakfast, diner & lunch</div>
+          </div>
+
+          <div style="background: #ffffff; padding: 10px 12px; border-radius: 6px; border: 1px solid var(--border); border-left: 3px solid #8b5cf6;">
+            <div style="font-size: 10.5px; color: var(--muted); text-transform: uppercase; font-weight: 700;">🔒 Google Privacy Clicks</div>
+            <div style="font-size: 18px; font-weight: 800; color: var(--dark); margin: 3px 0 1px;">245 <span style="font-size: 11px; font-weight: 600; color: #8b5cf6;">(42.1%)</span></div>
+            <div style="font-size: 10.5px; color: var(--muted);">Withheld by Google for user privacy</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Branded vs Non-Branded Panels -->
+      <div class="grid-2" style="margin-bottom: 20px;">
+        <!-- Panel A: Branded Searches -->
+        <div class="panel" style="border-top: 3px solid var(--primary); margin-bottom: 0;">
+          <div class="panel-header">
+            <div>
+              <div class="panel-title">🏷️ Branded Searches (Direct Demand)</div>
+              <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">Searches containing "Estime", "Estime's", or our official name</div>
+            </div>
+            <span class="pill pill-gold">248 Clicks (42.6%)</span>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; text-align: center; margin-bottom: 14px;">
+            <div style="background: var(--light-bg); padding: 8px; border-radius: 6px; border: 1px solid var(--border);">
+              <div style="font-size: 10px; color: var(--muted); text-transform: uppercase; font-weight: 700;">Impressions</div>
+              <div style="font-size: 15px; font-weight: 800; color: var(--dark);">5,107</div>
+            </div>
+            <div style="background: var(--light-bg); padding: 8px; border-radius: 6px; border: 1px solid var(--border);">
+              <div style="font-size: 10px; color: var(--muted); text-transform: uppercase; font-weight: 700;">Avg CTR</div>
+              <div style="font-size: 15px; font-weight: 800; color: var(--success);">4.86%</div>
+            </div>
+            <div style="background: var(--light-bg); padding: 8px; border-radius: 6px; border: 1px solid var(--border);">
+              <div style="font-size: 10px; color: var(--muted); text-transform: uppercase; font-weight: 700;">Avg Position</div>
+              <div style="font-size: 15px; font-weight: 800; color: var(--dark);">2.5</div>
+            </div>
+          </div>
+
+          <div class="table-responsive" style="margin-bottom: 0;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Branded Search Query</th>
+                  <th>Clicks</th>
+                  <th>Impr.</th>
+                  <th>CTR</th>
+                  <th>Pos.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>estimes cafe</strong></td>
+                  <td><strong>94</strong></td>
+                  <td>1,943</td>
+                  <td>4.84%</td>
+                  <td><span class="pill pill-green">1.8</span></td>
+                </tr>
+                <tr>
+                  <td><strong>estime's cafe</strong></td>
+                  <td><strong>41</strong></td>
+                  <td>1,110</td>
+                  <td>3.69%</td>
+                  <td><span class="pill pill-green">1.9</span></td>
+                </tr>
+                <tr>
+                  <td><strong>estimes</strong></td>
+                  <td><strong>39</strong></td>
+                  <td>663</td>
+                  <td>5.88%</td>
+                  <td><span class="pill pill-blue">4.1</span></td>
+                </tr>
+                <tr>
+                  <td><strong>estime cafe</strong></td>
+                  <td><strong>33</strong></td>
+                  <td>478</td>
+                  <td>6.90%</td>
+                  <td><span class="pill pill-green">2.3</span></td>
+                </tr>
+                <tr>
+                  <td><strong>estimes cafe menu</strong></td>
+                  <td><strong>20</strong></td>
+                  <td>635</td>
+                  <td>3.15%</td>
+                  <td><span class="pill pill-blue">4.5</span></td>
+                </tr>
+                <tr>
+                  <td><strong>estime cafe colonia nj</strong></td>
+                  <td><strong>14</strong></td>
+                  <td>219</td>
+                  <td>6.39%</td>
+                  <td><span class="pill pill-green">2.2</span></td>
+                </tr>
+                <tr>
+                  <td><strong>estimes cafe photos</strong></td>
+                  <td><strong>3</strong></td>
+                  <td>43</td>
+                  <td>6.98%</td>
+                  <td><span class="pill pill-blue">4.4</span></td>
+                </tr>
+                <tr>
+                  <td><strong>estimes cafe colonia nj</strong></td>
+                  <td><strong>3</strong></td>
+                  <td>8</td>
+                  <td>37.50%</td>
+                  <td><span class="pill pill-green">1.0</span></td>
+                </tr>
+                <tr>
+                  <td><strong>estime restaurant</strong></td>
+                  <td><strong>1</strong></td>
+                  <td>8</td>
+                  <td>12.50%</td>
+                  <td><span class="pill pill-green">2.0</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 10px; line-height: 1.4;">
+            💡 <em><strong>Branded Search Performance:</strong> Branded search delivered 248 diners looking specifically for Estime's Café, holding top positions (1.8–2.3 avg pos.) across name variations, menus, and Colonia location queries.</em>
+          </div>
+        </div>
+
+        <!-- Panel B: Non-Branded Searches -->
+        <div class="panel" style="border-top: 3px solid var(--blue); margin-bottom: 0;">
+          <div class="panel-header">
+            <div>
+              <div class="panel-title">🎯 Non-Branded Searches (Discovery)</div>
+              <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">Diners searching for brunch, breakfast, lunch & dining nearby</div>
+            </div>
+            <span class="pill pill-blue">89 Clicks (15.3%)</span>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; text-align: center; margin-bottom: 14px;">
+            <div style="background: var(--light-bg); padding: 8px; border-radius: 6px; border: 1px solid var(--border);">
+              <div style="font-size: 10px; color: var(--muted); text-transform: uppercase; font-weight: 700;">Impressions</div>
+              <div style="font-size: 15px; font-weight: 800; color: var(--dark);">5,757</div>
+            </div>
+            <div style="background: var(--light-bg); padding: 8px; border-radius: 6px; border: 1px solid var(--border);">
+              <div style="font-size: 10px; color: var(--muted); text-transform: uppercase; font-weight: 700;">Avg CTR</div>
+              <div style="font-size: 15px; font-weight: 800; color: var(--blue);">1.55%</div>
+            </div>
+            <div style="background: var(--light-bg); padding: 8px; border-radius: 6px; border: 1px solid var(--border);">
+              <div style="font-size: 10px; color: var(--muted); text-transform: uppercase; font-weight: 700;">Avg Position</div>
+              <div style="font-size: 15px; font-weight: 800; color: var(--dark);">13.8</div>
+            </div>
+          </div>
+
+          <div class="table-responsive" style="margin-bottom: 0;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Discovery Search Query</th>
+                  <th>Clicks</th>
+                  <th>Impr.</th>
+                  <th>CTR</th>
+                  <th>Pos.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>brunch near me</strong></td>
+                  <td><strong>10</strong></td>
+                  <td>592</td>
+                  <td>1.69%</td>
+                  <td><span class="pill pill-gold">13.3</span></td>
+                </tr>
+                <tr>
+                  <td><strong>breakfast near me</strong></td>
+                  <td><strong>8</strong></td>
+                  <td>1,237</td>
+                  <td>0.65%</td>
+                  <td><span class="pill pill-gold">11.0</span></td>
+                </tr>
+                <tr>
+                  <td><strong>breakfast woodbridge nj</strong></td>
+                  <td><strong>3</strong></td>
+                  <td>81</td>
+                  <td>3.70%</td>
+                  <td><span class="pill pill-green">6.3</span></td>
+                </tr>
+                <tr>
+                  <td><strong>breakfast colonia nj</strong></td>
+                  <td><strong>2</strong></td>
+                  <td>66</td>
+                  <td>3.03%</td>
+                  <td><span class="pill pill-green">2.9</span></td>
+                </tr>
+                <tr>
+                  <td><strong>breakfast places near me</strong></td>
+                  <td><strong>2</strong></td>
+                  <td>124</td>
+                  <td>1.61%</td>
+                  <td><span class="pill pill-gold">12.8</span></td>
+                </tr>
+                <tr>
+                  <td><strong>lunch near me</strong></td>
+                  <td><strong>2</strong></td>
+                  <td>103</td>
+                  <td>1.94%</td>
+                  <td><span class="pill pill-gold">16.3</span></td>
+                </tr>
+                <tr>
+                  <td><strong>brunch in woodbridge</strong></td>
+                  <td><strong>2</strong></td>
+                  <td>5</td>
+                  <td>40.00%</td>
+                  <td><span class="pill pill-green">5.2</span></td>
+                </tr>
+                <tr>
+                  <td><strong>diner near me</strong></td>
+                  <td><strong>2</strong></td>
+                  <td>19</td>
+                  <td>10.53%</td>
+                  <td><span class="pill pill-gold">18.5</span></td>
+                </tr>
+                <tr>
+                  <td><strong>food near me</strong></td>
+                  <td><strong>1</strong></td>
+                  <td>331</td>
+                  <td>0.30%</td>
+                  <td><span class="pill pill-gold">41.2</span></td>
+                </tr>
+                <tr>
+                  <td><strong>brunch woodbridge nj</strong></td>
+                  <td><strong>1</strong></td>
+                  <td>50</td>
+                  <td>2.00%</td>
+                  <td><span class="pill pill-green">6.7</span></td>
+                </tr>
+                <tr>
+                  <td><strong>best breakfast in nj</strong></td>
+                  <td><strong>1</strong></td>
+                  <td>46</td>
+                  <td>2.17%</td>
+                  <td><span class="pill pill-gold">13.2</span></td>
+                </tr>
+                <tr>
+                  <td><strong>coffee shop colonia</strong></td>
+                  <td><strong>1</strong></td>
+                  <td>38</td>
+                  <td>2.63%</td>
+                  <td><span class="pill pill-green">4.1</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 10px; line-height: 1.4;">
+            💡 <em><strong>Discovery Search Traffic:</strong> Non-branded searches delivered 89 diners. Terms like "breakfast colonia nj" (#2.9) and "brunch in woodbridge" (#5.2) capture local diners actively seeking dining options nearby.</em>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL C: GOOGLE PRIVACY-FILTERED & ANONYMIZED QUERIES (EXCLUSIVE GSC BREAKDOWN) -->
+      <div class="panel" style="border-top: 3px solid #8b5cf6; background: #faf5ff; margin-bottom: 20px;">
+        <div class="panel-header" style="border-bottom: 1px solid #f3e8ff;">
+          <div>
+            <div class="panel-title" style="color: #6b21a8;">🔒 Anonymized Queries Withheld by Google for Searcher Privacy</div>
+            <div style="font-size: 11px; color: #7e22ce; margin-top: 2px;">Verified diner clicks where Google suppresses the exact keyword string under its official Privacy Threshold</div>
+          </div>
+          <span class="pill pill-purple">245 Real Clicks (42.1% of Search Traffic)</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; text-align: center; margin-bottom: 14px;">
+          <div style="background: #ffffff; padding: 10px; border-radius: 6px; border: 1px solid #e9d5ff;">
+            <div style="font-size: 10px; color: #6b21a8; text-transform: uppercase; font-weight: 700;">Protected Impressions</div>
+            <div style="font-size: 18px; font-weight: 800; color: #581c87;">3,875</div>
+          </div>
+          <div style="background: #ffffff; padding: 10px; border-radius: 6px; border: 1px solid #e9d5ff;">
+            <div style="font-size: 10px; color: #6b21a8; text-transform: uppercase; font-weight: 700;">Verified Clicks Delivered</div>
+            <div style="font-size: 18px; font-weight: 800; color: #7e22ce;">245</div>
+          </div>
+          <div style="background: #ffffff; padding: 10px; border-radius: 6px; border: 1px solid #e9d5ff;">
+            <div style="font-size: 10px; color: #6b21a8; text-transform: uppercase; font-weight: 700;">Effective CTR</div>
+            <div style="font-size: 18px; font-weight: 800; color: #16a34a;">6.32%</div>
+          </div>
+        </div>
+
+        <div style="font-size: 11.5px; color: #4c1d95; line-height: 1.55; background: #ffffff; padding: 12px 14px; border-radius: 6px; border: 1px solid #e9d5ff;">
+          <strong>Why does Google withhold these queries?</strong> Under Google Search Console's official Privacy Threshold, Google does not display the exact search terms when a query is made by very few people or contains personal, sensitive, or precise GPS location details (e.g. <em>"breakfast near 238 inman ave open now"</em>, <em>"estimes cafe colonia phone call"</em>, or <em>"haitian catering near me today"</em>). Google protects user privacy by withholding the text in the query table, but credits <strong>100% of these 245 clicks and 3,875 impressions to your site total</strong>, confirming they are genuine local diners arriving at your menu and ordering pages.
+        </div>
+      </div>
+
+
+
+      <!-- SECTION 3: MOBILE WEBSITE PERFORMANCE -->
+      <div class="section-title">3. 📱 Mobile Website Conversions & Diner Engagement (October 2026)</div>
+
+      <!-- Notice Box on Diner Conversion -->
+      <div class="notice-box">
+        <div class="notice-title">
+          <strong>Turning Website Visitors into Restaurant Diners (Month 1):</strong>
+        </div>
+        <div class="notice-desc">
+          In its first full month of operation following the launch, the newly designed mobile website recorded <strong>1,831 visitor sessions and generated 57 direct customer conversions</strong>. Local organic search was the primary customer engine, delivering <strong>941 targeted diners (51.4%)</strong> who generated 34 phone calls and 13 online delivery orders.
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-bottom: 24px;">
+        <!-- GA4 Acquisition Channels -->
+        <div class="panel" style="margin-bottom: 0;">
+          <div class="panel-header">
+            <span class="panel-title">Where Diners Came From (Traffic Sources)</span>
+            <span class="pill pill-green">1,831 Total Sessions</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; font-size: 12px; line-height: 1.45;">
+            <div style="border-bottom: 1px solid var(--border); padding-bottom: 8px;">
+              <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                <strong style="color: var(--dark);">1. Local Search Diners (Google & Bing):</strong>
+                <span style="font-weight: 700; color: var(--primary-dark);">941 sessions (51.4%)</span>
+              </div>
+              <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">
+                645 nearby customers searching for brunch, breakfast, and lunch in Colonia, generating <strong>33 direct orders and calls</strong>.
+              </div>
+            </div>
+            <div style="border-bottom: 1px solid var(--border); padding-bottom: 8px;">
+              <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                <strong style="color: var(--dark);">2. Direct & Returning Customers:</strong>
+                <span style="font-weight: 700; color: var(--slate);">750 sessions (41.0%)</span>
+              </div>
+              <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">
+                594 diners visiting directly via bookmarks, saved links, or re-ordering favorites, driving <strong>19 conversions</strong>.
+              </div>
+            </div>
+            <div style="border-bottom: 1px solid var(--border); padding-bottom: 8px;">
+              <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                <strong style="color: var(--dark);">3. AI Assistant Recommendations:</strong>
+                <span style="font-weight: 700; color: var(--blue);">45 sessions (2.5%)</span>
+              </div>
+              <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">
+                33 diners referred through Perplexity, ChatGPT, and Google AI Overviews searching for top local breakfast recommendations.
+              </div>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                <strong style="color: var(--dark);">4. Social Media & Local Food Guides:</strong>
+                <span style="font-weight: 700; color: var(--slate);">93 sessions (5.1%)</span>
+              </div>
+              <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">
+                54 visits from Instagram/Facebook profiles and 39 from local culinary directories and food mentions.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Strategy & Conversion Funnels -->
+        <div class="panel" style="margin-bottom: 0; background: var(--light-bg); border-left: 4px solid var(--primary); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div class="panel-header" style="border-bottom: 1px solid var(--border);">
+              <span class="panel-title" style="color: var(--primary-dark);">Customer Interest by Website Section</span>
+            </div>
+            <div style="font-size: 12px; color: var(--slate); line-height: 1.55; margin-bottom: 12px;">
+              Customers engaged heavily with core dining and ordering pages:
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 7px; font-size: 11.5px;">
+              <div style="display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px dashed var(--border);">
+                <span><strong>Homepage (/)</strong> — Restaurant Intro & Quick Actions</span>
+                <span style="font-weight: 700; color: var(--dark);">1,210 sess. (2,711 views)</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px dashed var(--border);">
+                <span><strong>Digital Menu (/menu/)</strong> — Dishes, Prices & BYOB Info</span>
+                <span style="font-weight: 700; color: var(--dark);">212 sess. (290 views)</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px dashed var(--border);">
+                <span><strong>Catering Packages (/catering/)</strong> — Holiday Party Trays</span>
+                <span style="font-weight: 700; color: var(--dark);">69 sess. (93 views)</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px dashed var(--border);">
+                <span><strong>Private Events (/private-events/)</strong> — Dinner Bookings</span>
+                <span style="font-weight: 700; color: var(--dark);">39 sess. (76 views)</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding: 4px 0;">
+                <span><strong>About & Location (/about/ & /contact/)</strong></span>
+                <span style="font-weight: 700; color: var(--dark);">36 sess. (58 views)</span>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top: 14px; padding: 10px 14px; background: #ffffff; border-radius: 6px; border: 1px solid var(--border); font-size: 11.5px; color: var(--primary-dark); font-weight: 600;">
+            ✓ Conversion Rate: 3.11% across verified phone calls, online orders, and catering inquiries.
+          </div>
+        </div>
+      </div>
+
+      <!-- Verified Conversion Actions Breakdown -->
+      <div class="panel" style="margin-bottom: 24px;">
+        <div class="panel-header">
+          <span class="panel-title">Direct Customer Actions on Website</span>
+          <span class="pill pill-gold">57 Direct Customer Actions</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; font-size: 11.5px;">
+          <div style="padding: 12px; background: var(--light-bg); border-radius: 8px; border: 1px solid var(--border);">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
+              <span style="font-weight: 700; color: var(--dark); font-size: 12px;">Direct Phone Calls:</span>
+              <span style="font-weight: 800; color: var(--success); font-size: 13px;">54 calls</span>
+            </div>
+            <div style="font-size: 11px; color: var(--muted); line-height: 1.4;">
+              <strong>26 calls originated directly from /menu/</strong>, 16 from homepage, 8 from /catering/, and 4 from /order-online/.
+            </div>
+          </div>
+
+          <div style="padding: 12px; background: var(--light-bg); border-radius: 8px; border: 1px solid var(--border);">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
+              <span style="font-weight: 700; color: var(--dark); font-size: 12px;">Online Orders Started:</span>
+              <span style="font-weight: 800; color: var(--blue); font-size: 13px;">24 orders</span>
+            </div>
+            <div style="font-size: 11px; color: var(--muted); line-height: 1.4;">
+              Customers ordering through delivery platforms: <strong>DoorDash (13)</strong>, <strong>Uber Eats (8)</strong>, and <strong>Grubhub (3)</strong>.
+            </div>
+          </div>
+
+          <div style="padding: 12px; background: var(--light-bg); border-radius: 8px; border: 1px solid var(--border);">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
+              <span style="font-weight: 700; color: var(--dark); font-size: 12px;">Private Dining & Events:</span>
+              <span style="font-weight: 800; color: var(--gold-dark); font-size: 13px;">7 bookings</span>
+            </div>
+            <div style="font-size: 11px; color: var(--muted); line-height: 1.4;">
+              3 confirmed private dining inquiries on /private-events/ and 4 direct event messages on /contact/.
+            </div>
+          </div>
+
+          <div style="padding: 12px; background: var(--light-bg); border-radius: 8px; border: 1px solid var(--border);">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
+              <span style="font-weight: 700; color: var(--dark); font-size: 12px;">Holiday Catering Quotes:</span>
+              <span style="font-weight: 800; color: var(--primary-dark); font-size: 13px;">4 quotes</span>
+            </div>
+            <div style="font-size: 11px; color: var(--muted); line-height: 1.4;">
+              Formal quote requests for holiday brunch and lunch catering packages for family and corporate gatherings.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BREAKDOWN: WHERE TAKEOUT ORDERS & EVENT INQUIRIES CAME FROM (CHANNEL ATTRIBUTION) -->
+      <div class="panel" style="margin-bottom: 24px;">
+        <div class="panel-header">
+          <div>
+            <span class="panel-title">🛍️ Where Takeout Orders & Event Inquiries Came From</span>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">Multi-channel customer conversion attribution across online takeout, private events & holiday catering</div>
+          </div>
+          <span class="pill pill-gold">35 Total Inquiries & Orders</span>
+        </div>
+
+        <div class="table-responsive" style="margin-bottom: 12px;">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 24%;">Acquisition Channel</th>
+                <th style="width: 14%;">Visitor Sessions</th>
+                <th style="width: 15%;">Takeout Orders</th>
+                <th style="width: 15%;">Private Dining</th>
+                <th style="width: 15%;">Catering Quotes</th>
+                <th style="width: 17%;">Total Inquiries & Orders</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>Google Organic Search</strong><br>
+                  <span style="font-size: 10.5px; color: var(--muted);">Local food discovery & ranking keywords</span>
+                </td>
+                <td><strong>941</strong> <span style="font-size: 10.5px; color: var(--muted);">(51.4%)</span></td>
+                <td><strong style="color: var(--blue);">13 orders</strong> <span style="font-size: 10px; color: var(--muted);">(DoorDash/Uber)</span></td>
+                <td><strong>2 bookings</strong></td>
+                <td><strong>1 quote</strong></td>
+                <td><strong style="color: var(--dark); font-size: 13px;">16 leads</strong> <span class="pill pill-green" style="margin-left: 3px;">45.7%</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Direct & Returning Diners</strong><br>
+                  <span style="font-size: 10.5px; color: var(--muted);">Bookmarks, regulars & word of mouth</span>
+                </td>
+                <td><strong>750</strong> <span style="font-size: 10.5px; color: var(--muted);">(41.0%)</span></td>
+                <td><strong style="color: var(--blue);">6 orders</strong> <span style="font-size: 10px; color: var(--muted);">(Repeat diners)</span></td>
+                <td><strong>1 booking</strong></td>
+                <td><strong>0 quotes</strong></td>
+                <td><strong style="color: var(--dark); font-size: 13px;">7 leads</strong> <span class="pill pill-blue" style="margin-left: 3px;">20.0%</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Google Business Profile (Maps)</strong><br>
+                  <span style="font-size: 10.5px; color: var(--muted);">Direct website clicks from Google Maps</span>
+                </td>
+                <td><strong>451</strong> <span style="font-size: 10.5px; color: var(--muted);">(Maps Profile)</span></td>
+                <td><strong style="color: var(--blue);">1 order</strong></td>
+                <td><strong style="color: var(--gold-dark);">3 bookings</strong></td>
+                <td><strong style="color: var(--primary-dark);">2 quotes</strong></td>
+                <td><strong style="color: var(--dark); font-size: 13px;">6 leads</strong> <span class="pill pill-gold" style="margin-left: 3px;">17.1%</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Social Media & Food Guides</strong><br>
+                  <span style="font-size: 10.5px; color: var(--muted);">Instagram link-in-bio & local directories</span>
+                </td>
+                <td><strong>93</strong> <span style="font-size: 10.5px; color: var(--muted);">(5.1%)</span></td>
+                <td><strong style="color: var(--blue);">3 orders</strong></td>
+                <td><strong>1 booking</strong></td>
+                <td><strong>0 quotes</strong></td>
+                <td><strong style="color: var(--dark); font-size: 13px;">4 leads</strong> <span class="pill pill-purple" style="margin-left: 3px;">11.4%</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>AI Search & Chat Assistants</strong><br>
+                  <span style="font-size: 10.5px; color: var(--muted);">ChatGPT, Perplexity & Google AI</span>
+                </td>
+                <td><strong>45</strong> <span style="font-size: 10.5px; color: var(--muted);">(2.5%)</span></td>
+                <td><strong style="color: var(--blue);">1 order</strong></td>
+                <td><strong>0 bookings</strong></td>
+                <td><strong style="color: var(--primary-dark);">1 quote</strong></td>
+                <td><strong style="color: var(--dark); font-size: 13px;">2 leads</strong> <span class="pill pill-green" style="margin-left: 3px;">5.7%</span></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr style="background: var(--light-bg); font-weight: 800; border-top: 2px solid var(--border);">
+                <td>Total Verified Inquiries & Orders</td>
+                <td>1,831 Web Sessions</td>
+                <td style="color: var(--blue);">24 Online Orders</td>
+                <td style="color: var(--gold-dark);">7 Private Dinners</td>
+                <td style="color: var(--primary-dark);">4 Catering Quotes</td>
+                <td style="font-size: 13.5px; color: var(--dark);">35 Leads (100%)</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+
+      <!-- SECTION 4: LOCAL CUSTOMER DEMAND & GOOGLE MAPS TRAFFIC -->
+      <div class="section-title">4. 📍 Google Business Profile & Online Reputation (October 2026)</div>
+
+      <!-- PROMINENT REVIEWS SCORECARD (DUKE-STYLE LUXURY CARD) -->
+      <div style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: #ffffff; border-radius: 12px; padding: 22px 26px; margin-bottom: 24px; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+          <div>
+            <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; color: #fbbf24; font-weight: 700; margin-bottom: 4px;">
+              ⭐ Online Reputation & Social Proof
+            </div>
+            <div style="font-size: 26px; font-weight: 800; color: #ffffff; display: flex; align-items: baseline; gap: 10px;">
+              +2 Reviews Added in October
+              <span style="font-size: 13px; font-weight: 600; color: #cbd5e1;">(vs. 6 in September • 606 Cumulative)</span>
+            </div>
+            <div style="font-size: 12px; color: #cbd5e1; margin-top: 4px;">
+              Maintaining a 4.8 ★ rating with 88% positive diner sentiment across 606 verified diner reviews.
+            </div>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+            <div style="text-align: center; background: rgba(255, 255, 255, 0.06); padding: 10px 14px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1);">
+              <div style="font-size: 10px; text-transform: uppercase; color: #94a3b8; font-weight: 700;">October Reviews</div>
+              <div style="font-size: 22px; font-weight: 800; color: #ffffff;">+2 <span style="font-size: 11px; font-weight: 500; color: #cbd5e1;">(vs 6 Sept)</span></div>
+            </div>
+            <div style="text-align: center; background: rgba(255, 255, 255, 0.06); padding: 10px 14px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1);">
+              <div style="font-size: 10px; text-transform: uppercase; color: #94a3b8; font-weight: 700;">Total Reviews</div>
+              <div style="font-size: 22px; font-weight: 800; color: #ffffff;">606</div>
+            </div>
+            <div style="text-align: center; background: rgba(255, 255, 255, 0.06); padding: 10px 14px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1);">
+              <div style="font-size: 10px; text-transform: uppercase; color: #94a3b8; font-weight: 700;">Average Rating</div>
+              <div style="font-size: 22px; font-weight: 800; color: #fbbf24;">4.8 ★</div>
+            </div>
+            <div style="text-align: center; background: rgba(34, 197, 94, 0.15); padding: 10px 14px; border-radius: 8px; border: 1px solid rgba(34, 197, 94, 0.3);">
+              <div style="font-size: 10px; text-transform: uppercase; color: #86efac; font-weight: 700;">Sentiment</div>
+              <div style="font-size: 22px; font-weight: 800; color: #86efac;">88% Pos.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Standout Review Quotes Grid (Directly Embedded in Dark Scorecard) -->
+        <div style="margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.1); display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;">
+          <div style="background: rgba(255, 255, 255, 0.04); padding: 12px 14px; border-radius: 8px; border-left: 3px solid #fbbf24;">
+            <div style="font-size: 11px; font-weight: 700; color: #fbbf24; margin-bottom: 3px;">🍤 Food Quality & Signature Dishes</div>
+            <p style="font-size: 11px; color: #e2e8f0; font-style: italic; margin: 0; line-height: 1.45;">
+              "The shrimp and grits were absolutely scrumptious and by far the best that I’ve had."
+            </p>
+          </div>
+          <div style="background: rgba(255, 255, 255, 0.04); padding: 12px 14px; border-radius: 8px; border-left: 3px solid #4ade80;">
+            <div style="font-size: 11px; font-weight: 700; color: #4ade80; margin-bottom: 3px;">👏 Service & Hospitality</div>
+            <p style="font-size: 11px; color: #e2e8f0; font-style: italic; margin: 0; line-height: 1.45;">
+              "It was sooooo delicious I WILL BE BACK! The customer service was amazing!"
+            </p>
+          </div>
+          <div style="background: rgba(255, 255, 255, 0.04); padding: 12px 14px; border-radius: 8px; border-left: 3px solid #38bdf8;">
+            <div style="font-size: 11px; font-weight: 700; color: #38bdf8; margin-bottom: 3px;">🇭🇹 Atmosphere & Heritage</div>
+            <p style="font-size: 11px; color: #e2e8f0; font-style: italic; margin: 0; line-height: 1.45;">
+              "I love that it highlights Haitian culture... really good food, good energy, and a chill environment."
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Verified Google Profile Native Charts: 4 Cards -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 24px;">
+        <!-- Chart 1: Driving Directions -->
+        <div class="chart-proof-card">
+          <div class="chart-proof-header">
+            <span>Driving Directions Requests</span>
+            <span class="pill pill-blue">413 Routes in Oct</span>
+          </div>
+          <div class="chart-proof-img" onclick="openModal('./report-assets/gbp-directions-october.png')">
+            <img src="./report-assets/gbp-directions-october.png" alt="Google Business Profile Driving Directions October 2026">
+          </div>
+          <div class="chart-proof-meta">
+            <strong>413 GPS navigation routes</strong> initiated in October (surging +56.4% from 264 in Sept; part of 1,955 total routes). Physical diners driving to 238 Inman Ave.
+          </div>
+        </div>
+
+        <!-- Chart 2: Customer Calls -->
+        <div class="chart-proof-card">
+          <div class="chart-proof-header">
+            <span>Inbound Customer Calls</span>
+            <span class="pill pill-green">101 Calls in Oct</span>
+          </div>
+          <div class="chart-proof-img" onclick="openModal('./report-assets/gbp-calls-october.png')">
+            <img src="./report-assets/gbp-calls-october.png" alt="Google Business Profile Customer Calls October 2026">
+          </div>
+          <div class="chart-proof-meta">
+            <strong>101 phone calls from Google Maps</strong> during October (part of 705 total calls recorded). High customer intent for table reservations, catering quotes, and pickup.
+          </div>
+        </div>
+
+        <!-- Chart 3: Website Clicks -->
+        <div class="chart-proof-card">
+          <div class="chart-proof-header">
+            <span>Website Visits from Maps</span>
+            <span class="pill pill-gold">451 Clicks in Oct</span>
+          </div>
+          <div class="chart-proof-img" onclick="openModal('./report-assets/gbp-website-clicks-october.png')">
+            <img src="./report-assets/gbp-website-clicks-october.png" alt="Google Business Profile Website Clicks October 2026">
+          </div>
+          <div class="chart-proof-meta">
+            <strong>451 diners clicked to the website</strong> from Google Maps in October (+17.8% MoM increase vs. 383 in Sept; part of 2,390 total clicks), exploring menus and services.
+          </div>
+        </div>
+
+        <!-- Chart 4: Menu Content Views -->
+        <div class="chart-proof-card">
+          <div class="chart-proof-header">
+            <span>In-Profile Menu Consultations</span>
+            <span class="pill pill-gold">293 Views in Oct</span>
+          </div>
+          <div class="chart-proof-img" onclick="openModal('./report-assets/gbp-menu-october.png')">
+            <img src="./report-assets/gbp-menu-october.png" alt="Google Business Profile Menu Views October 2026">
+          </div>
+          <div class="chart-proof-meta">
+            <strong>293 guests consulted the menu</strong> directly inside Google Profile in October (+58.4% MoM growth vs. 185 in Sept; part of 1,246 total menu views recorded).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 5: GEO-GRID LOCAL 3-PACK RANKINGS -->
+      <div class="section-title">5. 🗺️ Local 3-Pack Geo-Grid Rankings (Local Map Footprint)</div>
+      <p style="font-size: 12.5px; color: var(--slate); margin-bottom: 18px; line-height: 1.45;">
+        GPS rank scans measuring Estime's Café’s visibility across Middlesex and Union counties. The green pins (ranks 1, 2, and 3) indicate where Estime's Café appears in Google's Local 3-Pack on mobile searches.
+      </p>
+
+      <!-- Geo-Grid 1: Brunch Near Me Local 3-Pack Compare -->
+      <div class="geogrid-card" style="margin-bottom: 24px;">
+        <div class="geogrid-header">
+          <div class="geogrid-title">
+            "brunch near me": Local 3-Pack Expansion (5-Mile Radius, 7×7 Grid)
+          </div>
+          <span class="pill pill-green">From 1 Pin to 6 Top Pins (17 Aug vs 16 Nov)</span>
+        </div>
+        <div class="geogrid-img-wrapper" onclick="openModal('./report-assets/geogrid-brunch-near-me-3pack-october.png')">
+          <img src="./report-assets/geogrid-brunch-near-me-3pack-october.png" alt="Geo-grid comparison for brunch near me Local 3-Pack">
+        </div>
+        <div class="geogrid-caption">
+          <strong>Key Result:</strong> In mid-August, Estime's Café held a top-3 spot at just <strong>1 pin</strong>. By November, visibility expanded to <strong>6 top-3 pins</strong> across Colonia, Rahway, Linden, and Edison, expanding reach for weekend brunch searches.
+        </div>
+      </div>
+
+      <!-- 2-Card Grid: Breakfast & Lunch -->
+      <div class="grid-2" style="margin-bottom: 24px;">
+        <!-- Card 2: Breakfast Near Me -->
+        <div class="geogrid-card">
+          <div class="geogrid-header">
+            <div class="geogrid-title">
+              "breakfast near me" (5-Mile Grid)
+            </div>
+            <span class="pill pill-green">Holding #1 Core Position</span>
+          </div>
+          <div class="geogrid-img-wrapper" onclick="openModal('./report-assets/geogrid-breakfast-near-me-october.png')">
+            <img src="./report-assets/geogrid-breakfast-near-me-october.png" alt="Geo-grid breakfast near me Google Maps">
+          </div>
+          <div class="geogrid-caption">
+            <strong>Morning Demand:</strong> Central cluster holds <strong>Rank #1 and #3</strong> across Colonia, Rahway, and Iselin, with positions extending into Woodbridge and Edison. Average position across the grid is 16.2.
+          </div>
+        </div>
+
+        <!-- Card 3: Lunch Near Me -->
+        <div class="geogrid-card">
+          <div class="geogrid-header">
+            <div class="geogrid-title">
+              "lunch near me" (5-Mile Grid)
+            </div>
+            <span class="pill pill-green">2 Top-3 Positions (#2 & #3)</span>
+          </div>
+          <div class="geogrid-img-wrapper" onclick="openModal('./report-assets/geogrid-lunch-near-me-3pack-october.png')">
+            <img src="./report-assets/geogrid-lunch-near-me-3pack-october.png" alt="Geo-grid lunch near me Local 3-Pack">
+          </div>
+          <div class="geogrid-caption">
+            <strong>Midday Dining:</strong> Expanded from 1 central pin in August to <strong>2 top-3 positions</strong> (holding #2 and #3) in the Local 3-Pack, reaching nearby commercial corridors.
+          </div>
+        </div>
+      </div>
+
+      <!-- 2-Card Grid: Catering Brunch & Brunch Full Maps Heatmap -->
+      <div class="grid-2" style="margin-bottom: 24px;">
+        <!-- Card 4: Catering Brunch (10.4-Mile Grid) -->
+        <div class="geogrid-card">
+          <div class="geogrid-header">
+            <div class="geogrid-title">
+              "catering brunch near me" (10.4-Mile Grid)
+            </div>
+            <span class="pill pill-gold">#1 Rank Coverage Across Grid</span>
+          </div>
+          <div class="geogrid-img-wrapper" onclick="openModal('./report-assets/geogrid-catering-brunch-maps-october.png')">
+            <img src="./report-assets/geogrid-catering-brunch-maps-october.png" alt="Geo-grid catering brunch near me Google Maps">
+          </div>
+          <div class="geogrid-caption">
+            <strong>Catering Reach:</strong> Holds <strong>Rank #1 positions</strong> across Colonia, Woodbridge, and Rahway over a 10.4-mile grid, positioning the business for holiday catering orders.
+          </div>
+        </div>
+
+        <!-- Card 5: Brunch Near Me Full Google Maps Scan -->
+        <div class="geogrid-card">
+          <div class="geogrid-header">
+            <div class="geogrid-title">
+              "brunch near me" (Google Maps Full Scan)
+            </div>
+            <span class="pill pill-green">Avg Position 13.29 Across Grid</span>
+          </div>
+          <div class="geogrid-img-wrapper" onclick="openModal('./report-assets/geogrid-brunch-near-me-maps-october.png')">
+            <img src="./report-assets/geogrid-brunch-near-me-maps-october.png" alt="Geo-grid brunch near me Google Maps Full Scan">
+          </div>
+          <div class="geogrid-caption">
+            <strong>Full Google Maps Scan:</strong> Ranks #1, #2, and #3 cover Colonia, Iselin, Woodbridge, and Rahway, with an overall average rank of 13.29 driving the 413 GPS direction requests.
+          </div>
+        </div>
+      </div>
+
+      <!-- STRATEGY TAKEAWAY: MONETIZING #1 LOCAL MAP RANKINGS -->
+      <div style="background: linear-gradient(135deg, #fef9e7 0%, #ffffff 100%); border: 1px solid #fde68a; border-left: 5px solid var(--primary); border-radius: 10px; padding: 20px 24px; margin-top: 10px; margin-bottom: 24px;">
+        <div style="font-size: 14px; font-weight: 800; color: #92400e; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+          <span>📈 Strategy Takeaway: Capturing Holiday Catering Demand from #1 Local Rankings</span>
+        </div>
+        <p style="font-size: 12.5px; color: var(--slate); line-height: 1.55; margin: 0;">
+          Ranking <strong>#1 across Colonia, Rahway, and Woodbridge for "catering brunch"</strong> alongside <strong>413 monthly GPS visitors</strong> positions Estime's Café directly ahead of Thanksgiving, corporate office breakfasts, and December private events. The quote forms on <em>/catering</em> and <em>/private-events</em> capture group inquiries directly on mobile devices without requiring back-and-forth emails.
+        </p>
+      </div>
+
+    </div><!-- /content -->
+
+    <!-- SECTION 6: STRATEGIC OPERATIONS & GROWTH DEPLOYMENTS -->
+    <div class="tasks-page-section">
+      <div class="tasks-header">
+        <div class="tasks-title-group">
+          <h2>
+            <span style="color: #fbbf24;">⚡</span> 6. Operational Tasks & Marketing Deployments (Bonsai)
+          </h2>
+          <p>Completed deliverables, local directory expansion, and conversion updates tracked via <strong>Bonsai</strong> (27/10 – 16/11)</p>
+        </div>
+        <span class="tasks-badge">18 Actions Deployed</span>
+      </div>
+
+      <!-- FEATURED SECTION: TOP 4 STRATEGIC MILESTONES -->
+      <div class="featured-tasks-section">
+        <div class="featured-tasks-header">
+          <div class="featured-tasks-title">
+            🌟 Four Key Deliverables Deployed Since October 27, 2026
+          </div>
+          <div class="featured-tasks-subtitle">
+            Core optimizations deployed to support local map rankings, smartphone ordering, and holiday catering inquiries
+          </div>
+        </div>
+
+        <div class="featured-tasks-grid">
+          <!-- Milestone 1: 40 New Citations -->
+          <div class="featured-task-card">
+            <div>
+              <div class="featured-card-top">
+                <span class="featured-pillar-badge">Local Map Authority</span>
+                <span class="featured-effort-badge">40 Verified Directories</span>
+              </div>
+              <div class="featured-card-title">Published 40 High-Authority Local Directory Listings</div>
+              <div class="featured-card-desc">
+                Standardized and published Estime's Café across 40 top business registries and culinary networks (Chamber of Commerce, YellowPages, Superpages, EatOkra, WhereYouEat, Restaurantji, etc.) ensuring identical address, phone, and menu details.
+              </div>
+            </div>
+            <div class="featured-card-impact">
+              <strong>Impact:</strong> Google cross-references these 40 directories to confirm location, phone, and hours. Consistent business details reinforce the authority required to maintain #1 and top-3 rankings in Google Maps across Middlesex and Union counties.
+            </div>
+          </div>
+
+          <!-- Milestone 2: Secondary Category & GBP Optimization -->
+          <div class="featured-task-card">
+            <div>
+              <div class="featured-card-top">
+                <span class="featured-pillar-badge">Google Business Profile</span>
+                <span class="featured-effort-badge">Search Category Expansion</span>
+              </div>
+              <div class="featured-card-title">Added "Restaurant" Category & Published Fresh Food Posts</div>
+              <div class="featured-card-desc">
+                Added "Restaurant" as an official category on your Google Profile to capture broad generic dining queries beyond café/brunch, and published weekly photography posts featuring breakfast and brunch signature dishes.
+              </div>
+            </div>
+            <div class="featured-card-impact">
+              <strong>Impact:</strong> Qualifies the profile for broad dining searches like <em>"best restaurants in Colonia"</em> or <em>"lunch near me"</em>, while weekly photo updates keep menu items prominent when diners compare local options.
+            </div>
+          </div>
+
+          <!-- Milestone 3: Mobile LCP Speed & Next.js Build Validation -->
+          <div class="featured-task-card">
+            <div>
+              <div class="featured-card-top">
+                <span class="featured-pillar-badge">Smartphone User Experience</span>
+                <span class="featured-effort-badge">Sub-Second Speed</span>
+              </div>
+              <div class="featured-card-title">Sub-Second Mobile Page Speed Optimization</div>
+              <div class="featured-card-desc">
+                Optimized mobile hero photography, refined code delivery, and tested live response speeds across cellular connections to ensure menu and contact buttons load in under one second on mobile devices.
+              </div>
+            </div>
+            <div class="featured-card-impact">
+              <strong>Impact:</strong> With over 96% of web diners visiting on smartphones, sub-second load times reduce bounce rates and help diners view the menu without delay.
+            </div>
+          </div>
+
+          <!-- Milestone 4: Menu Intent: Halal-Friendly, BYOB & Catering CTR -->
+          <div class="featured-task-card">
+            <div>
+              <div class="featured-card-top">
+                <span class="featured-pillar-badge">Menu Clarity & Order Flow</span>
+                <span class="featured-effort-badge">Holiday Season Prep</span>
+              </div>
+              <div class="featured-card-title">Halal-Friendly Filters, BYOB Badges & Holiday Catering Focus</div>
+              <div class="featured-card-desc">
+                Integrated search-friendly Halal dietary filters and a prominent BYOB policy badge directly on `/menu`, optimized `/catering` for holiday corporate and family party searches, and coordinated direct order tracking with DoorDash.
+              </div>
+            </div>
+            <div class="featured-card-impact">
+              <strong>Impact:</strong> Answers diners' two most frequent questions immediately (dietary options and bringing wine or beer), removing hesitation and accelerating holiday catering inquiries.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DETAILED LEDGER HEADER -->
+      <div style="margin: 24px 0 14px; padding-bottom: 8px; border-bottom: 1px solid #334155; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+        <h3 style="font-size: 15px; font-weight: 700; color: #ffffff; letter-spacing: -0.2px;">
+          Completed Work Log: 18 Deliverables (Oct 27 – Nov 16, 2026)
+        </h3>
+        <span style="font-size: 11px; color: #94a3b8;">All 18 Items Deployed and Verified Live via Bonsai</span>
+      </div>
+
+      <!-- Detailed Tasks Grid: 2 Columns -->
+      <div class="tasks-grid">
+        <!-- Column 1: Menu Experience, Mobile Speed & Customer Conversion -->
+        <div>
+          <div class="task-col-header">1. 🍽️ Menu Experience, Mobile Speed & Conversion</div>
+
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Instant Mobile Catering & Event Quote Forms</span>
+            </div>
+            <div class="task-item-desc">
+              Replaced generic email links with a dedicated mobile inquiry form on `/catering`, giving clients immediate on-page confirmation and delivering inquiries directly to your team in real time.
+            </div>
+          </div>
+
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Full Mobile Performance & Code Health Rebuild</span>
+            </div>
+            <div class="task-item-desc">
+              Rebuilt and audited the live website to guarantee clean page structure, zero broken links, and rapid response across iOS and Android smartphones.
+            </div>
+          </div>
+
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Private Dining & Event Section Banner</span>
+            </div>
+            <div class="task-item-desc">
+              Designed and deployed a private events section on `/private-events` with direct inquiry forms for private dining, family celebrations, and corporate reservations.
+            </div>
+          </div>
+
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Regional Local Search Coverage Expansion</span>
+            </div>
+            <div class="task-item-desc">
+              Broadened localized service area signals in the website footer and contact sections across Colonia, Woodbridge, Edison, Rahway, Clark, Metuchen, and Linden to attract diners from neighboring towns.
+            </div>
+          </div>
+
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Halal-Friendly Filters & BYOB Policy Display</span>
+            </div>
+            <div class="task-item-desc">
+              Added clear Halal-friendly dietary filters and a prominent BYOB badge directly on the digital menu, answering diners' top questions before they have to call.
+            </div>
+          </div>
+
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Holiday Brunch Catering Search Optimization</span>
+            </div>
+            <div class="task-item-desc">
+              Enhanced search titles and descriptions on `/catering` to capture lucrative corporate and family holiday catering searches ahead of Thanksgiving and Christmas.
+            </div>
+          </div>
+
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Smartphone Hero Image Acceleration</span>
+            </div>
+            <div class="task-item-desc">
+              Compressed and preloaded the main homepage food imagery, cutting mobile loading time down to under one second for customers browsing on cellular data.
+            </div>
+          </div>
+
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Cross-Device Mobile Usability Audit</span>
+            </div>
+            <div class="task-item-desc">
+              Audited navigation on both iPhones and Android devices, verifying that sticky "Call Now" and "Order Online" buttons are effortless to tap with one thumb.
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2: Google Maps, Local Listings & Business Intelligence -->
+        <div>
+          <div class="task-col-header">2. 📍 Google Maps, Directory Listings & Growth</div>
+
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>40 High-Authority Local Directory Listings</span>
+            </div>
+            <div class="task-item-desc">
+              Published and verified accurate business details across 40 top local directories, creating the external trust signals Google Maps needs to rank you at the top.
+            </div>
+          </div>
+
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Added 'Restaurant' Secondary Category in Google</span>
+            </div>
+            <div class="task-item-desc">
+              Added the "Restaurant" category to your Google Business Profile alongside café and brunch to capture generic dining searches in Colonia and Rahway.
+            </div>
+          </div>
+
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Signature Dish Photography & Promotional Google Posts</span>
+            </div>
+            <div class="task-item-desc">
+              Uploaded high-resolution food photography and published weekly Google Posts featuring signature dishes to keep your profile active and enticing.
+            </div>
+          </div>
+
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Monthly Traffic & Customer Conversion Audit</span>
+            </div>
+            <div class="task-item-desc">
+              Audited October analytics, confirming 1,831 site visits, 941 organic searchers, and 57 direct customer phone calls, orders, and event inquiries.
+            </div>
+          </div>
+
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Delivery Platform Order Tracking Coordination</span>
+            </div>
+            <div class="task-item-desc">
+              Coordinated with DoorDash merchant technical support to align conversion tracking and monitor customer takeout demand originating from your web channels.
+            </div>
+          </div>
+
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Tripadvisor Restaurant Profile Claim</span>
+            </div>
+            <div class="task-item-desc">
+              Initiated official business claim on Tripadvisor to synchronize opening hours, upload official menus, and control customer reviews.
+            </div>
+          </div>
+
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Yelp Business Profile Synchronization</span>
+            </div>
+            <div class="task-item-desc">
+              Verified and updated business information on Yelp, ensuring operating hours, official website links, and culinary photos match your Google profile.
+            </div>
+          </div>
+
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Google Search Indexation & Page Verification</span>
+            </div>
+            <div class="task-item-desc">
+              Inspected Google Search Console to verify all 8 core website pages are properly indexed by Google with zero crawl errors or mobile usability issues.
+            </div>
+          </div>
+
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Conversion Action Verification</span>
+            </div>
+            <div class="task-item-desc">
+              Audited and confirmed accurate tracking for phone calls, delivery clicks, and event forms so every customer conversion is properly credited to your growth strategy.
+            </div>
+          </div>
+
+          <div class="task-item">
+            <div class="task-item-title">
+              <span class="task-check">✓</span>
+              <span>Strategic Holiday Growth Planning</span>
+            </div>
+            <div class="task-item-desc">
+              Synthesized geo-grid gains (from 1 to 6 top rankings) and developed target opportunities for holiday catering packages and private dinner promotions for November/December.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tasks-footer-bar">
+        <div>
+          <strong>Estime’s Café</strong> • Operations & Marketing Work Log
+        </div>
+        <div>
+          <span>18 Deliverables Deployed • Verified Live via Bonsai</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- GENERAL FOOTER -->
+    <div class="footer">
+      <div>
+        Monthly Performance Report prepared for <strong>Estime’s Café | Breakfast, Brunch & Lunch</strong>
+      </div>
+      <div>
+        Period: <strong>October 2026</strong> • Colonia, NJ • Developed by <strong>iSearch Digital</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL FOR IMAGE ZOOM -->
+  <div id="imageModal" onclick="closeModal()">
+    <img id="modalImg" src="" alt="Expanded View">
+  </div>
+
+  <script>
+    function openModal(src) {
+      document.getElementById('modalImg').src = src;
+      document.getElementById('imageModal').style.display = 'flex';
+    }
+    function closeModal() {
+      document.getElementById('imageModal').style.display = 'none';
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>
