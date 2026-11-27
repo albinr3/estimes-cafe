@@ -93,36 +93,6 @@ export default function ContactPage() {
             "closes": "16:00"
           }
         ]
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://www.estimescafe.com/contact#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Do you accept reservations for weekend brunch?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "For regular daily dining and weekend brunch, seating is walk-in only (first-come, first-served) to keep wait times as short as possible. For large groups of 6 or more, please contact us ahead of time so we can prepare to accommodate your party comfortably."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is there parking available at Estime's Café?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, we offer complimentary on-site parking for our guests in front of and alongside the cafe on Inman Avenue in Colonia, NJ."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do I order catering or inquire about private dining?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "You can fill out our contact or catering inquiry form online, or call us directly at (732) 669-7581. We offer breakfast platters, hot lunch trays, and exclusive private dinner packages."
-            }
-          }
-        ]
       }
     ]
   };

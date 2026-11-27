@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Phone, Utensils, ShoppingBag, Sparkles, ChevronRight } from "lucide-react";
-import { trackAnalyticsEvent } from "@/lib/analytics";
 
 export default function StickyMobileBar() {
   const pathname = usePathname();
@@ -31,7 +30,7 @@ export default function StickyMobileBar() {
         <div className="flex items-center gap-2 max-w-md mx-auto">
           <a
             href="tel:7326697581"
-            onClick={() => trackAnalyticsEvent("click_call", { location: "sticky_catering_bar" })}
+            data-analytics-location="sticky_catering_bar"
             aria-label="Call Estime's Cafe for Catering"
             className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-sm border border-brand-gold/30 bg-white/10 text-white font-sans text-xs font-bold uppercase tracking-wider hover:bg-white/20 active:scale-95 transition-all shrink-0"
           >
@@ -70,7 +69,7 @@ export default function StickyMobileBar() {
         <div className="flex items-center gap-2 max-w-md mx-auto">
           <a
             href="tel:7326697581"
-            onClick={() => trackAnalyticsEvent("click_call", { location: "sticky_private_events_bar" })}
+            data-analytics-location="sticky_private_events_bar"
             aria-label="Call Estime's Cafe for Private Events"
             className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-sm border border-brand-gold/30 bg-white/10 text-white font-sans text-xs font-bold uppercase tracking-wider hover:bg-white/20 active:scale-95 transition-all shrink-0"
           >
@@ -99,7 +98,7 @@ export default function StickyMobileBar() {
       <div className="grid grid-cols-4 divide-x divide-white/10 text-center text-[10px] font-sans font-bold uppercase tracking-wider">
         <a
           href="tel:7326697581"
-          onClick={() => trackAnalyticsEvent("click_call", { location: "sticky_mobile_bar" })}
+          data-analytics-location="sticky_mobile_bar"
           className="py-3 flex flex-col items-center justify-center gap-1 hover:bg-brand-green transition-colors text-brand-gold-light"
         >
           <Phone className="w-4 h-4" />

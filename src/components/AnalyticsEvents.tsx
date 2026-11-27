@@ -16,7 +16,8 @@ export default function AnalyticsEvents() {
       if (platform && ORDER_PLATFORMS.has(platform)) {
         trackAnalyticsEvent("order_platform_click", { platform });
       } else if (link.protocol === "tel:") {
-        trackAnalyticsEvent("click_call");
+        const location = link.dataset.analyticsLocation;
+        trackAnalyticsEvent("click_call", location ? { location } : {});
       } else if (link.protocol === "mailto:") {
         trackAnalyticsEvent("contact_email_intent", { contact_type: "email_link" });
       }

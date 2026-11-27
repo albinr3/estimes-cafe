@@ -9,10 +9,20 @@ import Testimonials from "@/components/Testimonials";
 import HomeFaq from "@/components/HomeFaq";
 import LocationSection from "@/components/LocationSection";
 import Footer from "@/components/Footer";
+import { HOME_FAQS } from "@/lib/homeFaqs";
 
 export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen bg-brand-paper text-brand-text">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "@id": "https://www.estimescafe.com/#faq",
+        mainEntity: HOME_FAQS.map((faq) => ({
+          "@type": "Question", name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
+      }) }} />
       {/* Top Header Navigation */}
       <Header />
 

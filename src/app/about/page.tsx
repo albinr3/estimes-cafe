@@ -56,6 +56,13 @@ export default function AboutPage() {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.estimescafe.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Meet The Chef & Our Story", "item": "https://www.estimescafe.com/about/" }
+        ]
+      },
+      {
         "@type": "AboutPage",
         "@id": "https://www.estimescafe.com/about#webpage",
         "url": "https://www.estimescafe.com/about",
@@ -89,12 +96,6 @@ export default function AboutPage() {
               "name": BUSINESS_NAP_NAME
             },
             "image": "https://www.estimescafe.com/assets/chef-duke-estime-james-beard-honoree.jpg",
-            "sameAs": [
-              "https://jerseybites.com/2022/10/haitian-cuisine-at-estimes-cafe-in-colonia/",
-              "https://patch.com/new-jersey/woodbridge/woodbridge-restaurant-now-open-dinner-too",
-              "https://njmonthly.com/articles/eat-drink/atlantic-city-adds-spot-for-hearty-breakfasts-other-dining-news/",
-              "https://www.mycentraljersey.com/story/news/local/how-we-live/2020/06/05/where-support-black-owned-businesses-central-jersey/3151371001/"
-            ],
             "knowsAbout": [
               "Haitian Cuisine",
               "Caribbean Culinary Traditions",

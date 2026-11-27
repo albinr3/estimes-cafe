@@ -1,4 +1,3 @@
-import { HOME_FAQS } from "@/lib/homeFaqs";
 import {
   BUSINESS_ADDRESS,
   BUSINESS_EMAIL,
@@ -89,19 +88,7 @@ export default function JsonLd() {
           { "@type": "City", "name": "Edison" },
           { "@type": "City", "name": "Westfield" },
           { "@type": "City", "name": "Scotch Plains" }
-        ],
-        "potentialAction": {
-          "@type": "OrderAction",
-          "target": {
-            "@type": "EntryPoint",
-            "urlTemplate": "tel:7326697581",
-            "inLanguage": "en-US",
-            "actionPlatform": [
-              "http://schema.org/DesktopWebPlatform",
-              "http://schema.org/MobileWebPlatform"
-            ]
-          }
-        }
+        ]
       },
       {
         "@type": "WebSite",
@@ -113,18 +100,6 @@ export default function JsonLd() {
           "@id": "https://www.estimescafe.com/#restaurant"
         },
         "inLanguage": "en-US"
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://www.estimescafe.com/#faq",
-        "mainEntity": HOME_FAQS.map((faq) => ({
-          "@type": "Question",
-          "name": faq.question,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": faq.answer,
-          },
-        })),
       }
     ]
   };
